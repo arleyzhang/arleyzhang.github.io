@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cat_master_32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cat_master_16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="hexo,博客搭建," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="hexo博客搭建。">
+<meta name="keywords" content="hexo,博客搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo博客搭建">
+<meta property="og:url" content="http://yoursite.com/2017/10/29/1/index.html">
+<meta property="og:site_name" content="arleyzhang">
+<meta property="og:description" content="hexo博客搭建。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2017/10/29/pictures/images-hexo_blog/1508658592308.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/29/pictures/images-hexo_blog/1508659187787.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/29/pictures/images-hexo_blog/1508659835559.png">
+<meta property="og:image" content="http://obvjfxxhr.bkt.clouddn.com/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github_360%E5%8F%8D%E9%A6%88%E6%84%8F%E8%A7%81%E6%88%AA%E5%9B%BE161908239992124.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/29/pictures/images-hexo_blog/1509285887284.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/29/pictures/images-hexo_blog/1509285643194.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/29/pictures/images-hexo_blog/1509285714082.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/29/pictures/images-hexo_blog/1509286023498.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/29/pictures/images-hexo_blog/1509286082710.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/29/pictures/images-hexo_blog/1509263293453.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/29/pictures/images-hexo_blog/1509265208220.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/29/pictures/images-hexo_blog/1509263293453.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/29/pictures/images-hexo_blog/1509265208220.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/29/pictures/images-hexo_blog/1509265933076.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/29/pictures/images-hexo_blog/1509265944549.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/29/pictures/images-hexo_blog/1509267319356.png">
+<meta property="og:updated_time" content="2017-10-29T14:46:35.014Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo博客搭建">
+<meta name="twitter:description" content="hexo博客搭建。">
+<meta name="twitter:image" content="http://yoursite.com/2017/10/29/pictures/images-hexo_blog/1508658592308.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/29/1/"/>
+
+
+
+
+
+  <title>hexo博客搭建 | arleyzhang</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">arleyzhang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-paper-note">
+          <a href="/categories/paper-note" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            论文笔记
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-machine-learning">
+          <a href="/categories/machine-learning" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-plane"></i> <br />
+            
+            机器学习
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-deep-learning">
+          <a href="/categories/deep-learning" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-rocket"></i> <br />
+            
+            深度学习
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/categories/python" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bug"></i> <br />
+            
+            Python
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/29/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="arleyzhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="arleyzhang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">hexo博客搭建</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-29T22:46:22+08:00">
+                2017-10-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/29/1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/10/29/1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/10/29/1/" class="leancloud_visitors" data-flag-title="hexo博客搭建">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  hexo博客搭建。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-安装hexo"><a href="#1-安装hexo" class="headerlink" title="1 安装hexo"></a>1 安装hexo</h1><ul>
+<li>下载node.js并安装（官网下载安装）。</li>
+<li>下载安装git（官网下载安装），并配置好秘钥。</li>
+<li>下载安装hexo。打开cmd 运行<em>npm install -g hexo</em>。</li>
+</ul>
+<p>最好参考官网的安装方法，<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">点击这里</a> 。</p>
+<p>具体安装方法，这里不再说了。</p>
+<h1 id="2-建站"><a href="#2-建站" class="headerlink" title="2 建站"></a>2 建站</h1><p>hexo 安装好之后要开始准备建立网站：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo init &lt;folder&gt;</div><div class="line"><span class="meta">$</span> cd &lt;folder&gt;</div><div class="line"><span class="meta">$</span> npm install</div></pre></td></tr></table></figure>
+<p>第一句：中文件夹可以是任意的文件夹，你可以专门建立一个文件夹用于存放博客文章，比如 这样 D:\myBlog 。<code>hexo init</code> 这个命令是用于初始化你这个文件夹，就相当于 <code>git init</code> 的作用；</p>
+<p>第二句：进入 你建的那个文件夹；</p>
+<p>第三句：是安装依赖文件。</p>
+<p>执行完上述命令后会在你指定的文件夹里生成一系列文件，目录如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml</div><div class="line">├── package.json</div><div class="line">├── scaffolds</div><div class="line">├── source</div><div class="line">|   ├── _drafts</div><div class="line">|   └── _posts</div><div class="line">└── themes</div></pre></td></tr></table></figure>
+<p>完了之后要进入到你建立的这个文件夹，这里就是D:\myBlog文件夹，使用文本编辑器打开 <strong>“_config.yml”</strong> 这个文件，在文件最后面有这两行：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span></div></pre></td></tr></table></figure>
+<p>将这两行改为：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> <span class="string">git</span></div><div class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/your_username/your_username.github.io.git</span></div><div class="line"><span class="attr">  branch:</span> <span class="string">master</span></div></pre></td></tr></table></figure>
+<p>注意两点：</p>
+<ol>
+<li><code>type</code> <code>repo</code> <code>branch</code> 关键字的冒号后面一定要有一个 <strong>英文空格！！！！</strong> 我第一次就是没有加空格，后面怎么搞都发布不了文章，好郁闷。</li>
+<li><code>repo:</code> 后面的你的github 仓库地址，根据需要 将 <strong>your_username</strong> 改为你的用户名。</li>
+<li><code>branch:</code> 这个也可以改为其他分支，这里就不改了。</li>
+</ol>
+<h1 id="3-使用hexo向github仓库部署"><a href="#3-使用hexo向github仓库部署" class="headerlink" title="3 使用hexo向github仓库部署"></a>3 使用hexo向github仓库部署</h1><p>首先安装这个 hexo-deployer-git ，估计就是 hexo 调用 git 的一个包吧，其实hexo 发布文章的根本还是使用的git工具：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<p>接下来准备发布文章，如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo clean </div><div class="line"><span class="meta">$</span> hexo g</div><div class="line"><span class="meta">$</span> hexo d</div></pre></td></tr></table></figure>
+<ul>
+<li><p><code>hexo clean</code> 为清除上次生成的内容。</p>
+</li>
+<li><p><code>hexo g</code> 根据 博客文章 生成 静态网页文件还有一些格式文件，这部完成后会在 D:\myBlog 中生成 一个 名为<strong>public</strong> 的子文件夹 ，这个文件夹中的文件如下图，你的 **.md 文件就被转换成了静态的网页文件，就是 index.html 还有一些css格式 文件之类的。对于每一次你写一篇文章 都要使用 <code>hexo g</code> 命令生成这个文件。夹。</p>
+<p><img src="../pictures/images-hexo_blog/1508658592308.png" alt="1508658592308"></p>
+</li>
+<li><p><code>hexo d</code> 命令是将 <strong>public</strong> 文件夹中的内容推送到远程仓库，就是你的这个项目 <strong>your_username.github.io</strong> 。 这个命令相当于 <code>git push</code> 命令。</p>
+</li>
+</ul>
+<p><code>hexo clean</code> 命令清除也是清除的 <strong>public</strong> 文件夹。因为每次你发布文章，使用 <code>hexo g</code> 生成的  <strong>public</strong> 文件夹里的内容是一样的，等里面内容通过 <code>hexo d</code> 命令推送到 github 仓库后就没用了。</p>
+<p>推送完之后刷新一下你的仓库也就是这个 <strong>your_username.github.io</strong> ，可以看到一篇文章已经推送到github的仓库里了，这时访问 <strong>your_username.github.io</strong> 这个域名就可以打开你的博客了。 下图是 hexo 里面自带的一个 helloworld 的文章主页，主要用于演示原理。</p>
+<p><img src="../pictures/images-hexo_blog/1508659187787.png" alt="1508659187787"></p>
+<p><img src="../pictures/images-hexo_blog/1508659835559.png" alt="1508659835559"></p>
+<p>到此，hexo +github 的博客框架已经搭建好了，但是比较丑，需要进一步美化，忽然发现网上已经很多人写了，这里也不再写了。推荐两篇：</p>
+<p><a href="http://www.cnblogs.com/sun-haiyu/p/7027093.html" target="_blank" rel="external">基于Hexo搭建博客并部署到Github Pages</a></p>
+<p><a href="https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" target="_blank" rel="external">Hexo搭建博客教程</a></p>
+<p><a href="https://github.com/limedroid/HexoLearning" target="_blank" rel="external">https://github.com/limedroid/HexoLearning</a></p>
+<p><a href="http://lovenight.github.io/2015/11/10/Hexo-3-1-1-%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/?" target="_blank" rel="external">Hexo 3.1.1 静态博客搭建指南</a></p>
+<p>基本上按照上述博客，做完就差不多了。接下来稍微说下我在搭建的过程中碰到的问题。</p>
+<h1 id="4-基本操作"><a href="#4-基本操作" class="headerlink" title="4 基本操作"></a>4 基本操作</h1><h2 id="4-2-图标设置"><a href="#4-2-图标设置" class="headerlink" title="4.2 图标设置"></a>4.2 图标设置</h2><p>以菜单栏为例：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="attr">menu:</span></div><div class="line"><span class="attr">  home:</span> <span class="string">/home/</span> <span class="string">||</span> <span class="string">home</span></div><div class="line"><span class="attr">  about:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">user</span></div><div class="line"><span class="attr">  tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">tags</span></div><div class="line"><span class="attr">  categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">th</span></div><div class="line"><span class="attr">  machine_Learning:</span> <span class="string">/machine_Learning</span> <span class="string">||</span> <span class="string">plane</span></div><div class="line"><span class="attr">  deep_Learning:</span> <span class="string">/deep_Learning</span> <span class="string">||</span> <span class="string">rocket</span></div><div class="line"><span class="attr">  python:</span> <span class="string">/python</span> <span class="string">||</span> <span class="string">bug</span></div><div class="line"><span class="attr">  archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">archive</span></div></pre></td></tr></table></figure>
+<p>在  <a href="http://fontawesome.io/icons/" target="_blank" rel="external">Font Awesome</a>  上选取感兴趣的图标，直接写在 <code>||</code> 之后，比如我写的 plane，rocket。</p>
+<blockquote>
+<p>Value before <code>||</code> delimeter is the target link.</p>
+<p>Value after <code>||</code> delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.</p>
+</blockquote>
+<h2 id="4-3-文章分类"><a href="#4-3-文章分类" class="headerlink" title="4.3 文章分类"></a>4.3 文章分类</h2><p><strong>新增导航</strong></p>
+<p>引用：<a href="http://www.cnblogs.com/sun-haiyu/p/7027093.html" target="_blank" rel="external">http://www.cnblogs.com/sun-haiyu/p/7027093.html</a></p>
+<blockquote>
+<p>默认导航栏只有首页、归档、标签、分类四项。如果想增加其他如C++、随笔等。需要打开<code>\themes\next\_config.yml</code>找到如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt; # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -&gt; archives)</div><div class="line">&gt; menu:</div><div class="line">&gt;   home: /</div><div class="line">&gt;   categories: /categories</div><div class="line">&gt;   tags: /tags</div><div class="line">&gt;   archives: /archives</div><div class="line">&gt;   # 这里是新增的，程序猿是一级目录，C是二级目录，同理随笔是一级目录</div><div class="line">&gt;   c++: /categories/程序猿/C/</div><div class="line">&gt;   python: /categories/程序猿/Python/</div><div class="line">&gt;   essay: /categories/随笔/</div><div class="line">&gt;   # 注意这里没有/categories</div><div class="line">&gt;   about: /about</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>假如我想新建C++、Python、随笔三个导航按钮，并且打开他们的效果如下图。</p>
+<p><img src="http://obvjfxxhr.bkt.clouddn.com/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github_360%E5%8F%8D%E9%A6%88%E6%84%8F%E8%A7%81%E6%88%AA%E5%9B%BE161908239992124.png" alt="img"></p>
+<p>需要注意的是前面要加上<code>/categories</code>，格式是这样<code>python: /categories/这里是文章的一级目录/这里是文章的二级目录/</code>。结尾要加上<code>/</code>分隔符。<strong>这几个页面是不需要通过hexo new page来生成的。</strong>关于导航栏及侧栏所用的图标来自<a href="http://fontawesome.io/" target="_blank" rel="external">fontawesome</a>。在<code>\themes\next\_config.yml</code>里配置。</p>
+</blockquote>
+<p><img src="../pictures/images-hexo_blog/1509285887284.png" alt="1509285887284"></p>
+<p>也就是说上图中箭头两端是指向一个链接的。所以左侧边栏是不需要通过 hexo new page来再生成 一个 机器学习的page。</p>
+<p>但是这里注意一点，假如说你在 <code>/categories</code> 目录下有一个 机器学习的分类，这时有篇文章是属于机器学习的，那么在markdown文件中，程序员一般会这么写categories: machine_learning，如下所示。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">title:</span> <span class="string">支持向量机</span></div><div class="line"><span class="attr">categories:</span> <span class="string">machine_learning</span></div></pre></td></tr></table></figure>
+<p><img src="../pictures/images-hexo_blog/1509285643194.png" alt="1509285643194"></p>
+<p>那在 图上也是正常的，但是如果你点进链接：</p>
+<p><img src="../pictures/images-hexo_blog/1509285714082.png" alt="1509285714082"></p>
+<p>有没有发现什么，下划线变成了中划线，按道理来说应该也是下划线才对。这时如果你在主题配置文件中写的是这样的：machine_learning: /categories/machine_learning || plane，就是下面这样：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="attr">menu:</span></div><div class="line"><span class="attr">  home:</span> <span class="string">/home/</span> <span class="string">||</span> <span class="string">home</span></div><div class="line"><span class="attr">  about:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">user</span></div><div class="line"><span class="attr">  tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">tags</span></div><div class="line"><span class="attr">  categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">th</span></div><div class="line"><span class="attr">  paper-note:</span> <span class="string">/categories/paper-note</span> <span class="string">||</span> <span class="string">book</span></div><div class="line"><span class="attr">  machine_learning:</span> <span class="string">/categories/machine_learning</span> <span class="string">||</span> <span class="string">plane</span></div><div class="line"><span class="attr">  deep_learning:</span> <span class="string">/categories/deep_learning</span> <span class="string">||</span> <span class="string">rocket</span></div><div class="line"><span class="attr">  python:</span> <span class="string">/categories/python</span> <span class="string">||</span> <span class="string">bug</span></div><div class="line"><span class="attr">  archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">archive</span></div></pre></td></tr></table></figure>
+<p><img src="../pictures/images-hexo_blog/1509286023498.png" alt="1509286023498"></p>
+<p>也就是说，如果你从上图圈起来的地方点进去，是会找不到页面的，如下图：</p>
+<p><img src="../pictures/images-hexo_blog/1509286082710.png" alt="1509286082710"></p>
+<p>这个很坑。我在搞的时候就遇上了，搞半天找不到问题，后面才发现是域名转换的时候，它把文章中的下划线转成了中划线。所以在文章中添加分类时，尽量不要包含下划线，像machine_learning 这样，直接写成中划线machine-learning，或者直接写空格也可以machine learning，他会自动转成中划线。</p>
+<p>那在主题配置文件中，就要这样写：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="attr">menu:</span></div><div class="line"><span class="attr">  home:</span> <span class="string">/home/</span> <span class="string">||</span> <span class="string">home</span></div><div class="line"><span class="attr">  about:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">user</span></div><div class="line"><span class="attr">  tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">tags</span></div><div class="line"><span class="attr">  categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">th</span></div><div class="line"><span class="attr">  paper-note:</span> <span class="string">/categories/paper-note</span> <span class="string">||</span> <span class="string">book</span></div><div class="line"><span class="attr">  machine-learning:</span> <span class="string">/categories/machine-learning</span> <span class="string">||</span> <span class="string">plane</span></div><div class="line"><span class="attr">  deep-learning:</span> <span class="string">/categories/deep-learning</span> <span class="string">||</span> <span class="string">rocket</span></div><div class="line"><span class="attr">  python:</span> <span class="string">/categories/python</span> <span class="string">||</span> <span class="string">bug</span></div><div class="line"><span class="attr">  archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">archive</span></div></pre></td></tr></table></figure>
+<p>这样就不会出问题了。</p>
+<h1 id="5-公式问题"><a href="#5-公式问题" class="headerlink" title="5 公式问题"></a>5 公式问题</h1><p>hexo对markdown公式支持很不好啊，光解决公式显示的问题就搞了好久。</p>
+<p>刚部署好的hexo博客，喜出望外，终于可以写博客了，但是发现公式不显示，以下开始解决这个问题的征程。</p>
+<h2 id="5-1-方案一：使用插件"><a href="#5-1-方案一：使用插件" class="headerlink" title="5.1 方案一：使用插件"></a>5.1 方案一：使用插件</h2><p>应用自:<a href="http://catx.me/2014/03/09/hexo-mathjax-plugin/" target="_blank" rel="external">http://catx.me/2014/03/09/hexo-mathjax-plugin/</a></p>
+<p>基本步骤如下：</p>
+<blockquote>
+<p>在blog文件夹安装hexo-math</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> $ npm install hexo-math --save</div><div class="line"><span class="meta">&gt;</span></div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>在blog文件夹中执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> $ hexo math install</div><div class="line"><span class="meta">&gt;</span></div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>在<code>_config.yml</code>文件中添加：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">&gt; plugins:</span></div><div class="line"><span class="string">&gt; - hexo-math</span></div><div class="line"><span class="string">&gt;</span></div></pre></td></tr></table></figure>
+</blockquote>
+<p>好按照步骤做完之后，发现不起作用，又搜了搜，发现需要在 markdown 文件中加入下面这样的代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span></span></div><div class="line"><span class="tag">   <span class="attr">src</span>=<span class="string">"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这一段代码最好放在 用于存储标题，标签，分类等YAML格式的信息后面，独立成一段。要是放在标题等YAML格式的信息之前可能会导致标题不显示的结果。</p>
+<p>加入上述代码之后，有一点效果，但是效果差强人意，如下图，部分显示了，还有部分没显示。</p>
+<p><img src="../pictures/images-hexo_blog/1509263293453.png" alt="1509263293453"></p>
+<p><strong>正常应该这样：</strong></p>
+<p><img src="../pictures/images-hexo_blog/1509265208220.png" alt="1509265208220"></p>
+<p>网上查了一下发现根本原因是：</p>
+<p>引用自：<a href="http://masikkk.com/article/hexo-13-MathJax/" target="_blank" rel="external">http://masikkk.com/article/hexo-13-MathJax/</a></p>
+<blockquote>
+<p>Hexo默认先使用hexo-renderer-marked引擎渲染MarkDown，然后再交给MathJax渲染。hexo-renderer-marked会把一些特殊的markdown符号转换为相应的html标签，比如在markdown语法中，下划线<code>_</code>代表斜体，会被转化为<code>&lt;em&gt;</code>标签，<code>\\</code>也会被转义成一个<code>\</code>。而类Latex格式书写的数学公式下划线<code>_</code>表示角标，<code>\\</code>表示公式换行，有特殊的含义，所以MathJax引擎在渲染数学公式的时候就会出错。</p>
+</blockquote>
+<p>这个方法还有一个缺点，就是如果在<code>_config.yml</code>文件中添加了如下代码</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">plugins:</span></div><div class="line"><span class="bullet">-</span> <span class="string">hexo-math</span></div></pre></td></tr></table></figure>
+<p>会导致<code>hexo server</code> 或者 <code>hexo s</code> 命令不起作用，然后把这个代码删去，又恢复正常了。出现这个问题时，让我迷惑了半天，还以为是 hexo 版本的问题。</p>
+<p>因为<a href="https://hexo.io/zh-cn/docs/server.html" target="_blank" rel="external">官网</a>有这样一句话，如下</p>
+<blockquote>
+<p>Hexo 3.0 把服务器独立成了个别模块，您必须先安装 <a href="https://github.com/hexojs/hexo-server" target="_blank" rel="external">hexo-server</a> 才能使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; $ npm install hexo-server --save</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>然后我看了看我的版本就是 3.3.9，而且在 node_modules 文件夹里也存在 hexo-server 文件夹。 那看来应该不是这个问题，直到我看到了这个帖子，<a href="https://github.com/gyk001/hexo-qiniu-sync/issues/41，才发现是" target="_blank" rel="external">https://github.com/gyk001/hexo-qiniu-sync/issues/41，才发现是</a> 上面那个plugins:代码的问题。把他删掉就好了。但是我的公式还是不能完全显示。</p>
+<h2 id="5-2-方案二：还是使用插件，稍有不同"><a href="#5-2-方案二：还是使用插件，稍有不同" class="headerlink" title="5.2 方案二：还是使用插件，稍有不同"></a>5.2 方案二：还是使用插件，稍有不同</h2><p>应用自：<a href="https://monkey0105.github.io/2017/09/21/hexo-mathjax/" target="_blank" rel="external">https://monkey0105.github.io/2017/09/21/hexo-mathjax/</a></p>
+<p>方法大同小异，基本步骤如下：</p>
+<blockquote>
+<p><strong>安装</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> npm install hexo-math --save</div><div class="line"><span class="meta">&gt;</span></div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p><strong>在站点配置文件中加入以下内容：</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="string">&gt; math:</span></div><div class="line"><span class="string">&gt;   engine: 'mathjax' # or 'katex'</span></div><div class="line"><span class="string">&gt;   mathjax:</span></div><div class="line"><span class="string">&gt;     src: custom_mathjax_source</span></div><div class="line"><span class="string">&gt;     config:</span></div><div class="line"><span class="string">&gt;       # MathJax config</span></div><div class="line"><span class="string">&gt;   katex:</span></div><div class="line"><span class="string">&gt;     css: custom_css_source</span></div><div class="line"><span class="string">&gt;     js: custom_js_source # not used</span></div><div class="line"><span class="string">&gt;     config:</span></div><div class="line"><span class="string">&gt;       # KaTeX config</span></div><div class="line"><span class="string">&gt;</span></div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p><strong>主题配置文件</strong></p>
+<p>编辑Next的主题配置文件， 将<code>mathjax</code>下的<code>enable</code>设定为<code>true</code>即可。<code>cdn</code>用于指定 MathJax的脚本地址，默认是MathJax官方提供的CDN地址。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">&gt; mathjax:</span></div><div class="line"><span class="string">&gt;   enable: true</span></div><div class="line"><span class="string">&gt;   cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML</span></div><div class="line"><span class="string">&gt;</span></div></pre></td></tr></table></figure>
+</blockquote>
+<p>只不过最后的效果依然是：</p>
+<p><img src="../pictures/images-hexo_blog/1509263293453.png" alt="1509263293453"></p>
+<p>还是 MarkDown和MathJax的语法冲突问题。</p>
+<p>但我不知道的是为什么上面的就没问题，下面那个式子就不能正常显示，好奇怪，后来观察了一下不能正常显示的都是那些多行的公式，单行公式和行间公式是正常的。因为这个里面下面那个公式其实是一个公式，只是分成三行来写了。</p>
+<p><img src="../pictures/images-hexo_blog/1509265208220.png" alt="1509265208220"></p>
+<h2 id="5-3-方案三：将Hexo的hexo-renderer-marked渲染引擎换成-hexo-renderer-markdown-it-plus"><a href="#5-3-方案三：将Hexo的hexo-renderer-marked渲染引擎换成-hexo-renderer-markdown-it-plus" class="headerlink" title="5.3 方案三：将Hexo的hexo-renderer-marked渲染引擎换成 hexo-renderer-markdown-it-plus"></a>5.3 方案三：将Hexo的hexo-renderer-marked渲染引擎换成 hexo-renderer-markdown-it-plus</h2><p>引用自：<a href="http://blog.cofess.com/2017/09/06/how-to-use-mathjax-to-render-latex-mathematical-formulas-in-hexo.html" target="_blank" rel="external">http://blog.cofess.com/2017/09/06/how-to-use-mathjax-to-render-latex-mathematical-formulas-in-hexo.html</a></p>
+<p>基本用法：</p>
+<blockquote>
+<p><strong>安装</strong> </p>
+<p>先卸载hexo-renderer-marked，再安装hexo-renderer-markdown-it-plus插件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> npm uninstall hexo-renderer-marked --save</div><div class="line"><span class="meta">&gt;</span> npm install hexo-renderer-markdown-it-plus --save</div><div class="line"><span class="meta">&gt;</span></div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p> <strong>配置</strong></p>
+<p>安装插件后，如果未正常渲染LaTeX数学公式，在博客配置文件<code>_config.yml</code>中添加</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="string">&gt; markdown_it_plus:</span></div><div class="line"><span class="string">&gt;   highlight: true</span></div><div class="line"><span class="string">&gt;   html: true</span></div><div class="line"><span class="string">&gt;   xhtmlOut: true</span></div><div class="line"><span class="string">&gt;   breaks: true</span></div><div class="line"><span class="string">&gt;   langPrefix:</span></div><div class="line"><span class="string">&gt;   linkify: true</span></div><div class="line"><span class="string">&gt;   typographer:</span></div><div class="line"><span class="string">&gt;   quotes: “”‘’</span></div><div class="line"><span class="string">&gt;   plugins:</span></div><div class="line"><span class="string">&gt;     - plugin:</span></div><div class="line"><span class="string">&gt;         name: markdown-it-katex</span></div><div class="line"><span class="string">&gt;         enable: true</span></div><div class="line"><span class="string">&gt;     - plugin:</span></div><div class="line"><span class="string">&gt;         name: markdown-it-mark</span></div><div class="line"><span class="string">&gt;         enable: false</span></div><div class="line"><span class="string">&gt;</span></div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p> <strong>文章启用mathjax</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">&gt; title: Hello World</span></div><div class="line"><span class="string">&gt; mathjax: true</span></div><div class="line"><span class="string">&gt;</span></div></pre></td></tr></table></figure>
+</blockquote>
+<p>效果更差了：如下图还是那两个公式，那个多行公式还是没有正常显示，其他单行公式显示也不正常了，每个公式都被重复了一遍。</p>
+<p><img src="../pictures/images-hexo_blog/1509265933076.png" alt="1509265933076"></p>
+<p>然后还出现了像下图这样的不知名的东东。。。</p>
+<p><img src="../pictures/images-hexo_blog/1509265944549.png" alt="1509265944549"></p>
+<h2 id="5-4-方案四：将Hexo的hexo-renderer-marked渲染引擎换成-hexo-renderer-pandoc"><a href="#5-4-方案四：将Hexo的hexo-renderer-marked渲染引擎换成-hexo-renderer-pandoc" class="headerlink" title="5.4 方案四：将Hexo的hexo-renderer-marked渲染引擎换成  hexo-renderer-pandoc"></a>5.4 方案四：将Hexo的hexo-renderer-marked渲染引擎换成  hexo-renderer-pandoc</h2><p>引用自：<a href="https://cethik.vip/2016/09/20/mathjaxSolve/" target="_blank" rel="external">https://cethik.vip/2016/09/20/mathjaxSolve/</a></p>
+<p>基本步骤：</p>
+<blockquote>
+<p><strong>首先</strong></p>
+<p>你得在电脑中装好pandoc ,具体安装包在<a href="http://johnmacfarlane.net/pandoc/installing.html" target="_blank" rel="external">这里</a>,下载完成后按照，一路next，安装完毕后打开电脑终端（windows命令提示符），保证<code>pandoc --help</code>这条命令可以运行才可以继续下一步</p>
+<p><strong>安装pandoc</strong></p>
+<p>安装pandoc到你的hexo，首先命令行切换到你的hexo博客的根目录下，然后运行<code>npm install hexo-renderer-pandoc --save</code> , 当然如果你安装过程出了问题可以直接卸载掉<code>sudo npm uninstall hexo-renderer-pandoc</code>，OK，到这里基本上就OK了，然后运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; hexo clean</div><div class="line">&gt; hexo g</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>然后我又看到了这个博客：<a href="http://yanghan.life/2017/07/01/hexo%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA/，文中这样说：" target="_blank" rel="external">http://yanghan.life/2017/07/01/hexo%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA/，文中这样说：</a></p>
+<blockquote>
+<p>公式显示我尝试换了<code>pandoc</code>的渲染，装了<code>pandoc</code>和<code>hexo-renderer-pandoc</code>，卸载了原装的<code>hexo-renderer-marked</code>，但是本地<code>hexo s</code>虽然显示正常，但是<code>deploy</code>过后网站上的就只有将<code>$$</code>转义成<code>\[</code>和<code>\]</code>的东西</p>
+</blockquote>
+<p>所以我不打算尝试这种方法了。</p>
+<h2 id="5-5-方案五：直接修改hexo的-Markdown-渲染引擎"><a href="#5-5-方案五：直接修改hexo的-Markdown-渲染引擎" class="headerlink" title="5.5 方案五：直接修改hexo的 Markdown 渲染引擎"></a>5.5 方案五：直接修改hexo的 Markdown 渲染引擎</h2><p>折腾了好一会儿，我还是直接打算使用最根本的解决方案。</p>
+<p>首先按照方案二，做以下修改：</p>
+<p>引用自：<a href="https://monkey0105.github.io/2017/09/21/hexo-mathjax/" target="_blank" rel="external">https://monkey0105.github.io/2017/09/21/hexo-mathjax/</a></p>
+<blockquote>
+<p><strong>安装</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> npm install hexo-math --save</div><div class="line"><span class="meta">&gt;</span></div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p><strong>在站点配置文件中加入以下内容：</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="string">&gt; math:</span></div><div class="line"><span class="string">&gt;   engine: 'mathjax' # or 'katex'</span></div><div class="line"><span class="string">&gt;   mathjax:</span></div><div class="line"><span class="string">&gt;     src: custom_mathjax_source</span></div><div class="line"><span class="string">&gt;     config:</span></div><div class="line"><span class="string">&gt;       # MathJax config</span></div><div class="line"><span class="string">&gt;   katex:</span></div><div class="line"><span class="string">&gt;     css: custom_css_source</span></div><div class="line"><span class="string">&gt;     js: custom_js_source # not used</span></div><div class="line"><span class="string">&gt;     config:</span></div><div class="line"><span class="string">&gt;       # KaTeX config</span></div><div class="line"><span class="string">&gt;</span></div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p><strong>主题配置文件</strong></p>
+<p>编辑Next的主题配置文件， 将<code>mathjax</code>下的<code>enable</code>设定为<code>true</code>即可。<code>cdn</code>用于指定 MathJax的脚本地址，默认是MathJax官方提供的CDN地址。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">&gt; mathjax:</span></div><div class="line"><span class="string">&gt;   enable: true</span></div><div class="line"><span class="string">&gt;   cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML</span></div><div class="line"><span class="string">&gt;</span></div></pre></td></tr></table></figure>
+</blockquote>
+<p>然后做以下修改：</p>
+<p>引用自：<a href="http://blog.csdn.net/emptyset110/article/details/50123231" target="_blank" rel="external">http://blog.csdn.net/emptyset110/article/details/50123231</a></p>
+<blockquote>
+<p><strong>使Marked.js与MathJax共存</strong></p>
+<p>因此我提供一个修改marked.js源码的方式来避开这些问题<br>- 针对下划线的问题，我决定取消<code>_</code>作为斜体转义，因为marked.js中<code>*</code>也是斜体的意思，所以取消掉<code>_</code>的转义并不影响我们使用markdown，只要我们习惯用<code>*</code>作为斜体字标记就行了。<br>- 针对marked.js与Mathjax对于个别字符二次转义的问题，我们只要不让marked.js去转义<code>\\</code>,<code>\{</code>,<code>\}</code>在MathJax中有特殊用途的字符就行了。<br>具体修改方式，用编辑器打开marked.js（在<code>./node_modules/marked/lib/</code>中）</p>
+<p><strong>Step 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;   escape: /^\\([\\`*&#123;&#125;\[\]()# +\-.!_&gt;])/,1</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>替换成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;   escape: /^\\([`*\[\]()# +\-.!_&gt;])/,1</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p><strong>这一步是在原基础上取消了对<code>\\</code>,<code>\{</code>,<code>\}</code>的转义(escape)</strong></p>
+<p><strong>Step 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;   em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,1</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>替换成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;   em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,1</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>这样一来MathJax就能与marked.js共存了。重启一下hexo看一下吧</p>
+</blockquote>
+<p>重启之后，果然有惊喜，看下图，不管行内的，行间的，单行的，多行的，全都显示出来了，至此问题解决。</p>
+<p><img src="../pictures/images-hexo_blog/1509267319356.png" alt="1509267319356"></p>
+<p>感谢各位大佬提供的解决方案，让我深受启发，想从源码层面了解的还可以看<a href="http://masikkk.com/article/hexo-13-MathJax/" target="_blank" rel="external">这个</a> 。这里就不解释了。</p>
+
+      
+    </div>
+    
+    
+    
+    
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><strong>本文标题：</strong><a href="/2017/10/29/1/">hexo博客搭建</a></p>
+  <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
+  <p><strong>发布时间：</strong>2017年10月29日 - 22:10</p>
+  <p><strong>最后更新：</strong>2017年10月29日 - 22:10</p>
+  <p><strong>本文链接：</strong><a href="/2017/10/29/1/" title="hexo博客搭建">http://yoursite.com/2017/10/29/1/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2017/10/29/1/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><strong>版权声明：</strong> 本文由 arleyzhang 原创，采用 <i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">保留署名-非商业性使用-禁止演绎 4.0-国际许可协议</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+            <a href="/tags/博客搭建/" rel="tag"># 博客搭建</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">arleyzhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/arleyzhang" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.csdn.net/u013995958" target="_blank" title="CSDN">
+                    
+                      <i class="fa fa-fw fa-fa-user-circle"></i>CSDN</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zyl@seu.edu.cn" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-安装hexo"><span class="nav-number">1.</span> <span class="nav-text">1 安装hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-建站"><span class="nav-number">2.</span> <span class="nav-text">2 建站</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-使用hexo向github仓库部署"><span class="nav-number">3.</span> <span class="nav-text">3 使用hexo向github仓库部署</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-基本操作"><span class="nav-number">4.</span> <span class="nav-text">4 基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-图标设置"><span class="nav-number">4.1.</span> <span class="nav-text">4.2 图标设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-文章分类"><span class="nav-number">4.2.</span> <span class="nav-text">4.3 文章分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-公式问题"><span class="nav-number">5.</span> <span class="nav-text">5 公式问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-方案一：使用插件"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 方案一：使用插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-方案二：还是使用插件，稍有不同"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 方案二：还是使用插件，稍有不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-方案三：将Hexo的hexo-renderer-marked渲染引擎换成-hexo-renderer-markdown-it-plus"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 方案三：将Hexo的hexo-renderer-marked渲染引擎换成 hexo-renderer-markdown-it-plus</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-方案四：将Hexo的hexo-renderer-marked渲染引擎换成-hexo-renderer-pandoc"><span class="nav-number">5.4.</span> <span class="nav-text">5.4 方案四：将Hexo的hexo-renderer-marked渲染引擎换成  hexo-renderer-pandoc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-5-方案五：直接修改hexo的-Markdown-渲染引擎"><span class="nav-number">5.5.</span> <span class="nav-text">5.5 方案五：直接修改hexo的 Markdown 渲染引擎</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">arleyzhang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://arleyzhang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2017/10/29/1/';
+          this.page.identifier = '2017/10/29/1/';
+          this.page.title = 'hexo博客搭建';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://arleyzhang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
