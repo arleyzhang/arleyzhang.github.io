@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://arleyzhang.github.io/about/index.html</loc>
+    
+    <lastmod>2018-04-13T16:22:39.568Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://arleyzhang.github.io/posts/4a17b156/</loc>
     
     <lastmod>2018-04-13T14:24:33.815Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://arleyzhang.github.io/tags/index.html</loc>
     
     <lastmod>2017-10-29T14:47:01.060Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://arleyzhang.github.io/about/index.html</loc>
-    
-    <lastmod>2017-10-29T12:30:24.397Z</lastmod>
     
   </url>
   
