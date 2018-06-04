@@ -2,44 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://arleyzhang.github.io/articles/c521a01c/</loc>
+    <loc>https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-pascal-voc.html</loc>
     
-    <lastmod>2018-06-04T08:50:35.837Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://arleyzhang.github.io/articles/e5b86f16/</loc>
-    
-    <lastmod>2018-06-04T06:27:08.929Z</lastmod>
+    <lastmod>2018-06-04T11:08:08.782Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://arleyzhang.github.io/articles/1dc20586/</loc>
+    <loc>https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html</loc>
     
-    <lastmod>2018-06-04T06:26:25.532Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://arleyzhang.github.io/about/index.html</loc>
-    
-    <lastmod>2018-06-04T06:04:42.517Z</lastmod>
+    <lastmod>2018-06-04T11:08:08.755Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://arleyzhang.github.io/categories/index.html</loc>
     
-    <lastmod>2017-10-29T14:47:21.780Z</lastmod>
+    <lastmod>2018-06-04T11:05:02.517Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://arleyzhang.github.io/tags/index.html</loc>
     
-    <lastmod>2017-10-29T14:47:01.060Z</lastmod>
+    <lastmod>2018-06-04T11:05:01.175Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://arleyzhang.github.io/about/index.html</loc>
+    
+    <lastmod>2018-06-04T11:05:01.167Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection-evaluation-standard--ap&map.html</loc>
+    
+    <lastmod>2018-06-04T11:05:01.111Z</lastmod>
     
   </url>
   
