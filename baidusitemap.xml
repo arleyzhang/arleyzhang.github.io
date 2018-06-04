@@ -4,44 +4,16 @@
 
     
   <url>
-    <loc>https://arleyzhang.github.io/articles/target-detection--ssd--paper-notes.html</loc>
-    <lastmod>2018-06-04T15:49:26.475Z</lastmod>
+    <loc>https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-pascal-voc.html</loc>
+    <lastmod>2018-06-04T15:59:07.505Z</lastmod>
     <data>
         <display>
-        <title>目标检测-SSD-论文笔记</title>
-        <pubTime>2018-06-04T14:03:01.000Z</pubTime>
+        <title>目标检测数据集PASCAL VOC简介</title>
+        <pubTime>2018-06-03T15:08:22.000Z</pubTime>
         
-        <tag>SSD</tag>
+        <tag>dataset</tag>
          
-        <tag>object detection</tag>
-         
-        <tag>论文笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/target-detection-evaluation-standard--ap&map.html</loc>
-    <lastmod>2018-06-04T12:09:20.119Z</lastmod>
-    <data>
-        <display>
-        <title>目标检测评价标准-AP&mAP</title>
-        <pubTime>2018-06-04T08:38:35.000Z</pubTime>
-        
-        <tag>目标检测</tag>
-         
-        <tag>评价标准</tag>
-         
-        <tag>mAP</tag>
-         
-        <tag>code</tag>
+        <tag>PASCAL VOC</tag>
          
          
            
@@ -55,7 +27,7 @@
     
   <url>
     <loc>https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html</loc>
-    <lastmod>2018-06-04T11:58:33.303Z</lastmod>
+    <lastmod>2018-06-04T15:58:54.063Z</lastmod>
     <data>
         <display>
         <title>目标检测数据集MSCOCO简介</title>
@@ -64,8 +36,6 @@
         <tag>dataset</tag>
          
         <tag>MSCOCO</tag>
-         
-        <tag>COCO</tag>
          
          
            
@@ -78,16 +48,44 @@
 
     
   <url>
-    <loc>https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-pascal-voc.html</loc>
-    <lastmod>2018-06-04T11:57:48.366Z</lastmod>
+    <loc>https://arleyzhang.github.io/articles/target-detection-evaluation-standard--ap&map.html</loc>
+    <lastmod>2018-06-04T15:58:40.618Z</lastmod>
     <data>
         <display>
-        <title>目标检测数据集PASCAL VOC简介</title>
-        <pubTime>2018-06-03T15:08:22.000Z</pubTime>
+        <title>目标检测评价标准-AP&mAP</title>
+        <pubTime>2018-06-04T08:38:35.000Z</pubTime>
         
-        <tag>dataset</tag>
+        <tag>object detection</tag>
          
-        <tag>PASCAL VOC</tag>
+        <tag>评价标准</tag>
+         
+        <tag>mAP</tag>
+         
+        <tag>wheel making</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection--ssd--paper-notes.html</loc>
+    <lastmod>2018-06-04T15:53:56.386Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-SSD-论文笔记</title>
+        <pubTime>2018-06-04T14:03:01.000Z</pubTime>
+        
+        <tag>SSD</tag>
+         
+        <tag>object detection</tag>
+         
+        <tag>论文笔记</tag>
          
          
            

@@ -21,10 +21,10 @@
         <category>deep learning</category>
       </categories>
       <tags>
-        <tag>目标检测</tag>
+        <tag>object detection</tag>
         <tag>评价标准</tag>
         <tag>mAP</tag>
-        <tag>code</tag>
+        <tag>wheel making</tag>
       </tags>
   </entry>
   <entry>
@@ -37,7 +37,6 @@
       <tags>
         <tag>dataset</tag>
         <tag>MSCOCO</tag>
-        <tag>COCO</tag>
       </tags>
   </entry>
   <entry>

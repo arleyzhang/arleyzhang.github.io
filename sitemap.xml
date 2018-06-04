@@ -2,30 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://arleyzhang.github.io/articles/target-detection--ssd--paper-notes.html</loc>
+    <loc>https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-pascal-voc.html</loc>
     
-    <lastmod>2018-06-04T15:49:26.475Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://arleyzhang.github.io/articles/target-detection-evaluation-standard--ap&map.html</loc>
-    
-    <lastmod>2018-06-04T12:09:20.119Z</lastmod>
+    <lastmod>2018-06-04T15:59:07.505Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html</loc>
     
-    <lastmod>2018-06-04T11:58:33.303Z</lastmod>
+    <lastmod>2018-06-04T15:58:54.063Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-pascal-voc.html</loc>
+    <loc>https://arleyzhang.github.io/articles/target-detection-evaluation-standard--ap&map.html</loc>
     
-    <lastmod>2018-06-04T11:57:48.366Z</lastmod>
+    <lastmod>2018-06-04T15:58:40.618Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection--ssd--paper-notes.html</loc>
+    
+    <lastmod>2018-06-04T15:53:56.386Z</lastmod>
     
   </url>
   
