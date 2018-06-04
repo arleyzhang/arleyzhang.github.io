@@ -122,7 +122,7 @@
 <meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523033381386.png">
 <meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523035226829.png">
 <meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523345052854.png">
-<meta property="og:updated_time" content="2018-06-03T19:52:18.165Z">
+<meta property="og:updated_time" content="2018-06-04T06:26:25.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="目标检测数据集PASCAL VOC简介">
 <meta name="twitter:description" content="目标检测中常用数据集PASCAL VOC的简单介绍">
@@ -378,7 +378,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-06-04T03:52:18+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-04T14:26:25+08:00">
                 2018-06-04
               </time>
             
@@ -628,12 +628,12 @@
 <p>里面文件是这样的（以aeroplane_train.txt为例）：</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">000012 -1</div><div class="line">000017 -1</div><div class="line">000023 -1</div><div class="line">000026 -1</div><div class="line">000032  1</div><div class="line">000033  1</div><div class="line">000034 -1</div><div class="line">000035 -1</div><div class="line">000036 -1</div><div class="line">000042 -1</div><div class="line">……</div><div class="line">……</div><div class="line">009949 -1</div><div class="line">009959 -1</div><div class="line">009961 -1</div></pre></td></tr></table></figure>
 <p>前面一列是训练集中的图片名称，这一列跟train.txt文件中的内容是一样的，后面一列是标签，即训练集中这张图片是不是aeroplane，是的话为1，否则为-1.</p>
-<p>其他所有的 \<class\>_\<imgset\>.txt  文件都是类似的。</imgset\></class\></p>
+<p>其他所有的 (class)_(imgset).txt  文件都是类似的。</p>
 <ul>
-<li>\<class\>_train 存放的是训练使用的数据，每一个class都有2501个train数据。</class\></li>
-<li>\<class\>_val 存放的是验证使用的数据，每一个class都有2510个val数据。</class\></li>
-<li>\<class\>_trainval 将上面两个进行了合并，每一个class有5011个数据。</class\></li>
-<li>\<class\>_test 存放的是测试使用的数据，每一个class有4952个test数据。</class\></li>
+<li>(class)_train 存放的是训练使用的数据，每一个class都有2501个train数据。</li>
+<li>(class)_val 存放的是验证使用的数据，每一个class都有2510个val数据。</li>
+<li>(class)_trainval 将上面两个进行了合并，每一个class有5011个数据。</li>
+<li>(class)_test 存放的是测试使用的数据，每一个class有4952个test数据。</li>
 </ul>
 <p>所有文件都 指定了正负样本，每个class的实际数量为正样本的数量，train和val两者没有交集。</p>
 <p>VOC2012 的数据集组织结构是类似的，不一样的地方在于VOC2012 中没有 test类的图片和以及相关标签和分割文件，因为这部分数据 VOC2012没有公布。</p>
@@ -662,7 +662,7 @@
   <p><strong>本文标题：</strong><a href="/articles/1dc20586/">目标检测数据集PASCAL VOC简介</a></p>
   <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
   <p><strong>发布时间：</strong>2018年06月03日 - 23:06</p>
-  <p><strong>最后更新：</strong>2018年06月04日 - 03:06</p>
+  <p><strong>最后更新：</strong>2018年06月04日 - 14:06</p>
   <p><strong>本文链接：</strong><a href="/articles/1dc20586/" title="目标检测数据集PASCAL VOC简介">https://arleyzhang.github.io/articles/1dc20586/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/1dc20586/"  aria-label="复制成功！"></i></span>
   </p>
