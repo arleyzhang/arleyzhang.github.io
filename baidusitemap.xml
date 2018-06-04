@@ -5,15 +5,46 @@
     
     
   <url>
-    <loc>https://arleyzhang.github.io/posts/4a17b156/</loc>
-    <lastmod>2018-04-13T14:24:33.815Z</lastmod>
+    <loc>https://arleyzhang.github.io/articles/1dc20586/</loc>
+    <lastmod>2018-06-03T19:52:18.165Z</lastmod>
     <data>
         <display>
-        <title>Hello World</title>
-        <pubTime>2017-10-22T12:09:47.156Z</pubTime>
+        <title>目标检测数据集PASCAL VOC简介</title>
+        <pubTime>2018-06-03T15:08:22.000Z</pubTime>
         
+        <tag>dataset</tag>
+         
+        <tag>PASCAL VOC</tag>
+         
          
            
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/e5b86f16/</loc>
+    <lastmod>2018-06-03T19:48:36.339Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测数据集MSCOCO简介</title>
+        <pubTime>2018-06-03T19:37:20.000Z</pubTime>
+        
+        <tag>dataset</tag>
+         
+        <tag>MSCOCO</tag>
+         
+        <tag>COCO</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
         </display>
     </data>
     </url>

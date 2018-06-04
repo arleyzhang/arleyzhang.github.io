@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next gemini" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/kitty_bbook_32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/kitty_bbook_16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="dataset,PASCAL VOC," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="目标检测中常用数据集PASCAL VOC的简单介绍">
+<meta name="keywords" content="dataset,PASCAL VOC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="目标检测数据集PASCAL VOC简介">
+<meta property="og:url" content="https://arleyzhang.github.io/articles/1dc20586/index.html">
+<meta property="og:site_name" content="arleyzhang">
+<meta property="og:description" content="目标检测中常用数据集PASCAL VOC的简单介绍">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523021796702.png">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523021824909.png">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523021854631.png">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1522997065951.png">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523028261517.png">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1522998627620.png">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1522998585710.png">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523029741268.png">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523030152755.png">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523033381386.png">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523035226829.png">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523345052854.png">
+<meta property="og:updated_time" content="2018-06-03T19:52:18.165Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="目标检测数据集PASCAL VOC简介">
+<meta name="twitter:description" content="目标检测中常用数据集PASCAL VOC的简单介绍">
+<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523021796702.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://arleyzhang.github.io/articles/1dc20586/"/>
+
+
+
+
+
+  <title>目标检测数据集PASCAL VOC简介 | arleyzhang</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">arleyzhang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://arleyzhang.github.io/articles/1dc20586/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="arleyzhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="arleyzhang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">目标检测数据集PASCAL VOC简介</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T23:08:22+08:00">
+                2018-06-03
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-04T03:52:18+08:00">
+                2018-06-04
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/deep-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">deep learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/articles/1dc20586/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="articles/1dc20586/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  目标检测中常用数据集PASCAL VOC的简单介绍
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>PASCAL VOC挑战赛 （The <a href="http://pascallin2.ecs.soton.ac.uk/" target="_blank" rel="external">PASCAL</a> Visual Object Classes ）是一个世界级的计算机视觉挑战赛, <a href="http://www.pascal-network.org/" target="_blank" rel="external">PASCAL</a>全称：Pattern Analysis, Statical Modeling and Computational Learning，是一个由欧盟资助的网络组织。</p>
+<p>很多优秀的计算机视觉模型比如分类，定位，检测，分割，动作识别等模型都是基于PASCAL VOC挑战赛及其数据集上推出的，尤其是一些目标检测模型（比如大名鼎鼎的R CNN系列，以及后面的YOLO，SSD等）。</p>
+<p>PASCAL VOC从2005年开始举办挑战赛，每年的内容都有所不同，从最开始的分类，到后面逐渐增加检测，分割，人体布局，动作识别（Object Classification 、Object Detection、Object Segmentation、Human Layout、Action Classification）等内容，数据集的容量以及种类也在不断的增加和改善。该项挑战赛催生出了一大批优秀的计算机视觉模型（尤其是以深度学习技术为主的）。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523021796702.png" alt="1523021796702"></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523021824909.png" alt="1523021824909"></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523021854631.png" alt="1523021854631"></p>
+<p>我们知道在 ImageNet挑战赛上涌现了一大批优秀的分类模型，而PASCAL挑战赛上则是涌现了一大批优秀的目标检测和分割模型，这项挑战赛已于2012年停止举办了，但是研究者仍然可以在其服务器上提交预测结果以评估模型的性能。</p>
+<p>虽然近期的目标检测或分割模型更倾向于使用MS COCO数据集，但是这丝毫不影响 PASCAL VOC数据集的重要性，毕竟PASCAL对于目标检测或分割类型来说属于先驱者的地位。对于现在的研究者来说比较重要的两个年份的数据集是 PASCAL VOC 2007 与 PASCAL VOC 2012，这两个数据集频频在现在的一些检测或分割类的论文当中出现。</p>
+<ul>
+<li><p><a href="http://host.robots.ox.ac.uk/pascal/VOC/" target="_blank" rel="external">PASCAL主页</a>    与   <a href="http://host.robots.ox.ac.uk:8080/leaderboard/main_bootstrap.php" target="_blank" rel="external">排行榜</a> （榜上已几乎看不到传统的视觉模型了，全是基于深度学习的）</p>
+</li>
+<li><p><a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2007/" target="_blank" rel="external">PASCAL VOC 2007 挑战赛主页</a>  与  <a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/" target="_blank" rel="external">PASCAL VOC 2012 挑战赛主页</a> 与   <a href="http://host.robots.ox.ac.uk:8080/" target="_blank" rel="external">PASCAL VOC Evaluation Server</a>.  </p>
+</li>
+<li><p>以及在两个重要时间点对 PASCAL VOC挑战赛 成绩进行总结的两篇论文</p>
+<ul>
+<li><p><strong>The PASCAL Visual Object Classes Challenge: A Retrospective</strong> </p>
+<p>Everingham, M., Eslami, S. M. A., Van Gool, L., Williams, C. K. I., Winn, J. and Zisserman, A.<br><em>International Journal of Computer Vision, 111(1), 98-136, 2015</em><br><a href="http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham15.html#bibtex" target="_blank" rel="external">Bibtex source</a> | <a href="http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham15.html#abstract" target="_blank" rel="external">Abstract</a> | <a href="http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham15.pdf" target="_blank" rel="external">PDF</a></p>
+<p>主要总结PASCAL VOC 2012的数据集情况，以及2011年-2013年之间出现的模型及其性能对比</p>
+</li>
+<li><p><strong>The PASCAL Visual Object Classes (VOC) Challenge</strong><br>Everingham, M., Van Gool, L., Williams, C. K. I., Winn, J. and Zisserman, A.<br><em>International Journal of Computer Vision, 88(2), 303-338, 2010</em><br><a href="http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham10.html#bibtex" target="_blank" rel="external">Bibtex source</a> | <a href="http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham10.html#abstract" target="_blank" rel="external">Abstract</a> | <a href="http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham10.pdf" target="_blank" rel="external">PDF</a></p>
+<p>主要总结PASCAL VOC 2007的数据集情况，以及2008年之前出现的模型及其性能对比</p>
+</li>
+<li><p>不过在以上论文中出现的深度学习模型只有一个 R-CNN吧，大部分都是传统方式的模型，毕竟深度学习模型主要在14年以后才大量涌现。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>本文也是以PASCAL VOC 2007 和 2012 为例简要介绍VOC数据集的结构。</p>
+<h1 id="1-数据集整体概况"><a href="#1-数据集整体概况" class="headerlink" title="1 数据集整体概况"></a>1 数据集整体概况</h1><h2 id="1-1-层级结构"><a href="#1-1-层级结构" class="headerlink" title="1.1 层级结构"></a>1.1 层级结构</h2><p>PASCAL VOC 数据集的20个类别及其层级结构：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1522997065951.png" alt="1522997065951"></p>
+<ul>
+<li><p>从2007年开始，PASCAL VOC每年的数据集都是这个层级结构</p>
+</li>
+<li><p>总共四个大类：vehicle,household,animal,person</p>
+</li>
+<li><p>总共20个小类，预测的时候是只输出图中黑色粗体的类别</p>
+</li>
+<li><p><strong>数据集主要关注分类和检测，也就是分类和检测用到的数据集相对规模较大。</strong>关于其他任务比如分割，动作识别等，其数据集一般是分类和检测数据集的子集。</p>
+</li>
+</ul>
+<h2 id="1-2-发展历程与使用方法"><a href="#1-2-发展历程与使用方法" class="headerlink" title="1.2 发展历程与使用方法"></a>1.2 发展历程与使用方法</h2><p>简要提一下在几个关键时间点数据集的一些关键变化，详细的请查看<a href="http://host.robots.ox.ac.uk/pascal/VOC/" target="_blank" rel="external">PASCAL VOC主页</a> 。</p>
+<ul>
+<li><p>2005年：还只有4个类别： bicycles, cars, motorbikes, people. Train/validation/test共有图片1578 张，包含2209 个已标注的目标objects.</p>
+</li>
+<li><p><strong>2007年 ：在这一年PASCAL VOC初步建立成一个完善的数据集。类别扩充到20类，Train/validation/test共有9963张图片，包含24640  个已标注的目标objects.</strong>  </p>
+<p><strong>07年之前的数据集中test部分都是公布的，但是之后的都没有公布。</strong> </p>
+</li>
+<li><p>2009年：从这一年开始，通过在前一年的数据集基础上增加新数据的方式来扩充数据集。比如09年的数据集是包含了08年的数据集的，也就是说08年的数据集是09年的一个子集，以后每年都是这样的扩充方式，直到2012年；09年之前虽然每年的数据集都在变大（08年比07年略少），但是每年的数据集都是不一样的，也就是说每年的数据集都是互斥的，没有重叠的图片。</p>
+</li>
+<li><p><strong>2012年：从09年到11年，数据量仍然通过上述方式不断增长，11年到12年，用于分类、检测和person layout 任务的数据量没有改变。主要是针对分割和动作识别，完善相应的数据子集以及标注信息。</strong></p>
+</li>
+</ul>
+<p>对于分类和检测来说，也就是下图所示的发展历程，相同颜色的代表相同的数据集：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523028261517.png" alt="1523028261517"></p>
+<p>分割任务的数据集变化略有不同：</p>
+<ul>
+<li>VOC 2012用于分类和检测的数据包含 2008-2011年间的所有数据，并与VOC2007互斥。</li>
+<li>VOC 2012用于分割的数据中train+val包含 2007-2011年间的所有数据，test包含2008-2011年间的数据，没有包含07年的是因为07年的test数据已经公开了。</li>
+</ul>
+<p>2012年是最后一次挑战赛，最终用于分类和检测的数据集规模为：train/val ：11540 张图片，包含 27450 个已被标注的 ROI annotated objects ；用于分割的数据集规模为：trainval：2913张图片，6929个分割，用于其他任务的不再细说，<a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/dbstats.html" target="_blank" rel="external">参考这里</a> 。</p>
+<p>即便挑战赛结束了，但是研究者们仍然可以上传预测结果进行评估。上传入口： <a href="http://host.robots.ox.ac.uk:8080/" target="_blank" rel="external">PASCAL VOC Evaluation Server</a>.  </p>
+<p><strong>目前广大研究者们普遍使用的是 VOC2007和VOC2012数据集，因为二者是互斥的，不相容的。</strong></p>
+<p><strong>论文中针对 VOC2007和VOC2012 的具体用法有以下几种：</strong> </p>
+<ul>
+<li>只用VOC2007的trainval 训练，使用VOC2007的test测试</li>
+<li>只用VOC2012的trainval 训练，使用VOC2012的test测试，这种用法很少使用，因为大家都会结合VOC2007使用</li>
+<li>使用 VOC2007 的 train+val 和 VOC2012的 train+val 训练，然后使用 VOC2007的test测试，这个用法是论文中经常看到的 07+12 ，研究者可以自己测试在VOC2007上的结果，因为VOC2007的test是公开的。</li>
+<li>使用 VOC2007 的 train+val+test 和 VOC2012的 train+val训练，然后使用 VOC2012的test测试，这个用法是论文中经常看到的 07++12 ，这种方法需提交到VOC官方服务器上评估结果，因为VOC2012 test没有公布。  </li>
+<li>先在  MS COCO 的 trainval 上预训练，再使用 VOC2007 的 train+val、 VOC2012的 train+val 微调训练，然后使用 VOC2007的test测试，这个用法是论文中经常看到的 07+12+COCO 。 </li>
+<li>先在  MS COCO 的 trainval 上预训练，再使用 VOC2007 的 train+val+test 、 VOC2012的 train+val 微调训练，然后使用 VOC2012的test测试 ，这个用法是论文中经常看到的 07++12+COCO，这种方法需提交到VOC官方服务器上评估结果，因为VOC2012 test没有公布。   </li>
+</ul>
+<p>在各自数据集上分别进行建模和评测的用法比较少，基本上在早期论文里出现就是起个对照作用；现在的大部分论文都会为了增加数据量而将二者合起来使用。</p>
+<h1 id="2-数据量统计"><a href="#2-数据量统计" class="headerlink" title="2 数据量统计"></a>2 数据量统计</h1><p>由于现在的研究基本上都是在VOC2007和VOC2012上面进行，因此只介绍这两个年份的。</p>
+<h2 id="2-1-VOC-2007"><a href="#2-1-VOC-2007" class="headerlink" title="2.1 VOC 2007"></a>2.1 VOC 2007</h2><p>一些示例图片展示：<a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2007/examples/index.html" target="_blank" rel="external">Classification/detection example images</a> </p>
+<p><strong>数据集总体统计：</strong> </p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1522998627620.png" alt="1522998627620"></p>
+<ul>
+<li><strong>以上是数据集总体的统计情况，这个里面是包含了测试集的，可见person 类是最多的。</strong></li>
+</ul>
+<p><strong>训练集，验证集，测试集划分情况</strong> </p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1522998585710.png" alt="1522998585710"></p>
+<ul>
+<li>PASCAL VOC 2007 数据集分为两部分：训练和验证集trainval，测试集test ，两部分各占数据总量的约 50%。其中trainval 又分为训练集和测试集，二者分别各占trainval的50%。</li>
+<li>每张图片中有可能包含不只一个目标object。</li>
+</ul>
+<p>这里我就只贴出用于分类和检测的划分情况，关于分割或者其他任务的划分方式 <a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2007/dbstats.html" target="_blank" rel="external">点击这里查看</a> 。</p>
+<h2 id="2-2-VOC-2012"><a href="#2-2-VOC-2012" class="headerlink" title="2.2 VOC 2012"></a>2.2 VOC 2012</h2><p>一些示例图片展示：<a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/examples/index.html" target="_blank" rel="external">Classification/detection example images</a> </p>
+<p><strong>数据集总体统计</strong> </p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523029741268.png" alt="1523029741268"></p>
+<ul>
+<li><strong>这个统计是没有包含 test部分的，仍然是person类最多</strong> </li>
+</ul>
+<p><strong>trainval部分的数据统计：</strong>  </p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523030152755.png" alt="1523030152755"></p>
+<p>test部分没有公布，同样的 除了分类和检测之外的数据统计，<a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/dbstats.html" target="_blank" rel="external">参考这里</a> </p>
+<h2 id="2-3-VOC-2007-与-2012-的对比"><a href="#2-3-VOC-2007-与-2012-的对比" class="headerlink" title="2.3 VOC 2007 与 2012 的对比"></a>2.3 VOC 2007 与 2012 的对比</h2><p>VOC 2007 与 2012 数据集及二者的并集 数据量对比</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523033381386.png" alt="1523033381386"></p>
+<ul>
+<li>黑色字体所示数字是官方给定的，由于VOC2012数据集中 test 部分没有公布，因此红色字体所示数字为估计数据，按照PASCAL 通常的划分方法，即 trainval 与test 各占总数据量的一半。</li>
+</ul>
+<h1 id="3-标注信息"><a href="#3-标注信息" class="headerlink" title="3 标注信息"></a>3 标注信息</h1><p>数据集的标注还是很谨慎的，有专门的标注团队，并遵从统一的标注标准，参考 <a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2007/guidelines.html" target="_blank" rel="external">guidelines</a> 。</p>
+<p>标注信息是用 xml 文件组织的如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">annotation</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">folder</span>&gt;</span>VOC2007<span class="tag">&lt;/<span class="name">folder</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">filename</span>&gt;</span>000001.jpg<span class="tag">&lt;/<span class="name">filename</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">source</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">database</span>&gt;</span>The VOC2007 Database<span class="tag">&lt;/<span class="name">database</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">annotation</span>&gt;</span>PASCAL VOC2007<span class="tag">&lt;/<span class="name">annotation</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">image</span>&gt;</span>flickr<span class="tag">&lt;/<span class="name">image</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">flickrid</span>&gt;</span>341012865<span class="tag">&lt;/<span class="name">flickrid</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">source</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">owner</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">flickrid</span>&gt;</span>Fried Camels<span class="tag">&lt;/<span class="name">flickrid</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>Jinky the Fruit Bat<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">owner</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">size</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">width</span>&gt;</span>353<span class="tag">&lt;/<span class="name">width</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">height</span>&gt;</span>500<span class="tag">&lt;/<span class="name">height</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">depth</span>&gt;</span>3<span class="tag">&lt;/<span class="name">depth</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">size</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">segmented</span>&gt;</span>0<span class="tag">&lt;/<span class="name">segmented</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">object</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dog<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">pose</span>&gt;</span>Left<span class="tag">&lt;/<span class="name">pose</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">truncated</span>&gt;</span>1<span class="tag">&lt;/<span class="name">truncated</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">difficult</span>&gt;</span>0<span class="tag">&lt;/<span class="name">difficult</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">bndbox</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">xmin</span>&gt;</span>48<span class="tag">&lt;/<span class="name">xmin</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">ymin</span>&gt;</span>240<span class="tag">&lt;/<span class="name">ymin</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">xmax</span>&gt;</span>195<span class="tag">&lt;/<span class="name">xmax</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">ymax</span>&gt;</span>371<span class="tag">&lt;/<span class="name">ymax</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">bndbox</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">object</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">object</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>person<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">pose</span>&gt;</span>Left<span class="tag">&lt;/<span class="name">pose</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">truncated</span>&gt;</span>1<span class="tag">&lt;/<span class="name">truncated</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">difficult</span>&gt;</span>0<span class="tag">&lt;/<span class="name">difficult</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">bndbox</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">xmin</span>&gt;</span>8<span class="tag">&lt;/<span class="name">xmin</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">ymin</span>&gt;</span>12<span class="tag">&lt;/<span class="name">ymin</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">xmax</span>&gt;</span>352<span class="tag">&lt;/<span class="name">xmax</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">ymax</span>&gt;</span>498<span class="tag">&lt;/<span class="name">ymax</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">bndbox</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">object</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">annotation</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>filename ：文件名</p>
+</li>
+<li><p>source，owner：图片来源，及拥有者</p>
+</li>
+<li><p>size：图片大小</p>
+</li>
+<li><p>segmented：是否分割</p>
+</li>
+<li><p>object：表明这是一个目标，里面的内容是目标的相关信息</p>
+<ul>
+<li><p>name：object名称，20个类别</p>
+</li>
+<li><p>pose：拍摄角度：front, rear, left, right, unspecified </p>
+</li>
+<li><p>truncated：目标是否被截断（比如在图片之外），或者被遮挡（超过15%）</p>
+</li>
+<li><p>difficult：检测难易程度，这个主要是根据目标的大小，光照变化，图片质量来判断</p>
+<p>difficult 标签示例：图中白色虚线，被标记为 difficult。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523035226829.png" alt="1523035226829"></p>
+</li>
+<li><p>bndbox：bounding box 的左上角点和右下角点的4个坐标值。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="4-提交格式"><a href="#4-提交格式" class="headerlink" title="4 提交格式"></a>4 提交格式</h1><h2 id="4-1-Classification-Task"><a href="#4-1-Classification-Task" class="headerlink" title="4.1 Classification Task"></a>4.1 Classification Task</h2><p>每一类都有一个txt文件，里面每一行都是测试集中的一张图片，前面一列是图片名称，后面一列是预测的分数。</p>
+<p>comp1_cls_test_car.txt:</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">000004 0.702732</div><div class="line">000006 0.870849</div><div class="line">000008 0.532489</div><div class="line">000018 0.477167</div><div class="line">000019 0.112426</div></pre></td></tr></table></figure>
+<h2 id="4-2-Detection-Task"><a href="#4-2-Detection-Task" class="headerlink" title="4.2 Detection Task"></a>4.2 Detection Task</h2><p>comp3_det_test_car.txt:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">000004 0.702732 89 112 516 466</div><div class="line">000006 0.870849 373 168 488 229</div><div class="line">000006 0.852346 407 157 500 213</div><div class="line">000006 0.914587 2 161 55 221</div><div class="line">000008 0.532489 175 184 232 201</div></pre></td></tr></table></figure>
+<p>每一类都有一个txt文件，里面每一行都是测试集中的一张图片，每行的格式按照如下方式组织</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;image identifier&gt; &lt;confidence&gt; &lt;left&gt; &lt;top&gt; &lt;right&gt; &lt;bottom&gt;</div></pre></td></tr></table></figure>
+<p>confidence 用来计算 mAP.</p>
+<h1 id="5-评估标准"><a href="#5-评估标准" class="headerlink" title="5 评估标准"></a>5 评估标准</h1><p>PASCAL的评估标准是 mAP(mean average precision)</p>
+<p>关于mAP不再详细解释，参考以下资料：</p>
+<ul>
+<li><a href="https://blog.csdn.net/u014203453/article/details/77598997" target="_blank" rel="external">性能指标（模型评估）之mAP</a> </li>
+<li><a href="https://sanchom.wordpress.com/tag/average-precision/" target="_blank" rel="external">average precision</a> </li>
+<li>周志华老师 《机器学习》 模型评估标准一节</li>
+</ul>
+<p>这里简单的提一下：</p>
+<p>下面是一个二分类的P-R曲线（precision-recall curve），对于PASCAL来说，每一类都有一个这样的 P-R曲线，P-R曲线下面与x轴围成的面积称为 average precision，每个类别都有一个 AP, 20个类别的AP 取平均值就是 mAP。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/pascalvoc/1523345052854.png" alt="1523345052854"></p>
+<p>PASCAL官方给了评估脚本mAP的脚本和示例代码 <a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCdevkit_18-May-2011.tar" target="_blank" rel="external">development kit code and documentation</a> ，是用MATLAB写的。</p>
+<h1 id="6-数据集组织结构"><a href="#6-数据集组织结构" class="headerlink" title="6 数据集组织结构"></a>6 数据集组织结构</h1><p>数据集的下载:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> Download the data.</div><div class="line">cd $HOME/data</div><div class="line">wget http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar</div><div class="line">wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtrainval_06-Nov-2007.tar</div><div class="line">wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtest_06-Nov-2007.tar</div><div class="line"><span class="meta">#</span> Extract the data.</div><div class="line">tar -xvf VOCtrainval_11-May-2012.tar</div><div class="line">tar -xvf VOCtrainval_06-Nov-2007.tar</div><div class="line">tar -xvf VOCtest_06-Nov-2007.tar</div></pre></td></tr></table></figure>
+<p>或者支直接点击下面链接下载：</p>
+<ul>
+<li>Download the <a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtrainval_06-Nov-2007.tar" target="_blank" rel="external">training/validation data</a> (450MB tar file)</li>
+<li>Download the <a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtest_06-Nov-2007.tar" target="_blank" rel="external">annotated test data</a> (430MB tar file)</li>
+</ul>
+<p>上面的解压命令会将VOC2007的trainval和test解压到一块，数据会混在一起，如果不想，可以自己指定解压路径。以VOC 2007 为例，解压后的文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── Annotations 进行detection 任务时的 标签文件，xml文件形式</div><div class="line">├── ImageSets 存放数据集的分割文件，比如train，val，test</div><div class="line">├── JPEGImages 存放 .jpg格式的图片文件</div><div class="line">├── SegmentationClass 存放 按照class 分割的图片</div><div class="line">└── SegmentationObject 存放 按照 object 分割的图片</div></pre></td></tr></table></figure>
+<p><strong>Annotations 文件夹：</strong> </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── 000001.xml</div><div class="line">├── 000002.xml</div><div class="line">├── 000003.xml</div><div class="line">├── 000004.xml</div><div class="line">……</div><div class="line">……</div><div class="line">……</div><div class="line">├── 009962.xml</div><div class="line">└── 009963.xml</div></pre></td></tr></table></figure>
+<p>以xml 文件的形式，存放标签文件，文件内容如前述，文件名与图片名是一样的，6位整数</p>
+<p><strong>ImageSets文件夹：</strong> </p>
+<p>存放数据集的分割文件</p>
+<p>包含三个子文件夹 Layout，Main，Segmentation，其中Main文件夹存放的是用于分类和检测的数据集分割文件，Layout文件夹用于 person layout任务，Segmentation用于分割任务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── Layout</div><div class="line">│   ├── test.txt</div><div class="line">│   ├── train.txt</div><div class="line">│   ├── trainval.txt</div><div class="line">│   └── val.txt</div><div class="line">├── Main</div><div class="line">│   ├── aeroplane_test.txt</div><div class="line">│   ├── aeroplane_train.txt</div><div class="line">│   ├── aeroplane_trainval.txt</div><div class="line">│   ├── aeroplane_val.txt</div><div class="line">│   ├── bicycle_test.txt</div><div class="line">│   ├── bicycle_train.txt</div><div class="line">│   ├── bicycle_trainval.txt</div><div class="line">│   ├── bicycle_val.txt</div><div class="line">│   ├── bird_test.txt</div><div class="line">│   ├── bird_train.txt</div><div class="line">│   ├── bird_trainval.txt</div><div class="line">│   ├── bird_val.txt</div><div class="line">│   ├── boat_test.txt</div><div class="line">│   ├── boat_train.txt</div><div class="line">│   ├── boat_trainval.txt</div><div class="line">│   ├── boat_val.txt</div><div class="line">│   ├── bottle_test.txt</div><div class="line">│   ├── bottle_train.txt</div><div class="line">│   ├── bottle_trainval.txt</div><div class="line">│   ├── bottle_val.txt</div><div class="line">│   ├── bus_test.txt</div><div class="line">│   ├── bus_train.txt</div><div class="line">│   ├── bus_trainval.txt</div><div class="line">│   ├── bus_val.txt</div><div class="line">│   ├── car_test.txt</div><div class="line">│   ├── car_train.txt</div><div class="line">│   ├── car_trainval.txt</div><div class="line">│   ├── car_val.txt</div><div class="line">│   ├── cat_test.txt</div><div class="line">│   ├── cat_train.txt</div><div class="line">│   ├── cat_trainval.txt</div><div class="line">│   ├── cat_val.txt</div><div class="line">│   ├── chair_test.txt</div><div class="line">│   ├── chair_train.txt</div><div class="line">│   ├── chair_trainval.txt</div><div class="line">│   ├── chair_val.txt</div><div class="line">│   ├── cow_test.txt</div><div class="line">│   ├── cow_train.txt</div><div class="line">│   ├── cow_trainval.txt</div><div class="line">│   ├── cow_val.txt</div><div class="line">│   ├── diningtable_test.txt</div><div class="line">│   ├── diningtable_train.txt</div><div class="line">│   ├── diningtable_trainval.txt</div><div class="line">│   ├── diningtable_val.txt</div><div class="line">│   ├── dog_test.txt</div><div class="line">│   ├── dog_train.txt</div><div class="line">│   ├── dog_trainval.txt</div><div class="line">│   ├── dog_val.txt</div><div class="line">│   ├── horse_test.txt</div><div class="line">│   ├── horse_train.txt</div><div class="line">│   ├── horse_trainval.txt</div><div class="line">│   ├── horse_val.txt</div><div class="line">│   ├── motorbike_test.txt</div><div class="line">│   ├── motorbike_train.txt</div><div class="line">│   ├── motorbike_trainval.txt</div><div class="line">│   ├── motorbike_val.txt</div><div class="line">│   ├── person_test.txt</div><div class="line">│   ├── person_train.txt</div><div class="line">│   ├── person_trainval.txt</div><div class="line">│   ├── person_val.txt</div><div class="line">│   ├── pottedplant_test.txt</div><div class="line">│   ├── pottedplant_train.txt</div><div class="line">│   ├── pottedplant_trainval.txt</div><div class="line">│   ├── pottedplant_val.txt</div><div class="line">│   ├── sheep_test.txt</div><div class="line">│   ├── sheep_train.txt</div><div class="line">│   ├── sheep_trainval.txt</div><div class="line">│   ├── sheep_val.txt</div><div class="line">│   ├── sofa_test.txt</div><div class="line">│   ├── sofa_train.txt</div><div class="line">│   ├── sofa_trainval.txt</div><div class="line">│   ├── sofa_val.txt</div><div class="line">│   ├── test.txt</div><div class="line">│   ├── train_test.txt</div><div class="line">│   ├── train_train.txt</div><div class="line">│   ├── train_trainval.txt</div><div class="line">│   ├── train.txt</div><div class="line">│   ├── train_val.txt</div><div class="line">│   ├── trainval.txt</div><div class="line">│   ├── tvmonitor_test.txt</div><div class="line">│   ├── tvmonitor_train.txt</div><div class="line">│   ├── tvmonitor_trainval.txt</div><div class="line">│   ├── tvmonitor_val.txt</div><div class="line">│   └── val.txt</div><div class="line">└── Segmentation</div><div class="line">    ├── test.txt</div><div class="line">    ├── train.txt</div><div class="line">    ├── trainval.txt</div><div class="line">    └── val.txt</div><div class="line">    </div><div class="line">3 directories, 92 files</div></pre></td></tr></table></figure>
+<p>主要介绍一下Main文件夹中的组织结构，先来看以下这几个文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">├── Main</div><div class="line">│   ├── train.txt 写着用于训练的图片名称 共2501个</div><div class="line">│   ├── val.txt 写着用于验证的图片名称 共2510个</div><div class="line">│   ├── trainval.txt train与val的合集 共5011个</div><div class="line">│   ├── test.txt 写着用于测试的图片名称 共4952个</div></pre></td></tr></table></figure>
+<p>里面的文件内容是下面这样的：以train.txt文件为例</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">000012</div><div class="line">000017</div><div class="line">000023</div><div class="line">000026</div><div class="line">000032</div><div class="line">000033</div><div class="line">000034</div><div class="line">000035</div><div class="line">000036</div><div class="line">000042</div><div class="line">……</div><div class="line">……</div><div class="line">009949</div><div class="line">009959</div><div class="line">009961</div></pre></td></tr></table></figure>
+<p>就是对数据库的分割，这一部分图片用于train，其他的用作val，test等。</p>
+<p>Main中剩下的文件很显然就是每一类别在train或val或test中的ground truth，这个ground truth是为了方便classification 任务而提供的；如果是detection的话，使用的是上面的xml标签文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">├── Main</div><div class="line">│   ├── aeroplane_test.txt 写着用于训练的图片名称 共2501个，指定正负样本</div><div class="line">│   ├── aeroplane_train.txt 写着用于验证的图片名称 共2510个，指定正负样本</div><div class="line">│   ├── aeroplane_trainval.txt train与val的合集 共5011个，指定正负样本</div><div class="line">│   ├── aeroplane_val.txt 写着用于测试的图片名称 共4952个，指定正负样本</div><div class="line">……</div><div class="line">……</div></pre></td></tr></table></figure>
+<p>里面文件是这样的（以aeroplane_train.txt为例）：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">000012 -1</div><div class="line">000017 -1</div><div class="line">000023 -1</div><div class="line">000026 -1</div><div class="line">000032  1</div><div class="line">000033  1</div><div class="line">000034 -1</div><div class="line">000035 -1</div><div class="line">000036 -1</div><div class="line">000042 -1</div><div class="line">……</div><div class="line">……</div><div class="line">009949 -1</div><div class="line">009959 -1</div><div class="line">009961 -1</div></pre></td></tr></table></figure>
+<p>前面一列是训练集中的图片名称，这一列跟train.txt文件中的内容是一样的，后面一列是标签，即训练集中这张图片是不是aeroplane，是的话为1，否则为-1.</p>
+<p>其他所有的 \<class\>_\<imgset\>.txt  文件都是类似的。</imgset\></class\></p>
+<ul>
+<li>\<class\>_train 存放的是训练使用的数据，每一个class都有2501个train数据。</class\></li>
+<li>\<class\>_val 存放的是验证使用的数据，每一个class都有2510个val数据。</class\></li>
+<li>\<class\>_trainval 将上面两个进行了合并，每一个class有5011个数据。</class\></li>
+<li>\<class\>_test 存放的是测试使用的数据，每一个class有4952个test数据。</class\></li>
+</ul>
+<p>所有文件都 指定了正负样本，每个class的实际数量为正样本的数量，train和val两者没有交集。</p>
+<p>VOC2012 的数据集组织结构是类似的，不一样的地方在于VOC2012 中没有 test类的图片和以及相关标签和分割文件，因为这部分数据 VOC2012没有公布。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
+<li><a href="http://host.robots.ox.ac.uk/pascal/VOC/" target="_blank" rel="external">http://host.robots.ox.ac.uk/pascal/VOC/</a></li>
+<li><a href="https://blog.csdn.net/u014203453/article/details/77598997" target="_blank" rel="external">性能指标（模型评估）之mAP</a> </li>
+<li><a href="http://blog.sina.com.cn/s/blog_9db078090102whzw.html" target="_blank" rel="external">多标签图像分类任务的评价方法-mAP</a></li>
+<li><a href="https://sanchom.wordpress.com/tag/average-precision/" target="_blank" rel="external">average precision</a> </li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><strong>本文标题：</strong><a href="/articles/1dc20586/">目标检测数据集PASCAL VOC简介</a></p>
+  <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
+  <p><strong>发布时间：</strong>2018年06月03日 - 23:06</p>
+  <p><strong>最后更新：</strong>2018年06月04日 - 03:06</p>
+  <p><strong>本文链接：</strong><a href="/articles/1dc20586/" title="目标检测数据集PASCAL VOC简介">https://arleyzhang.github.io/articles/1dc20586/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/1dc20586/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><strong>版权声明：</strong> 本文由 arleyzhang 原创，采用 <i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">保留署名-非商业性使用-禁止演绎 4.0-国际许可协议</a> 转载请保留原文链接及作者!</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/dataset/" rel="tag"># dataset</a>
+          
+            <a href="/tags/PASCAL-VOC/" rel="tag"># PASCAL VOC</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/articles/e5b86f16/" rel="prev" title="目标检测数据集MSCOCO简介">
+                目标检测数据集MSCOCO简介 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">arleyzhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/arleyzhang" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1186197274@qq.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-数据集整体概况"><span class="nav-text">1 数据集整体概况</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-层级结构"><span class="nav-text">1.1 层级结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-发展历程与使用方法"><span class="nav-text">1.2 发展历程与使用方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-数据量统计"><span class="nav-text">2 数据量统计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-VOC-2007"><span class="nav-text">2.1 VOC 2007</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-VOC-2012"><span class="nav-text">2.2 VOC 2012</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-VOC-2007-与-2012-的对比"><span class="nav-text">2.3 VOC 2007 与 2012 的对比</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-标注信息"><span class="nav-text">3 标注信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-提交格式"><span class="nav-text">4 提交格式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-Classification-Task"><span class="nav-text">4.1 Classification Task</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-Detection-Task"><span class="nav-text">4.2 Detection Task</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-评估标准"><span class="nav-text">5 评估标准</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-数据集组织结构"><span class="nav-text">6 数据集组织结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">arleyzhang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://arleyzhang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://arleyzhang.github.io/articles/1dc20586/';
+          this.page.identifier = 'articles/1dc20586/';
+          this.page.title = '目标检测数据集PASCAL VOC简介';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://arleyzhang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
