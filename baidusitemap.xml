@@ -4,16 +4,50 @@
 
     
   <url>
-    <loc>https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-pascal-voc.html</loc>
-    <lastmod>2018-06-04T11:08:08.782Z</lastmod>
+    <loc>https://arleyzhang.github.io/articles/target-detection--ssd--paper-notes.html</loc>
+    <lastmod>2018-06-04T15:10:53.915Z</lastmod>
     <data>
         <display>
-        <title>目标检测数据集PASCAL VOC简介</title>
-        <pubTime>2018-06-03T15:08:22.000Z</pubTime>
+        <title>目标检测-SSD-论文笔记</title>
+        <pubTime>2018-06-04T14:03:01.000Z</pubTime>
         
-        <tag>dataset</tag>
+        <tag>SSD</tag>
          
-        <tag>PASCAL VOC</tag>
+        <tag>object detection</tag>
+         
+        <tag>deep learning</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+             
+              <breadCrumb title="object detection" url="https://arleyzhang.github.io/categories/deep-learning/object-detection/"/>
+          
+             
+              <breadCrumb title="论文笔记" url="https://arleyzhang.github.io/categories/deep-learning/object-detection/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection-evaluation-standard--ap&map.html</loc>
+    <lastmod>2018-06-04T12:09:20.119Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测评价标准-AP&mAP</title>
+        <pubTime>2018-06-04T08:38:35.000Z</pubTime>
+        
+        <tag>目标检测</tag>
+         
+        <tag>评价标准</tag>
+         
+        <tag>mAP</tag>
+         
+        <tag>code</tag>
          
          
            
@@ -27,7 +61,7 @@
     
   <url>
     <loc>https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html</loc>
-    <lastmod>2018-06-04T11:08:08.755Z</lastmod>
+    <lastmod>2018-06-04T11:58:33.303Z</lastmod>
     <data>
         <display>
         <title>目标检测数据集MSCOCO简介</title>
@@ -49,24 +83,17 @@
     </url>
 
     
-    
-    
-    
   <url>
-    <loc>https://arleyzhang.github.io/articles/target-detection-evaluation-standard--ap&map.html</loc>
-    <lastmod>2018-06-04T11:05:01.111Z</lastmod>
+    <loc>https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-pascal-voc.html</loc>
+    <lastmod>2018-06-04T11:57:48.366Z</lastmod>
     <data>
         <display>
-        <title>目标检测评价标准-AP&mAP</title>
-        <pubTime>2018-06-04T08:38:35.000Z</pubTime>
+        <title>目标检测数据集PASCAL VOC简介</title>
+        <pubTime>2018-06-03T15:08:22.000Z</pubTime>
         
-        <tag>目标检测</tag>
+        <tag>dataset</tag>
          
-        <tag>评价标准</tag>
-         
-        <tag>AP</tag>
-         
-        <tag>mAP</tag>
+        <tag>PASCAL VOC</tag>
          
          
            
@@ -77,4 +104,7 @@
     </data>
     </url>
 
+    
+    
+    
 </urlset>
