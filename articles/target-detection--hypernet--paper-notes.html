@@ -91,7 +91,7 @@
 
 
 
-  <meta name="keywords" content="dataset,MSCOCO," />
+  <meta name="keywords" content="论文笔记,object detection,HyperNet," />
 
 
 
@@ -102,26 +102,40 @@
 
 
 
-<meta name="description" content="目标检测数据集 MSCOCO 简介">
-<meta name="keywords" content="dataset,MSCOCO">
+<meta name="description" content="目标检测模型 HyperNet: Towards Accurate Region Proposal Generation and Joint Object Detection   论文笔记">
+<meta name="keywords" content="论文笔记,object detection,HyperNet">
 <meta property="og:type" content="article">
-<meta property="og:title" content="目标检测数据集MSCOCO简介">
-<meta property="og:url" content="https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html">
+<meta property="og:title" content="目标检测-HyperNet-论文笔记">
+<meta property="og:url" content="https://arleyzhang.github.io/articles/target-detection--hypernet--paper-notes.html">
 <meta property="og:site_name" content="arleyzhang">
-<meta property="og:description" content="目标检测数据集 MSCOCO 简介">
+<meta property="og:description" content="目标检测模型 HyperNet: Towards Accurate Region Proposal Generation and Joint Object Detection   论文笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527334430550.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335304935.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335519760.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335845385.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527337055130.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341503405.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341646178.png">
-<meta property="og:updated_time" content="2018-06-04T15:58:54.063Z">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/2k1dj7mlHb.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/AE6Ec2ieb7.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/bk4CKk95jl.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/A6Fa4cHiJE.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/7jhImA49g1.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/6EBb7kaBCl.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/7B9IG363dd.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/faglL8a8BE.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/e20GF27jfe.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/3ifdl21jG5.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/HE7Bg6Ac76.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/DifEIhaKag.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/dja205hDGK.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/k13fl3Acg2.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/5hHf3k7H81.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/7dh8iLCE5a.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/6dKB123GIm.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/b54HdkbkaE.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/d7fglli8dA.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/f3aDD2AAgf.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/1I3m1f0ldA.png?imageslim">
+<meta property="og:updated_time" content="2018-06-05T17:00:39.386Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="目标检测数据集MSCOCO简介">
-<meta name="twitter:description" content="目标检测数据集 MSCOCO 简介">
-<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527334430550.png">
+<meta name="twitter:title" content="目标检测-HyperNet-论文笔记">
+<meta name="twitter:description" content="目标检测模型 HyperNet: Towards Accurate Region Proposal Generation and Joint Object Detection   论文笔记">
+<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/2k1dj7mlHb.png?imageslim">
 
 
 
@@ -151,13 +165,13 @@
 
 
 
-  <link rel="canonical" href="https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html"/>
+  <link rel="canonical" href="https://arleyzhang.github.io/articles/target-detection--hypernet--paper-notes.html"/>
 
 
 
 
 
-  <title>目标检测数据集MSCOCO简介 | arleyzhang</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>目标检测-HyperNet-论文笔记 | arleyzhang</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -328,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html">
+    <link itemprop="mainEntityOfPage" href="https://arleyzhang.github.io/articles/target-detection--hypernet--paper-notes.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="arleyzhang">
@@ -345,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">目标检测数据集MSCOCO简介</h1>
+          <h1 class="post-title" itemprop="name headline">目标检测-HyperNet-论文笔记</h1>
         
 
         <div class="post-meta">
@@ -357,8 +371,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-04T03:37:20+08:00">
-                2018-06-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-06T00:46:38+08:00">
+                2018-06-06
               </time>
             
 
@@ -373,8 +387,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-06-04T23:58:54+08:00">
-                2018-06-04
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-06T01:00:39+08:00">
+                2018-06-06
               </time>
             
           </span>
@@ -410,9 +424,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html#comments" itemprop="discussionUrl">
+                <a href="/articles/target-detection--hypernet--paper-notes.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="articles/target-detection--hypernet--paper-notes.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -432,7 +446,7 @@
 
           
               <div class="post-description">
-                  目标检测数据集 MSCOCO 简介
+                  目标检测模型 HyperNet: Towards Accurate Region Proposal Generation and Joint Object Detection   论文笔记 
               </div>
           
 
@@ -449,76 +463,157 @@
       
 
       
-        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>介绍一下目标检测领域另外一个比较有名的数据集 <a href="http://cocodataset.org" target="_blank" rel="external">MS COCO</a> (Microsoft COCO: Common Objects in Context) .</p>
-<p>MSCOCO 数据集是微软构建的一个数据集，其包含 detection, segmentation, keypoints等任务。</p>
-<p>MSCOCO主要是为了解决detecting non-iconic views of objects（对应常说的detection）, contextual reasoning between objects and the precise 2D localization of objects（对应常说的分割问题） 这三种场景下的问题。</p>
-<p>下面是iconic 图片和 non-iconic 图片之间的对比。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527334430550.png" alt="1527334430550"></p>
-<p>与PASCAL COCO数据集相比，COCO中的图片包含了自然图片以及生活中常见的目标图片，背景比较复杂，目标数量比较多，目标尺寸更小，因此COCO数据集上的任务更难，对于检测任务来说，现在衡量一个模型好坏的标准更加倾向于使用COCO数据集上的检测结果。</p>
-<p>数据集的构建过程不说了。主要关注一下统计信息</p>
-<h1 id="1-统计信息"><a href="#1-统计信息" class="headerlink" title="1 统计信息"></a>1 统计信息</h1><p>MSCOCO总共包含91个类别，每个类别的图片数量如下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335304935.png" alt="1527335304935"></p>
+        <blockquote>
+<p>论文： <a href="https://arxiv.org/abs/1604.00600" target="_blank" rel="external">HyperNet: Towards Accurate Region Proposal Generation and Joint Object Detection</a></p>
+</blockquote>
+<h1 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h1><p>这篇文章主要解决了两个问题：</p>
 <ul>
-<li>图中也标出了PASCAL VOC的统计数据作为对比。</li>
+<li>解决 R-CNN 系列 目标检测模型，需要生成几百上千的候选框（Faster R-CNN 300；Fast R-CNN 2000）的问题。HperNet 只需生成 100~200个候选框。而精度比 Faster R-CNN 还要好一点。</li>
+<li>将deep ConvNet的高低层特征进行融合，进而利用融合后的特征进行region proposal提取和进一步目标检测。提升了对小目标的检测效果。</li>
 </ul>
-<hr>
-<p>下图展示的是几个不同数据集的总类别数量，以及每个类别的总实例数量，一个实例就是图片上的一个目标，主要关注一下 PASCAL 和 ImageNet。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335519760.png" alt="1527335519760"></p>
+<p>主要的贡献：</p>
 <ul>
-<li>COCO数据集的类别总数虽然没有 ImageNet 中用于detection的类别总数多，但是每个类别的实例目标总数要比PASCAL和ImageNet都要多。</li>
-</ul>
-<hr>
-<p>下图是每张图片上的类别数量或者实例数量的分布，括号中为平均值</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335845385.png" alt="1527335845385"></p>
-<ul>
-<li><p>PASCAL和ImageNet中，每张图片上的类别或者实例数量普遍都很少。</p>
-<p>以PASCAL为例：有多于70%的图片上都只有一个类别，而多于50%的图片上只有一个实例或者目标。PASCAL数据集平均每张图片包含1.4个类别和2.3个实例目标，ImageNet也仅有1.7和3.0个。</p>
+<li><p>object proposal task 上：使用50个proposals 可以获得95%的recall；使用100个proposals可以获得97%的recall。</p>
+<p><strong>注意：这个recall只是用于region proposals的，并不是针对 PASCAL 或 COCO 数据集的最终检测效果的recall。</strong>就是说事先生成的 几百个region 与 ground truth 的区域IOU在某一阈值之上的region 占总 的ground truth的比例，这个比例自然是比最终detection的recall要高很多的。因为这个阶段相当于一个弱检测器，约束条件也不高，生成的框里面自然会包含很多 ground truth 的区域。</p>
 </li>
-<li><p>COCO数据集平均每张图片包含 3.5个类别和 7.7 个实例目标，仅有不到20%的图片只包含一个类别，仅有10%的图片包含一个实例目标。</p>
+<li><p>detection challenges 上：在PASCAL VOC 2007 和 2012 数据集上取得的 平均检测精度（mAP），分别为76.3%和71.4%。比Fast R-CNN分别高了6个和3个百分点。</p>
 </li>
-<li><p>COCO数据集不仅数据量大，种类和实例数量也多。从这角度来说 SUN 数据集这两个指标更高一点，但是这个数据集在目标检测里面并不常用。</p>
+<li><p>HperNet 的快速版，可以达到 5FPS的速度。</p>
 </li>
 </ul>
-<hr>
-<p>实例目标的分布</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527337055130.png" alt="1527337055130"></p>
+<p>宏观架构：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/2k1dj7mlHb.png?imageslim" alt="mark"></p>
+<p>整个网络结构也属于两步检测，即先生成 region proposals ，再进行检测。</p>
+<h1 id="2-HyperNet-网络结构"><a href="#2-HyperNet-网络结构" class="headerlink" title="2 HyperNet 网络结构"></a>2 HyperNet 网络结构</h1><p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/AE6Ec2ieb7.png?imageslim" alt="mark"></p>
+<p>图中标注的 写法 比如 5×5×42 指的是，这是一个5×5的卷积核，卷积核的个数为42个，其他的 3×3×4，3×3×63也是一样的写法，写的都是卷积核的参数。</p>
+<p>整个网络结构跟 Faster R-CNN 还是比较像的。</p>
+<p>主要分为三部分：</p>
 <ul>
-<li>COCO数据集中的小目标数量占比更多</li>
+<li>第一部分：卷积层提取特征，然后进行特征融合；</li>
+<li>第二部分：弱检测器，生成候选区域，卷积层+全连接层, Conv+FC；</li>
+<li>第三部分：强检测器，生成最终的检测结构，卷积层 + 全连接层，Conv+FC。</li>
 </ul>
-<p>关于数据集的划分，COCO的论文里是这么说的，</p>
-<p>The 2014 release contains 82,783 training, 40,504 validation, and 40,775 testing images (approximately 1/2 train, 1/4 val, and /4 test). There are nearly 270k segmented people and a total of 886k segmented object instances in the 2014 train+val data alone. The cumulative 2015 release will contain a total of 165,482 train, 81,208 val, and 81,434 test images.    </p>
-<p>2014年的数据在官网是可以下载的，但是2015年只有test部分，train和val部分的数据没有。另外2017年的数据并没有什么新的图片，只是将数据重新划分，train的数据更多了，如下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341503405.png" alt="1527341503405"></p>
-<h1 id="2-评估标准"><a href="#2-评估标准" class="headerlink" title="2 评估标准"></a>2 评估标准</h1><p>COCO的测试标准比PASCAL VOC更严格：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341646178.png" alt="1527341646178"></p>
+<p>下面分别介绍：</p>
+<h2 id="2-1-Hyper-Feature-Production"><a href="#2-1-Hyper-Feature-Production" class="headerlink" title="2.1 Hyper Feature Production"></a>2.1 Hyper Feature Production</h2><p>特征融合，如下图：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/bk4CKk95jl.png?imageslim" alt="mark"></p>
 <ul>
-<li><p>PASCAL 中在测试mAP时，是在IOU=0.5时测的</p>
-</li>
-<li><p>COCO中的AP 是指在 10个IOU层面 以及 80个类别层面 的平均值</p>
-</li>
-<li><p>COCO的主要评价指标是AP，指 IOU从0.5到0.95 每变化 0.05 就测试一次 AP，然后求这10次测量结果的平均值作为最终的 AP</p>
-<p>AP@0.5 跟PASCAL VOC中的mAP是相同的含义</p>
-<p>AP@0.75 跟PASCAL VOC中的mAP也相同，只是IOU阈值提高到了0.75，显然这个层面更严格，精度也会更低</p>
-<p>IOU越高，AP就越低，所以最终的平均之后的AP要比 AP@0.5 小很多，这也就是为什么COCO的AP 超过 50%的只有寥寥几个而已，因为超过50%太难了。而且由于COCO数据集本身数据的复杂性，所以目前的 AP@0.5 最高也只有 73% 。</p>
-</li>
-<li><p>COCO数据集还针对 三种不同大小（small，medium，large） 的图片提出了测量标准，COCO中包含大约 41% 的小目标 ($area &lt; 32×32$), 34% 的中等目标 ($32×32 &lt; area &lt; 96×96$), 和 24% 的大目标 ($area &gt; 96×96$).  小目标的AP是很难提升的。</p>
-</li>
-<li><p>除了AP之外，还提出了 AR 的测量标准 跟AP是类似的。</p>
-</li>
+<li>将图片resize，使得最短边 为600（比如：resize后的大小为 1000×600）；</li>
+<li>首先使用基础卷积神经网络（Alexnet，VGG）提取特征；<ul>
+<li>在最底层卷积层（conv1）后面加上 max pooling 层，实现降采样；</li>
+<li>在最高层卷积层（conv5）后面加上 反卷积 deconv 层，实现上采样；</li>
+<li>中间层（conv3）不做处理；</li>
 </ul>
-<p>COCO提供了一些代码，方便对数据集的使用和模型评估 ：<a href="https://github.com/cocodataset/cocoapi" target="_blank" rel="external">https://github.com/cocodataset/cocoapi</a></p>
-<h1 id="3-总结"><a href="#3-总结" class="headerlink" title="3 总结"></a>3 总结</h1><p>为什么COCO的检测任务那么难？</p>
+</li>
+<li>在上一步操作之后每一个 level 后面都再加 一系列卷积层（绿框中的黄色矩形）： 进一步提取语义特征、将不同分辨率的feature map 压缩到相同的分辨率。</li>
+<li>卷积后每个 feature map 加局部响应归一化 LRN，之后输出 Hyper Feture maps。这里的Hyper Feture maps的大小不是13×13×126的，图上写的那个 13×13 是经过ROI 的大小（红色框框）。这点作者没说清楚，代码也没有，搞不明白Hyper Feture maps到底是多大。</li>
+</ul>
+<p>假设使用VGG做特征提取，输入图片为1000×600。那么Conv1、Conv2、Conv3、Conv4、Conv5层的feature map 输出（不含池化层）分别为 1000×600，500×300，250×150，125×75，62.5×37.5。</p>
+<p>最后的feature map会是62×37, 这样会造成信息损失。</p>
 <ul>
-<li>图片大多数来源于生活中，背景更复杂</li>
-<li>每张图片上的实例目标个数多，平均每张图片7.7个</li>
-<li>小目标更多</li>
-<li>评估标准更严格</li>
+<li>因此把最后的Conv5层的feature map通过反卷积上采样到250×150，然后再经过一系列卷积；</li>
+<li>把第一层Conv1的feature map做一个max pooling 降采样，然后再经过一系列卷积；</li>
+<li>中间层，不做变化，直接经过一系列卷积；</li>
+<li>然后把1，3，5层的feature map 进行 LRN之后连在一起。LRN是必要的，因为不同层的feature resolution 不同，如果不做正则，norm大的feature会压制住norm小的feature。</li>
 </ul>
-<p>所以现在大家更倾向于使用COCO来评估模型的质量。</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
-<li>COCO官网：<a href="http://cocodataset.org" target="_blank" rel="external">http://cocodataset.org</a></li>
-<li>论文：<a href="https://arxiv.org/abs/1405.0312" target="_blank" rel="external">Microsoft COCO: Common Objects in Context</a></li>
-<li>论文：<a href="https://arxiv.org/abs/1502.05082" target="_blank" rel="external">What makes for effective detection proposals?</a> </li>
+<h2 id="2-2-Region-Proposal-Generation"><a href="#2-2-Region-Proposal-Generation" class="headerlink" title="2.2 Region Proposal Generation"></a>2.2 Region Proposal Generation</h2><p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/A6Fa4cHiJE.png?imageslim" alt="mark"></p>
+<p>如上图，对于Hyper Feture maps 使用 ROI pooling 。ROI pooling 的大小是 13×13的，因此最后输出的特征是 ROI feature 是 13×13×126的。中间那个红色的框框是ROI，但是怎么来的，作者没说清楚。</p>
+<p>ROI pooling之后使用了 3×3的4个卷积核。输出的是 13×13×4 的feature map，图上那个空白的矩形就是。之后再经过一个256维的 全连接层；再之后并行经过两个 两个全连接层，分别是分类和回归（用于定位）。</p>
+<p>这个阶段每张图片生成 30k 个不同尺寸的 候选框。然后通过NMS，减少到1k 个，然后再取 top-100或top-200个。</p>
+<p>不过有个疑问的地方：这里的ROI是怎么来的作者没说清楚。</p>
+<p>这也是与Faster R-CNN的不同之处，Faster R-CNN的 ROI Pooling 是在RPN生成 region proposals 之后作用在生成的region上的。如下图Faster R-CNN的结构，对比一下二者在整体结构上的差别。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/7jhImA49g1.png?imageslim" alt="mark"></p>
+<p>而在HyperNet中在生成region proposals时就使用了 ROI Pooling ，如下。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/6EBb7kaBCl.png?imageslim" alt="mark"></p>
+<p><strong>Faster R-CNN中的ROI是 RPN生成的 region proposals。</strong></p>
+<p><strong>HyperNet中的ROI是怎么来的是个疑问。而且HyperNet中的ROI相当于 Faster R-CNN中的anchor box。</strong></p>
+<p>一直不知道HyperNet中的ROI是怎么来的，直到我在知乎上找到了 这个帖子：   <a href="https://zhuanlan.zhihu.com/p/21533724" target="_blank" rel="external">对话CVPR2016：目标检测新进展</a> </p>
+<p>这个帖子的作者（孔涛,清华大学）好像就是这篇文章的作者 （Tao Kong，Tsinghua University）</p>
+<p>里面有一段话：</p>
+<blockquote>
+<p>HyperNet：文章的出发点为一个很重要的观察：神经网络的高层信息体现了更强的语义信息，对于识别问题较为有效；而低层的特征由于分辨率较高，对于目标定位有天然的优势，而检测问题恰恰是识别+定位，因此作者的贡献点在于如何将deep ConvNet的高低层特征进行融合，进而利用融合后的特征进行region proposal提取和进一步目标检测。<strong>不同于Faster R-CNN，文章的潜在Anchor是用类似于BING[4]的方法通过扫描窗口的方式生成的，但利用的是CNN的特征，因此取得了更好的性能。</strong> </p>
+<p>通过以上的改进策略，HyperNet可以在产生大约100个region proposal的时候保证较高的recall，同时目标检测的mAP相对于Fast R-CNN也提高了大约6个百分点。</p>
+</blockquote>
+<p>里面有一句：</p>
+<blockquote>
+<p><strong>不同于Faster R-CNN，文章的潜在Anchor是用类似于BING[4]的方法通过扫描窗口的方式生成的，但利用的是CNN的特征，因此取得了更好的性能。</strong> </p>
+</blockquote>
+<p>也就是说 HyperNet中的ROI 是使用类似于BING的方法提取的 ，上面提到的 BING[4] 文献是：</p>
+<p>[4] Cheng M M, Zhang Z, Lin W Y, et al. BING: Binarized normed gradients for objectness estimation at 300fps. In CVPR 2014</p>
+<p>这篇文章的项目主页是：<a href="http://mmcheng.net/bing/" target="_blank" rel="external">http://mmcheng.net/bing/</a></p>
+<p>大概看了一下论文，是一种利用手工设计的特征进行 object 估计的。这个特征叫做 binarized normed gradients features （BING）. 具体是怎么弄的，没仔细看。</p>
+<p>看一下结果好了，图中的SEL是我们熟知的 Selective Search算法。DR是指object detection rate ，不清楚怎么算的。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/7B9IG363dd.png?imageslim" alt="mark"></p>
+<p>运行速度如下：</p>
+<p>测试条件：Intel i7-3940XM CPU</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>[1]</th>
+<th>OBN [2]</th>
+<th>CSVM [3]</th>
+<th>SEL [4]</th>
+<th>Our BING</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time (seconds)</td>
+<td>89.2</td>
+<td>3.14</td>
+<td>1.32</td>
+<td>11.2</td>
+<td>0.003</td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/faglL8a8BE.png?imageslim" alt="mark"></p>
+<p>可见BING是比 Selective Search效果更好的算法，速度也比 Selective Search 快很多，可达300FPS。</p>
+<p>也就是说HyperNet使用了额外的 region 估计算法，使得后面的 region proposals 提取的region更加精确，然后之后再进行object detection。</p>
+<p>作者说的是使用的是类似于 BING的方法，具体怎么用的，没有代码，不知道是怎么用的。</p>
+<h2 id="2-3-Object-Detection"><a href="#2-3-Object-Detection" class="headerlink" title="2.3 Object Detection"></a>2.3 Object Detection</h2><p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/e20GF27jfe.png?imageslim" alt="mark"></p>
+<p>与Faster R-CNN不同之处在于 在两个全连接层之前使用了一个 3×3 卷积层，降低了输入通道（从126到63）。后面是三个全连接层。</p>
+<p>还有一个不同是，全连接层之间的 dropout 层的概率使用的是0.25，不是0.5。</p>
+<h2 id="2-4-训练策略"><a href="#2-4-训练策略" class="headerlink" title="2.4 训练策略"></a>2.4 训练策略</h2><p>损失函数：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/3ifdl21jG5.png?imageslim" alt="mark"></p>
+<p>没啥大变化</p>
+<p>训练步骤：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/HE7Bg6Ac76.png?imageslim" alt="mark"></p>
+<p>与Faster R-CNN训练步骤一样，都是先训练 region proposals 网络，然后保持卷积层部分权值不动，再训练object detection 网络。然后再保持卷积层特征提取部分权值不动，再训练region proposals 网络。</p>
+<p>只不过这里多训练了两次。</p>
+<h2 id="2-5-加速"><a href="#2-5-加速" class="headerlink" title="2.5 加速"></a>2.5 加速</h2><p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/DifEIhaKag.png?imageslim" alt="mark"></p>
+<p>如上图，上边的图中两个空白矩形框，第一个是 ROI Pooling的输出，第二个是 3×3卷积的输出。</p>
+<p>下边 的图中，3×3卷积的输出用了一个立方体，后面那个白色矩形框是ROI Pooling的输出。</p>
+<p>在生成region proposals 时，将卷积层放在 ROI Pooling层之后，可以实现加速。</p>
+<ul>
+<li>先卷积降低了通道数量（由126降到4）；</li>
+<li>大量 proposal 的conv操作移至前方，实现计算共享；</li>
+<li>ROI Pooling 后面分类器的结构变成了全连接层，简化结构，之前是 卷积层＋全连接层。（个人觉得这个作用不大）</li>
+</ul>
+<p>使用这个策略获得了 40倍的加速。</p>
+<h1 id="3-试验结果分析"><a href="#3-试验结果分析" class="headerlink" title="3 试验结果分析"></a>3 试验结果分析</h1><h2 id="3-1-region-proposals"><a href="#3-1-region-proposals" class="headerlink" title="3.1 region proposals"></a>3.1 region proposals</h2><p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/dja205hDGK.png?imageslim" alt="mark"></p>
+<p>上图衡量的是 不同的IOU 阈值 对 recall的影响。<strong>再说明一下，这个recall不是最终的detection recall。而是region proposals recall。</strong> IOU 阈值越大，条件越严苛，recall势必会下降。对比几条不同方法的结果，HyperNet下降的最慢，比其他方法recall也高。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/k13fl3Acg2.png?imageslim" alt="mark"></p>
+<p>上图衡量的是 不同的proposals 数量 对 recall的影响。<strong>再说明一下，这个recall不是最终的detection recall。而是region proposals recall。</strong> proposals数量越少,条件越严苛,recall势必会下降。对比几条曲线，HyperNet下降的最慢，比其他方法recall也高。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/5hHf3k7H81.png?imageslim" alt="mark"></p>
+<p>上面这个表，衡量的是IOU=0.7的情况下，region proposals recall达到50%和75%时，需要proposals的数量。很明显 HyperNet需要的最少。</p>
+<p>Conv1、Conv2、Conv3、Conv4、Conv5 5个卷积层，为什么选择1,3,5呢？答案在下图中。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/7dh8iLCE5a.png?imageslim" alt="mark"></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/6dKB123GIm.png?imageslim" alt="mark"></p>
+<h2 id="3-2-Object-Detection"><a href="#3-2-Object-Detection" class="headerlink" title="3.2 Object Detection"></a>3.2 Object Detection</h2><p>结果：</p>
+<p>VOC 2007</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/b54HdkbkaE.png?imageslim" alt="mark"></p>
+<p>VOC 2012</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/d7fglli8dA.png?imageslim" alt="mark"></p>
+<p>关于小目标的检测，没有明确标准，只是使用的PASCAL VOC中相对较小的目标（bottle,plant,chair等）做检测。</p>
+<h2 id="3-3-Hyper-Feature-Visualization"><a href="#3-3-Hyper-Feature-Visualization" class="headerlink" title="3.3 Hyper Feature Visualization"></a>3.3 Hyper Feature Visualization</h2><p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/f3aDD2AAgf.png?imageslim" alt="mark"></p>
+<h2 id="3-4-Running-Time"><a href="#3-4-Running-Time" class="headerlink" title="3.4 Running Time"></a>3.4 Running Time</h2><p><img src="http://p9r71qdht.bkt.clouddn.com/HyperNet/180606/1I3m1f0ldA.png?imageslim" alt="mark"></p>
+<h1 id="4-总结"><a href="#4-总结" class="headerlink" title="4 总结"></a>4 总结</h1><p>整个网络就是 Faster R-CNN的改进版。最大的改进就是特征融合方法（Hyper Feature）和ROI 的提取方法（BING）。使得region proposals的数量最少降到了100，就可以获得比 Faster F-CNN高的mAP。</p>
+<p>另外，虽然作者说对小目标的的预测效果有改善，但只是从定性的方面来表达的，个人认为应该针对 COCO数据集进行定量测试才更有说服力。</p>
+<h1 id="5-参考资料"><a href="#5-参考资料" class="headerlink" title="5 参考资料"></a>5 参考资料</h1><ol>
+<li>孔涛：对话CVPR2016：目标检测新进展：<a href="https://zhuanlan.zhihu.com/p/21533724" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/21533724</a></li>
+<li>BING: <a href="http://mmcheng.net/bing/" target="_blank" rel="external">http://mmcheng.net/bing/</a></li>
+<li><a href="http://blog.csdn.net/u012361214/article/details/51374012" target="_blank" rel="external">http://blog.csdn.net/u012361214/article/details/51374012</a></li>
 </ol>
 
       
@@ -536,12 +631,12 @@
   <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
-  <p><strong>本文标题：</strong><a href="/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html">目标检测数据集MSCOCO简介</a></p>
+  <p><strong>本文标题：</strong><a href="/articles/target-detection--hypernet--paper-notes.html">目标检测-HyperNet-论文笔记</a></p>
   <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
-  <p><strong>发布时间：</strong>2018年06月04日 - 03:06</p>
-  <p><strong>最后更新：</strong>2018年06月04日 - 23:06</p>
-  <p><strong>本文链接：</strong><a href="/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html" title="目标检测数据集MSCOCO简介">https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html"  aria-label="复制成功！"></i></span>
+  <p><strong>发布时间：</strong>2018年06月06日 - 00:06</p>
+  <p><strong>最后更新：</strong>2018年06月06日 - 01:06</p>
+  <p><strong>本文链接：</strong><a href="/articles/target-detection--hypernet--paper-notes.html" title="目标检测-HyperNet-论文笔记">https://arleyzhang.github.io/articles/target-detection--hypernet--paper-notes.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/target-detection--hypernet--paper-notes.html"  aria-label="复制成功！"></i></span>
   </p>
   <p><strong>版权声明：</strong> 本文由 arleyzhang 原创，采用 <i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">保留署名-非商业性使用-禁止演绎 4.0-国际许可协议</a>，转载请保留原文链接及作者!</p>  
 </div>
@@ -573,9 +668,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/dataset/" rel="tag"><i class="fa fa-tag"></i> dataset</a>
+            <a href="/tags/论文笔记/" rel="tag"><i class="fa fa-tag"></i> 论文笔记</a>
           
-            <a href="/tags/MSCOCO/" rel="tag"><i class="fa fa-tag"></i> MSCOCO</a>
+            <a href="/tags/object-detection/" rel="tag"><i class="fa fa-tag"></i> object detection</a>
+          
+            <a href="/tags/HyperNet/" rel="tag"><i class="fa fa-tag"></i> HyperNet</a>
           
         </div>
       
@@ -588,8 +685,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/articles/a-brief-introduction-to-the-target-detection-data-set-pascal-voc.html" rel="next" title="目标检测数据集PASCAL VOC简介">
-                <i class="fa fa-chevron-left"></i> 目标检测数据集PASCAL VOC简介
+              <a href="/articles/notes-on-the-basic-dl-model--deformable-convolutional-networks-.html" rel="next" title="基础DL模型-Deformable Convolutional Networks-论文笔记">
+                <i class="fa fa-chevron-left"></i> 基础DL模型-Deformable Convolutional Networks-论文笔记
               </a>
             
           </div>
@@ -598,8 +695,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/articles/target-detection-evaluation-standard--ap&map.html" rel="prev" title="目标检测评价标准-AP&mAP">
-                目标检测评价标准-AP&mAP <i class="fa fa-chevron-right"></i>
+              <a href="/articles/target-detection--fssd--paper-notes.html" rel="prev" title="目标检测-FSSD-论文笔记">
+                目标检测-FSSD-论文笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -758,7 +855,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-统计信息"><span class="nav-text">1 统计信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-评估标准"><span class="nav-text">2 评估标准</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-总结"><span class="nav-text">3 总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-简介"><span class="nav-text">1 简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-HyperNet-网络结构"><span class="nav-text">2 HyperNet 网络结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Hyper-Feature-Production"><span class="nav-text">2.1 Hyper Feature Production</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Region-Proposal-Generation"><span class="nav-text">2.2 Region Proposal Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-Object-Detection"><span class="nav-text">2.3 Object Detection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-训练策略"><span class="nav-text">2.4 训练策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-加速"><span class="nav-text">2.5 加速</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-试验结果分析"><span class="nav-text">3 试验结果分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-region-proposals"><span class="nav-text">3.1 region proposals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Object-Detection"><span class="nav-text">3.2 Object Detection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-Hyper-Feature-Visualization"><span class="nav-text">3.3 Hyper Feature Visualization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-Running-Time"><span class="nav-text">3.4 Running Time</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-总结"><span class="nav-text">4 总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-参考资料"><span class="nav-text">5 参考资料</span></a></li></ol></div>
             
 
           </div>
@@ -942,9 +1039,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html';
-          this.page.identifier = 'articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html';
-          this.page.title = '目标检测数据集MSCOCO简介';
+          this.page.url = 'https://arleyzhang.github.io/articles/target-detection--hypernet--paper-notes.html';
+          this.page.identifier = 'articles/target-detection--hypernet--paper-notes.html';
+          this.page.title = '目标检测-HyperNet-论文笔记';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://arleyzhang.disqus.com/embed.js';

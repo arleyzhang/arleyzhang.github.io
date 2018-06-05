@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection--squeezedet--paper-notes.html</loc>
+    
+    <lastmod>2018-06-05T17:44:53.228Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection--fssd--paper-notes.html</loc>
+    
+    <lastmod>2018-06-05T17:16:09.231Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection--hypernet--paper-notes.html</loc>
+    
+    <lastmod>2018-06-05T17:00:39.386Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://arleyzhang.github.io/articles/notes-on-the-basic-dl-model--deformable-convolutional-networks-.html</loc>
     
     <lastmod>2018-06-04T19:11:11.701Z</lastmod>

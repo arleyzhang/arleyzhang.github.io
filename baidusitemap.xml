@@ -4,6 +4,80 @@
 
     
   <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection--squeezedet--paper-notes.html</loc>
+    <lastmod>2018-06-05T17:44:53.228Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-SqueezeDet-论文笔记</title>
+        <pubTime>2018-06-05T17:21:40.000Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
+         
+        <tag>lightweight models</tag>
+         
+        <tag>SqueezeDet</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection--fssd--paper-notes.html</loc>
+    <lastmod>2018-06-05T17:16:09.231Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-FSSD-论文笔记</title>
+        <pubTime>2018-06-05T17:03:09.000Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
+         
+        <tag>FSSD</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection--hypernet--paper-notes.html</loc>
+    <lastmod>2018-06-05T17:00:39.386Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-HyperNet-论文笔记</title>
+        <pubTime>2018-06-05T16:46:38.000Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
+         
+        <tag>HyperNet</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://arleyzhang.github.io/articles/notes-on-the-basic-dl-model--deformable-convolutional-networks-.html</loc>
     <lastmod>2018-06-04T19:11:11.701Z</lastmod>
     <data>
@@ -11,11 +85,11 @@
         <title>基础DL模型-Deformable Convolutional Networks-论文笔记</title>
         <pubTime>2018-06-04T18:51:10.000Z</pubTime>
         
-        <tag>论文笔记</tag>
-         
         <tag>basic dl models</tag>
          
         <tag>Deformable Convolutional Networks</tag>
+         
+        <tag>论文笔记</tag>
          
          
            
@@ -35,9 +109,9 @@
         <title>基础DL模型-STN-论文笔记</title>
         <pubTime>2018-06-04T18:26:46.000Z</pubTime>
         
-        <tag>论文笔记</tag>
-         
         <tag>basic dl models</tag>
+         
+        <tag>论文笔记</tag>
          
         <tag>STN</tag>
          
@@ -85,9 +159,9 @@
         <title>目标检测-R-FCN-论文笔记</title>
         <pubTime>2018-06-04T16:37:36.000Z</pubTime>
         
-        <tag>object detection</tag>
-         
         <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
          
         <tag>R-FCN</tag>
          
@@ -180,11 +254,11 @@
         <title>目标检测-SSD-论文笔记</title>
         <pubTime>2018-06-04T14:03:01.000Z</pubTime>
         
-        <tag>SSD</tag>
+        <tag>论文笔记</tag>
          
         <tag>object detection</tag>
          
-        <tag>论文笔记</tag>
+        <tag>SSD</tag>
          
          
            
