@@ -91,7 +91,7 @@
 
 
 
-  <meta name="keywords" content="dataset,MSCOCO," />
+  <meta name="keywords" content="论文笔记,object detection,DSOD," />
 
 
 
@@ -102,26 +102,28 @@
 
 
 
-<meta name="description" content="目标检测数据集 MSCOCO 简介">
-<meta name="keywords" content="dataset,MSCOCO">
+<meta name="description" content="目标检测模型 DSOD: Learning Deeply Supervised Object Detectors from Scratch 论文笔记">
+<meta name="keywords" content="论文笔记,object detection,DSOD">
 <meta property="og:type" content="article">
-<meta property="og:title" content="目标检测数据集MSCOCO简介">
-<meta property="og:url" content="https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html">
+<meta property="og:title" content="目标检测模型-DSOD-论文笔记">
+<meta property="og:url" content="https://arleyzhang.github.io/articles/target-detection-model-dsod-essay-notes.html">
 <meta property="og:site_name" content="arleyzhang">
-<meta property="og:description" content="目标检测数据集 MSCOCO 简介">
+<meta property="og:description" content="目标检测模型 DSOD: Learning Deeply Supervised Object Detectors from Scratch 论文笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527334430550.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335304935.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335519760.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335845385.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527337055130.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341503405.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341646178.png">
-<meta property="og:updated_time" content="2018-06-04T15:58:54.063Z">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/dEa6h2GCeE.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/9Fj0BD3LjA.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/aJi5LFle3b.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/dcK6c7lbH0.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/l8Ilm0fJ4i.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/b5laaGfDhl.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/eFIBmLi6Gf.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/Aeblc2FEI0.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/9mheh0G4a5.png?imageslim">
+<meta property="og:updated_time" content="2018-06-05T18:30:54.529Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="目标检测数据集MSCOCO简介">
-<meta name="twitter:description" content="目标检测数据集 MSCOCO 简介">
-<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527334430550.png">
+<meta name="twitter:title" content="目标检测模型-DSOD-论文笔记">
+<meta name="twitter:description" content="目标检测模型 DSOD: Learning Deeply Supervised Object Detectors from Scratch 论文笔记">
+<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/dEa6h2GCeE.png?imageslim">
 
 
 
@@ -151,13 +153,13 @@
 
 
 
-  <link rel="canonical" href="https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html"/>
+  <link rel="canonical" href="https://arleyzhang.github.io/articles/target-detection-model-dsod-essay-notes.html"/>
 
 
 
 
 
-  <title>目标检测数据集MSCOCO简介 | arleyzhang</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>目标检测模型-DSOD-论文笔记 | arleyzhang</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -328,7 +330,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html">
+    <link itemprop="mainEntityOfPage" href="https://arleyzhang.github.io/articles/target-detection-model-dsod-essay-notes.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="arleyzhang">
@@ -345,7 +347,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">目标检测数据集MSCOCO简介</h1>
+          <h1 class="post-title" itemprop="name headline">目标检测模型-DSOD-论文笔记</h1>
         
 
         <div class="post-meta">
@@ -357,8 +359,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-04T03:37:20+08:00">
-                2018-06-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-06T02:15:35+08:00">
+                2018-06-06
               </time>
             
 
@@ -373,8 +375,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-06-04T23:58:54+08:00">
-                2018-06-04
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-06T02:30:54+08:00">
+                2018-06-06
               </time>
             
           </span>
@@ -410,9 +412,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html#comments" itemprop="discussionUrl">
+                <a href="/articles/target-detection-model-dsod-essay-notes.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="articles/target-detection-model-dsod-essay-notes.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -432,7 +434,7 @@
 
           
               <div class="post-description">
-                  目标检测数据集 MSCOCO 简介
+                  目标检测模型 DSOD: Learning Deeply Supervised Object Detectors from Scratch 论文笔记
               </div>
           
 
@@ -449,77 +451,88 @@
       
 
       
-        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>介绍一下目标检测领域另外一个比较有名的数据集 <a href="http://cocodataset.org" target="_blank" rel="external">MS COCO</a> (Microsoft COCO: Common Objects in Context) .</p>
-<p>MSCOCO 数据集是微软构建的一个数据集，其包含 detection, segmentation, keypoints等任务。</p>
-<p>MSCOCO主要是为了解决detecting non-iconic views of objects（对应常说的detection）, contextual reasoning between objects and the precise 2D localization of objects（对应常说的分割问题） 这三种场景下的问题。</p>
-<p>下面是iconic 图片和 non-iconic 图片之间的对比。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527334430550.png" alt="1527334430550"></p>
-<p>与PASCAL COCO数据集相比，COCO中的图片包含了自然图片以及生活中常见的目标图片，背景比较复杂，目标数量比较多，目标尺寸更小，因此COCO数据集上的任务更难，对于检测任务来说，现在衡量一个模型好坏的标准更加倾向于使用COCO数据集上的检测结果。</p>
-<p>数据集的构建过程不说了。主要关注一下统计信息</p>
-<h1 id="1-统计信息"><a href="#1-统计信息" class="headerlink" title="1 统计信息"></a>1 统计信息</h1><p>MSCOCO总共包含91个类别，每个类别的图片数量如下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335304935.png" alt="1527335304935"></p>
-<ul>
-<li>图中也标出了PASCAL VOC的统计数据作为对比。</li>
-</ul>
-<hr>
-<p>下图展示的是几个不同数据集的总类别数量，以及每个类别的总实例数量，一个实例就是图片上的一个目标，主要关注一下 PASCAL 和 ImageNet。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335519760.png" alt="1527335519760"></p>
-<ul>
-<li>COCO数据集的类别总数虽然没有 ImageNet 中用于detection的类别总数多，但是每个类别的实例目标总数要比PASCAL和ImageNet都要多。</li>
-</ul>
-<hr>
-<p>下图是每张图片上的类别数量或者实例数量的分布，括号中为平均值</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335845385.png" alt="1527335845385"></p>
-<ul>
-<li><p>PASCAL和ImageNet中，每张图片上的类别或者实例数量普遍都很少。</p>
-<p>以PASCAL为例：有多于70%的图片上都只有一个类别，而多于50%的图片上只有一个实例或者目标。PASCAL数据集平均每张图片包含1.4个类别和2.3个实例目标，ImageNet也仅有1.7和3.0个。</p>
-</li>
-<li><p>COCO数据集平均每张图片包含 3.5个类别和 7.7 个实例目标，仅有不到20%的图片只包含一个类别，仅有10%的图片包含一个实例目标。</p>
-</li>
-<li><p>COCO数据集不仅数据量大，种类和实例数量也多。从这角度来说 SUN 数据集这两个指标更高一点，但是这个数据集在目标检测里面并不常用。</p>
-</li>
-</ul>
-<hr>
-<p>实例目标的分布</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527337055130.png" alt="1527337055130"></p>
-<ul>
-<li>COCO数据集中的小目标数量占比更多</li>
-</ul>
-<p>关于数据集的划分，COCO的论文里是这么说的，</p>
-<p>The 2014 release contains 82,783 training, 40,504 validation, and 40,775 testing images (approximately 1/2 train, 1/4 val, and /4 test). There are nearly 270k segmented people and a total of 886k segmented object instances in the 2014 train+val data alone. The cumulative 2015 release will contain a total of 165,482 train, 81,208 val, and 81,434 test images.    </p>
-<p>2014年的数据在官网是可以下载的，但是2015年只有test部分，train和val部分的数据没有。另外2017年的数据并没有什么新的图片，只是将数据重新划分，train的数据更多了，如下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341503405.png" alt="1527341503405"></p>
-<h1 id="2-评估标准"><a href="#2-评估标准" class="headerlink" title="2 评估标准"></a>2 评估标准</h1><p>COCO的测试标准比PASCAL VOC更严格：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341646178.png" alt="1527341646178"></p>
-<ul>
-<li><p>PASCAL 中在测试mAP时，是在IOU=0.5时测的</p>
-</li>
-<li><p>COCO中的AP 是指在 10个IOU层面 以及 80个类别层面 的平均值</p>
-</li>
-<li><p>COCO的主要评价指标是AP，指 IOU从0.5到0.95 每变化 0.05 就测试一次 AP，然后求这10次测量结果的平均值作为最终的 AP</p>
-<p>AP@0.5 跟PASCAL VOC中的mAP是相同的含义</p>
-<p>AP@0.75 跟PASCAL VOC中的mAP也相同，只是IOU阈值提高到了0.75，显然这个层面更严格，精度也会更低</p>
-<p>IOU越高，AP就越低，所以最终的平均之后的AP要比 AP@0.5 小很多，这也就是为什么COCO的AP 超过 50%的只有寥寥几个而已，因为超过50%太难了。而且由于COCO数据集本身数据的复杂性，所以目前的 AP@0.5 最高也只有 73% 。</p>
-</li>
-<li><p>COCO数据集还针对 三种不同大小（small，medium，large） 的图片提出了测量标准，COCO中包含大约 41% 的小目标 ($area &lt; 32×32$), 34% 的中等目标 ($32×32 &lt; area &lt; 96×96$), 和 24% 的大目标 ($area &gt; 96×96$).  小目标的AP是很难提升的。</p>
-</li>
-<li><p>除了AP之外，还提出了 AR 的测量标准 跟AP是类似的。</p>
-</li>
-</ul>
-<p>COCO提供了一些代码，方便对数据集的使用和模型评估 ：<a href="https://github.com/cocodataset/cocoapi" target="_blank" rel="external">https://github.com/cocodataset/cocoapi</a></p>
-<h1 id="3-总结"><a href="#3-总结" class="headerlink" title="3 总结"></a>3 总结</h1><p>为什么COCO的检测任务那么难？</p>
-<ul>
-<li>图片大多数来源于生活中，背景更复杂</li>
-<li>每张图片上的实例目标个数多，平均每张图片7.7个</li>
-<li>小目标更多</li>
-<li>评估标准更严格</li>
-</ul>
-<p>所以现在大家更倾向于使用COCO来评估模型的质量。</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
-<li>COCO官网：<a href="http://cocodataset.org" target="_blank" rel="external">http://cocodataset.org</a></li>
-<li>论文：<a href="https://arxiv.org/abs/1405.0312" target="_blank" rel="external">Microsoft COCO: Common Objects in Context</a></li>
-<li>论文：<a href="https://arxiv.org/abs/1502.05082" target="_blank" rel="external">What makes for effective detection proposals?</a> </li>
+        <blockquote>
+<p>论文：<a href="https://arxiv.org/abs/1708.01241" target="_blank" rel="external">DSOD: Learning Deeply Supervised Object Detectors from Scratch</a><br>代码：<a href="https://github.com/szq0214/DSOD" target="_blank" rel="external">https://github.com/szq0214/DSOD</a></p>
+</blockquote>
+<h1 id="0-简介"><a href="#0-简介" class="headerlink" title="0 简介"></a>0 简介</h1><p>这篇文章提出了一种不需要预训练的目标检测模型。</p>
+<p>现在的目标检测模型为了获得较高的精度，普遍采用的做法是：拿在ImageNet上预训练过的分类网络 fine-tuning。fine-tuning 也可以称为是迁移学习，它的好处有两个：（1）有很多针对于ImageNet公开的深度网络模型，可以很方便将这些公开的网络用到目标检测问题上；（2）fine-tuning 训练要比完全从头训练（train from scratch）更省时间，而且fine-tuning对数据量的要求不像分类问题那么严格，可以使用较少的标注数据训练得到比较好的结果。</p>
+<p>但是使用预训练的网络存在以下三个问题：</p>
+<ol>
+<li>Limited structure design space：网络设计空间受限。预训练的网络往往都是计算量，参数量很大的网络，应用到目标检测上之后，虽然针对 head 部分的设计可以随心所欲，但毕竟前面的backbone是固定的，因此计算量和参数量基本固定，网络调整的灵活性不大。</li>
+<li>Learning bias：学习的偏置问题。分类问题和检测问题的loss函数以及类别分布是不同的，作者认为迁移学习时可能会引入 bias ，二者的优化空间是不同的，有可能使检测问题陷入局部最小值。即便fine-tuning可以在一定程度上消除这个bias问题，但是能够消除多少是不确定的，作者认为这并不能从根本上解决问题。</li>
+<li>Domain mismatch：应用领域的不匹配。当ImageNet与你要应用的领域有较大的不同时，比如深度图，医疗影像等数据集，由于数据集本身的 huge mismatch 也会对迁移学习后的结果又一定影响。</li>
 </ol>
+<p>基于以上问题，作者认为根本的解决方法是构建一个网络，并且 train from scratch 。作者也构建了这么一个网络成为 DSOD 。DSOD的结果确实要好一点。</p>
+<p>作者关于迁移学习存在的问题只是理论与经验上的推断，确实有一定道理，但是也仅仅是推断而已，作者并没有用大量的试验来验证。关于迁移学习的问题，刚发现了一篇论文 <a href="https://arxiv.org/abs/1805.08974" target="_blank" rel="external">Do Better ImageNet Models Transfer Better?</a> 使用了大量的试验来验证 关于迁移学习的问题，这个后面会仔细阅读一下。</p>
+<p>这篇文章的主要贡献：</p>
+<ul>
+<li>全球首例可以 train from scratch 的目标检测网络模型。</li>
+<li>在设计过程中提出了应该遵守的原则。</li>
+<li>在 PASCAL VOC 2007, 2012 and MS COCO datasets    三个数据集上获得了state-of-the-art 的精度、处理速度和模型紧凑性。</li>
+</ul>
+<h1 id="1-DSOD"><a href="#1-DSOD" class="headerlink" title="1 DSOD"></a>1 DSOD</h1><p>DSOD 的设计思想可以从下图中看出。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/dEa6h2GCeE.png?imageslim" alt="mark"></p>
+<p>DSOD是在SSD的基础上发展而来的，DSOD的不同在于，不管是在backbong还是head部分，DSOD都借鉴了DenseNet的设计思想。关于DenseNet的详解，可以看这里。</p>
+<p>DSOD的详细网络结构见下表：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/9Fj0BD3LjA.png?imageslim" alt="mark"></p>
+<p>点击 <a href="http://ethereon.github.io/netscope/#/gist/b17d01f3131e2a60f9057b5d3eb9e04d" target="_blank" rel="external">这里</a> 查看这个网络结构的可视化。</p>
+<p>网络的一些设计原则：</p>
+<p><strong>Principle 1: Proposal-free.</strong> </p>
+<p>目前已有的目标检测模型主要有两大类：</p>
+<ul>
+<li>R-CNN，Fast R-CNN, Faster R-CNN and R-FCN 等 region proposal based 的两步检测模型</li>
+<li>YOLO, SSD等 proposal-free的一步检测模型</li>
+</ul>
+<p>作者的实验表明 region base的两步检测模型如果train from scratch将不会收敛，作者认为是ROI池化的存在使梯度不能平稳地从region-level 传递到 feature map（RoI pooling generates features for each region proposals, which hinders the gradients being smoothly back-propagated from region-level to convolutional feature maps.），然而对预训练模型 fine-tuning 可以收到比较好的结果是因为 ROI池化之前的层拥有一个比较好的初值，而不需要随机赋初值，这个在train from scratch时是不存在的。</p>
+<p>作者使用proposal-free的SSD模型，得到了stateof-the-art 的精度和速度。</p>
+<p><strong>Principle 2: Deep Supervision.</strong>  </p>
+<p>这个原则实际上就是如何选择深层神经网络。原文是这么说的</p>
+<blockquote>
+<p>The central idea is to provide integrated objective function as direct supervision to the earlier hidden layers, rather than only at the output layer. </p>
+</blockquote>
+<p>根本思想是提供一个集成的objective function，也就是损失函数不仅要给输出层提供监督信号，还要对网络中前面的非输出层提供监督信号。看到这里我们很显然的想到了 ResNet 和 DenseNet 都是符合这个要求的，二者都存在skip-connection。作者也提到了这两个网络，不过作者最后使用的是DensNet，毕竟DenseNet在ImageNet上的效果略胜一筹。</p>
+<p>此外还使用了 Transition without Pooling Layer 来增加dense block数量。</p>
+<p><strong>Principle 3: Stem Block.</strong>  </p>
+<p>stem block是 inception v3和v4中的结构，就是除了那些卷积block之后，主干网络中与传统 CNN 一样的部分，就是卷积+池化的堆叠结构，不存在skip-connection等特殊结构。</p>
+<p>DenseNet的前面几层，也就是Dense block之前的stem部分是下面这样的，</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/aJi5LFle3b.png?imageslim" alt="mark"></p>
+<p>DSOD中被修改成了这样的：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/dcK6c7lbH0.png?imageslim" alt="mark"></p>
+<p><strong>Principle 4: Dense Prediction Structure.</strong> </p>
+<p>Dense Prediction Structure.中有个特殊的处理，看下图：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/l8Ilm0fJ4i.png?imageslim" alt="mark"></p>
+<p>每一个scale中的feature map（channel）中只有一半是通过前面层学习得到的，还有一半是直接通过降采样得到的。上面图中的红色箭头所指的黑色箭头就是代表这个意思。</p>
+<p>在这个图中用于预测的层也采用了 dense block的结构（head指scale2-scale5预测层，scale1是在backbone中的），但实际上这一部分也可以使用与SSD一样的普通的卷积层（plain），这一点作者也做了相关实验来对比二者之间的差别。</p>
+<h1 id="2-训练策略"><a href="#2-训练策略" class="headerlink" title="2 训练策略"></a>2 训练策略</h1><p>框架：caffe</p>
+<p>硬件：NVidia TitanX GPU</p>
+<p>训练策略上大部分都沿用了SSD的相关策略，有略微差异，这一部分不再叙述。</p>
+<h1 id="3-实验结果"><a href="#3-实验结果" class="headerlink" title="3 实验结果"></a>3 实验结果</h1><h2 id="3-1-对照实验"><a href="#3-1-对照实验" class="headerlink" title="3.1 对照实验"></a>3.1 对照实验</h2><p><strong>DSOD本身关于densenet 网络配置参数的对照实验</strong> </p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/b5laaGfDhl.png?imageslim" alt="mark"></p>
+<ul>
+<li>这里只提一点：当backbone与prediction Layer都采用 densenet的结构时，效果最好。</li>
+<li>其他关于压缩系数 growth rate 以及 各种channel数量的影响不再赘述</li>
+</ul>
+<p><strong>DSOD提出的设计原则之间的对照实验</strong></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/eFIBmLi6Gf.png?imageslim" alt="mark"></p>
+<ul>
+<li>注意一点：当Faster R-CNN train from scratch 时，是不收敛的</li>
+<li>SSD train from scratch 时 是可以收敛的，但是精度会降低，当结合densenet构成DSOD时，精度一下又上去了。</li>
+<li>参数量减少很多，这一部分得益于densenet。</li>
+</ul>
+<p>有趣的是，作者提出的DSOD本来是使用train from scratch的方法训练的，但是作者也尝试过使用DSOD先在ImagNet上预训练，然后在VOC上fine-tuning的方式：</p>
+<p>作者使用 backbone network DS/64-12-16-1 （这个架构比DenseNet论文中使用的效果好于ResNet的结构在配置上差很多）在 ImageNet上预训练, 获得了 66.8% 的top-1 精度和87.8%的 top-5 精度，其结果稍差于VGG。将其用于在 “07+12” trainval set上预训练, 获得了 70.3% 的mAP（ VOC 2007 test-set）。</p>
+<p>同样结构的DSOD直接 train from scratch，获得的mAP是70.7%，可以看到两种策略训练出来的结果很接近，train from scratch还略微好一点，这也说明了 densenet 的结构是比较适用于 train from scratch 的。</p>
+<p>还有一个有趣的现象，从table 4中可以看到原版的SSD也就是使用VGG的SSD 从fine tuning 到 train from scratch 其精度是降低的。所以对于VGG结构的网络来说 train from scratch 并没有太大的好处。</p>
+<p>参数量与速度方面：</p>
+<p>DSOD的参数量：1/2 parameters to SSD300 with VGGNet, 1/4 to SSD300 with ResNet-101, 1/4 to R-FCN with ResNet-101 and 1/10 to Faster R-CNN with VGGNet.  </p>
+<p>具体的速度看table4. 另外还有一个轻量级的版本，表中没列出：</p>
+<p>A lite-version of DSOD (10.4M parameters, w/o any speed optimization) can run 25.8 fps with only 1% mAP drops    </p>
+<h2 id="3-2-PASCAL-VOC-和-MSCOCO"><a href="#3-2-PASCAL-VOC-和-MSCOCO" class="headerlink" title="3.2 PASCAL VOC 和 MSCOCO"></a>3.2 PASCAL VOC 和 MSCOCO</h2><p>PASCAL VOC 和 MSCOCO 的试验结果不详细赘述。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/Aeblc2FEI0.png?imageslim" alt="mark"></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/9mheh0G4a5.png?imageslim" alt="mark"></p>
+<h1 id="4-总结"><a href="#4-总结" class="headerlink" title="4 总结"></a>4 总结</h1><p>这两年来深度网络特别是以 ResNet 为代表的深层神经网络发展很迅速，其促进了计算机视觉领域（还有其他领域比如NLP）的快速发展，很多视觉问题取得了高速的发展，基于这个趋势，人们会认为更深的网络，更多的数据集应该可以取得更好的结果，比如现在谷歌有个 Open Images Dataset ，包含大约900万张图片，这基本上是 ImageNet的 7.5倍大。当然这么多的数据集也许是好的，但是如果能通过合设计网络结构使网络在较小的数据集上能取得相当的结果，那么何乐而不为呢？</p>
+<p>DSOD的结果就是很好的例子：train from scratch 仅仅使用了 16551 张图片就可以得到相当或者更好的精度，而fine tuning使用了 1.2 million + 16551 张图片。</p>
+<p>DSOD的这个思想我个人觉得是很有意义的，因为尽管对于学术研究来说，随着硬件（GPU，TPU等）的发展和大公司公开新的更大的数据集，研究更深的网络以求获得更好的精度是可行的，但是对于深度学习的产品落地来说，大的网络结构是不现实的，毕竟你无法将100多层的以ResNet为基础的网络或者其他更深的网络跑在一个终端设备或者移动设备上，然而从产品落地的层面来说，终端设备或者移动设备的占比要更大，而大型的网络则只能做成云端或者服务器端的产品。</p>
 
       
     </div>
@@ -536,12 +549,12 @@
   <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
-  <p><strong>本文标题：</strong><a href="/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html">目标检测数据集MSCOCO简介</a></p>
+  <p><strong>本文标题：</strong><a href="/articles/target-detection-model-dsod-essay-notes.html">目标检测模型-DSOD-论文笔记</a></p>
   <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
-  <p><strong>发布时间：</strong>2018年06月04日 - 03:06</p>
-  <p><strong>最后更新：</strong>2018年06月04日 - 23:06</p>
-  <p><strong>本文链接：</strong><a href="/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html" title="目标检测数据集MSCOCO简介">https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html"  aria-label="复制成功！"></i></span>
+  <p><strong>发布时间：</strong>2018年06月06日 - 02:06</p>
+  <p><strong>最后更新：</strong>2018年06月06日 - 02:06</p>
+  <p><strong>本文链接：</strong><a href="/articles/target-detection-model-dsod-essay-notes.html" title="目标检测模型-DSOD-论文笔记">https://arleyzhang.github.io/articles/target-detection-model-dsod-essay-notes.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/target-detection-model-dsod-essay-notes.html"  aria-label="复制成功！"></i></span>
   </p>
   <p><strong>版权声明：</strong> 本文由 arleyzhang 原创，采用 <i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">保留署名-非商业性使用-禁止演绎 4.0-国际许可协议</a>，转载请保留原文链接及作者!</p>  
 </div>
@@ -573,9 +586,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/dataset/" rel="tag"><i class="fa fa-tag"></i> dataset</a>
+            <a href="/tags/论文笔记/" rel="tag"><i class="fa fa-tag"></i> 论文笔记</a>
           
-            <a href="/tags/MSCOCO/" rel="tag"><i class="fa fa-tag"></i> MSCOCO</a>
+            <a href="/tags/object-detection/" rel="tag"><i class="fa fa-tag"></i> object detection</a>
+          
+            <a href="/tags/DSOD/" rel="tag"><i class="fa fa-tag"></i> DSOD</a>
           
         </div>
       
@@ -588,8 +603,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/articles/a-brief-introduction-to-the-target-detection-data-set-pascal-voc.html" rel="next" title="目标检测数据集PASCAL VOC简介">
-                <i class="fa fa-chevron-left"></i> 目标检测数据集PASCAL VOC简介
+              <a href="/articles/basic-dl-model-densenet-essay-notes.html" rel="next" title="基础DL模型-DenseNet-论文笔记">
+                <i class="fa fa-chevron-left"></i> 基础DL模型-DenseNet-论文笔记
               </a>
             
           </div>
@@ -597,10 +612,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/articles/target-detection-evaluation-standard--ap&map.html" rel="prev" title="目标检测评价标准-AP&mAP">
-                目标检测评价标准-AP&mAP <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -687,7 +698,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -709,7 +720,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -758,7 +769,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-统计信息"><span class="nav-text">1 统计信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-评估标准"><span class="nav-text">2 评估标准</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-总结"><span class="nav-text">3 总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-简介"><span class="nav-text">0 简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-DSOD"><span class="nav-text">1 DSOD</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-训练策略"><span class="nav-text">2 训练策略</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-实验结果"><span class="nav-text">3 实验结果</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-对照实验"><span class="nav-text">3.1 对照实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-PASCAL-VOC-和-MSCOCO"><span class="nav-text">3.2 PASCAL VOC 和 MSCOCO</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-总结"><span class="nav-text">4 总结</span></a></li></ol></div>
             
 
           </div>
@@ -942,9 +953,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html';
-          this.page.identifier = 'articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html';
-          this.page.title = '目标检测数据集MSCOCO简介';
+          this.page.url = 'https://arleyzhang.github.io/articles/target-detection-model-dsod-essay-notes.html';
+          this.page.identifier = 'articles/target-detection-model-dsod-essay-notes.html';
+          this.page.title = '目标检测模型-DSOD-论文笔记';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://arleyzhang.disqus.com/embed.js';

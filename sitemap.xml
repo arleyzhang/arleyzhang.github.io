@@ -2,58 +2,93 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://arleyzhang.github.io/articles/target-detection--squeezedet--paper-notes.html</loc>
+    <loc>https://arleyzhang.github.io/articles/target-detection-evaluation-standard-ap-map.html</loc>
     
-    <lastmod>2018-06-05T17:44:53.228Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://arleyzhang.github.io/articles/target-detection--fssd--paper-notes.html</loc>
-    
-    <lastmod>2018-06-05T17:16:09.231Z</lastmod>
+    <lastmod>2018-06-05T18:35:37.835Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://arleyzhang.github.io/articles/target-detection--hypernet--paper-notes.html</loc>
+    <loc>https://arleyzhang.github.io/articles/target-detection-hypernet-essay-notes.html</loc>
     
-    <lastmod>2018-06-05T17:00:39.386Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://arleyzhang.github.io/articles/notes-on-the-basic-dl-model--deformable-convolutional-networks-.html</loc>
-    
-    <lastmod>2018-06-04T19:11:11.701Z</lastmod>
+    <lastmod>2018-06-05T18:31:43.884Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://arleyzhang.github.io/articles/note-taking-of-the-basic-dl-model--stn-.html</loc>
+    <loc>https://arleyzhang.github.io/articles/target-detection-rfcn-essay-notes.html</loc>
     
-    <lastmod>2018-06-04T18:49:16.772Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://arleyzhang.github.io/articles/target-detection---summary-of-two-step-detection-algorithm-from-rcnn-to-mask-rcnn.html</loc>
-    
-    <lastmod>2018-06-04T18:24:07.149Z</lastmod>
+    <lastmod>2018-06-05T18:31:43.875Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://arleyzhang.github.io/articles/target-detection--r-fcn--paper-notes.html</loc>
+    <loc>https://arleyzhang.github.io/articles/basic-dl-model-stn-essay-notes.html</loc>
     
-    <lastmod>2018-06-04T17:39:36.065Z</lastmod>
+    <lastmod>2018-06-05T18:31:43.450Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://arleyzhang.github.io/articles/target-detection-evaluation-standard--ap&map.html</loc>
+    <loc>https://arleyzhang.github.io/articles/basic-dl-model-densenet-essay-notes.html</loc>
     
-    <lastmod>2018-06-04T17:08:46.159Z</lastmod>
+    <lastmod>2018-06-05T18:31:43.180Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://arleyzhang.github.io/articles/basic-dl-model-deformable-convolutional-networks-essay-notes.html</loc>
+    
+    <lastmod>2018-06-05T18:31:43.152Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection-summary-of-twostep-algorithm-from-rcnn-to-mask.html</loc>
+    
+    <lastmod>2018-06-05T18:31:43.105Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection-fssd-essay-notes.html</loc>
+    
+    <lastmod>2018-06-05T18:31:43.103Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection-squeezedet-essay-notes.html</loc>
+    
+    <lastmod>2018-06-05T18:31:43.085Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection-ssd-essay-notes.html</loc>
+    
+    <lastmod>2018-06-05T18:31:42.945Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection-dataset-mscoco-introduction.html</loc>
+    
+    <lastmod>2018-06-05T18:31:42.874Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection-data-set-pascal-voc-introduction.html</loc>
+    
+    <lastmod>2018-06-05T18:31:42.746Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection-model-dsod-essay-notes.html</loc>
+    
+    <lastmod>2018-06-05T18:30:54.529Z</lastmod>
     
   </url>
   
@@ -61,27 +96,6 @@
     <loc>https://arleyzhang.github.io/about/index.html</loc>
     
     <lastmod>2018-06-04T16:13:42.216Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-pascal-voc.html</loc>
-    
-    <lastmod>2018-06-04T15:59:07.505Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html</loc>
-    
-    <lastmod>2018-06-04T15:58:54.063Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://arleyzhang.github.io/articles/target-detection--ssd--paper-notes.html</loc>
-    
-    <lastmod>2018-06-04T15:53:56.386Z</lastmod>
     
   </url>
   

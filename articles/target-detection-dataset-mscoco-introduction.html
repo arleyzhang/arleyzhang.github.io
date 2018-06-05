@@ -91,7 +91,7 @@
 
 
 
-  <meta name="keywords" content="论文笔记,object detection,lightweight models,SqueezeDet," />
+  <meta name="keywords" content="dataset,MSCOCO," />
 
 
 
@@ -102,52 +102,26 @@
 
 
 
-<meta name="description" content="目标检测模型 SqueezeDet: Unified, Small, Low Power Fully Convolutional Neural Networks for   Real-Time Object Detection for Autonomous Driving 论文笔记">
-<meta name="keywords" content="论文笔记,object detection,lightweight models,SqueezeDet">
+<meta name="description" content="目标检测数据集 MSCOCO 简介">
+<meta name="keywords" content="dataset,MSCOCO">
 <meta property="og:type" content="article">
-<meta property="og:title" content="目标检测-SqueezeDet-论文笔记">
-<meta property="og:url" content="https://arleyzhang.github.io/articles/target-detection--squeezedet--paper-notes.html">
+<meta property="og:title" content="目标检测数据集MSCOCO简介">
+<meta property="og:url" content="https://arleyzhang.github.io/articles/target-detection-dataset-mscoco-introduction.html">
 <meta property="og:site_name" content="arleyzhang">
-<meta property="og:description" content="目标检测模型 SqueezeDet: Unified, Small, Low Power Fully Convolutional Neural Networks for   Real-Time Object Detection for Autonomous Driving 论文笔记">
+<meta property="og:description" content="目标检测数据集 MSCOCO 简介">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/CCgCfjcH9e.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/1ifAa4H1D5.jpg?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/B132lfkLlh.jpg?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/Fa6eC0C69D.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/9chi01HiB7.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/ml76LJ08hi.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/IB0egCI8Ie.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/64fimdKe64.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/CKKd5kfdKJ.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/LFF2K4J60E.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/4mJKCcCcEm.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/1Fk1AA7Gmk.jpg?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/0IabGL1LbC.jpg?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/c70K5cJcLF.jpg?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/gmB0kfGCBd.jpg?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/BLk7KGeLjd.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/0GKfbA1C2f.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/439GcB9I7L.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/IbE7L72akc.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/cI488j1DLF.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/ibG22baIBE.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/6eDi6fH3aG.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/mibbEmfhEE.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/a18h02G5Dk.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/jebm6mcmCa.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/2Fjj76CKDJ.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/KDla74c81j.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/h8chAg1ljl.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/Hi7087BglB.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/g4CCeAm19A.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/mIFbmED8a2.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/BLeEDJj4Ah.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/bIfCjcJl00.png?imageslim">
-<meta property="og:updated_time" content="2018-06-05T17:44:53.228Z">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527334430550.png">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335304935.png">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335519760.png">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335845385.png">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527337055130.png">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341503405.png">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341646178.png">
+<meta property="og:updated_time" content="2018-06-05T18:31:42.874Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="目标检测-SqueezeDet-论文笔记">
-<meta name="twitter:description" content="目标检测模型 SqueezeDet: Unified, Small, Low Power Fully Convolutional Neural Networks for   Real-Time Object Detection for Autonomous Driving 论文笔记">
-<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/CCgCfjcH9e.png?imageslim">
+<meta name="twitter:title" content="目标检测数据集MSCOCO简介">
+<meta name="twitter:description" content="目标检测数据集 MSCOCO 简介">
+<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527334430550.png">
 
 
 
@@ -177,13 +151,13 @@
 
 
 
-  <link rel="canonical" href="https://arleyzhang.github.io/articles/target-detection--squeezedet--paper-notes.html"/>
+  <link rel="canonical" href="https://arleyzhang.github.io/articles/target-detection-dataset-mscoco-introduction.html"/>
 
 
 
 
 
-  <title>目标检测-SqueezeDet-论文笔记 | arleyzhang</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>目标检测数据集MSCOCO简介 | arleyzhang</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -354,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://arleyzhang.github.io/articles/target-detection--squeezedet--paper-notes.html">
+    <link itemprop="mainEntityOfPage" href="https://arleyzhang.github.io/articles/target-detection-dataset-mscoco-introduction.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="arleyzhang">
@@ -371,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">目标检测-SqueezeDet-论文笔记</h1>
+          <h1 class="post-title" itemprop="name headline">目标检测数据集MSCOCO简介</h1>
         
 
         <div class="post-meta">
@@ -383,8 +357,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-06T01:21:40+08:00">
-                2018-06-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-04T03:37:20+08:00">
+                2018-06-04
               </time>
             
 
@@ -399,7 +373,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-06-06T01:44:53+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-06T02:31:42+08:00">
                 2018-06-06
               </time>
             
@@ -436,9 +410,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/articles/target-detection--squeezedet--paper-notes.html#comments" itemprop="discussionUrl">
+                <a href="/articles/target-detection-dataset-mscoco-introduction.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="articles/target-detection--squeezedet--paper-notes.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="articles/target-detection-dataset-mscoco-introduction.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -458,7 +432,7 @@
 
           
               <div class="post-description">
-                  目标检测模型 SqueezeDet: Unified, Small, Low Power Fully Convolutional Neural Networks for   Real-Time Object Detection for Autonomous Driving 论文笔记
+                  目标检测数据集 MSCOCO 简介
               </div>
           
 
@@ -475,197 +449,77 @@
       
 
       
-        <blockquote>
-<p>论文：<a href="https://arxiv.org/abs/1612.01051" target="_blank" rel="external">SqueezeDet: Unified, Small, Low Power Fully Convolutional Neural …</a><br>代码：<a href="https://github.com/BichenWuUCB/squeezeDet" target="_blank" rel="external">https://github.com/BichenWuUCB/squeezeDet</a></p>
-</blockquote>
-<h1 id="1-简要介绍"><a href="#1-简要介绍" class="headerlink" title="1 简要介绍"></a>1 简要介绍</h1><p>这篇文章提出的SqueezeDet 网络主要是适用于自动驾驶领域的。</p>
-<p>SqueezeDet : 基于SqueezeNet 的Detection模型，故称SqueezeDet 。</p>
-<p>对于自动驾驶领域来说，几个关键因素如下：</p>
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>介绍一下目标检测领域另外一个比较有名的数据集 <a href="http://cocodataset.org" target="_blank" rel="external">MS COCO</a> (Microsoft COCO: Common Objects in Context) .</p>
+<p>MSCOCO 数据集是微软构建的一个数据集，其包含 detection, segmentation, keypoints等任务。</p>
+<p>MSCOCO主要是为了解决detecting non-iconic views of objects（对应常说的detection）, contextual reasoning between objects and the precise 2D localization of objects（对应常说的分割问题） 这三种场景下的问题。</p>
+<p>下面是iconic 图片和 non-iconic 图片之间的对比。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527334430550.png" alt="1527334430550"></p>
+<p>与PASCAL COCO数据集相比，COCO中的图片包含了自然图片以及生活中常见的目标图片，背景比较复杂，目标数量比较多，目标尺寸更小，因此COCO数据集上的任务更难，对于检测任务来说，现在衡量一个模型好坏的标准更加倾向于使用COCO数据集上的检测结果。</p>
+<p>数据集的构建过程不说了。主要关注一下统计信息</p>
+<h1 id="1-统计信息"><a href="#1-统计信息" class="headerlink" title="1 统计信息"></a>1 统计信息</h1><p>MSCOCO总共包含91个类别，每个类别的图片数量如下：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335304935.png" alt="1527335304935"></p>
 <ul>
-<li>精度。高精度，和尽可能高的 recall，最好使100%的recall；</li>
-<li>速度。应该具备实时检测的速度（30FPS）；</li>
-<li>较小的模型。小的模型好处有：训练时更加高效，车载客户端进行模型更新时需要较少的无线网络带宽和通信消耗，消耗更少的能量，更适用于嵌入式设备部署。</li>
-<li>能量效率。一些桌面和框架级别的神经网络往往都需要很大的能量耗散（250W），但是对于自动驾驶领域来说，嵌入式处理器才是应该考虑的主要对象。毫无疑问，如何让神经网络模型适应小的能量消耗是个关键问题。</li>
+<li>图中也标出了PASCAL VOC的统计数据作为对比。</li>
 </ul>
-<p>目前很多公司都在研发适用于自动驾驶的处理器，英伟达 的 <a href="https://blogs.nvidia.com/blog/2016/09/28/xavier/" target="_blank" rel="external">Xavier</a> 号称实现每秒 30 万亿次计算(TOPS)，整个系统功耗（包含CPU,GPU在内）为 30W；英特尔的 <a href="http://www.mobileye.com/our-technology/evolution-eyeq-chip/" target="_blank" rel="external">EyeQ5</a> ，号称实现15万亿次计算功耗为 5-6W。</p>
-<p>SqueezeDet 主要就是针对以上几个方面提出了自己的架构。</p>
-<p>SqueezeDet 主要参考了 SqueezeNet，YOLO和SSD，还有FCN全卷积网络。</p>
-<p>最终的效果是，在KITTI 数据集上，输入分辨率为1242×375的情况下，其速度达到了57.2FPS，模型体积仅为不到8MB；在TITAN XGPU上 检测一张图片的能耗为 $1.4J$，这是Faster R-CNN 的1/84. 而精度也达到了目前 state-of-the-art水平。在某些方面甚至超过了其他的模型。</p>
-<h1 id="2-结构设计"><a href="#2-结构设计" class="headerlink" title="2 结构设计"></a>2 结构设计</h1><p>先回顾一下跟这篇文章有关的，其他的网络结构。</p>
-<h2 id="2-1-YOLO"><a href="#2-1-YOLO" class="headerlink" title="2.1 YOLO"></a>2.1 YOLO</h2><p>与Faster R-CNN相比，YOLO是属于一步到位的模型，不需要预先生成候选框，然后再去提取特征进行分类和回归。</p>
-<p>YOLO的模型结构，如下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/CCgCfjcH9e.png?imageslim" alt="mark"></p>
-<p>但实际上YOLO也是有生成候选框的步骤的，只是 这个步骤跟检测合并到一起了。那这个生成候选区域的步骤在哪呢。</p>
-<p>先看下面这两张图</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/1ifAa4H1D5.jpg?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/B132lfkLlh.jpg?imageslim" alt="mark"></p>
-<p>YOLO的方法是这样的，将原图分成一个 7×7的网格：</p>
-<ol>
-<li><p><strong>对于每一个网格都预测两个 形状不同的bounding box（box的尺寸可以大于网格的大小），那么图片上目标的bounding box 肯定跟某几个不同的网格中的bounding box 距离最近。</strong></p>
-<p>那也就是说每一个网格所关联的两个 box （类似Faster R-CNN中的anchor）里面的区域有可能是目标，也有可能不是目标，或者只包含目标的一部分，或者一部分是目标，一部分不是目标。</p>
-<p>那么这样一来每个 bounding box 都有一个概率，表示他是目标的概率。这个概率 是<br>$$<br>P_r(Object)*IOU_{truth}^{pred}<br>$$<br>其中 $P_r(Object)$  表示这个box中是否存在目标，存在就为1，不存在就为0. 比</p>
-<p>如上面两张图中，不同的两个格点（红色）对应着不同的两组 boxs，每个格点对应两个box，由于这四个box都与目标的区域有重叠（IOU不为0），所以这个四个box的  $P_r(Object)$   都为1. 其实这个  $P_r(Object)$  就是用 IOU （与ground truth之间的IOU）衡量的，首先计算IOU，只要IOU 不为0， $P_r(Object)$  就是1. 一个box中有目标的概率其实就是IOU的值。</p>
-<p>除此之外，每个box还都有位置信息，用坐标来表示，中心点坐标(x, y),以及box宽和高，w，h。</p>
-<p>到此为止，每个格点关联的每个box有5个属性，4个位置信息，1个confidence信息。那一个格点关于box 的定位信息有10个。</p>
+<hr>
+<p>下图展示的是几个不同数据集的总类别数量，以及每个类别的总实例数量，一个实例就是图片上的一个目标，主要关注一下 PASCAL 和 ImageNet。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335519760.png" alt="1527335519760"></p>
+<ul>
+<li>COCO数据集的类别总数虽然没有 ImageNet 中用于detection的类别总数多，但是每个类别的实例目标总数要比PASCAL和ImageNet都要多。</li>
+</ul>
+<hr>
+<p>下图是每张图片上的类别数量或者实例数量的分布，括号中为平均值</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335845385.png" alt="1527335845385"></p>
+<ul>
+<li><p>PASCAL和ImageNet中，每张图片上的类别或者实例数量普遍都很少。</p>
+<p>以PASCAL为例：有多于70%的图片上都只有一个类别，而多于50%的图片上只有一个实例或者目标。PASCAL数据集平均每张图片包含1.4个类别和2.3个实例目标，ImageNet也仅有1.7和3.0个。</p>
 </li>
-<li><p><strong>但是检测不仅要检测出目标，还要识别出目标是什么物体，因此还需要额外的信息。假设要识别的类别总数为C，YOLO中，对于每个格点（不是关联的两个bounding box）都做一个物体类别预测。</strong></p>
-<p>那么一个格点还会产生C个物体类别预测信息。对于PASCAL 数据集来说 C=20。那此处</p>
+<li><p>COCO数据集平均每张图片包含 3.5个类别和 7.7 个实例目标，仅有不到20%的图片只包含一个类别，仅有10%的图片包含一个实例目标。</p>
 </li>
+<li><p>COCO数据集不仅数据量大，种类和实例数量也多。从这角度来说 SUN 数据集这两个指标更高一点，但是这个数据集在目标检测里面并不常用。</p>
+</li>
+</ul>
+<hr>
+<p>实例目标的分布</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527337055130.png" alt="1527337055130"></p>
+<ul>
+<li>COCO数据集中的小目标数量占比更多</li>
+</ul>
+<p>关于数据集的划分，COCO的论文里是这么说的，</p>
+<p>The 2014 release contains 82,783 training, 40,504 validation, and 40,775 testing images (approximately 1/2 train, 1/4 val, and /4 test). There are nearly 270k segmented people and a total of 886k segmented object instances in the 2014 train+val data alone. The cumulative 2015 release will contain a total of 165,482 train, 81,208 val, and 81,434 test images.    </p>
+<p>2014年的数据在官网是可以下载的，但是2015年只有test部分，train和val部分的数据没有。另外2017年的数据并没有什么新的图片，只是将数据重新划分，train的数据更多了，如下：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341503405.png" alt="1527341503405"></p>
+<h1 id="2-评估标准"><a href="#2-评估标准" class="headerlink" title="2 评估标准"></a>2 评估标准</h1><p>COCO的测试标准比PASCAL VOC更严格：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341646178.png" alt="1527341646178"></p>
+<ul>
+<li><p>PASCAL 中在测试mAP时，是在IOU=0.5时测的</p>
+</li>
+<li><p>COCO中的AP 是指在 10个IOU层面 以及 80个类别层面 的平均值</p>
+</li>
+<li><p>COCO的主要评价指标是AP，指 IOU从0.5到0.95 每变化 0.05 就测试一次 AP，然后求这10次测量结果的平均值作为最终的 AP</p>
+<p>AP@0.5 跟PASCAL VOC中的mAP是相同的含义</p>
+<p>AP@0.75 跟PASCAL VOC中的mAP也相同，只是IOU阈值提高到了0.75，显然这个层面更严格，精度也会更低</p>
+<p>IOU越高，AP就越低，所以最终的平均之后的AP要比 AP@0.5 小很多，这也就是为什么COCO的AP 超过 50%的只有寥寥几个而已，因为超过50%太难了。而且由于COCO数据集本身数据的复杂性，所以目前的 AP@0.5 最高也只有 73% 。</p>
+</li>
+<li><p>COCO数据集还针对 三种不同大小（small，medium，large） 的图片提出了测量标准，COCO中包含大约 41% 的小目标 ($area &lt; 32×32$), 34% 的中等目标 ($32×32 &lt; area &lt; 96×96$), 和 24% 的大目标 ($area &gt; 96×96$).  小目标的AP是很难提升的。</p>
+</li>
+<li><p>除了AP之外，还提出了 AR 的测量标准 跟AP是类似的。</p>
+</li>
+</ul>
+<p>COCO提供了一些代码，方便对数据集的使用和模型评估 ：<a href="https://github.com/cocodataset/cocoapi" target="_blank" rel="external">https://github.com/cocodataset/cocoapi</a></p>
+<h1 id="3-总结"><a href="#3-总结" class="headerlink" title="3 总结"></a>3 总结</h1><p>为什么COCO的检测任务那么难？</p>
+<ul>
+<li>图片大多数来源于生活中，背景更复杂</li>
+<li>每张图片上的实例目标个数多，平均每张图片7.7个</li>
+<li>小目标更多</li>
+<li>评估标准更严格</li>
+</ul>
+<p>所以现在大家更倾向于使用COCO来评估模型的质量。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
+<li>COCO官网：<a href="http://cocodataset.org" target="_blank" rel="external">http://cocodataset.org</a></li>
+<li>论文：<a href="https://arxiv.org/abs/1405.0312" target="_blank" rel="external">Microsoft COCO: Common Objects in Context</a></li>
+<li>论文：<a href="https://arxiv.org/abs/1502.05082" target="_blank" rel="external">What makes for effective detection proposals?</a> </li>
 </ol>
-<p>那也就是说一个格点经过网络之后，要得到 共30个信息，这里面包含定位（10）和识别信息（20维）。</p>
-<p>所以我们观察一下YOLO的最后全连接层那一部分，可以看到YOLO用了两个全连接层，一层是4096×1的，还有一个是 1470×1的。前面的4096可以认为是根据经验选取的（alexnet，VGG第一个全连接层都是4096维的），但是后面的1470×1就不是经验值了，其实是 1470=7×7×30。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/Fa6eC0C69D.png?imageslim" alt="mark"></p>
-<p>那这个是什么意思已经很明白了。此处的 7×7 就是要把图片分成多少 格点，后面的30就是每个格点要预测的信息维数。结合下图更明了。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/9chi01HiB7.png?imageslim" alt="mark"></p>
-<p>那其实到这里就可以看出来了，YOLO解决的方式其实属于是回归问题。前面24个卷积层提取特征，后面两个全连接层，用于回归。回归的是什么？回归拟合的是每个格点两个box的坐标值（5×2），和每个格点的分类向量（20）。</p>
-<h2 id="2-2-Faster-R-CNN"><a href="#2-2-Faster-R-CNN" class="headerlink" title="2.2 Faster R-CNN"></a>2.2 Faster R-CNN</h2><p>Faster R-CNN的结构见下图，很显然是两步检测的，先生成一系列可能是目标的区域（stage 1），然后对这些区域进行检测（stage 2）。stage 2的箭头起点不太对，应该是从 proposals开始，前面的卷积部分是共享的。</p>
-<p>实际上，Faster R-CNN的stage 1就已经产生目标检测的区域了，可以认为这已经是一个 弱的检测器了（这个称为RPN），这个stage 1已将包含了定位的信息，只是它只确认区域中是否包含目标，而不关心包含的是什么类别的目标。stage 2是一个强检测器，除了进一步精修定位信息，最主要的是把目标类别识别来。</p>
-<p>假设我们在stage 1中把候选区域中的目标类别也预测出来，那其实stage 2可以不用了。</p>
-<p>YOLO 其实就相当于 Faster R-CNN的stage 1步骤，当然细节上会有不同。比如</p>
-<ul>
-<li>YOLO后面使用的是全连接层，而Faster R-CNN stage 1步骤（RPN）后面使用的是全卷积层。</li>
-<li>YOLO每个格点的是预测目标类别的（多分类），RPN只预测是否是目标（二分类）。</li>
-</ul>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/ml76LJ08hi.png?imageslim" alt="mark"></p>
-<p>再看看RPN的主要结构，如下图：</p>
-<p>主要就是 anchor这个机制，假设feature map上每个像素关联k个anchor。</p>
-<p>假设前面用的ZFNet，那么最后一个卷积层输出的feature map是13×13×256的。</p>
-<p>先看其中一个window，如果后面使用256个3×3×256的卷积核，那么 256-d那个地方输出的就是 1×1×256维的，那么后面的cls层（二分类）就是2k个1×1×256的卷积，输出为1×1×2k；reg层（定位）就是4k个1×1×256的卷积，输出为1×1×4k。</p>
-<p><strong>与YOLO不同的是，每一个anchor（对应YOLO中每个格点内的两个box）都输出类别概率。</strong></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/IB0egCI8Ie.png?imageslim" alt="mark"></p>
-<p>图上那个sliding window的做法，在实际操作的时候，其实就是用了卷积的方式，步长为1，pad为1.</p>
-<p>所以实际上  256-d那个地方其实是 13×13×256。对应的cls层和reg层的输出分别是13×13×2k，13×13×4k，如下图。13×13维度上每一个 1×1×2k或4k的长条，都代表图片上不同位置的anchor box的类别信息或者位置信息。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/64fimdKe64.png?imageslim" alt="mark"></p>
-<h2 id="2-3-SSD"><a href="#2-3-SSD" class="headerlink" title="2.3 SSD"></a>2.3 SSD</h2><p>先看下SSD的宏观结构，如下图，FC6和FC7以及之前的部分是VGG的内容，后面是SSD里面加的。SSD添加的层 </p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/CKKd5kfdKJ.png?imageslim" alt="mark"></p>
-<p>这是一个多尺度预测（Multi-scale）的网络，如下图从FPN的论文里找来的图。就是从不同的feature map上预测，然后将各个预测结果融合到一起。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/LFF2K4J60E.png?imageslim" alt="mark"></p>
-<p>然后将SSD与YOLO相比较一下，如下图。可以看出YOLO是单一尺度的。二者最大的区别也在此。当然在框的生成方面SSD也是一步到位的，一边生成框，一边检测。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/4mJKCcCcEm.png?imageslim" alt="mark"></p>
-<p>更详细的看一下SSD的检测流程如下：</p>
-<p>总共6个尺度，每一个尺度上都进行框的生成和预测。最后使用NMS（非最大值抑制）进行过滤，得到最后的结果。</p>
-<p>与YOLO的不同主要在于：</p>
-<ul>
-<li>多尺度</li>
-<li>主干部分，全卷积</li>
-<li>预测部分也是卷积（YOLO的预测部分是全连接层）</li>
-</ul>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/1Fk1AA7Gmk.jpg?imageslim" alt="mark"></p>
-<p>接下来看看SSD是如何检测的。如上图红色框，这一部分其实是使用 3×3的卷积实现的。具体细节看下图：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/0IabGL1LbC.jpg?imageslim" alt="mark"></p>
-<p>再看看是怎么生成default box的，如下图。最右边那个就是对应的feature map的尺寸，然后将feature map上的每一个像素点都映射到原图上（最左边），然后映射到原图上的每一个像素都关联三个不同的default box。</p>
-<p>有没有发现这跟 YOLO中的 网格划分很像，只不过YOLO是划分成网格，这个网格划分对应于最后一个全连接层做了reshape 的feature map，每一个网格也只包含一个像素，每一个像素再映射到原图上。</p>
-<p><strong>但其实更像的是Faster R-CNN中的 anchor box。</strong> </p>
-<ul>
-<li>与YOLO不同的是，每个 default box（对应YOLO中每个格点内的两个box），都输出4个位置信息和 (C+1) 个类别信息（包含1个背景）。</li>
-<li>与Faster R-CNN 不同的是，每个  default box（对应Faster R-CNN 中的两个anchor box），都输出(C+1) 个类别信息，而不是一个二分类标记box是不是目标。</li>
-</ul>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/c70K5cJcLF.jpg?imageslim" alt="mark"></p>
-<p>看下图这个就是分类和检测的实现方法，跟Faster R-CNN中的RPN如出一辙。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/gmB0kfGCBd.jpg?imageslim" alt="mark"></p>
-<h2 id="2-4-SqueezeDet"><a href="#2-4-SqueezeDet" class="headerlink" title="2.4 SqueezeDet"></a>2.4 SqueezeDet</h2><h3 id="2-4-1-结构分析"><a href="#2-4-1-结构分析" class="headerlink" title="2.4.1 结构分析"></a>2.4.1 结构分析</h3><p>网络结构如下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/BLk7KGeLjd.png?imageslim" alt="mark"></p>
-<p>前面是特征提取网络，这里用的SqueezeNet，中间是本文提出的ConvDet层，后面是Filtering层。Filtering层就是NMS（非最大值抑制）。</p>
-<p>ConvDet层意即，使用卷积层来检测（Detection），因为经典的用法是使用全连接层来进行检测（比如YOLO），不过Faster R-CNN中的RPN相当于一个全卷积的弱检测器。<strong>这个方面来说SqueezeDet,跟RPN也挺像。</strong></p>
-<p><strong>但是SqueezeDet更像SSD.</strong> 就相当于SSD的一个尺度分支，只不过前面卷积层提换成了squeezenet。</p>
-<p>再看一下 SqueezeDet 关于anchor box的图，是不是跟SSD和RPN很像，简直如出一辙。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/0GKfbA1C2f.png?imageslim" alt="mark"></p>
-<h3 id="2-4-2-计算量分析"><a href="#2-4-2-计算量分析" class="headerlink" title="2.4.2 计算量分析"></a>2.4.2 计算量分析</h3><p><strong>以下图中 蓝色的为某一层的输出特征，而黄色的是神经元的参数分布（权值和偏置）</strong> </p>
-<p><strong>以下3D卷积写法均略去前一层的输入通道数</strong></p>
-<ul>
-<li><strong>首先看下RPN的参数量：</strong></li>
-</ul>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/439GcB9I7L.png?imageslim" alt="mark"></p>
-<p>输入是 $W_f× H_f×Ch_f$ 的feature map，</p>
-<p>中间黄色的部分是 $1×1$ 的卷积核，如果把分类和回归放在一起，那么卷积核的个数就是 $K×(4+1)$  个，4是四个坐标，1是一个概率，K是K个anchor。</p>
-<p>把分类和回归的输出也放在一起，那么输出feature map就是$W_f× H_f×(K×(4+1))$ 大小的。</p>
-<p>参数量为 ： $1×1×Ch_f ×K×5$ </p>
-<hr>
-<ul>
-<li><strong>再看下 YOLO中的参数量：</strong></li>
-</ul>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/IbE7L72akc.png?imageslim" alt="mark"></p>
-<p><strong>这个检测模块称之为 FcDet</strong></p>
-<p>同样输入是 $W_f× H_f×Ch_f$ 的feature map，</p>
-<p>假设将图片分成 $W_o ×H_o$ 个网格（比如7×7）；每个网格关联K个box（比如K=2）；每个box输出（4+1）个信息（4个位置信息，1个类别信息）；每个格点输出C个类别概率（比如20）。</p>
-<p>首先看第一个卷积层，FC1标号的是神经元的参数分布，可以看到从卷积层到全连接层的参数分布其实是一个 $W_f× H_f$ 的卷积核，这个卷积核与一整张feature map卷积，只输出一个激活值；这样的卷积核共有 $F_{fc1}$ 个，因此FC1输出为 $1×F_{fc1}$ 。</p>
-<p>这一层参数量为：$W_f× H_f×Ch_f×F_{fc1}$  </p>
-<p>接着第二个全连接层，FC2标号的也是神经元的参数分布，这里用的是 $1×1$ 的卷积层实现的，由于上述假设，FC2的输出应该是 $1×\{W_o ×H_o×(K(4+1)+C)\}$ ，是一个二维的tensor；但是为了与划分的网格匹配，需要将这个输出reshape成$W_o ×H_o×(K(4+1)+C)$ 这样的三维tensor。</p>
-<p>这一层参数量为： $F_{fc1}×W_o ×H_o×(5K+C)$ 。</p>
-<p>FcDet整个结构的参数量为：$W_f× H_f×Ch_f×F_{fc1} + F_{fc1}×W_o ×H_o×(5K+C)$  </p>
-<hr>
-<ul>
-<li><strong>看下这篇文章提出的ConvDet结构的计算量：</strong></li>
-</ul>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/cI488j1DLF.png?imageslim" alt="mark"></p>
-<p>这个结构说白了就是SSD的一部分，再来对比一下，看看下图SSD中相对应的部分，这个图中把分类和回归定位分开画了，不过SSD的代码中实际上也是分开做的，其实这部分可以合并到一块的，因为卷积都是用的3×3，输出也都是 5×5，所以合并到一块也是可以的，只是不同的通道对应着不同的分类或者定位结果。</p>
-<p>基本上二者相同，只不过这里起了个名字，叫做ConvDet。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/ibG22baIBE.png?imageslim" alt="mark"></p>
-<p>同样输入是 $W_f× H_f×Ch_f$ 的feature map，</p>
-<p>只不过这里假设 卷积是 $F_w×F_h$ 的（SSD对应结构中用的是3×3），通道数为 $K×(4+1+C)$ , K为 anchor（或 default box 或 格点内关联的box）的个数，4为每个anchor的位置信息，1为是目标的概率，C为C个分类。这样输出为  $W_f× H_f×\{K×(4+1+C)\}$ 。</p>
-<p>ConvDet的参数量为：  $F_w×F_h×Ch_f×\{K×(5+C)\}$ </p>
-<p><strong>与YOLO 相比，没有使用全连接层，而是使用了全卷积的（FCN）方式。其实就是SSD中的一部分。</strong></p>
-<hr>
-<ul>
-<li><strong>三者参数量对比：</strong></li>
-</ul>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/6eDi6fH3aG.png?imageslim" alt="mark"></p>
-<p>举个例子计算下：</p>
-<p>假设输入feature map 为 $7×7×1024， F_{fc1} = 4096, K = 2, C = 20, W_o = H_o = 7,$ ConvDet 使用3x3 的卷积核</p>
-<p>YOLO: $4096×（7×7×1024+7×7×（5×2+20））=212×10^6$ </p>
-<p>ConvNet: $3×3×1024×2×（5+20） =0.46 ×10^6$ </p>
-<h2 id="2-6-训练"><a href="#2-6-训练" class="headerlink" title="2.6 训练"></a>2.6 训练</h2><ul>
-<li><p><strong>先看一下，网络预测的是什么</strong></p>
-<p>如下图：</p>
-<ul>
-<li>绿色框为ground truth</li>
-<li>红色为anchor</li>
-<li>蓝色为预测的box</li>
-</ul>
-</li>
-</ul>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/mibbEmfhEE.png?imageslim" alt="mark"></p>
-<p>首先，Ground Truth 与 Anchor 有个偏移值，如下：<br>$$<br>Offset^{GT}=\{\delta ^G(x_{ijk}),\delta ^G(y_{ijk})，\delta ^G(w_{ijk})，\delta ^G(h_{ijk})\}<br>$$<br>其次，Prediction 与 Anchor 有个偏移值, $Offset^{P}$，如下：<br>$$<br>Offset^{P}=\{\delta (x_{ijk}),\delta (y_{ijk})，\delta (w_{ijk})，\delta (h_{ijk})\}<br>$$<br>对于定位来说：可以认为，这个网络预测输出的是 $Offset^{P}$ ，标签是 $Offset{^GT}$ ，转化一下，实际上网络输出的是 $ \delta (x_{ijk}), \delta (y_{ijk}), \delta (w_{ijk}), \delta (h_{ijk})$  ，因为这四个参数决定了 $Offset^{P}$ 。</p>
-<p>分类就是输出类别，标签为真实类别。</p>
-<hr>
-<p>以上偏移是由网络学习得到的。</p>
-<p>偏移与最终的输出之间还有一个映射关系，这个关系是人为指定的。这个关系最先在R-CNN系列的目标检测模型中提出。下述。</p>
-<p>最终的预测框的中心坐标 $(x_i^p,y_i^p)$ 和宽高  $(w_k^p,h_k^p)$  的计算方式如下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/a18h02G5Dk.png?imageslim" alt="mark"></p>
-<p>$\hat x_i,\hat y_i$ 是与box关联的feature map中的像素（或者说类似于YOLO中的格点）的坐标，如下图中的 $C_x，C_y$ 。</p>
-<p>$\hat w_k,\hat h_k$  是 每个像素（或格点）关联的第k个anchor的 宽和高，如下图中的 $b_w,b_h$ </p>
-<p>偏移与真实位置之间的映射有两种，线性映射（中心点坐标）和指数映射（宽，高）。</p>
-<p>这个地方可以结合 YOLO9000论文中的一张图理解。不过对于预测和anchor的关系，二者刚好反过来。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/jebm6mcmCa.png?imageslim" alt="mark"></p>
-<hr>
-<ul>
-<li><strong>再来看一下损失函数，如下：</strong></li>
-</ul>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/2Fjj76CKDJ.png?imageslim" alt="mark"></p>
-<p>损失函数与YOLO的损失函数差不多，放一张YOLO的对比一下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/KDla74c81j.png?imageslim" alt="mark"></p>
-<p>解释一下SqueezeDet的损失函数:</p>
-<p>主要分为三部分：</p>
-<ul>
-<li><p>第一部分是回归损失，或者说定位损失，就是下图这个：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/h8chAg1ljl.png?imageslim" alt="mark"></p>
-<ul>
-<li>$I_{ijk}$ 表示：位于 输出feature map上 $(i,j)$ 坐标处的第 $k$ 个anchor 是否包含有目标。也就是 这个$P_r(Object)*IOU_{truth}^{pred}$  是否为0.</li>
-<li>$\delta x_{ijk},\delta^G x_{ijk}$ 分别表示anchor与预测box和ground truth 的 x 坐标的偏移。后面其他的参数，y，w，h类似。</li>
-<li>这是一个均方误差。没有采用YOLO那样的将 宽度w和高度h开根号，再做均方误差。YOLO这么做是考虑了对于大小目标计算损失时的公平问题。</li>
-</ul>
-</li>
-<li><p>第二部分是二分类损失，这个二分类决定的是这个anchor是否是目标，如下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/Hi7087BglB.png?imageslim" alt="mark"></p>
-<ul>
-<li>$\gamma _{ijk}$ ：$P_r(Object)*IOU_{truth}^{pred}$ </li>
-</ul>
-</li>
-</ul>
-<h2 id="2-5-试验结果"><a href="#2-5-试验结果" class="headerlink" title="2.5 试验结果"></a>2.5 试验结果</h2><p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/g4CCeAm19A.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/mIFbmED8a2.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/BLeEDJj4Ah.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SqueezeDet/180606/bIfCjcJl00.png?imageslim" alt="mark"></p>
 
       
     </div>
@@ -682,12 +536,12 @@
   <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
-  <p><strong>本文标题：</strong><a href="/articles/target-detection--squeezedet--paper-notes.html">目标检测-SqueezeDet-论文笔记</a></p>
+  <p><strong>本文标题：</strong><a href="/articles/target-detection-dataset-mscoco-introduction.html">目标检测数据集MSCOCO简介</a></p>
   <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
-  <p><strong>发布时间：</strong>2018年06月06日 - 01:06</p>
-  <p><strong>最后更新：</strong>2018年06月06日 - 01:06</p>
-  <p><strong>本文链接：</strong><a href="/articles/target-detection--squeezedet--paper-notes.html" title="目标检测-SqueezeDet-论文笔记">https://arleyzhang.github.io/articles/target-detection--squeezedet--paper-notes.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/target-detection--squeezedet--paper-notes.html"  aria-label="复制成功！"></i></span>
+  <p><strong>发布时间：</strong>2018年06月04日 - 03:06</p>
+  <p><strong>最后更新：</strong>2018年06月06日 - 02:06</p>
+  <p><strong>本文链接：</strong><a href="/articles/target-detection-dataset-mscoco-introduction.html" title="目标检测数据集MSCOCO简介">https://arleyzhang.github.io/articles/target-detection-dataset-mscoco-introduction.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/target-detection-dataset-mscoco-introduction.html"  aria-label="复制成功！"></i></span>
   </p>
   <p><strong>版权声明：</strong> 本文由 arleyzhang 原创，采用 <i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">保留署名-非商业性使用-禁止演绎 4.0-国际许可协议</a>，转载请保留原文链接及作者!</p>  
 </div>
@@ -719,13 +573,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/论文笔记/" rel="tag"><i class="fa fa-tag"></i> 论文笔记</a>
+            <a href="/tags/dataset/" rel="tag"><i class="fa fa-tag"></i> dataset</a>
           
-            <a href="/tags/object-detection/" rel="tag"><i class="fa fa-tag"></i> object detection</a>
-          
-            <a href="/tags/lightweight-models/" rel="tag"><i class="fa fa-tag"></i> lightweight models</a>
-          
-            <a href="/tags/SqueezeDet/" rel="tag"><i class="fa fa-tag"></i> SqueezeDet</a>
+            <a href="/tags/MSCOCO/" rel="tag"><i class="fa fa-tag"></i> MSCOCO</a>
           
         </div>
       
@@ -738,8 +588,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/articles/target-detection--fssd--paper-notes.html" rel="next" title="目标检测-FSSD-论文笔记">
-                <i class="fa fa-chevron-left"></i> 目标检测-FSSD-论文笔记
+              <a href="/articles/target-detection-data-set-pascal-voc-introduction.html" rel="next" title="目标检测数据集PASCAL VOC简介">
+                <i class="fa fa-chevron-left"></i> 目标检测数据集PASCAL VOC简介
               </a>
             
           </div>
@@ -747,6 +597,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/articles/target-detection-evaluation-standard-ap-map.html" rel="prev" title="目标检测评价标准-AP mAP">
+                目标检测评价标准-AP mAP <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -833,7 +687,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -855,7 +709,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -904,7 +758,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-简要介绍"><span class="nav-text">1 简要介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-结构设计"><span class="nav-text">2 结构设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-YOLO"><span class="nav-text">2.1 YOLO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Faster-R-CNN"><span class="nav-text">2.2 Faster R-CNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-SSD"><span class="nav-text">2.3 SSD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-SqueezeDet"><span class="nav-text">2.4 SqueezeDet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-1-结构分析"><span class="nav-text">2.4.1 结构分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-2-计算量分析"><span class="nav-text">2.4.2 计算量分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-训练"><span class="nav-text">2.6 训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-试验结果"><span class="nav-text">2.5 试验结果</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-统计信息"><span class="nav-text">1 统计信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-评估标准"><span class="nav-text">2 评估标准</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-总结"><span class="nav-text">3 总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
@@ -1088,9 +942,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://arleyzhang.github.io/articles/target-detection--squeezedet--paper-notes.html';
-          this.page.identifier = 'articles/target-detection--squeezedet--paper-notes.html';
-          this.page.title = '目标检测-SqueezeDet-论文笔记';
+          this.page.url = 'https://arleyzhang.github.io/articles/target-detection-dataset-mscoco-introduction.html';
+          this.page.identifier = 'articles/target-detection-dataset-mscoco-introduction.html';
+          this.page.title = '目标检测数据集MSCOCO简介';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://arleyzhang.disqus.com/embed.js';
