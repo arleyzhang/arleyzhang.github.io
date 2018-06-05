@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://arleyzhang.github.io/articles/notes-on-the-basic-dl-model--deformable-convolutional-networks-.html</loc>
+    
+    <lastmod>2018-06-04T19:11:11.701Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://arleyzhang.github.io/articles/note-taking-of-the-basic-dl-model--stn-.html</loc>
+    
+    <lastmod>2018-06-04T18:49:16.772Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection---summary-of-two-step-detection-algorithm-from-rcnn-to-mask-rcnn.html</loc>
+    
+    <lastmod>2018-06-04T18:24:07.149Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection--r-fcn--paper-notes.html</loc>
+    
+    <lastmod>2018-06-04T17:39:36.065Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection-evaluation-standard--ap&map.html</loc>
+    
+    <lastmod>2018-06-04T17:08:46.159Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://arleyzhang.github.io/about/index.html</loc>
+    
+    <lastmod>2018-06-04T16:13:42.216Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-pascal-voc.html</loc>
     
     <lastmod>2018-06-04T15:59:07.505Z</lastmod>
@@ -12,13 +54,6 @@
     <loc>https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-mscoco.html</loc>
     
     <lastmod>2018-06-04T15:58:54.063Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://arleyzhang.github.io/articles/target-detection-evaluation-standard--ap&map.html</loc>
-    
-    <lastmod>2018-06-04T15:58:40.618Z</lastmod>
     
   </url>
   
@@ -40,13 +75,6 @@
     <loc>https://arleyzhang.github.io/tags/index.html</loc>
     
     <lastmod>2018-06-04T11:05:01.175Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://arleyzhang.github.io/about/index.html</loc>
-    
-    <lastmod>2018-06-04T11:05:01.167Z</lastmod>
     
   </url>
   

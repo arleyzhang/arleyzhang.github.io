@@ -4,6 +4,131 @@
 
     
   <url>
+    <loc>https://arleyzhang.github.io/articles/notes-on-the-basic-dl-model--deformable-convolutional-networks-.html</loc>
+    <lastmod>2018-06-04T19:11:11.701Z</lastmod>
+    <data>
+        <display>
+        <title>基础DL模型-Deformable Convolutional Networks-论文笔记</title>
+        <pubTime>2018-06-04T18:51:10.000Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>basic dl models</tag>
+         
+        <tag>Deformable Convolutional Networks</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/note-taking-of-the-basic-dl-model--stn-.html</loc>
+    <lastmod>2018-06-04T18:49:16.772Z</lastmod>
+    <data>
+        <display>
+        <title>基础DL模型-STN-论文笔记</title>
+        <pubTime>2018-06-04T18:26:46.000Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>basic dl models</tag>
+         
+        <tag>STN</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection---summary-of-two-step-detection-algorithm-from-rcnn-to-mask-rcnn.html</loc>
+    <lastmod>2018-06-04T18:24:07.149Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-从RCNN到Mask RCNN两步检测算法总结</title>
+        <pubTime>2018-06-04T17:43:44.000Z</pubTime>
+        
+        <tag>object detection</tag>
+         
+        <tag>R-CNN</tag>
+         
+        <tag>Mask R-CNN</tag>
+         
+        <tag>学习总结</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection--r-fcn--paper-notes.html</loc>
+    <lastmod>2018-06-04T17:39:36.065Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-R-FCN-论文笔记</title>
+        <pubTime>2018-06-04T16:37:36.000Z</pubTime>
+        
+        <tag>object detection</tag>
+         
+        <tag>论文笔记</tag>
+         
+        <tag>R-FCN</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection-evaluation-standard--ap&map.html</loc>
+    <lastmod>2018-06-04T17:08:46.159Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测评价标准-AP&mAP</title>
+        <pubTime>2018-06-04T08:38:35.000Z</pubTime>
+        
+        <tag>object detection</tag>
+         
+        <tag>评价标准</tag>
+         
+        <tag>mAP</tag>
+         
+        <tag>wheel making</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
     <loc>https://arleyzhang.github.io/articles/a-brief-introduction-to-the-target-detection-data-set-pascal-voc.html</loc>
     <lastmod>2018-06-04T15:59:07.505Z</lastmod>
     <data>
@@ -48,32 +173,6 @@
 
     
   <url>
-    <loc>https://arleyzhang.github.io/articles/target-detection-evaluation-standard--ap&map.html</loc>
-    <lastmod>2018-06-04T15:58:40.618Z</lastmod>
-    <data>
-        <display>
-        <title>目标检测评价标准-AP&mAP</title>
-        <pubTime>2018-06-04T08:38:35.000Z</pubTime>
-        
-        <tag>object detection</tag>
-         
-        <tag>评价标准</tag>
-         
-        <tag>mAP</tag>
-         
-        <tag>wheel making</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://arleyzhang.github.io/articles/target-detection--ssd--paper-notes.html</loc>
     <lastmod>2018-06-04T15:53:56.386Z</lastmod>
     <data>
@@ -81,9 +180,9 @@
         <title>目标检测-SSD-论文笔记</title>
         <pubTime>2018-06-04T14:03:01.000Z</pubTime>
         
-        <tag>object detection</tag>
-         
         <tag>SSD</tag>
+         
+        <tag>object detection</tag>
          
         <tag>论文笔记</tag>
          
@@ -96,7 +195,6 @@
     </data>
     </url>
 
-    
     
     
 </urlset>

@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next gemini" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/kitty_bbook_32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/kitty_bbook_16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="论文笔记,basic dl models,Deformable Convolutional Networks," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="基础DL模型 Deformable Convolutional Networks 论文笔记">
+<meta name="keywords" content="论文笔记,basic dl models,Deformable Convolutional Networks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基础DL模型-Deformable Convolutional Networks-论文笔记">
+<meta property="og:url" content="https://arleyzhang.github.io/articles/notes-on-the-basic-dl-model--deformable-convolutional-networks-.html">
+<meta property="og:site_name" content="arleyzhang">
+<meta property="og:description" content="基础DL模型 Deformable Convolutional Networks 论文笔记">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/7k7D7mhLBi.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/JCe1J5Fh4d.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/L4biImD000.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/kDdAcafHII.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/hbb916H5Dk.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/KjhDf8E5Lh.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/d79i3Al4LI.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/DB75dEI2jd.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/e06eG2GcLe.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/mG0AHb1jgI.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/lgdjkl9GeH.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/fJ593DcLa7.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/34a2EK8k93.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/CFHH1IHdEm.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/J0k0j4EJfk.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/gJciC5mLkL.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/d52Kj2e9jl.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/DFaj1GBdbF.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/I1hggbLi1B.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/l22hh5iAdL.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/eJfb38BG5C.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/8ACjbEbJFI.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/I25DFHe9m3.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/c2ICLiGag1.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/5FKgaeAfkb.jpg?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/1FmGaDCC6g.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/I61Dl6HHf8.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/kjfB0e9h0G.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/hL7J4CjIf5.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/LALI5kHf4g.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/1G7dgHHdGH.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/A5709kIgdi.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/2alfaccKmf.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/hKHEmDlaD3.png?imageslim">
+<meta property="og:updated_time" content="2018-06-04T19:11:11.701Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基础DL模型-Deformable Convolutional Networks-论文笔记">
+<meta name="twitter:description" content="基础DL模型 Deformable Convolutional Networks 论文笔记">
+<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/7k7D7mhLBi.png?imageslim">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://arleyzhang.github.io/articles/notes-on-the-basic-dl-model--deformable-convolutional-networks-.html"/>
+
+
+
+
+
+  <title>基础DL模型-Deformable Convolutional Networks-论文笔记 | arleyzhang</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">arleyzhang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://arleyzhang.github.io/articles/notes-on-the-basic-dl-model--deformable-convolutional-networks-.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="arleyzhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="arleyzhang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">基础DL模型-Deformable Convolutional Networks-论文笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-05T02:51:10+08:00">
+                2018-06-05
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-05T03:11:11+08:00">
+                2018-06-05
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/deep-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">deep learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/articles/notes-on-the-basic-dl-model--deformable-convolutional-networks-.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="articles/notes-on-the-basic-dl-model--deformable-convolutional-networks-.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  基础DL模型 Deformable Convolutional Networks 论文笔记
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>论文 <a href="https://arxiv.org/abs/1703.06211" target="_blank" rel="external">Deformable Convolutional Networks</a><br>代码 <a href="https://github.com/msracver/Deformable-ConvNets" target="_blank" rel="external">https://github.com/msracver/Deformable-ConvNets</a></p>
+</blockquote>
+<p>这篇文章是微软亚研院的作品，跟STN的思路基本上是一样的，但是做法还是有很大不同。</p>
+<h1 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h1><p>上一篇讲STN（Spatial Transformer Networks）的时候，提到 CNN中池化层的存在带来了空间不变性（旋转不变性，平移不变性等），而 Spatial Transformer Networks 也是为了增加空间不变性。但是二者增加空间不变性的出发点是不同的：</p>
+<p><strong>CNN是尽力让网络适应物体的形变，而STN是直接通过  Spatial Transformer 将形变的物体给变回到正常的姿态（比如把字摆正）。</strong> </p>
+<p>也就是说，从模型的几何变换能力（空间变换能力）来说，CNN是比较弱的，因为它主要是通过合适的降采样来减弱目标形变对预测的影响。CNN的几何变换能力不好，是因为它是一个固定的几何结构（固定的卷积核，池化核），所以CNN对几何形变的建模能力是有限的。而STN就是一个比较好的具备对几何形变建模能力的模型。</p>
+<p>通常来说为了适应物体的几何形变一般有以下几种做法：</p>
+<ul>
+<li>数据扩展 data augmention ：这个在深度学习中很经常使用，比如 multi-view 的方式，选取5个patch等</li>
+<li>使用具备平移不变性的特征或算法 transformation-invariant  features and algorithms ：特征，比如 SIFT 特征，一般在传统的方法中使用；算法，比如卷积神经网络，目标检测模型中的sliding window，现代计算视觉中使用。</li>
+<li>CNN模型中还可以使用池化的方法</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>几何变换能力是固定的，已知的：比如CNN固定的卷积核，固定的池化核，固定的ROI；数据扩展是先验知识的一种利用。对于新的视觉任务（比如换个数据集），之前构建的固定的几何变换模型可能就不能用了，这也是为什么在ImageNet上训练好的分类模型用到检测或分割上时要 fine-tuning。</li>
+<li>对于手工设计的 特征比如SIFT，在一些复杂的视觉任务中，表现很差，甚至是不可行的。</li>
+</ul>
+<p>CNN在分类，检测，分割领域取得了很大进展，这些模型增强几何变换能力的方法也基本是上面提到的三种方法,但是上面提到的缺点仍然存在。</p>
+<p>CNN固定的卷积核，固定的池化核，固定的ROI，导致高层神经元的感受野（receptive field  ）是固定的，没有办法有效的编码语义或者位置信息。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/7k7D7mhLBi.png?imageslim" alt="mark"></p>
+<p>如果感受野能够自适应的动态调节，那对精细化的定位问题是很有利的。</p>
+<p>这篇文章在STN的基础之上，针对分类和检测提出了两种新的模块 deformable convolution （可变性卷积）和deformable RoI pooling （可变性 ROI池化），来达到动态调节感受野的作用，取得了不错的效果。</p>
+<h1 id="2-Deformable-Convolutional-Networks"><a href="#2-Deformable-Convolutional-Networks" class="headerlink" title="2 Deformable Convolutional Networks"></a>2 Deformable Convolutional Networks</h1><p>为方便表示，以下所有都是在2D卷积的基础上示例，对于3D卷积 来说每个通道的变换是一样的。</p>
+<h2 id="2-1-Deformable-Convolution"><a href="#2-1-Deformable-Convolution" class="headerlink" title="2.1 Deformable Convolution"></a>2.1 Deformable Convolution</h2><p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/JCe1J5Fh4d.png?imageslim" alt="mark"></p>
+<p>先看下可变性卷积的效果，如上图：</p>
+<ul>
+<li>(a)：标准卷积采样点</li>
+<li>(b), (c), (d)：浅绿色是标准卷积采样点，深蓝色是可变形卷积采样点，浅蓝色箭头是偏移（offset）</li>
+<li>(c), (d)是(b)的特例，其中(c)是 带孔卷积(Atrous convolution )或者叫膨胀卷积(dilated convolution)，这说明可变形卷积是比较具有一般性的卷积形式。</li>
+</ul>
+<p>可变形卷积与标准卷积相比，采样点不再是固定的了，而是有个偏移量offset，这个偏移量是2维的，通过网络学习得到，它使得采样点的形状可以根据目标发生变化。</p>
+<p><strong>2D卷积：</strong></p>
+<p>用 $R$ 表示卷积核中的格点，比如以下是一个 3×3 的卷积核的表示</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/L4biImD000.png?imageslim" alt="mark"></p>
+<p>标准2D卷积的过程：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/kDdAcafHII.png?imageslim" alt="mark"></p>
+<ul>
+<li>$x$ ：输入 feature map</li>
+<li>$y$ ： 输出 feature map</li>
+<li>$p_0$ ：输出feature map $y$ 上的坐标</li>
+<li>$p_n$ ： $R$ 中的坐标</li>
+<li>采样点坐标： $p_0+p_n$ ，整数</li>
+<li>$w$ ：采样参数，CNN中就是权值</li>
+<li>$w(p_n)$ ：代表卷积核中的权值</li>
+<li>$x(p_0+p_n)$ : 采样点处的像素值</li>
+</ul>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/hbb916H5Dk.png?imageslim" alt="mark"></p>
+<p><strong>可变形卷积：</strong></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/KjhDf8E5Lh.png?imageslim" alt="mark"></p>
+<ul>
+<li>要给 $R$ 加上偏移 offset： $\{\Delta p_n | n=1,…,N\},N=|R|$ </li>
+<li>现在的采样坐标点变成了  $p_0+p_n+\Delta p_n$ ，$\Delta p_n$ 是小数，所以采样坐标也变成了小数坐标</li>
+<li>$x(p_0+p_n+\Delta p_n)$ ：对应到feature map上没有像素值，因此又需要插值了</li>
+</ul>
+<p>插值函数：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/d79i3Al4LI.png?imageslim" alt="mark"></p>
+<ul>
+<li>$p=p_0+p_n+\Delta p_n$ : 输入feature map $x$ 上的小数坐标</li>
+<li>$q$ : 输入feature map $x$ 上的所有整数坐标</li>
+<li>$G(q,p)$ ：插值核函数，可以代表更一般性的插值核函数，比如线性插值，最近邻插值等，不过这里用的是双线性插值</li>
+</ul>
+<p>因此插值核函数：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/DB75dEI2jd.png?imageslim" alt="mark"></p>
+<ul>
+<li>$g(a, b) = max(0, 1 - |a - b|)$  </li>
+</ul>
+<p>大概说一下线性插值核函数，如下：<br>$$<br>W_{bil}(x,y)<br>=w_{lin}(x) \cdot w_{lin}(y)<br>=\begin{cases}1-x-y-x\cdot y  &amp; for \, \, \,0 \le |x|,|y| &lt;1\[2ex]<br>0 &amp; otherwise\end{cases}<br>$$<br>详细的参考：<a href="https://zh.wikipedia.org/wiki/%E5%8F%8C%E7%BA%BF%E6%80%A7%E6%8F%92%E5%80%BC" target="_blank" rel="external">双线性插值</a> ， <a href="http://blog.csdn.net/lz0499/article/details/69791572" target="_blank" rel="external">图像处理之插值运算</a> .</p>
+<p>虽然插值需要对输入feature map $x$ 上的所有整数坐标进行遍历和计算，但是由于 $G(q,p)$  实际上在很多位置都是0，所以插值计算是很快的。</p>
+<p><strong>可变形卷积的结构示意图</strong></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/e06eG2GcLe.png?imageslim" alt="mark"></p>
+<p>这个模块有两条 流动路线，</p>
+<ul>
+<li>下面一路是一个标准的 3×3 卷积，</li>
+<li>上面也是一个 3×3 卷积，步长一样，输出 offset field 与 input feature map 大小一样</li>
+<li>通道为 2N 个，代表N个2维的偏移场，一个通道是一维（x 或 y）</li>
+<li>剪裁（crop）出于卷积核相对的那一块区域，得到offsets</li>
+<li>与下面一路标准卷积核进行相加，然后线性插值，确定采样点坐标</li>
+<li>最后进行卷积操作即可</li>
+</ul>
+<p>后向传播：</p>
+<p>对输入feature map的后向传播与标准卷积一样</p>
+<p>对 offset $\Delta p_n$ 的导数如下：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/mG0AHb1jgI.png?imageslim" alt="mark"></p>
+<ul>
+<li>其中<img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/lgdjkl9GeH.png?imageslim" alt="mark">可以通过公式4求出。</li>
+<li>$\partial \Delta p_n$ 代表 $\partial \Delta p_n^x$ 或 $\partial \Delta p_n^y$ </li>
+</ul>
+<h2 id="2-2-Deformable-RoI-Pooling"><a href="#2-2-Deformable-RoI-Pooling" class="headerlink" title="2.2 Deformable RoI Pooling"></a>2.2 Deformable RoI Pooling</h2><p><strong>首先是 ROI Pooling：</strong></p>
+<p>回顾一下 ROI 池化：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/fJ593DcLa7.png?imageslim" alt="mark"></p>
+<ul>
+<li>输入feature map ：$x$ </li>
+<li>RoI 的大小 ：$w×h$ </li>
+<li>左上角点坐标： $p_0$</li>
+<li>RoI pooling 将 RoI 分成 $k × k$  ($k$ 是自由参数，可以人为设定) 个网格(bins )，每个网格中像素有多个，大小： $\dfrac{w}{k} × \dfrac{h}{k}$ </li>
+<li>输出 $k × k$ 大小的 feature map： y</li>
+</ul>
+<p>坐标 $(i, j)$ 处的网格 $(0 ≤ i, j &lt; k)$ 的输出：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/34a2EK8k93.png?imageslim" alt="mark"></p>
+<ul>
+<li>$p\in bin(i,j)$ </li>
+<li>坐标 $(i, j)$ 处的网格的像素跨度：$\lfloor i {w \over k}\rfloor \le x \le \lceil (i+1){w \over k}\rceil$    和   $\lfloor j {h \over k}\rfloor \le y \le \lceil (j+1){h \over k}\rceil$ ，$\lfloor \cdot \rfloor$ 和 $\lceil  \cdot \rceil $ 分别代表下界和上界</li>
+<li>$n_{ij}$ : 坐标 $(i, j)$ 处的网格中的像素总数，这是个平均值池化</li>
+<li>$p_0+p$  $(i, j)$ ：处的网格中的坐标，即采样点坐标</li>
+</ul>
+<p>同样的要给 ROI  加上偏移 offset： $\{\Delta p_{ij} | (0 ≤ i, j &lt; k) \}$  ，如下：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/CFHH1IHdEm.png?imageslim" alt="mark"></p>
+<p>同样的 $\Delta p_{ij} $ 一般都是小数，同样的还是用双线性插值来完成坐标映射，公式3和公式4.</p>
+<p>可变形 ROI 池化 结构图</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/J0k0j4EJfk.png?imageslim" alt="mark"></p>
+<ul>
+<li><p>首先从ROI中生成 池化后的 feature map</p>
+</li>
+<li><p>其后全连接层生成 归一化的（normalized） offsets： $\Delta \hat p_{ij}$ ，这个归一化的向量是必须的，因为ROI的尺寸不一，必须要统一标准，比如归一化到 [-1,1]</p>
+</li>
+<li><p>归一化的向量 $\Delta \hat p_{ij}$ 再生成 offsets  $\Delta p_{ij}$  , 直接与ROI做 点积：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/gJciC5mLkL.png?imageslim" alt="mark"></p>
+<p>$\gamma$ 是一个预定义的系数，用于衡量 偏差offset 的 重要程度，按经验选取，文章使用的 $\gamma =0.1$ .</p>
+</li>
+</ul>
+<p>后向传播：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/d52Kj2e9jl.png?imageslim" alt="mark"></p>
+<p>$\dfrac{\partial y(i,g)}{\partial \Delta \hat p_{ij}}$ 可以很轻松的通过  <img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/DFaj1GBdbF.png?imageslim" alt="mark">求出。</p>
+<hr>
+<p><strong>再来看看Position-Sensitive (PS) RoI Pooling</strong>  </p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/I1hggbLi1B.png?imageslim" alt="mark"></p>
+<ul>
+<li><p>基本与ROI Pooling相同，因为池化后的feature map 中的每一个像素都来自不同组的score map 的对应位置（颜色对应），所以公式5和6 中的 输入feature map 由 $x$  改为 $x_{ij}$ </p>
+</li>
+<li><p>不同的是 offset的生成方式， offset 的生成方式与 分类问题中的 PS Pooling是一样的</p>
+<p>从输入feature map另起一路，先生成 $2k^2(C+1)$ 通道的 score map（C个类别，偏移量是2维的），然后PS Pooling</p>
+</li>
+<li><p>同样也是先生成 归一化的 偏移量，然后再转换成 与ROI 尺寸相关的 offset 与 池化坐标相加，得到采样点坐标。</p>
+</li>
+<li><p>上面图中的加了偏移量的网格（bins）已经与原来的网格产生了偏移</p>
+</li>
+</ul>
+<h1 id="3-试验"><a href="#3-试验" class="headerlink" title="3 试验"></a>3 试验</h1><h2 id="3-1-试验准备"><a href="#3-1-试验准备" class="headerlink" title="3.1 试验准备"></a>3.1 试验准备</h2><p>现有的CNN模型一般都包含两部分，一部分特征提取，一部分分类或检测或分割等。</p>
+<p><strong>Deformable Convolution for Feature Extraction</strong>  </p>
+<ul>
+<li>ResNet-101 </li>
+<li>Aligned-Inception-ResNet ，这是 Inception-ResNet  的一个改进版本，因为对于密集预测任务（比如检测和分割） Inception-ResNet 的特征和原图上的目标不能对齐。</li>
+<li>这两种网络的降采样比例由原来的32 调整为 16，并使用了 带孔卷积（Atrous convolution ） 或者叫做 膨胀卷积（dilated convolution ）</li>
+<li>经过试验验证 deformable convolution 放置于网络最后3层。</li>
+</ul>
+<p><strong>Segmentation and Detection Networks</strong> </p>
+<ul>
+<li>DeepLab ：用于分割</li>
+<li>Category-Aware RPN ：检测，RPN的分类由二分类换成多分类</li>
+<li>Faster R-CNN 使用 FPN（Feature pyramid networks for object detection. ）的配置，ROI Poling 换为 deformable RoI pooling. </li>
+<li>R-FCN ：PS Pooling 换为 deformable position-sensitive RoI pooling. </li>
+</ul>
+<h2 id="3-2-Understanding-Deformable-ConvNets"><a href="#3-2-Understanding-Deformable-ConvNets" class="headerlink" title="3.2 Understanding Deformable ConvNets"></a>3.2 Understanding Deformable ConvNets</h2><p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/l22hh5iAdL.png?imageslim" alt="mark"></p>
+<ul>
+<li>(a)：标准卷积中固定的感受野和卷积核采样点</li>
+<li>(b)：可变形卷积中自适应的感受野和卷积核采样点，</li>
+<li>意味着可变形卷积中高层神经元看到原图的区域更接近目标，所以更容易分类</li>
+</ul>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/eJfb38BG5C.png?imageslim" alt="mark"></p>
+<ul>
+<li>这图表示的是高层的神经元在原图上的感受野和采样点</li>
+<li>每个图像三元组显示了三层3x3可变形卷积核的采样点位置（共729个点），对应于三个不同的图像区域（从左至右，背景，小物体，大物体）</li>
+<li>绿色点对应高层的一个像素点，红色点对应高层神经元在底层的感受野内的采样点，与figure 5对应</li>
+</ul>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/8ACjbEbJFI.png?imageslim" alt="mark"></p>
+<ul>
+<li>R-FCN模型中 PS Pooling换成可变形池化后，ROI中的网格分布</li>
+<li>比较整齐的黄色框是 PS ROI Pooling</li>
+<li>红色框是deformable PS ROI Pooling</li>
+<li>很明显红色框更接近目标的形状</li>
+</ul>
+<h2 id="3-3-Ablation-Study"><a href="#3-3-Ablation-Study" class="headerlink" title="3.3 Ablation Study"></a>3.3 Ablation Study</h2><p><strong>Deformable Convolution 对检测或分割的效果</strong> </p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/I25DFHe9m3.png?imageslim" alt="mark"></p>
+<ul>
+<li>控制变量：deformable convolution 的数量 和 不同的网络模型</li>
+<li>整体上来说 deformable convolution 越多，效果越好；但是从3-6的增益不大，所以文章其他部分都是用的3个deformable convolution</li>
+</ul>
+<p>为了说明模型中高层神经元的感受野是动态自适应的，文章做了一个粗略的测量：</p>
+<p>对可变形卷积核，加了offset 前后的采样点对，计算他们之间的平均距离，称为 有效膨胀：effective dilation 。这可以粗略的衡量感受野的大小，effective dilation越大，感受野越大</p>
+<p>看看效果：</p>
+<p>使用包含3个 deformable layers 的R-FCN 在 PASCLA VOC2007数据集上检测，目标按照COCO 的标准分为大，中，小。这三个可变形卷积层的有效膨胀 统计如下：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/c2ICLiGag1.png?imageslim" alt="mark"></p>
+<ul>
+<li><p>越大的目标有效膨胀越大，感受野也越大，确实在感受野的区域面积上实现了动态自适应调整</p>
+</li>
+<li><p>背景的感受野介于 中等目标和大目标之间</p>
+</li>
+<li><p>当然这个只是对感受野的区域大小作评估，而感受野的区域是如何跟随目标的形状动态变化的，就只能从figure5，figure6，figure7中观察了</p>
+<p>​</p>
+</li>
+</ul>
+<p>疑问：这怎么跟figure 6上的可视化效果不太一样？figure 6上可是背景的感受野最大, 感觉有效膨胀确实不太准确, 个人认为有效膨胀衡量的是膨胀前后两个相对应的坐标对之间的距离，跟坐标点分布的大小区域的关系不太大，不过文章也说了是粗略测量。</p>
+<p><strong>atrous convolution</strong>  </p>
+<p>下图（b）是带孔卷积，可以跳着选，隔一个加一个，即 dilation=1，隔两个的话就是  dilation=2</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/5FKgaeAfkb.jpg?imageslim" alt="mark"></p>
+<p>再来看看带孔卷积的效果，膨胀卷积实际上是本文提出的可变形卷积的特例：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/1FmGaDCC6g.png?imageslim" alt="mark"></p>
+<ul>
+<li>dilation 从 2到4，到6，到8，整体上来看，效果在增加，说明默认 default network 的感受野比较小</li>
+<li>最优的 dilation value 对于不同的任务和模型也是不同的，6 for DeepLab but 4 for Faster R-CNN </li>
+<li>deformable convolution 有最好的效果，说明自适应的学习可变形的卷积核或池化核是有效的</li>
+<li>对比 Faster RCNN 和 R-FCN，当 deformable convolution 和 deformable  RoI Pooling 同时使用时, 能够得到显著的效果提升，</li>
+</ul>
+<p><strong>模型复杂度对比：</strong></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/I61Dl6HHf8.png?imageslim" alt="mark"></p>
+<ul>
+<li>参数会增加，但是增加的很少，对时间影响不大</li>
+<li>说明可变形卷积网络获得的收益不是由于参数增加而获得的</li>
+</ul>
+<p><strong>COCO上的效果对比：</strong> </p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/kjfB0e9h0G.png?imageslim" alt="mark"></p>
+<ul>
+<li>无疑 可变形卷积神经网络取得了不错的成绩</li>
+<li>将ResNet101换为Aligned-Inception-ResNet  ，即便不使用可变形卷积也会提高精度，说明 Aligned-Inception-ResNet 效果比 ResNet101好，Aligned-Inception-ResNet到底是个啥，等会说。</li>
+</ul>
+<h1 id="4-与STN的比较"><a href="#4-与STN的比较" class="headerlink" title="4 与STN的比较"></a>4 与STN的比较</h1><p>整个结构跟STN(Spatial Transformer Networks )还是比较像的。</p>
+<ul>
+<li><p>deformable convolution 中学习到的偏移量 offset 可以认为是一种 轻量化的 spatial transformer 。</p>
+</li>
+<li><p>spatial transformer 是一种全局几何变换，一次把 目标所在区域全部给变换过去；</p>
+<p>而deformable convolution 则是以局部、密集采样的方式完成几何变换的，本质上还是属于卷积操作。</p>
+</li>
+<li><p>spatial transformer crop出的区域是一个平行四边形，相对来说还是比较规整的；</p>
+<p>deformable convolution 中的感受野是可以根据目标形状随意形变的。</p>
+</li>
+<li><p>STN比deformable convolution的参数要多，而且学习变换矩阵比学习偏移量更难。</p>
+</li>
+<li><p>STN虽然在小的数据集上取得了比较好的效果，不过在大的数据集上的效果好像不怎么好，这篇论文好像有探讨：Inverse compositional spatial transformer networks.  </p>
+</li>
+</ul>
+<h1 id="5-Aligned-Inception-ResNet"><a href="#5-Aligned-Inception-ResNet" class="headerlink" title="5 Aligned-Inception-ResNet"></a>5 Aligned-Inception-ResNet</h1><p>Aligned-Inception-ResNet是Inception-ResNet的改进版本，由于 Inception-ResNet网络太深，使用了很多卷积层和池化层，深层神经元（靠近输入层）在原图上的映射，与感受野的中心是不能对齐的，比如下图这样的一层卷积，后一层的每个像素都与感受野的中心是对齐的，但是这样的层堆起来之后，然后再加一些池化层的话，就很有可能对不齐了。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/hL7J4CjIf5.png?imageslim" alt="mark"></p>
+<p>实际上这种情况在深层卷积神经网络中是比较普遍的，一般都是通过控制池化层数量（比如ResNet，GoogLeNet模型中就没有池化层）和总降采样比例来减缓的，而且有些视觉任务是在能够对齐的假设下构建的，比如FCN，最后的feature map中的一个 cell 的预测对应了原图的一个位置。</p>
+<p>为了弥补这个缺陷，何凯明还有微软亚研院一干人等 提出了 Aligned-Inception-ResNet ，这是一篇没出版的论文，arxiv网站上也没找到，这里是在 deformable convolutional networks 这篇论文的 附录部分看到的。</p>
+<p>看下面这篇论文中的引用：unpublished work</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/LALI5kHf4g.png?imageslim" alt="mark"></p>
+<p>论文中也声明了：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/1G7dgHHdGH.png?imageslim" alt="mark"></p>
+<p>不过网络结构倒是挺清晰的，个别细节不太清楚。</p>
+<p>网络结构看table6 和 figure 8：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/A5709kIgdi.png?imageslim" alt="mark"></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/2alfaccKmf.png?imageslim" alt="mark"></p>
+<ul>
+<li>与原始的Inception-ResNet，相比， Aligned-Inception-ResNet 使用了很多重复的结构，称为 IRB ，如figure 8，整个网络结构比 Inception-ResNet简单了好多；</li>
+<li>关于对齐的方式，附录只是说在卷积层和池化层使用了合适的 padding（proper padding in convolutional and pooling layers. ）。具体是怎么做的也没说清楚.</li>
+</ul>
+<p>ImageNet上的效果如下：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/hKHEmDlaD3.png?imageslim" alt="mark"></p>
+<ul>
+<li>可见效果并没有超越其他的结构，号称是Inception-ResNet的改良，竟然还不如 Inception-ResNet，而且参数也多，IRB那个结构感觉也是将Inception-ResNet 中的模块调整了一下，没有啥太大本质的变化。</li>
+<li>唯一有效的恐怕就是在分割或者目标检测中用作基础网络时效果会好点吧，见table5.</li>
+</ul>
+<p>这个结构目前只在两篇文章中见到过：一篇 是上面讲的 deformable convolutional networks ，还有一篇是：Flow-Guided Feature Aggregation for Video Object Detection ，都是微软亚研院的工作。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%8F%8C%E7%BA%BF%E6%80%A7%E6%8F%92%E5%80%BC" target="_blank" rel="external">双线性差值</a> </li>
+<li><a href="http://blog.csdn.net/lz0499/article/details/69791572" target="_blank" rel="external">图像处理之插值运算</a></li>
+<li><a href="https://mlnotebook.github.io/post/CNN1/" target="_blank" rel="external">https://mlnotebook.github.io/post/CNN1/</a></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><strong>本文标题：</strong><a href="/articles/notes-on-the-basic-dl-model--deformable-convolutional-networks-.html">基础DL模型-Deformable Convolutional Networks-论文笔记</a></p>
+  <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
+  <p><strong>发布时间：</strong>2018年06月05日 - 02:06</p>
+  <p><strong>最后更新：</strong>2018年06月05日 - 03:06</p>
+  <p><strong>本文链接：</strong><a href="/articles/notes-on-the-basic-dl-model--deformable-convolutional-networks-.html" title="基础DL模型-Deformable Convolutional Networks-论文笔记">https://arleyzhang.github.io/articles/notes-on-the-basic-dl-model--deformable-convolutional-networks-.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/notes-on-the-basic-dl-model--deformable-convolutional-networks-.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><strong>版权声明：</strong> 本文由 arleyzhang 原创，采用 <i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">保留署名-非商业性使用-禁止演绎 4.0-国际许可协议</a>，转载请保留原文链接及作者!</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/论文笔记/" rel="tag"><i class="fa fa-tag"></i> 论文笔记</a>
+          
+            <a href="/tags/basic-dl-models/" rel="tag"><i class="fa fa-tag"></i> basic dl models</a>
+          
+            <a href="/tags/Deformable-Convolutional-Networks/" rel="tag"><i class="fa fa-tag"></i> Deformable Convolutional Networks</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/articles/note-taking-of-the-basic-dl-model--stn-.html" rel="next" title="基础DL模型-STN-论文笔记">
+                <i class="fa fa-chevron-left"></i> 基础DL模型-STN-论文笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">arleyzhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/arleyzhang" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1186197274@qq.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-简介"><span class="nav-text">1 简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Deformable-Convolutional-Networks"><span class="nav-text">2 Deformable Convolutional Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Deformable-Convolution"><span class="nav-text">2.1 Deformable Convolution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Deformable-RoI-Pooling"><span class="nav-text">2.2 Deformable RoI Pooling</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-试验"><span class="nav-text">3 试验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-试验准备"><span class="nav-text">3.1 试验准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Understanding-Deformable-ConvNets"><span class="nav-text">3.2 Understanding Deformable ConvNets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-Ablation-Study"><span class="nav-text">3.3 Ablation Study</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-与STN的比较"><span class="nav-text">4 与STN的比较</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-Aligned-Inception-ResNet"><span class="nav-text">5 Aligned-Inception-ResNet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">arleyzhang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://arleyzhang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://arleyzhang.github.io/articles/notes-on-the-basic-dl-model--deformable-convolutional-networks-.html';
+          this.page.identifier = 'articles/notes-on-the-basic-dl-model--deformable-convolutional-networks-.html';
+          this.page.title = '基础DL模型-Deformable Convolutional Networks-论文笔记';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://arleyzhang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>

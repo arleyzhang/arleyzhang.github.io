@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next gemini" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/kitty_bbook_32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/kitty_bbook_16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="object detection,R-CNN,Mask R-CNN,学习总结," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="两步检测（two-stage）目标检测算法总结，持续更新……">
+<meta name="keywords" content="object detection,R-CNN,Mask R-CNN,学习总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="目标检测-从RCNN到Mask RCNN两步检测算法总结">
+<meta property="og:url" content="https://arleyzhang.github.io/articles/target-detection---summary-of-two-step-detection-algorithm-from-rcnn-to-mask-rcnn.html">
+<meta property="og:site_name" content="arleyzhang">
+<meta property="og:description" content="两步检测（two-stage）目标检测算法总结，持续更新……">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/dj88beG7b2.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/LKcaL9jlcf.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/ajFhJg0ea9.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/djbhhGhjd0.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/ak6h6DHLb1.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/dB6DEd2B58.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/kLCbC874EG.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/ElkED0GhID.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/GamBCJJKmi.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/BFAgEEHaIf.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/eKIgLHCi1H.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/jGi4D39G8b.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/Kd8m7Ci53G.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/HhcKlF84C5.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/kJ1JI2K1HE.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/3ILamAJFJk.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/0d4C0J1lJ4.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/KI5I2cgbe7.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/9Ei6iBFHh6.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/hDigFlLigb.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/j0HJABGbBC.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/7fi3AJD4fK.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/kdiiLflmE2.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/k99G9AFH4G.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/j0HJABGbBC.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/ljk6hcjB0B.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/kJjJbd9cc9.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/b22Lac8HfK.png?imageslim">
+<meta property="og:updated_time" content="2018-06-04T18:24:07.149Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="目标检测-从RCNN到Mask RCNN两步检测算法总结">
+<meta name="twitter:description" content="两步检测（two-stage）目标检测算法总结，持续更新……">
+<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/dj88beG7b2.png?imageslim">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://arleyzhang.github.io/articles/target-detection---summary-of-two-step-detection-algorithm-from-rcnn-to-mask-rcnn.html"/>
+
+
+
+
+
+  <title>目标检测-从RCNN到Mask RCNN两步检测算法总结 | arleyzhang</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">arleyzhang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://arleyzhang.github.io/articles/target-detection---summary-of-two-step-detection-algorithm-from-rcnn-to-mask-rcnn.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="arleyzhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="arleyzhang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">目标检测-从RCNN到Mask RCNN两步检测算法总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-05T01:43:44+08:00">
+                2018-06-05
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-05T02:24:07+08:00">
+                2018-06-05
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/deep-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">deep learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/articles/target-detection---summary-of-two-step-detection-algorithm-from-rcnn-to-mask-rcnn.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="articles/target-detection---summary-of-two-step-detection-algorithm-from-rcnn-to-mask-rcnn.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  两步检测（two-stage）目标检测算法总结，持续更新……
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>目标检测中两步检测算法的总结对比，持续更新……</p>
+<p>R-CNN, SPPNet, Fast R-CNN, Faster R-CNN, R-FCN, Light-head R-CNN, Mask R-CNN</p>
+<h1 id="R-CNN"><a href="#R-CNN" class="headerlink" title="R-CNN"></a>R-CNN</h1><p>Rbg提出的R-CNN的方法</p>
+<ol>
+<li>一张图像先通过selective search的方法，生成1K~2K个<strong>候选区域</strong>，这个步骤生成的候选区域大小是不一样的，因此需要 warped region，也就是将不同大小的 region 缩放到同样的尺寸，因为CNN后面的全连接层要求输入尺寸固定。</li>
+<li>对每个 warped 后的候选区域，使用CNN<strong>提取特征</strong> ，提取的特征需存储到磁盘；</li>
+<li>读取特征，送入每一类的 SVM <strong>分类器</strong>，判别是否属于该类；</li>
+<li>最终还有一个位置回归器用于精细修正。</li>
+</ol>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/dj88beG7b2.png?imageslim" alt="mark"></p>
+<p>回归方法：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">region proposals 与 ground truth之间的逻辑关系</th>
+<th style="text-align:center">可以推出回归目标（也就是标签）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/LKcaL9jlcf.png?imageslim" alt="mark"></td>
+<td style="text-align:center"><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/ajFhJg0ea9.png?imageslim" alt="mark"></td>
+</tr>
+</tbody>
+</table>
+<p>回归函数： <img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/djbhhGhjd0.png?imageslim" alt="mark"></p>
+<p>损失函数：<img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/ak6h6DHLb1.png?imageslim" alt="mark"></p>
+<p><strong>训练方法：</strong>  </p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/dB6DEd2B58.png?imageslim" alt="mark"></p>
+<p><strong>优点：</strong> </p>
+<ul>
+<li>结构简单明了，容易理解；</li>
+<li>CNN自动提取特征，省去手工设计特征的复杂操作，以及对经验和运气的依赖性；</li>
+<li>使用 selective search方法来生成候选区域，显著减少候选区域的数量，增加候选区域的质量（包含目标的可能性更大），因为这相当于一个弱检测器，相比于sliding window穷举搜索的方式肯定要好很多；</li>
+<li>预测精度提高了30%。</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>提取特征时，CNN需要在每一个候选区域上跑一遍；候选区域之间的交叠使得特征被重复提取, 造成了严重的<br>速度瓶颈, 降低了计算效率; </li>
+<li>将候选区域直接缩放到固定大小, 破坏了物体的长宽比, 可能导致物体的局部细节损失;  </li>
+<li>R-CNN还不是端到端的模型，训练步骤繁琐multi-stage（先预训练、fine tuning、存储CNN提取的特征；再训练SVM ；再regression）。从fine tuning 到训练SVM时，不能一步到位，要分成两步；</li>
+<li>训练SVM时需要将之前CNN提取到的特征全部存储在磁盘上，磁盘读写耗时，且占用空间大，（Pascal 200G）；</li>
+<li>使用额外的selective search 算法生成候选区域的过程也很耗时；</li>
+<li>预测时间很慢，一张图片要49s。</li>
+</ul>
+<h1 id="SPPNet"><a href="#SPPNet" class="headerlink" title="SPPNet"></a>SPPNet</h1><p>针对R-CNN的两个缺陷：</p>
+<ul>
+<li>先生成候选区域，再对区域进行卷积，候选区域之间的交叠使得特征被重复提取, 造成了严重的<br>速度瓶颈, 降低了计算效率; </li>
+<li>将候选区域直接缩放到固定大小, 破坏了物体的长宽比, 可能导致物体的局部细节损失;  </li>
+</ul>
+<p>何凯明提出的改进方法如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">改变生成候选区域的顺序</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/kLCbC874EG.png?imageslim" alt="mark"><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/ElkED0GhID.png?imageslim" alt="mark"></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>SPP池化</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/GamBCJJKmi.png?imageslim" alt="mark"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>改变生成候选区域的顺序。从先生成候选区域再提取特征，变成先提取特征再生成候选区域，实现了特征提取部分的计算共享，极大的减少计算量。生成候选区域的方式还是 selective search算法，在原图上生成候选区域后，映射到特征图上去。</li>
+<li>使用SPP池化（Spatial pyramid model, 空间金字塔池化池化）：传统的池化方式是 <strong>已知输入尺寸</strong>和 <strong>固定池化核大小</strong>，<strong>确定输出尺寸</strong>，那么这时候输出尺寸肯定是随输入尺寸变化的，所以这时候就要求输入图片是固定尺寸。而SPP池化是 <strong>已知输入尺寸</strong> 和 <strong>固定输出尺寸</strong>，<strong>来确定确定池化核的大小</strong>。SPP 层用不同大小的池化窗口作用于卷积得到的特征图，池化窗口的大小和步长根据特征图的尺寸进行动态计算，最终可以组合成一个特定维度的特征输出。这里的输入可以是一个feature map（分类问题），也可以是一个window（检测问题）。</li>
+</ul>
+<p><strong>训练过程：</strong> </p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/BFAgEEHaIf.png?imageslim" alt="mark"></p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>SPP-net 对于一幅图像的所有候选区域, 只需要进行一次卷积过程, 避免了重复计算, 显著提高了计算效率。该方法在速度上比 R-CNN 提高 24 ~102 倍 .</li>
+<li>SPP池化层使得检测网络可以处理任意尺寸的图像, 因此可以采用多尺度图像来训练网络, 从而使得网络对目标的尺度有很好的鲁棒性. </li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>SPP-net 的训练过程更复杂了，（先预训练、存储SPP特征、使用SPP特征fine tuning全连接层、存储CNN提取的特征；再训练SVM ；再regression）。</li>
+<li>CNN 提取的特征存储需要的空间和时间开销增大;</li>
+<li>在微调阶段, SPP-net 只能更新空间金字塔池化层后的全连接层, 而不能更新卷积层(好像是梯度不连续), 这限制了检测性能的提升。 </li>
+</ul>
+<h1 id="Fast-R-CNN"><a href="#Fast-R-CNN" class="headerlink" title="Fast R-CNN"></a>Fast R-CNN</h1><p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/eKIgLHCi1H.png?imageslim" alt="mark"></p>
+<p><strong>为什么 SPPnet和 R-CNN训练很慢？</strong></p>
+<p>主要原因有两点</p>
+<ul>
+<li>使用SVM做分类器时，需要将特征事先存储到磁盘上，磁盘交互耗时；</li>
+<li>训练步骤繁琐，不能联合训练。</li>
+</ul>
+<p>针对 R-CNN 和 SPPNet 的这两个问题, rbg 提出 能够端到端联合训练的  Fast R-CNN 算法 ，如下：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/jGi4D39G8b.png?imageslim" alt="mark"></p>
+<ul>
+<li>首先在图像中提取感兴趣区域 (Regions of Interest, RoI)，还是使用selective search算法，生成的候选区域这里称为ROI，将ROI映射到feature map上; </li>
+<li>然后采用与 SPP-net 相似的处理方式,对每幅图像只进行一次卷积, </li>
+<li>在最后一个卷积层输出的特征图上对每个 RoI 进行映射, 得到相应的RoI 的特征图, 并送入 RoI 池化层 (相当于单层的SPP 层, 通过该层把各尺寸的特征图统一到相同的大小); </li>
+<li>最后经过全连接层得到两个输出向量, 一个进行 Softmax 分类, 另一个进行边框回归. </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">SPP池化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/Kd8m7Ci53G.png?imageslim" alt="mark"></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>ROI池化</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/HhcKlF84C5.png?imageslim" alt="mark"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>改进的方法：</strong> </p>
+<ul>
+<li>串行结构改成并行结构 ：原来的 R-CNN 是先对候选框区域进行分类，判断有没有物体，如果有则对 Bounding Box 进行精修 回归 。这是一个串联式的任务，那么势必没有并联的快，所以 rbg 就将原有结构改成并行，在分类的同时，对 Bbox 进行回归；</li>
+<li>ROI池化：在这个模型里，ROI就是感兴趣区域(Regions of Interest, RoI) ，也就是之前模型中的候选区域。SPP池化的改进，相当于只用了一种尺寸的 SPP池化；</li>
+<li>不用SVM分类，改用SoftMax分类，可以省去特征存储；</li>
+<li>使用multi-task loss 多任务损失函数（分类+回归），端到端（end-to-end）训练。</li>
+</ul>
+<p><strong>训练方式：</strong> </p>
+<table>
+<thead>
+<tr>
+<th><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/kJ1JI2K1HE.png?imageslim" alt="mark"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/3ILamAJFJk.png?imageslim" alt="mark"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>multi-task 损失函数：</strong> </p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/0d4C0J1lJ4.png?imageslim" alt="mark"></p>
+<p><strong>新的挑战及解决方法：</strong> </p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/KI5I2cgbe7.png?imageslim" alt="mark"></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/9Ei6iBFHh6.png?imageslim" alt="mark"></p>
+<p><strong>ROI池化：</strong></p>
+<p>一句话概括作用：将不同尺寸输入的feature map或者 ROI，降采样成固定尺寸的输出 feature map，再送入全连接层。</p>
+<p>做法：</p>
+<ul>
+<li>将image中的ROI 映射到feature map 中对应位置的区域，这些区域大小是不统一的（<strong>已知输入</strong>）；</li>
+<li>将映射后的区域划分为相同大小的sections（sections数量与输出的维度相同，<strong>固定输出尺寸</strong>）；这个过程中，每个ROI分好的section中的像素数量是不一样的（池化核的大小和步长根据输入和输出尺寸进行动态计算），最终可以组合成一个特定维度的特征输出；</li>
+<li>对每个sections进行max pooling操作；</li>
+</ul>
+<p>参考：<a href="https://blog.deepsense.ai/region-of-interest-pooling-explained/" target="_blank" rel="external">Region of interest pooling explained</a> </p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>精度有提高</li>
+<li>通过使用 multi-task loss ，可以实现 end-to-end训练，single-stage，除了预训练之外，其他的都是可以一气呵成的。</li>
+<li>分类和回归任务可以共享卷积特征,相互促进. </li>
+<li>Fast R-CNN 采用 Softmax 分类与边框回归一起进行训练, 省去了特征存储, 提高了空间和时间利用率。 与 R-CNN 相比, 在训练 VGG 网络时,Fast R-CNN 的训练阶段快 9 倍, 测试阶段快 213倍; 与 SPP-net 相比, Fast R-CNN 的训练阶段快 3倍, 测试阶段快 10 倍。</li>
+</ul>
+<p><strong>缺点：</strong> </p>
+<ul>
+<li>Fast R-CNN 仍然存在速度上的瓶颈, 就是候选区域生成步骤耗费了整个检测过程的大量时间.</li>
+</ul>
+<h1 id="Faster-R-CNN"><a href="#Faster-R-CNN" class="headerlink" title="Faster R-CNN"></a>Faster R-CNN</h1><p>为了解决候选区域生成步骤消耗大量计算资源, 导致检测速度过慢的问题, 任少卿，何凯明，rbg联合提出区域生成网络 (Region proposal network, RPN), 并且把RPN 和 Fast R-CNN 融合到一个统一的网络 (称为 Faster R-CNN), 二者共享卷积特征. 如下：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/hDigFlLigb.png?imageslim" alt="mark"></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/j0HJABGbBC.png?imageslim" alt="mark"></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/7fi3AJD4fK.png?imageslim" alt="mark"></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/kdiiLflmE2.png?imageslim" alt="mark"></p>
+<p>RPN 将一整幅图像作为输入, 输出一系列的矩形候选区域. 它是一个全卷积网络模型, 通过在与 Fast R-CNN 共享卷积层的最后一层输出的特征图上滑动一个小型网络（sliding window）, 这个网络与特征图上的小窗口全连接, 每个滑动窗口映射到一个低维的特征向量, 再输入给两个并列的全连接层, 即分类层 (cls layer) 和边框回归层(reg layer), 由于网络是以滑动窗的形式来进行操作, 所以全连接层的参数在所有空间位置是共享的. RPN的结构在实现时实际上是一个全卷积网络。</p>
+<p>RPN是一个弱检测器，RPN的输出是一些可能包含目标的候选框（ region proposals 或者称为 region of interest ,ROI）,这些ROI 将会输入Fast R-CNN中，用于最后的检测。</p>
+<p><strong>训练方式：</strong> </p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/k99G9AFH4G.png?imageslim" alt="mark"></p>
+<p><strong>Anchor的作用</strong> </p>
+<p>按照两步检测的惯例，应该要先有初步的ROI ，然后才是最终的分类和回归，对于原版的Fast R-CNN来说，它的ROI是由selective search算法提供的；而Faster R-CNN中的 Fast R-CNN的 ROI 则是由RPN网络产生的。</p>
+<p>那么RPN既然是一个弱检测器，那么RPN的ROI或者 region proposals从哪来？ 答案是从 anchor 中来。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/j0HJABGbBC.png?imageslim" alt="mark"></p>
+<p>结合上面的图，RPN在CNN提取特征之后以sliding window的方式在最后一个feature map上提取特征，每个滑动窗口中心都关联着 k个 box，这些box就称为anchor，或者叫anchor box。这些关联的box 可以通过逆向映射对应到原图上，对应到原图上的区域就是region proposals，不过这些region proposals都是位于同一个中心点。就是说sliding window时的window（大小固定）是由这些原图上的不同大小和比例的 region proposals 生成的（类似于ROI池化的功能）。</p>
+<p>实际上sliding window时每个 window 起到了一部分region proposals 的作用，但是由于这里的sliding window的尺寸是固定的，所以不能起到多尺度，多尺寸（multiple scales and sizes ）预测的作用，因此提出关联k个不同大小和长宽比的anchor box，这样二者结合即可起到多尺度，多尺寸预测的作用。参考下图：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/ljk6hcjB0B.png?imageslim" alt="mark"></p>
+<p>使用anchor的好处是，RPN最后sliding window 时可以使用 卷积的方式实现（因为 window的大小是固定的），使网络变得很简单。</p>
+<p>而后面的 256维向量的输入 由于用卷积层实现所以也由 （1,1,256），变成了（W,H,256）.</p>
+<p>但是我们知道后面的输入是固定尺寸的 window ，那么在分类和回归时是如何来反映不同尺寸和比例的 region proposals呢？答案是通过 标签和损失函数。</p>
+<p>以下引用自 [参考资料 1]，在那位大兄弟的博客中，一开始他的理解是对的，但是后面的补充他又给改错了，但是不是什么大错，内容是对的，只是因果关系搞反了，这里只把内容贴出来：</p>
+<blockquote>
+<p><strong>从nxn提出的256d特征是被这k种区域共享的</strong>，在clc layer和reg layer计算损失的时候，用这共享的256d特征 加上 anchor推算出k种区域的坐标和前景、背景的标签，便可以对这k种区域同时计算loss。</p>
+<p><strong>clc layer和reg layer同时预测k个区域的前景、背景概率（1个区域2个scores，所以是2k个scores），以及bounding box（1个区域4个coordinates，所以是4k个coordinates），具体的说：</strong></p>
+<p>clc layer输出预测区域的2个参数，即预测为前景的概率pa和pb，损失用softmax loss（cross entropy loss）（本来还以为是sigmoid，这样的话只预测pa就可以了？）。需要的监督信息是Y=0,1，表示这个区域是否ground truth</p>
+<p>reg layer输出预测区域的4个参数：x,y,w,h，用smooth L1 loss。需要的监督信息是 anchor的区域坐标{xa,ya,wa,ha} 和 ground truth的区域坐标{x<em>,y</em>,w<em>,h</em>}</p>
+<p>显然，上面的监督信息：Y，{xa,ya,wa,ha}（k个），{x*,y*,w*,h*}（1个），就是通过anchor机制产生的。这几个参数的指定（比如k个anchor区域的Y是怎么得到的）是根据文章中的样本产生规则，很多博客中也都提到了。</p>
+</blockquote>
+<p>参考资料：</p>
+<ol>
+<li><a href="http://blog.csdn.net/ying86615791/article/details/72788414" target="_blank" rel="external">faster-rcnn中，对RPN的理解</a></li>
+<li><a href="https://www.zhihu.com/question/42205480" target="_blank" rel="external">faster rcnn中rpn的anchor，sliding windows，proposals？</a> </li>
+</ol>
+<h1 id="R-FCN"><a href="#R-FCN" class="headerlink" title="R-FCN"></a>R-FCN</h1><p>如果不考虑生成ROI的部分（比如RPN，Region Proposal Network），两步检测模型可以分为两部分子网络（subnetworks ）：</p>
+<ul>
+<li>第一部分是<strong>共享计算</strong>的全卷积基础子网络 base，或称body，trunk ，这一部分是与ROI独立的，主要用于提取特征</li>
+<li><p>第二部分是<strong>不共享计算</strong>的子网络 head，<strong>生成的每一个ROI都要经过head部分</strong>，主要用于分类</p>
+<p>Faster R-CNN 实现了很多计算的共享：ROI之间的特征提取共享计算，ROI 提取与base部分共享计算，但是<strong>ROI通过head部分是不共享计算。</strong>  </p>
+<p>R-FCN就是基于FCN将 head部分也实现了计算共享。但是由于直接将 Faster R-CNN 的head部分也就是全连接层改为全卷积层，然后再使用</p>
+</li>
+</ul>
+<p> R-FCN是一种新的基于区域的全卷积网络检测方法. 为了给网络引入平移变化, 构建对位置敏感的池化方式 (Position sensitive pooling), 编码感兴趣区域的相对空间位置信息. 该网络解决了 Faster R-CNN 由于重复<br>计算全连接层而导致的耗时问题, 实现了让整个网络中所有的计算都可以共享 。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/kJjJbd9cc9.png?imageslim" alt="mark"></p>
+<p><strong>Position sensitive pooling：</strong></p>
+<p>ROI Pooling 中的每一个网格都来自前面  position-sensitive score maps中不同组通道的  feature map。这个跟分组卷积的意思有点像，这个可以叫做分组ROI池化。是一种选择性ROI池化，主要是为了增强对位置的敏感程度。</p>
+<h1 id="Light-head-RCNN"><a href="#Light-head-RCNN" class="headerlink" title="Light-head RCNN"></a>Light-head RCNN</h1><p>不管是 Faster R-CNN还是 R-FCN 在 ROI(Region of Interest) 生成前后都是计算量很大的，比如 Faster R-CNN 的head部分包含两个全连接层用于ROI 分类，而全连接层极大地消耗计算；R-FCN虽然比 Faster R-CNN快许多，但是由于生成的 score maps太多，想要达到实时（30FPS, Frame Per Second）还是有点困难的。也就是说这些模型之所以速度慢的原因在于计算量过于繁重的 head部分 (heavy-head design )，即便是将 base部分削减压缩，计算消耗也不能很大程度的削减。</p>
+<p>本文提出了一种新的两步检测模型， Light-Head RCNN ，为了解决现在的两步检测普遍存在的 heavy-head的问题。在本文模型的设计中使用了thin feature map 和 cheap R-CNN subnet (pooling and single fully-connected layer)，是对R-FCN的改进。</p>
+<p><strong>改进：</strong> </p>
+<ul>
+<li>引进inception V3中可分离卷积的思想，作者采用large separable convolution生成<strong>channel数更少的feature map</strong>(从3969减少到490)。</li>
+<li>用FC层代替了R-FCN中的global average pool，<strong>避免空间信息的丢失</strong>。</li>
+</ul>
+<p><strong>参考资料：</strong> </p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/33158548" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/33158548</a></li>
+</ul>
+<h1 id="Mask-R-CNN"><a href="#Mask-R-CNN" class="headerlink" title="Mask R-CNN"></a>Mask R-CNN</h1><p>在fatser rcnn的基础上对ROI添加一个分割的分支，预测ROI当中元素所属分类，使用FCN进行预测；  </p>
+<p>具体步骤：使用fatser rcnn中的rpn网络产生region proposal（ROI），将ROI分两个分支：（1）fatser rcnn操作，即经过ROI pooling 输入fc进行分类和回归；（2）mask操作，即通过<strong>ROIAlign</strong>校正经过ROI Pooling之后的相同大小的ROI，然后在用fcn进行预测（分割）。  </p>
+<p><strong>ROIAlign产生的原因：</strong>RoI Pooling就是将原图ROI区域映射到feature map上，最后pooling到固定大小的功能。当把原图上的ROI 映射到 feature map上时，存在归一化或者量化（即取整）的过程。在归一化的过程当中，由于存在多次量化过程（卷积步长，池化），<strong>会存在ROI与提取到的特征不对准的现象出现</strong> 也就是feature map上的ROI再映射会原图时会跟原来的ROI对不准，由于分类问题对平移问题比较鲁棒，所以影响比较小。但是这在预测像素级精度的掩模时会产生一个非常的大的负面影响。作者就提出了这个概念ROIAlign，使用ROIAlign层对提取的特征和输入之间进行校准。  </p>
+<p><strong>ROI Align的思路很简单：</strong>取消量化操作，使用双线性插值的方法获得坐标为浮点数的像素点上的图像数值,从而将整个特征聚集过程转化为一个连续的操作，。值得注意的是，在具体的算法操作上，ROI Align并不是简单地补充出候选区域边界上的坐标点，然后将这些坐标点进行池化，而是重新设计了一套比较优雅的流程，如 图 所示：</p>
+<ul>
+<li>遍历每一个候选区域，保持浮点数边界不做量化。</li>
+<li>将候选区域分割成k x k个单元，每个单元的边界也不做量化。</li>
+<li>在每个单元中计算固定四个坐标位置，用双线性内插的方法计算出这四个位置的值，然后进行最大池化操作。</li>
+</ul>
+<p>这里对上述步骤的第三点作一些说明：这个固定位置是指<strong>在每一个矩形单元（bin）中按照固定规则确定的位置</strong>。比如，如果采样点数是1，那么就是这个单元的中心点。如果采样点数是4，那么就是把这个单元平均分割成四个小方块以后它们分别的中心点。显然这些采样点的坐标通常是浮点数，所以需要使用插值的方法得到它的像素值。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/b22Lac8HfK.png?imageslim" alt="mark"></p>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://blog.leanote.com/post/afanti.deng@gmail.com/b5f4f526490b" target="_blank" rel="external">详解 ROI Align 的基本原理和实现细节</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><strong>本文标题：</strong><a href="/articles/target-detection---summary-of-two-step-detection-algorithm-from-rcnn-to-mask-rcnn.html">目标检测-从RCNN到Mask RCNN两步检测算法总结</a></p>
+  <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
+  <p><strong>发布时间：</strong>2018年06月05日 - 01:06</p>
+  <p><strong>最后更新：</strong>2018年06月05日 - 02:06</p>
+  <p><strong>本文链接：</strong><a href="/articles/target-detection---summary-of-two-step-detection-algorithm-from-rcnn-to-mask-rcnn.html" title="目标检测-从RCNN到Mask RCNN两步检测算法总结">https://arleyzhang.github.io/articles/target-detection---summary-of-two-step-detection-algorithm-from-rcnn-to-mask-rcnn.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/target-detection---summary-of-two-step-detection-algorithm-from-rcnn-to-mask-rcnn.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><strong>版权声明：</strong> 本文由 arleyzhang 原创，采用 <i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">保留署名-非商业性使用-禁止演绎 4.0-国际许可协议</a>，转载请保留原文链接及作者!</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/object-detection/" rel="tag"><i class="fa fa-tag"></i> object detection</a>
+          
+            <a href="/tags/R-CNN/" rel="tag"><i class="fa fa-tag"></i> R-CNN</a>
+          
+            <a href="/tags/Mask-R-CNN/" rel="tag"><i class="fa fa-tag"></i> Mask R-CNN</a>
+          
+            <a href="/tags/学习总结/" rel="tag"><i class="fa fa-tag"></i> 学习总结</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/articles/target-detection--r-fcn--paper-notes.html" rel="next" title="目标检测-R-FCN-论文笔记">
+                <i class="fa fa-chevron-left"></i> 目标检测-R-FCN-论文笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/articles/note-taking-of-the-basic-dl-model--stn-.html" rel="prev" title="基础DL模型-STN-论文笔记">
+                基础DL模型-STN-论文笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">arleyzhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/arleyzhang" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1186197274@qq.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#R-CNN"><span class="nav-text">R-CNN</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SPPNet"><span class="nav-text">SPPNet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fast-R-CNN"><span class="nav-text">Fast R-CNN</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Faster-R-CNN"><span class="nav-text">Faster R-CNN</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#R-FCN"><span class="nav-text">R-FCN</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Light-head-RCNN"><span class="nav-text">Light-head RCNN</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mask-R-CNN"><span class="nav-text">Mask R-CNN</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">arleyzhang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://arleyzhang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://arleyzhang.github.io/articles/target-detection---summary-of-two-step-detection-algorithm-from-rcnn-to-mask-rcnn.html';
+          this.page.identifier = 'articles/target-detection---summary-of-two-step-detection-algorithm-from-rcnn-to-mask-rcnn.html';
+          this.page.title = '目标检测-从RCNN到Mask RCNN两步检测算法总结';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://arleyzhang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
