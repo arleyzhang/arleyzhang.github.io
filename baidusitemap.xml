@@ -4,6 +4,58 @@
 
     
   <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection-model-cascade-rcnn-essay-notes.html</loc>
+    <lastmod>2018-06-05T19:03:25.416Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测模型-Cascade R-CNN-论文笔记</title>
+        <pubTime>2018-06-05T18:54:27.000Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
+         
+        <tag>Cascade R-CNN</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection-model-focal-loss-essay-notes.html</loc>
+    <lastmod>2018-06-05T18:52:07.309Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测模型-Focal Loss-论文笔记</title>
+        <pubTime>2018-06-05T18:43:44.000Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
+         
+        <tag>Focal Loss</tag>
+         
+        <tag>loss function</tag>
+         
+        <tag>RetinaNet</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://arleyzhang.github.io/articles/target-detection-evaluation-standard-ap-map.html</loc>
     <lastmod>2018-06-05T18:35:37.835Z</lastmod>
     <data>
@@ -111,9 +163,9 @@
         
         <tag>basic dl models</tag>
          
-        <tag>DenseNet</tag>
-         
         <tag>论文笔记</tag>
+         
+        <tag>DenseNet</tag>
          
          
            
@@ -135,9 +187,9 @@
         
         <tag>basic dl models</tag>
          
-        <tag>论文笔记</tag>
-         
         <tag>Deformable Convolutional Networks</tag>
+         
+        <tag>论文笔记</tag>
          
          
            

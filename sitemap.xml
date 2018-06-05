@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection-model-cascade-rcnn-essay-notes.html</loc>
+    
+    <lastmod>2018-06-05T19:03:25.416Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection-model-focal-loss-essay-notes.html</loc>
+    
+    <lastmod>2018-06-05T18:52:07.309Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://arleyzhang.github.io/articles/target-detection-evaluation-standard-ap-map.html</loc>
     
     <lastmod>2018-06-05T18:35:37.835Z</lastmod>
