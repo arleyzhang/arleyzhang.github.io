@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>https://arleyzhang.github.io/articles/target-detection-sniper-efficient-multiscale-algorithm-paper-notes.html</loc>
+    <lastmod>2018-06-22T08:26:22.525Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-SNIPER-高效多尺度目标检测算法-论文笔记</title>
+        <pubTime>2018-06-22T02:17:35.845Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
+         
+        <tag>SNIPER</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://arleyzhang.github.io/articles/target-detection-model-cascade-rcnn-essay-notes.html</loc>
     <lastmod>2018-06-05T19:03:25.416Z</lastmod>
     <data>
