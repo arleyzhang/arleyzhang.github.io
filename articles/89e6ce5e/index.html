@@ -91,7 +91,7 @@
 
 
 
-  <meta name="keywords" content="论文笔记,object detection,Focal Loss,loss function,RetinaNet," />
+  <meta name="keywords" content="论文笔记,object detection,SNIP," />
 
 
 
@@ -102,31 +102,28 @@
 
 
 
-<meta name="description" content="目标检测模型 Focal Loss for Dense Object Detection 论文笔记">
-<meta name="keywords" content="论文笔记,object detection,Focal Loss,loss function,RetinaNet">
+<meta name="description" content="目标检测-An Analysis of Scale Invariance in Object Detection – SNIP-论文笔记">
+<meta name="keywords" content="论文笔记,object detection,SNIP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="目标检测模型-Focal Loss-论文笔记">
-<meta property="og:url" content="https://arleyzhang.github.io/articles/target-detection-model-focal-loss-essay-notes.html">
+<meta property="og:title" content="目标检测-An Analysis of Scale Invariance in Object Detection – SNIP-论文笔记">
+<meta property="og:url" content="https://arleyzhang.github.io/articles/89e6ce5e/index.html">
 <meta property="og:site_name" content="arleyzhang">
-<meta property="og:description" content="目标检测模型 Focal Loss for Dense Object Detection 论文笔记">
+<meta property="og:description" content="目标检测-An Analysis of Scale Invariance in Object Detection – SNIP-论文笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/mke2IKhkH6.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/g206mBjmjb.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/776hG21IJb.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/LHDkiA039e.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/fc1JE2cBII.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/f3m04Id2d8.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/eBdgk6AH2e.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/9076hbA5g5.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/d28hJhJ738.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/76ea9dHg0C.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/m8EE6EaH6d.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/I0EdHm9g12.png?imageslim">
-<meta property="og:updated_time" content="2018-06-05T18:52:07.309Z">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIP/180701/iDkkAhI1hC.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIP/180701/989aDCJLmk.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIP/180701/8mkhfFAKiK.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIP/180701/afFaH61J3C.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIP/180701/g1BE469jc4.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIP/180701/A7b6eD4C56.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIP/180701/CjeE9C6FIA.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIP/180701/BEilm02mLK.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIP/180701/2H1bFhHk4f.png?imageslim">
+<meta property="og:updated_time" content="2018-07-01T09:03:55.419Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="目标检测模型-Focal Loss-论文笔记">
-<meta name="twitter:description" content="目标检测模型 Focal Loss for Dense Object Detection 论文笔记">
-<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/mke2IKhkH6.png?imageslim">
+<meta name="twitter:title" content="目标检测-An Analysis of Scale Invariance in Object Detection – SNIP-论文笔记">
+<meta name="twitter:description" content="目标检测-An Analysis of Scale Invariance in Object Detection – SNIP-论文笔记">
+<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/SNIP/180701/iDkkAhI1hC.png?imageslim">
 
 
 
@@ -156,13 +153,13 @@
 
 
 
-  <link rel="canonical" href="https://arleyzhang.github.io/articles/target-detection-model-focal-loss-essay-notes.html"/>
+  <link rel="canonical" href="https://arleyzhang.github.io/articles/89e6ce5e/"/>
 
 
 
 
 
-  <title>目标检测模型-Focal Loss-论文笔记 | arleyzhang</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>目标检测-An Analysis of Scale Invariance in Object Detection – SNIP-论文笔记 | arleyzhang</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -333,7 +330,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://arleyzhang.github.io/articles/target-detection-model-focal-loss-essay-notes.html">
+    <link itemprop="mainEntityOfPage" href="https://arleyzhang.github.io/articles/89e6ce5e/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="arleyzhang">
@@ -350,7 +347,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">目标检测模型-Focal Loss-论文笔记</h1>
+          <h1 class="post-title" itemprop="name headline">目标检测-An Analysis of Scale Invariance in Object Detection – SNIP-论文笔记</h1>
         
 
         <div class="post-meta">
@@ -362,8 +359,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-06T02:43:44+08:00">
-                2018-06-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-01T16:49:55+08:00">
+                2018-07-01
               </time>
             
 
@@ -378,8 +375,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-06-06T02:52:07+08:00">
-                2018-06-06
+              <time title="更新于" itemprop="dateModified" datetime="2018-07-01T17:03:55+08:00">
+                2018-07-01
               </time>
             
           </span>
@@ -415,9 +412,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/articles/target-detection-model-focal-loss-essay-notes.html#comments" itemprop="discussionUrl">
+                <a href="/articles/89e6ce5e/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="articles/target-detection-model-focal-loss-essay-notes.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="articles/89e6ce5e/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -437,7 +434,7 @@
 
           
               <div class="post-description">
-                  目标检测模型 Focal Loss for Dense Object Detection 论文笔记
+                  目标检测-An Analysis of Scale Invariance in Object Detection – SNIP-论文笔记
               </div>
           
 
@@ -455,82 +452,122 @@
 
       
         <blockquote>
-<p>论文：<a href="https://arxiv.org/abs/1708.02002" target="_blank" rel="external">Focal Loss for Dense Object Detection</a>  ICCV2017 Best Student Paper Award<br>代码：<a href="https://github.com/facebookresearch/Detectron" target="_blank" rel="external">https://github.com/facebookresearch/Detectron</a></p>
+<p>CVPR2018   the Best Student Entry in the COCO 2017 challenge<br>论文：<a href="https://arxiv.org/abs/1711.08189" target="_blank" rel="external">An Analysis of Scale Invariance in Object Detection-SNIP</a><br>代码：<a href="https://github.com/bharatsingh430/snip" target="_blank" rel="external">https://github.com/bharatsingh430/snip</a></p>
 </blockquote>
-<h1 id="1-问题提出"><a href="#1-问题提出" class="headerlink" title="1 问题提出"></a>1 问题提出</h1><p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/mke2IKhkH6.png?imageslim" alt="mark"></p>
+<p>这篇论文看了几遍才看明白什么意思，哎，功力火候不够啊。。。不过感觉越看越有意思，文章思想还是很巧妙的。</p>
+<p>这里还有个王乃岩大神写的 <a href="https://zhuanlan.zhihu.com/p/36431183" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/36431183</a> SNIP的剖析，写的很深入，要是看明白了这个，就不用看这篇文章了。</p>
+<h1 id="1-问题提出"><a href="#1-问题提出" class="headerlink" title="1 问题提出"></a>1 问题提出</h1><p>计算机视觉问题中，分类（classification）任务是最简单的，而且最近几年随着各种新的模型提出，ImageNet分类准确率逐步提高，现在已经能够超过人类的识别率，top-5准确率已经提高到98%左右（SENET）。但是对于检测（detection）来说，按照检测任务的评估方法（mAP/AP，关于mAP/AP的介绍可以参考这里），如果不考虑使用额外的数据，那么<a href="http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?cls=mean&amp;challengeid=11&amp;compid=3&amp;submid=17462" target="_blank" rel="external">PASCAL VOC 排行榜</a>最高为77.5（mAP），<a href="http://cocodataset.org/#detection-leaderboard" target="_blank" rel="external">MS COCO排行榜</a>最高为 73.0 （AP@0.5）。虽然分类与检测使用的评估标准不一样，分别是准确率（accuracy）和精度（precision），但是从发展的速度来看，明显检测任务的发展是比较缓慢的，这也说明了检测任务的复杂性和难度。检测任务为什么比分类难，一个宏观上的原因是由于 检测是一种密集型的分类任务（当然有些模型会用回归的方式来检测），除此之外还有很多其他原因，这里不详细分析。当然这里肯定要提出一个比较重要的原因，这篇论文也是针对这个原因提出的优化训练方法。</p>
+<p>检测任务由于目标的大小，形状不一，因此在检测时需要处理的一个重要的点，是scale。首先小目标的scale太小了，其次大目标和小目标的scale跨度太大。这两个scale上的问题是检测任务难度大、制约检测精度的难点<strong>之一</strong>。关于scale的含义，可以简单的理解为 目标面积开平方，比如我们经常说某个图片是 224×224大小的，或者某个目标是 30×30 大小的，这个224和30就是scale。</p>
+<p>接下来看一下ImageNet和COCO数据集中的图片在scale上的分布（现在的新的检测模型往往更关注COCO上的结果，VOC用的不多了）:</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/SNIP/180701/iDkkAhI1hC.png?imageslim" alt="mark"></p>
+<p>这个图乍看起来有点懵，横轴竖轴都是scale。横轴的scale是目标大小相对于图片大小的相对scale，竖轴是当前scale下的目标数量占数据集中所有目标数量的百分比。这应该是一个累加的统计，比如箭头所指的点代表的意思是：COCO数据集中，相对scale小于0.106的目标占所有目标数量的50%。</p>
+<p>可知以下几点：</p>
 <ul>
-<li><p>two-stage detector ：精度高，速度慢</p>
+<li>ImageNet中目标scale分布比较均匀：有一半的目标其relative scale是 $\le 0.556$（media scale）的，大小目标数量基本平衡。</li>
+<li>COCO中明显小目标占比更多：因为有一半的目标其relative  scale是  $\le 0.106$（small scale）的（面积相当于小于原图面积的1%，注意平方关系），而且有90%的目标其relative  scale是 $\le 0.472$ （media scale）的，只有剩下差不多10%才是 large scale的。</li>
+<li>COCO中目标scale跨度大：media scale（0.472） 和 smallest scale（0.024）相差20倍。</li>
+</ul>
+<p>上面的现象造成的后果是：</p>
 <ul>
-<li><p>the first stage ： 生成一个 <strong>稀疏的候选框的集合</strong> （<strong>a sparse set</strong> of candidate proposals ），过滤掉大部分负样本（ filtering out the majority of negative locations）</p>
-<p>这第一阶段可以采用：selective search，edgebox，RPN等算法完成，是一个弱检测器。</p>
-<p><strong>可以极大的降低候选框的数量(e.g., 1-2k)</strong>  </p>
+<li>对于检测器来说要处理这么大跨度的scale是很困难的， scale invariance将会受到极大影响。</li>
+<li>ImageNet与COCO数据集在scale上的分布差异，在迁移学习时将会造成domain-shift。</li>
+</ul>
+<p>为了解决小目标检测困难，scale 变化跨度大等问题，有很多学者提出了很多方法：</p>
+<ul>
+<li>结合深层feature map和浅层feature map预测小目标</li>
+<li>使用dilated/deformable convolution（膨胀卷积）来增加感受野，这可以使检测器对scale跨度大的问题适应性更强（因为使用高分辨率图像或者上采样来增加小目标时，会使大目标变得更大，也不利于检测）。</li>
+<li>在不同分辨率的图像上独立的预测不同scale的目标。</li>
+<li>增加context信息</li>
+<li>multi-scale training</li>
+<li>multi-scale inference on an image pyramid combined NMS</li>
+</ul>
+<p>以上几种方法的代表性论文基本都是检测领域中比较重要的论文，具体看原文吧，这里不提了。</p>
+<p>以上方法都解决了一些问题，作者提出了两个问题：</p>
+<ul>
+<li>对获得更好的精度来说，图片的上采样是有必要的吗？检测用数据集中额图片一般大小都在 480×640左右，但是为了提升对小目标检测效果，现在的很多检测模型在训练时都会图片放大到 800×1000 左右的大小。能不能在ImsgeNet上训练一个总步长较小的模型，然后再将它迁移到检测数据集上检测小目标？</li>
+<li>在迁移学习时，是否应该将目标的大小都固定在一个范围比如从 64×64 到 256×256，是否应该将resize过的目标全部用于训练？</li>
+</ul>
+<h1 id="2-Multi-scale-Classification"><a href="#2-Multi-scale-Classification" class="headerlink" title="2  Multi-scale Classification"></a>2  Multi-scale Classification</h1><p>现在的很多检测模型为了提升对小目标的检测精度，一般都会在 800×1200的分辨率上训练图片，为了进一步提升对小目标的监测精度，在inference时会进一步放大图片，比如在1400×2000的分辨率上检测。</p>
+<p>也就是说 train和test(inference)之间是存在domain shift 的。</p>
+<p>当然从直观来说，放大图片确实会增加检测效果，但是作者做了很严谨的实验来证明这个现象。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/SNIP/180701/989aDCJLmk.png?imageslim" alt="mark"></p>
+<p>如上图，是作者提出的三个用于做对照实验的模型。</p>
+<ul>
+<li>CNN-B：是在高分辨率图像的数据集上训练的（ImageNet 224），然后测试时，先将ImageNet的图像下采样至 48x48, 64x64, 80x80, 96x96 and 128x128 大小，然后再上采样至224，将这个ImageNet称为 ImageNet  up-sampled low resolution images to 224。</li>
+<li>CNN-S：是在低分辨率图像的数据集上训练的（ImageNet 48x48, 64x64, 80x80, 96x96 and 128x128, 通过降采样完成），测试也是在相应分辨率上测试的。</li>
+<li>CNN-B-FT：是在高分辨率图像的数据集上训练（ImageNet 224），而后又在上采样到224的低分辨率的数据集上fine tuning的（ImageNet  up-sampled low resolution images to 224数据），测试也是在ImageNet  up-sampled low resolution images to 224上。</li>
+</ul>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/SNIP/180701/8mkhfFAKiK.png?imageslim" alt="mark"></p>
+<p>上图是结果分析：</p>
+<ul>
+<li><p>（a）：CNN-B 在不同分辨率图像上的测试精度，注意CNN-B是在高分辨率图像上训练的，然后在 由不同低分辨率图像 上采样构成的 ImageNet 上测试的。很明显，测试图像与训练图像的分辨率差别越大，效果越差。使用网络没有训练过的图像进行测试，结果只能是次优的，至少对于分类问题来说是这样。</p>
 </li>
-<li><p>the second stage：对候选框进行 前景目标 或 背景 的分类 （classifies the proposals into foreground classes / background）</p>
+<li><p>（b），（c）：三种训练好的模型在 48×48 (96×96)大小的低分辨率图像上的测试精度，CNN-B的效果最差，CNN-S次之，CNN-B-FT最好。</p>
+<ul>
+<li><p>直接用低分辨率图像训练（CNN-S，减小步长），然后低分辨率测试，效果是比较好的。</p>
+<p>这给我们的直接启发是如果检测时想要提升对小目标的检测效果，应该专门在低分辨率的ImageNet上训练一个对低分辨率图像最优的分类模型（通过减小步长），然后再迁移到检测任务上，用于检测小目标。</p>
+</li>
+<li><p>先从高分辨率图像训练然后再在上采样后的低分辨率图像上fine tuning 效果最好，说明分类模型在高分辨率图像中学习到了其他更有用的信息，上采样是有用的。</p>
+<p>这给我们的直接启发是在高分辨率图像上先预训练，然后再在低分辨率图像上fine tuning，对于分类小目标是有利的，应该比前一条提到的方法更有效。</p>
 </li>
 </ul>
-<p>​</p>
-<p>对类别不平衡问题的解决 ：</p>
-<ul>
-<li>sampling heuristics：such as a fixed foreground-to-background ratio (1:3), 通过RMS将前景目标和背景（或者负样本和正样本）的比例保持在 1:3 .</li>
-<li>online hard example mining (OHEM) : 一种训练方法</li>
-</ul>
-</li>
-<li><p>one-stage detector ：精度低，速度快</p>
-<p>生成一个 <strong>稠密的候选框的集合</strong> (a dense set of candidate proposals)，直接进行回归。</p>
-<p>这个密集的候选框的集合 数量在 100k 左右。然而正样本只有一少部分，大部分都是背景，这个类别不平衡问题比两步检测的方式要严重的多。</p>
-<p>解决方法：可以使用上面提到的两种方法，但是由于 易分类样本数量太多 损失函数会被这些样本产生的损失湮没。</p>
-<p>这个问题可以使用 bootstrapping 的方法来解决。不过这篇文章提出了一种更有效的方式。</p>
-<p>​</p>
 </li>
 </ul>
-<p><strong>类别不平衡是导致 one-stage 检测方法精度不如 two-stage 的主要原因。</strong>  </p>
-<p>这是比较容易理解的：比如假设一张图片只包含一个目标，一开始有 100k 个可能包含目标的区域，可以先使用一个弱检测器挑选出 1k 个候选区域，然后再用一个强分类器对这 1k 个候选区域进行筛选，挑出最接近ground truth 的区域。这比直接从100k个初始候选区域中直接挑选1个要更精确。而且类别不平衡问题也没有 one-stage 方法的严重。</p>
-<p>但是 two-stage 的代价就是：因为是两次分类所以速度上肯定会慢很多。</p>
-<p>这篇文章主要是针对类别不平衡问题，解决 one-stage 检测方法精度不高的现象。</p>
-<h1 id="2-解决方法-Focal-Loss"><a href="#2-解决方法-Focal-Loss" class="headerlink" title="2 解决方法 Focal Loss"></a>2 解决方法 Focal Loss</h1><p>避免损失函数被 <strong>易分类的负样本</strong> 产生的损失湮没，注意 是 <strong>易分类的负样本</strong></p>
-<p>可以从以下两个方面解决</p>
+<p>进一步：</p>
 <ul>
-<li>修改 <strong>正样本 和 负样本</strong> 对损失函数的贡献量，使二者平等</li>
-<li>修改 <strong>难分类样本 和 易分类样本</strong> 对损失函数的贡献量，使二者平等</li>
+<li>在高分辨率图像上先预训练，然后再在低分辨率图像上fine tuning，对于分类小目标时有利的。</li>
+<li>如果检测时的proposals与ImageNet预训练模型的分辨率相近，那么可以减少domain shift。</li>
+<li>上采样确实是有用的</li>
 </ul>
-<p>以下是 Focal Loss  的设计过程</p>
-<h2 id="2-1-交叉熵损失-Cross-Entropy-CE"><a href="#2-1-交叉熵损失-Cross-Entropy-CE" class="headerlink" title="2.1 交叉熵损失 Cross Entropy (CE)"></a>2.1 交叉熵损失 Cross Entropy (CE)</h2><p>先看下经典的 交叉熵损失（cross entropy  ）：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/g206mBjmjb.png?imageslim" alt="mark"></p>
+<p>现有的检测模型也确实都是这么做的，先将图片上采样（800×1200），然后使用在高分辨率图像（ImageNet）上预训练的模型fine tuning。</p>
+<h1 id="3-Multi-scale-Detection"><a href="#3-Multi-scale-Detection" class="headerlink" title="3 Multi-scale Detection"></a>3 Multi-scale Detection</h1><p><img src="http://p9r71qdht.bkt.clouddn.com/SNIP/180701/afFaH61J3C.png?imageslim" alt="mark"></p>
+<p>前面提到train和test时分辨率不同将会存在domain shift，但是由于GPU现存的限制，这个差异一般都会存在。事实检测模型经常会在800×1000的分辨率上训练，然后再1400×2000的分辨率上测试。</p>
+<p>下面是作者做的几个实验，作者固定了测试时的分辨率为 1400×2000 ，然后通过调整不同的输入来对比COCO数据集上小目标（小于32×32的目标）的检测精度。作者主要使用了800×1000和1400×2000这两种输入分辨率，然后再梯度反向传播时，把所有scale的ROI的梯度回传。因此下表 800all,1400all，就是代表这个意思。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/SNIP/180701/g1BE469jc4.png?imageslim" alt="mark"></p>
 <ul>
-<li>$y\in\{±1\}$ ，代表正负样本</li>
-<li>$p\in[0,1]$ ，是分类的概率，代表正样本的概率（y=1），那么  $1-p$  代表负样本的概率（y=-1）</li>
+<li>首先是800all和1400all的对比：按照前面第2节的分析，关于分类问题高分辨率图片是可以提升分类效果的，所以理论上使用大分辨率的图像检测，应该也会提升小目标的检测效果的，而且1400all是不存在train和test的domain shift的，因为train和test的分辨率是一样的。但是实验发现，这里 1400all的结果竟然低于800all，作者的分析是有大分辨率图像中medium和large 的目标也会变得更大，这也是不利于检测的，所以说，虽然大分辨率有利于小目标检测，但是损害了中等和大目标的检测效果。</li>
+<li>1400(&lt;80px)和1400all的对比：为了验证上面的解释，作者又做了一个实验，输入还是1400all，但是将目标大于80px的目标全部都忽略掉，只保留小目标，按说排除了大目标的影响，小目标的检测效果应该有所提升，但是很不幸，还是很差，比800all都差。作者的分析是，移除大目标会损失目标的多样性。这个损失掩盖了移除大目标地优势。</li>
+<li>MST：最终作者还用 multi-scale training，做了实验（figure5.3），结果还是差不多，作者分析的原因是，<strong>小scale 图像中的小目标更小了，大scale 图像中的目标更大了，这种极端尺寸的目标会损害性能。</strong></li>
+<li>SNIP：性能最牛，下面再分析。</li>
 </ul>
-<p>用下式改写</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/776hG21IJb.png?imageslim" alt="mark"></p>
-<p>交叉熵损失改写为：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/LHDkiA039e.png?imageslim" alt="mark"></p>
-<h2 id="2-2-正负类别平衡的交叉熵损失-Balanced-Cross-Entropy"><a href="#2-2-正负类别平衡的交叉熵损失-Balanced-Cross-Entropy" class="headerlink" title="2.2 正负类别平衡的交叉熵损失 Balanced Cross Entropy"></a>2.2 正负类别平衡的交叉熵损失 Balanced Cross Entropy</h2><p><strong>修改 正样本 和 负样本 对损失函数的贡献量</strong>  </p>
+<h1 id="4-SNIP"><a href="#4-SNIP" class="headerlink" title="4 SNIP"></a>4 SNIP</h1><p>Scale Normalization for Image Pyramids (SNIP).</p>
+<p>前面说了那么多，这一部分才是文章的核心。</p>
+<p>通过上面的分析，SNIP的思想是比较明显的。SNIP训练的方法是一种改进的multi scale training，而且他保证了目标实例的大小在224×224大小左右，这个与ImageNet与训练的分类网络的尺度是统一的，减少了domain shift。</p>
+<p>SNIP在训练时只考虑了那些在合适scale范围内的ROI，那些极端尺寸的ROI都直接被忽略。结果在table 1中也展示了，效果是最好的。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/SNIP/180701/A7b6eD4C56.png?imageslim" alt="mark"></p>
+<p>作者使用了R-FCN的基础模型。</p>
+<p>因为是multi-scale training，在某个分辨率 i 上，如果一个ROI的大小落在了一个有效范围内，比如 $[s_i^c,e_i^c]$ ，那么这个ROI回被标记为有效；其余标记为无效，无效的ROI在反向传播时不予考虑。这样就可以将极端尺寸的ROI过滤掉。</p>
+<p>实际在操作中，ground truth box在不同分辨率的图片上会随之放大或缩小，因此过大或过小的 gt box就被标记为无效。在RPN层生成anchor或者 proposals时，anchor如果与无效gt box的IOU大于0.3，那么这些anchor就会在反向传播时被忽略。在测试或者inference时，每张分辨率不同的图片都运行这样一个检测器，对于检测出来的bounding box如果范围落在有效范围 $[s_i^c,e_i^c]$ 之外，就会被忽略。最终使用NMS。这样就保证了每个分辨率图片上的目标scale是一样的。</p>
+<p>在 ROI pooling 时保证pooling之后的 ROI 在224×224大小（这地方应该有个resize操作或者resale操作），这样就减少了与ImageNet预训练的分类网络的domain shift。</p>
+<h1 id="5-训练"><a href="#5-训练" class="headerlink" title="5 训练"></a>5 训练</h1><p>训练使用的图片分辨率比较高（1400x2000），为了减少GPU显存，作者在原图上进行crop，裁剪出1000×1000大小的chip。裁剪过程是：先随机生成50个1000×1000大小的chip，然后选取包含包含最多目标的chip保留。如果图像分辨率是 800x1200 or 480x640 就不用这么随机裁剪了。</p>
+<p>文章使用了三个scale的image pyramid来做multi scale training，分别是(480, 800), (800, 1200) and(1400,2000),</p>
+<p>训练策略：</p>
 <ul>
-<li>给正样本的损失 乘上 一个权重 $\alpha \in [0,1]$ , </li>
-<li>给负样本的损失乘上 $1-\alpha$ 。</li>
+<li>7 epochs for the classifier while RPN is trained for 6 epochs</li>
+<li>warmup learning rate of 0.00005 for 1000 iterations after which it is increased to 0.0005.</li>
+<li>Step down is performed at 4.33 epochs for RPN and 5.33 epochs otherwise.</li>
+<li>OHEM online hard examplemining </li>
+<li>implementation is in MxNet and training is performed on 8 Nvidia P6000 GPUs. Batch size is 1 per GPU and we use synchronous SGD.</li>
+<li>For efficient utilization of multiple GPUs in parallel, images of only one resolution are included in a mini-batch. </li>
 </ul>
-<p>这样可以使二者对损失函数的贡献平等。使用同样的方法用  $\alpha _t$ 代表 $\alpha$ .</p>
-<p>将交叉熵损失改写为：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/fc1JE2cBII.png?imageslim" alt="mark"></p>
-<h2 id="2-3-难易类别平衡的损失-Focal-Loss"><a href="#2-3-难易类别平衡的损失-Focal-Loss" class="headerlink" title="2.3 难易类别平衡的损失 Focal Loss"></a>2.3 难易类别平衡的损失 Focal Loss</h2><p><strong>修改 难分类样本 和 易分类样本 对损失函数的贡献量</strong></p>
-<p>引进一个 调节因子 $(1-p_t)^{\gamma},   \gamma \ge 0$ , </p>
-<p>改写损失函数：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/f3m04Id2d8.png?imageslim" alt="mark"></p>
+<p>三个scale的image使用的object 的scale分别是：</p>
 <ul>
-<li>当 样本错分类（难分类样本），并且 $p_t$ 很小时，调节因子 趋向于1，而 $FL(p_t)$ 与 $CE(p_t)$ 接近；</li>
-<li>如果是 易分类样本， $p_t$ 很大，调节因子趋向于0，损失也为0。</li>
+<li>images of resolution (1400,2000), the valid range in the original image (without up/down sampling) is [0, 80],</li>
+<li>at a resolution of (800,1200) it is [40, 160] </li>
+<li>and at a resolution of (480,800) it is [120, 1]. </li>
 </ul>
-<p>看下图:</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/eBdgk6AH2e.png?imageslim" alt="mark"></p>
-<p>最终文章使用的损失函数是这样的：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/9076hbA5g5.png?imageslim" alt="mark"></p>
-<h1 id="3-RetinaNet-Detector"><a href="#3-RetinaNet-Detector" class="headerlink" title="3 RetinaNet Detector"></a>3 RetinaNet Detector</h1><p>文章构建的一个 one-stage 检测模型，使用了上述提出的损失函数</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/d28hJhJ738.png?imageslim" alt="mark"></p>
-<h2 id="3-1-实验结果"><a href="#3-1-实验结果" class="headerlink" title="3.1 实验结果"></a>3.1 实验结果</h2><p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/76ea9dHg0C.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/m8EE6EaH6d.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/I0EdHm9g12.png?imageslim" alt="mark"></p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://blog.csdn.net/lanchunhui/article/details/50427055" target="_blank" rel="external">Huber Loss function</a> </p>
-<p><a href="https://ggbm.at/bDR5r4Ej" target="_blank" rel="external">Focal Loss function</a> </p>
+<p>随后这些object 回被re-scale到224×224大小。</p>
+<h1 id="6-实验结果"><a href="#6-实验结果" class="headerlink" title="6 实验结果"></a>6 实验结果</h1><p>实验部分详细的描述不提了。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/SNIP/180701/CjeE9C6FIA.png?imageslim" alt="mark"></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/SNIP/180701/BEilm02mLK.png?imageslim" alt="mark"></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/SNIP/180701/2H1bFhHk4f.png?imageslim" alt="mark"></p>
+<h1 id="7-总结"><a href="#7-总结" class="headerlink" title="7 总结"></a>7 总结</h1><ul>
+<li>这篇文章通过对比实验验证了上采样对提升分类性能有很大帮助，基于此分析作者提出了一种 Image Pyramid Network（IPN）用于目标检测，在训练和测试时都使用与ImageNet分类网络同样的image scale。</li>
+<li>由于过小和过大的目标分别在 小的scale上和大的scale上较难识别，因此作者提出了一种SNIP的训练方法，在反向传播时将极端尺寸的目标忽略。</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
+<li>王乃岩大神写的 <a href="https://zhuanlan.zhihu.com/p/36431183，写的很深入本质" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/36431183，写的很深入本质</a></li>
+</ol>
 
       
     </div>
@@ -547,12 +584,12 @@
   <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
-  <p><strong>本文标题：</strong><a href="/articles/target-detection-model-focal-loss-essay-notes.html">目标检测模型-Focal Loss-论文笔记</a></p>
+  <p><strong>本文标题：</strong><a href="/articles/89e6ce5e/">目标检测-An Analysis of Scale Invariance in Object Detection – SNIP-论文笔记</a></p>
   <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
-  <p><strong>发布时间：</strong>2018年06月06日 - 02:06</p>
-  <p><strong>最后更新：</strong>2018年06月06日 - 02:06</p>
-  <p><strong>本文链接：</strong><a href="/articles/target-detection-model-focal-loss-essay-notes.html" title="目标检测模型-Focal Loss-论文笔记">https://arleyzhang.github.io/articles/target-detection-model-focal-loss-essay-notes.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/target-detection-model-focal-loss-essay-notes.html"  aria-label="复制成功！"></i></span>
+  <p><strong>发布时间：</strong>2018年07月01日 - 16:07</p>
+  <p><strong>最后更新：</strong>2018年07月01日 - 17:07</p>
+  <p><strong>本文链接：</strong><a href="/articles/89e6ce5e/" title="目标检测-An Analysis of Scale Invariance in Object Detection – SNIP-论文笔记">https://arleyzhang.github.io/articles/89e6ce5e/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/89e6ce5e/"  aria-label="复制成功！"></i></span>
   </p>
   <p><strong>版权声明：</strong> 本文由 arleyzhang 原创，采用 <i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">保留署名-非商业性使用-禁止演绎 4.0-国际许可协议</a>，转载请保留原文链接及作者!</p>  
 </div>
@@ -588,11 +625,7 @@
           
             <a href="/tags/object-detection/" rel="tag"><i class="fa fa-tag"></i> object detection</a>
           
-            <a href="/tags/Focal-Loss/" rel="tag"><i class="fa fa-tag"></i> Focal Loss</a>
-          
-            <a href="/tags/loss-function/" rel="tag"><i class="fa fa-tag"></i> loss function</a>
-          
-            <a href="/tags/RetinaNet/" rel="tag"><i class="fa fa-tag"></i> RetinaNet</a>
+            <a href="/tags/SNIP/" rel="tag"><i class="fa fa-tag"></i> SNIP</a>
           
         </div>
       
@@ -605,8 +638,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/articles/target-detection-model-dsod-essay-notes.html" rel="next" title="目标检测模型-DSOD-论文笔记">
-                <i class="fa fa-chevron-left"></i> 目标检测模型-DSOD-论文笔记
+              <a href="/articles/f0c1556d/" rel="next" title="目标检测-SNIPER-Efficient Multi-Scale Training-论文笔记">
+                <i class="fa fa-chevron-left"></i> 目标检测-SNIPER-Efficient Multi-Scale Training-论文笔记
               </a>
             
           </div>
@@ -614,10 +647,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/articles/target-detection-model-cascade-rcnn-essay-notes.html" rel="prev" title="目标检测模型-Cascade R-CNN-论文笔记">
-                目标检测模型-Cascade R-CNN-论文笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -704,7 +733,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -726,7 +755,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -775,7 +804,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-问题提出"><span class="nav-text">1 问题提出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-解决方法-Focal-Loss"><span class="nav-text">2 解决方法 Focal Loss</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-交叉熵损失-Cross-Entropy-CE"><span class="nav-text">2.1 交叉熵损失 Cross Entropy (CE)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-正负类别平衡的交叉熵损失-Balanced-Cross-Entropy"><span class="nav-text">2.2 正负类别平衡的交叉熵损失 Balanced Cross Entropy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-难易类别平衡的损失-Focal-Loss"><span class="nav-text">2.3 难易类别平衡的损失 Focal Loss</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-RetinaNet-Detector"><span class="nav-text">3 RetinaNet Detector</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-实验结果"><span class="nav-text">3.1 实验结果</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-问题提出"><span class="nav-text">1 问题提出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Multi-scale-Classification"><span class="nav-text">2  Multi-scale Classification</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Multi-scale-Detection"><span class="nav-text">3 Multi-scale Detection</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-SNIP"><span class="nav-text">4 SNIP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-训练"><span class="nav-text">5 训练</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-实验结果"><span class="nav-text">6 实验结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-总结"><span class="nav-text">7 总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
@@ -959,9 +988,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://arleyzhang.github.io/articles/target-detection-model-focal-loss-essay-notes.html';
-          this.page.identifier = 'articles/target-detection-model-focal-loss-essay-notes.html';
-          this.page.title = '目标检测模型-Focal Loss-论文笔记';
+          this.page.url = 'https://arleyzhang.github.io/articles/89e6ce5e/';
+          this.page.identifier = 'articles/89e6ce5e/';
+          this.page.title = '目标检测-An Analysis of Scale Invariance in Object Detection – SNIP-论文笔记';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://arleyzhang.disqus.com/embed.js';

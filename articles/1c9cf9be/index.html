@@ -91,7 +91,7 @@
 
 
 
-  <meta name="keywords" content="dataset,MSCOCO," />
+  <meta name="keywords" content="论文笔记,object detection,Cascade R-CNN," />
 
 
 
@@ -102,26 +102,39 @@
 
 
 
-<meta name="description" content="目标检测数据集 MSCOCO 简介">
-<meta name="keywords" content="dataset,MSCOCO">
+<meta name="description" content="目标检测模型 Cascade R-CNN: Delving into High Quality Object Detection 论文笔记">
+<meta name="keywords" content="论文笔记,object detection,Cascade R-CNN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="目标检测数据集MSCOCO简介">
-<meta property="og:url" content="https://arleyzhang.github.io/articles/target-detection-dataset-mscoco-introduction.html">
+<meta property="og:title" content="目标检测-Cascade R-CNN-论文笔记">
+<meta property="og:url" content="https://arleyzhang.github.io/articles/1c9cf9be/index.html">
 <meta property="og:site_name" content="arleyzhang">
-<meta property="og:description" content="目标检测数据集 MSCOCO 简介">
+<meta property="og:description" content="目标检测模型 Cascade R-CNN: Delving into High Quality Object Detection 论文笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527334430550.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335304935.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335519760.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335845385.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527337055130.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341503405.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341646178.png">
-<meta property="og:updated_time" content="2018-06-05T18:31:42.874Z">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/JKkbke8jJG.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/8717KJlGcH.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/i71K51CFGF.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/4a857a6B02.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/6lL8li6FCC.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/7f584d9eI6.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/kf06f7hEej.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/cF9BE7hgKf.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/7cm4l9FLca.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/B3liCmiDCb.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/cF9BE7hgKf.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/H4Ld2AKae5.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/fe26BedCDj.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/cF9BE7hgKf.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/lFbI5dGej2.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/cbGf93e3je.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/3B51IlafKi.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/476kmmDEeF.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/gIB41aKEB3.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/lH20aeeAm2.png?imageslim">
+<meta property="og:updated_time" content="2018-07-01T09:24:13.428Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="目标检测数据集MSCOCO简介">
-<meta name="twitter:description" content="目标检测数据集 MSCOCO 简介">
-<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527334430550.png">
+<meta name="twitter:title" content="目标检测-Cascade R-CNN-论文笔记">
+<meta name="twitter:description" content="目标检测模型 Cascade R-CNN: Delving into High Quality Object Detection 论文笔记">
+<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/JKkbke8jJG.png?imageslim">
 
 
 
@@ -151,13 +164,13 @@
 
 
 
-  <link rel="canonical" href="https://arleyzhang.github.io/articles/target-detection-dataset-mscoco-introduction.html"/>
+  <link rel="canonical" href="https://arleyzhang.github.io/articles/1c9cf9be/"/>
 
 
 
 
 
-  <title>目标检测数据集MSCOCO简介 | arleyzhang</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>目标检测-Cascade R-CNN-论文笔记 | arleyzhang</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -328,7 +341,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://arleyzhang.github.io/articles/target-detection-dataset-mscoco-introduction.html">
+    <link itemprop="mainEntityOfPage" href="https://arleyzhang.github.io/articles/1c9cf9be/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="arleyzhang">
@@ -345,7 +358,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">目标检测数据集MSCOCO简介</h1>
+          <h1 class="post-title" itemprop="name headline">目标检测-Cascade R-CNN-论文笔记</h1>
         
 
         <div class="post-meta">
@@ -357,8 +370,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-04T03:37:20+08:00">
-                2018-06-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-06T02:54:27+08:00">
+                2018-06-06
               </time>
             
 
@@ -373,8 +386,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-06-06T02:31:42+08:00">
-                2018-06-06
+              <time title="更新于" itemprop="dateModified" datetime="2018-07-01T17:24:13+08:00">
+                2018-07-01
               </time>
             
           </span>
@@ -410,9 +423,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/articles/target-detection-dataset-mscoco-introduction.html#comments" itemprop="discussionUrl">
+                <a href="/articles/1c9cf9be/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="articles/target-detection-dataset-mscoco-introduction.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="articles/1c9cf9be/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -432,7 +445,7 @@
 
           
               <div class="post-description">
-                  目标检测数据集 MSCOCO 简介
+                  目标检测模型 Cascade R-CNN: Delving into High Quality Object Detection 论文笔记
               </div>
           
 
@@ -449,77 +462,56 @@
       
 
       
-        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>介绍一下目标检测领域另外一个比较有名的数据集 <a href="http://cocodataset.org" target="_blank" rel="external">MS COCO</a> (Microsoft COCO: Common Objects in Context) .</p>
-<p>MSCOCO 数据集是微软构建的一个数据集，其包含 detection, segmentation, keypoints等任务。</p>
-<p>MSCOCO主要是为了解决detecting non-iconic views of objects（对应常说的detection）, contextual reasoning between objects and the precise 2D localization of objects（对应常说的分割问题） 这三种场景下的问题。</p>
-<p>下面是iconic 图片和 non-iconic 图片之间的对比。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527334430550.png" alt="1527334430550"></p>
-<p>与PASCAL COCO数据集相比，COCO中的图片包含了自然图片以及生活中常见的目标图片，背景比较复杂，目标数量比较多，目标尺寸更小，因此COCO数据集上的任务更难，对于检测任务来说，现在衡量一个模型好坏的标准更加倾向于使用COCO数据集上的检测结果。</p>
-<p>数据集的构建过程不说了。主要关注一下统计信息</p>
-<h1 id="1-统计信息"><a href="#1-统计信息" class="headerlink" title="1 统计信息"></a>1 统计信息</h1><p>MSCOCO总共包含91个类别，每个类别的图片数量如下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335304935.png" alt="1527335304935"></p>
+        <blockquote>
+<p>论文：<a href="https://arxiv.org/abs/1712.00726" target="_blank" rel="external">Cascade R-CNN: Delving into High Quality Object Detection</a><br>代码：<a href="https://github.com/zhaoweicai/cascade-rcnn" target="_blank" rel="external">https://github.com/zhaoweicai/cascade-rcnn</a></p>
+</blockquote>
+<p>这是一篇针对R-CNN系列的两步检测模型 提出的改进方法。主要是针对匹配策略提出了 multi-level 的方式。</p>
+<h1 id="1-问题提出"><a href="#1-问题提出" class="headerlink" title="1 问题提出"></a>1 问题提出</h1><p>检测=分类+定位，对于分类来说，标签就是标签，直接计算损失。但是对于定位问题来说，它的标签处理稍微麻烦一点。现在的目标检测模型对于定位问题的解决方法主要是回归。我们来看一下在Faster R-CNN中是如何进行回归的：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/JKkbke8jJG.png?imageslim" alt="mark"></p>
+<p>现在的问题是生成的 anchor box是有很多的，那么势必会导致只有少部分是包含目标或者是与目标重叠关系比较大的，那当然只有这以少部分才是我们的重点观察对象，我们才能把他用到上述提到的回归过程中去。因为越靠近标签的default box回归的时候越容易，如果二者一个在最上边，一个在最下边，那么回归的时候难度会相当大，而且也会更耗时间。</p>
+<p>确定这少部分重点观察对象的过程就是匹配策略。换句话说其实就是为了确定一部分对象作为正样本。</p>
+<p>所以对于回归问题来说，需要把ground truth box转换一下，也就是这里的正样本。</p>
+<p>确定正样本的过程普遍的做法是：计算anchor box与ground truth 之间的IOU，大于某一个阈值就认为这是一个正样本，这个阈值一般是0.5。</p>
+<p>但是实际上严格来说使用0.5的阈值偏低，造成的结果就如 Figure 1(a)那样会有很多，“close” false positives ，通俗的说就是有很多重复的没用的框，可以称为噪声，而我们期望的是输出像  Figure 1(b)那样。</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/8717KJlGcH.png?imageslim" alt="mark"></p>
+<p>但是提高IOU阈值是会出问题的，因为提高 IOU阈值会使效果变差，主要有两个原因：</p>
 <ul>
-<li>图中也标出了PASCAL VOC的统计数据作为对比。</li>
+<li>提高IOU会导致正样本数量过少，然而模型比较大，会导致过拟合。</li>
+<li>detector肯定是在某一个IOU阈值上训练的，但是inference时，生成anchor box之后，这些anchor box跟ground truth box会有各种各样的IOU，对于这些IOU来说detector是次优化的。</li>
 </ul>
-<hr>
-<p>下图展示的是几个不同数据集的总类别数量，以及每个类别的总实例数量，一个实例就是图片上的一个目标，主要关注一下 PASCAL 和 ImageNet。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335519760.png" alt="1527335519760"></p>
+<p>文章解决的也是这个问题。</p>
+<h1 id="2-Cascade-结构的提出"><a href="#2-Cascade-结构的提出" class="headerlink" title="2 Cascade 结构的提出"></a>2 Cascade 结构的提出</h1><p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/i71K51CFGF.png?imageslim" alt="mark"></p>
+<p>首先看一下目标检测中广泛使用的定位损失：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/4a857a6B02.png?imageslim" alt="mark"></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/6lL8li6FCC.png?imageslim" alt="mark"></p>
+<p>分类损失</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/7f584d9eI6.png?imageslim" alt="mark"></p>
+<h2 id="2-1-两种可能的解决方法"><a href="#2-1-两种可能的解决方法" class="headerlink" title="2.1 两种可能的解决方法"></a>2.1 两种可能的解决方法</h2><p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/kf06f7hEej.png?imageslim" alt="mark"></p>
+<p><strong>iterative bounding box regression, denoted as iterative BBox.</strong>   </p>
+<p>如 Figure 3(b).</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/cF9BE7hgKf.png?imageslim" alt="mark"></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/7cm4l9FLca.png?imageslim" alt="mark"></p>
+<p>存在的问题：</p>
 <ul>
-<li>COCO数据集的类别总数虽然没有 ImageNet 中用于detection的类别总数多，但是每个类别的实例目标总数要比PASCAL和ImageNet都要多。</li>
+<li>三个head部分是一样的，也就是说都是针对某一个IOU阈值，比如0.5，是最优化的，但是当inference时，真正的IOU大于0.5以后他是次优化suboptimal 的。</li>
+<li>很明显级联之后，每个输出的box的分布是会变化的如上图 Figure (2)，所以相同的head对于后面的结构来说是次优化的suboptimal 。</li>
 </ul>
-<hr>
-<p>下图是每张图片上的类别数量或者实例数量的分布，括号中为平均值</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335845385.png" alt="1527335845385"></p>
-<ul>
-<li><p>PASCAL和ImageNet中，每张图片上的类别或者实例数量普遍都很少。</p>
-<p>以PASCAL为例：有多于70%的图片上都只有一个类别，而多于50%的图片上只有一个实例或者目标。PASCAL数据集平均每张图片包含1.4个类别和2.3个实例目标，ImageNet也仅有1.7和3.0个。</p>
-</li>
-<li><p>COCO数据集平均每张图片包含 3.5个类别和 7.7 个实例目标，仅有不到20%的图片只包含一个类别，仅有10%的图片包含一个实例目标。</p>
-</li>
-<li><p>COCO数据集不仅数据量大，种类和实例数量也多。从这角度来说 SUN 数据集这两个指标更高一点，但是这个数据集在目标检测里面并不常用。</p>
-</li>
-</ul>
-<hr>
-<p>实例目标的分布</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527337055130.png" alt="1527337055130"></p>
-<ul>
-<li>COCO数据集中的小目标数量占比更多</li>
-</ul>
-<p>关于数据集的划分，COCO的论文里是这么说的，</p>
-<p>The 2014 release contains 82,783 training, 40,504 validation, and 40,775 testing images (approximately 1/2 train, 1/4 val, and /4 test). There are nearly 270k segmented people and a total of 886k segmented object instances in the 2014 train+val data alone. The cumulative 2015 release will contain a total of 165,482 train, 81,208 val, and 81,434 test images.    </p>
-<p>2014年的数据在官网是可以下载的，但是2015年只有test部分，train和val部分的数据没有。另外2017年的数据并没有什么新的图片，只是将数据重新划分，train的数据更多了，如下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341503405.png" alt="1527341503405"></p>
-<h1 id="2-评估标准"><a href="#2-评估标准" class="headerlink" title="2 评估标准"></a>2 评估标准</h1><p>COCO的测试标准比PASCAL VOC更严格：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341646178.png" alt="1527341646178"></p>
-<ul>
-<li><p>PASCAL 中在测试mAP时，是在IOU=0.5时测的</p>
-</li>
-<li><p>COCO中的AP 是指在 10个IOU层面 以及 80个类别层面 的平均值</p>
-</li>
-<li><p>COCO的主要评价指标是AP，指 IOU从0.5到0.95 每变化 0.05 就测试一次 AP，然后求这10次测量结果的平均值作为最终的 AP</p>
-<p>AP@0.5 跟PASCAL VOC中的mAP是相同的含义</p>
-<p>AP@0.75 跟PASCAL VOC中的mAP也相同，只是IOU阈值提高到了0.75，显然这个层面更严格，精度也会更低</p>
-<p>IOU越高，AP就越低，所以最终的平均之后的AP要比 AP@0.5 小很多，这也就是为什么COCO的AP 超过 50%的只有寥寥几个而已，因为超过50%太难了。而且由于COCO数据集本身数据的复杂性，所以目前的 AP@0.5 最高也只有 73% 。</p>
-</li>
-<li><p>COCO数据集还针对 三种不同大小（small，medium，large） 的图片提出了测量标准，COCO中包含大约 41% 的小目标 ($area &lt; 32×32$), 34% 的中等目标 ($32×32 &lt; area &lt; 96×96$), 和 24% 的大目标 ($area &gt; 96×96$).  小目标的AP是很难提升的。</p>
-</li>
-<li><p>除了AP之外，还提出了 AR 的测量标准 跟AP是类似的。</p>
-</li>
-</ul>
-<p>COCO提供了一些代码，方便对数据集的使用和模型评估 ：<a href="https://github.com/cocodataset/cocoapi" target="_blank" rel="external">https://github.com/cocodataset/cocoapi</a></p>
-<h1 id="3-总结"><a href="#3-总结" class="headerlink" title="3 总结"></a>3 总结</h1><p>为什么COCO的检测任务那么难？</p>
-<ul>
-<li>图片大多数来源于生活中，背景更复杂</li>
-<li>每张图片上的实例目标个数多，平均每张图片7.7个</li>
-<li>小目标更多</li>
-<li>评估标准更严格</li>
-</ul>
-<p>所以现在大家更倾向于使用COCO来评估模型的质量。</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
-<li>COCO官网：<a href="http://cocodataset.org" target="_blank" rel="external">http://cocodataset.org</a></li>
-<li>论文：<a href="https://arxiv.org/abs/1405.0312" target="_blank" rel="external">Microsoft COCO: Common Objects in Context</a></li>
-<li>论文：<a href="https://arxiv.org/abs/1502.05082" target="_blank" rel="external">What makes for effective detection proposals?</a> </li>
-</ol>
+<p><strong>第二种方法：</strong></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/B3liCmiDCb.png?imageslim" alt="mark"></p>
+<p>也就是Figure 3(c).</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/cF9BE7hgKf.png?imageslim" alt="mark"></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/H4Ld2AKae5.png?imageslim" alt="mark"></p>
+<p>存在的问题：不同IOU阈值的分布是不均衡的，如上图左。所以上面的损失是不均衡的。</p>
+<h2 id="2-2-Cascade-R-CNN"><a href="#2-2-Cascade-R-CNN" class="headerlink" title="2.2 Cascade R-CNN"></a>2.2 Cascade R-CNN</h2><p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/fe26BedCDj.png?imageslim" alt="mark"></p>
+<p>如图 Figure 3(d):</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/cF9BE7hgKf.png?imageslim" alt="mark"></p>
+<p>损失函数：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/lFbI5dGej2.png?imageslim" alt="mark"></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/cbGf93e3je.png?imageslim" alt="mark"></p>
+<h1 id="3-试验结果"><a href="#3-试验结果" class="headerlink" title="3 试验结果"></a>3 试验结果</h1><p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/3B51IlafKi.png?imageslim" alt="mark"></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/476kmmDEeF.png?imageslim" alt="mark"></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/gIB41aKEB3.png?imageslim" alt="mark"></p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/lH20aeeAm2.png?imageslim" alt="mark"></p>
 
       
     </div>
@@ -536,12 +528,12 @@
   <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
-  <p><strong>本文标题：</strong><a href="/articles/target-detection-dataset-mscoco-introduction.html">目标检测数据集MSCOCO简介</a></p>
+  <p><strong>本文标题：</strong><a href="/articles/1c9cf9be/">目标检测-Cascade R-CNN-论文笔记</a></p>
   <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
-  <p><strong>发布时间：</strong>2018年06月04日 - 03:06</p>
-  <p><strong>最后更新：</strong>2018年06月06日 - 02:06</p>
-  <p><strong>本文链接：</strong><a href="/articles/target-detection-dataset-mscoco-introduction.html" title="目标检测数据集MSCOCO简介">https://arleyzhang.github.io/articles/target-detection-dataset-mscoco-introduction.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/target-detection-dataset-mscoco-introduction.html"  aria-label="复制成功！"></i></span>
+  <p><strong>发布时间：</strong>2018年06月06日 - 02:06</p>
+  <p><strong>最后更新：</strong>2018年07月01日 - 17:07</p>
+  <p><strong>本文链接：</strong><a href="/articles/1c9cf9be/" title="目标检测-Cascade R-CNN-论文笔记">https://arleyzhang.github.io/articles/1c9cf9be/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/1c9cf9be/"  aria-label="复制成功！"></i></span>
   </p>
   <p><strong>版权声明：</strong> 本文由 arleyzhang 原创，采用 <i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">保留署名-非商业性使用-禁止演绎 4.0-国际许可协议</a>，转载请保留原文链接及作者!</p>  
 </div>
@@ -573,9 +565,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/dataset/" rel="tag"><i class="fa fa-tag"></i> dataset</a>
+            <a href="/tags/论文笔记/" rel="tag"><i class="fa fa-tag"></i> 论文笔记</a>
           
-            <a href="/tags/MSCOCO/" rel="tag"><i class="fa fa-tag"></i> MSCOCO</a>
+            <a href="/tags/object-detection/" rel="tag"><i class="fa fa-tag"></i> object detection</a>
+          
+            <a href="/tags/Cascade-R-CNN/" rel="tag"><i class="fa fa-tag"></i> Cascade R-CNN</a>
           
         </div>
       
@@ -588,8 +582,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/articles/target-detection-data-set-pascal-voc-introduction.html" rel="next" title="目标检测数据集PASCAL VOC简介">
-                <i class="fa fa-chevron-left"></i> 目标检测数据集PASCAL VOC简介
+              <a href="/articles/6c9f6e2c/" rel="next" title="目标检测-Focal Loss for Dense Object Detection-论文笔记">
+                <i class="fa fa-chevron-left"></i> 目标检测-Focal Loss for Dense Object Detection-论文笔记
               </a>
             
           </div>
@@ -598,8 +592,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/articles/target-detection-evaluation-standard-ap-map.html" rel="prev" title="目标检测评价标准-AP mAP">
-                目标检测评价标准-AP mAP <i class="fa fa-chevron-right"></i>
+              <a href="/articles/f0c1556d/" rel="prev" title="目标检测-SNIPER-Efficient Multi-Scale Training-论文笔记">
+                目标检测-SNIPER-Efficient Multi-Scale Training-论文笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -687,7 +681,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -709,7 +703,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -758,7 +752,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-统计信息"><span class="nav-text">1 统计信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-评估标准"><span class="nav-text">2 评估标准</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-总结"><span class="nav-text">3 总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-问题提出"><span class="nav-text">1 问题提出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Cascade-结构的提出"><span class="nav-text">2 Cascade 结构的提出</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-两种可能的解决方法"><span class="nav-text">2.1 两种可能的解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Cascade-R-CNN"><span class="nav-text">2.2 Cascade R-CNN</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-试验结果"><span class="nav-text">3 试验结果</span></a></li></ol></div>
             
 
           </div>
@@ -942,9 +936,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://arleyzhang.github.io/articles/target-detection-dataset-mscoco-introduction.html';
-          this.page.identifier = 'articles/target-detection-dataset-mscoco-introduction.html';
-          this.page.title = '目标检测数据集MSCOCO简介';
+          this.page.url = 'https://arleyzhang.github.io/articles/1c9cf9be/';
+          this.page.identifier = 'articles/1c9cf9be/';
+          this.page.title = '目标检测-Cascade R-CNN-论文笔记';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://arleyzhang.disqus.com/embed.js';
