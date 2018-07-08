@@ -13,9 +13,9 @@
         
         <tag>basic dl models</tag>
          
-        <tag>论文笔记</tag>
-         
         <tag>DRN</tag>
+         
+        <tag>论文笔记</tag>
          
          
            
@@ -252,30 +252,6 @@
 
     
   <url>
-    <loc>https://arleyzhang.github.io/articles/7e6bc4a/</loc>
-    <lastmod>2018-07-01T09:14:57.356Z</lastmod>
-    <data>
-        <display>
-        <title>目标检测-R-FCN-论文笔记</title>
-        <pubTime>2018-06-04T16:37:36.000Z</pubTime>
-        
-        <tag>论文笔记</tag>
-         
-        <tag>object detection</tag>
-         
-        <tag>R-FCN</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://arleyzhang.github.io/articles/f0c1556d/</loc>
     <lastmod>2018-07-01T09:14:57.356Z</lastmod>
     <data>
@@ -288,6 +264,30 @@
         <tag>object detection</tag>
          
         <tag>SNIPER</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/7e6bc4a/</loc>
+    <lastmod>2018-07-01T09:14:57.356Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-R-FCN-论文笔记</title>
+        <pubTime>2018-06-04T16:37:36.000Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
+         
+        <tag>R-FCN</tag>
          
          
            
@@ -333,9 +333,9 @@
         
         <tag>basic dl models</tag>
          
-        <tag>Deformable Convolutional Networks</tag>
-         
         <tag>论文笔记</tag>
+         
+        <tag>Deformable Convolutional Networks</tag>
          
          
            
