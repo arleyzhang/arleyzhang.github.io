@@ -111,6 +111,7 @@
 <meta property="og:description" content="基础DL模型 Dilated Residual Networks 论文笔记">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DRN/180708/5cHKlg4b9K.png?imageslim">
+<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DRN/180708/ej9khk4if0.png?imageslim">
 <meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DRN/180708/ihiK00lke0.png?imageslim">
 <meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DRN/180708/dIJm7i43kH.png?imageslim">
 <meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DRN/180708/27dDiAL9dH.png?imageslim">
@@ -124,7 +125,7 @@
 <meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DRN/180708/KFjE16469j.png?imageslim">
 <meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DRN/180708/IfB4FcdBjh.png?imageslim">
 <meta property="og:image" content="c:/Users/longteng/AppData/Local/Temp/1531033134114.png">
-<meta property="og:updated_time" content="2018-07-08T09:00:50.161Z">
+<meta property="og:updated_time" content="2018-07-08T09:17:53.398Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基础DL模型-Dilated Residual Networks-论文笔记">
 <meta name="twitter:description" content="基础DL模型 Dilated Residual Networks 论文笔记">
@@ -380,7 +381,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-08T17:00:50+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-07-08T17:17:53+08:00">
                 2018-07-08
               </time>
             
@@ -475,7 +476,9 @@
 </li>
 </ul>
 <p>假设输入，输出为：Input: $(N, C_{in}, H_{in}, W_{in})$，Output: $(N, C_{out}, H_{out}, W_{out})$</p>
-<p>输出的计算是这样的：<br>$$<br>\begin{align}<br>\begin{aligned}<br>H_{out} = \left\lfloor\frac{H_{in}  + 2 <em> \text{padding}[0] - \text{dilation}[0] </em> (\text{kernel_size}[0] - 1) - 1}{\text{stride}[0]} + 1\right\rfloor\\<br>W_{out} = \left\lfloor\frac{W_{in}  + 2 <em> \text{padding}[1] - \text{dilation}[1] </em> (\text{kernel_size}[1] - 1) - 1}{\text{stride}[1]} + 1\right\rfloor<br>\end{aligned}<br>\end{align}<br>$$<br>感受野的计算 [参考资料 2,3]。</p>
+<p>输出的计算是这样的：</p>
+<p><img src="http://p9r71qdht.bkt.clouddn.com/DRN/180708/ej9khk4if0.png?imageslim" alt="mark"></p>
+<p>感受野的计算 [参考资料 2,3]。</p>
 <p>当然这种方法也是可以加到 Group2和3的，那样就达到总步长为1了，但是这样参数量会很多。文章的分析，步长为8已足够应对，分割这种像素级别的任务了。</p>
 <p>以上就是对ResNet的基础改进，比较简单，只加了dilation。</p>
 <h1 id="2-Localization"><a href="#2-Localization" class="headerlink" title="2 Localization"></a>2 Localization</h1><p>在针对定位或者分割任务时，作者还做了一点改动，如下图：</p>
