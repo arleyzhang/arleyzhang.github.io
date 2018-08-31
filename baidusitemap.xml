@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://arleyzhang.github.io/articles/fda11be6/</loc>
-    <lastmod>2018-08-31T10:42:28.427Z</lastmod>
+    <lastmod>2018-08-31T10:45:41.945Z</lastmod>
     <data>
         <display>
         <title>TensorRT(4)-Profiling and 16-bit Inference</title>
@@ -125,9 +125,9 @@
         
         <tag>basic dl models</tag>
          
-        <tag>DRN</tag>
-         
         <tag>论文笔记</tag>
+         
+        <tag>DRN</tag>
          
          
            
@@ -421,9 +421,9 @@
         
         <tag>basic dl models</tag>
          
-        <tag>论文笔记</tag>
-         
         <tag>Deformable Convolutional Networks</tag>
+         
+        <tag>论文笔记</tag>
          
          
            
