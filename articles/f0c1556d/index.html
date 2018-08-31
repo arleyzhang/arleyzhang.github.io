@@ -118,7 +118,7 @@
 <meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/Elic181Ie8.png?imageslim">
 <meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/G6ff96iGBB.png?imageslim">
 <meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/0kLJEDKEAA.png?imageslim">
-<meta property="og:updated_time" content="2018-07-01T09:14:57.356Z">
+<meta property="og:updated_time" content="2018-08-31T05:32:44.049Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="目标检测-SNIPER-Efficient Multi-Scale Training-论文笔记">
 <meta name="twitter:description" content="目标检测模型 SNIPER-Efficient Multi-Scale Training 论文笔记">
@@ -374,8 +374,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-01T17:14:57+08:00">
-                2018-07-01
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-31T13:32:44+08:00">
+                2018-08-31
               </time>
             
           </span>
@@ -458,7 +458,7 @@
 <p>如下图，image pyramid 和 anchor 方法实现multi-scale的思路展现的很清楚了。</p>
 <p><img src="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/c79e1ikJlB.png?imageslim" alt="mark"></p>
 <p>现在大多数目标检测算法为了提高精度，除了使用anchor的思想外，一般都会把image pyramid的方法加进去，但是我们知道的，这种方法肯定会严重影响速度，不管是训练还是inference，不过但凡是用了这种方法的一般都是为了追求高精度，而暂时不注重速度。</p>
-<p>image pyramid 影响速度的原因也很明了，每一个scale的图片的所有像素都参与了后续的计算。比如一个3scale的image pyramid（分别是原图的1倍，2倍，3倍），它要处理相当于原图14倍的像素（这个14是怎么算出来的？！🤷‍♂️，难道不应该是6倍？）</p>
+<p>image pyramid 影响速度的原因也很明了，每一个scale的图片的所有像素都参与了后续的计算。比如一个3scale的image pyramid（分别是原图的1倍，2倍，3倍），它要处理相当于原图14倍的像素.</p>
 <p>在CVPR2018上有这样一篇文章，An Analysis of Scale Invariance in Object Detection – SNIP 。这篇文章曾经表述这样一个观点，在multi-scale training时，最好是将极端分辨率情况下的目标的梯度忽略。比如在 3scales的情况下，应该将较大分辨率图像上的较大目标和较小分辨率图像上的较小目标的梯度忽略。</p>
 <p>关于scale的问题先回顾一下RCNN和Fast R-CNN</p>
 <p><strong>R-CNN</strong></p>
@@ -473,7 +473,7 @@
 <p><strong>chips</strong> </p>
 <p>首先介绍一下这篇文章提出的 chips  的概念，原文的解释是 scale specific context-regions (chips) that cover maximum proposals at a particular scale. </p>
 <p><strong>chips是某个图片的某个scale上的一系列固定大小的（比如KxK个像素）的以恒定间隔（比如d个像素）排布的小窗（window） ，每个window都可能包含一个或几个objects。</strong></p>
-<p>这个跟sliding window的概念比较像，只是sliding window中的一个window一般只包含一个object。</p>
+<p>这个跟sliding window有点像。</p>
 <p><strong>Chip Generation</strong></p>
 <p>首先是chips的生成：</p>
 <p>假设有n个scale，{s1,s2,…,si,…sn}，每个scale的大小为 $W_i × H_i$ ，将原图缩放至对应比例后，$K×K$ 大小的chip（对于COCO数据集，论文用的512×512）以等间隔（d pixels）的方式排布，注意是每个scale都会生成这些chips，而且chip的大小是固定的，变化的是图片的尺寸。这跟anchor的思想刚好相反，因为anchor中，不变的是feature map，变化的是anchor。</p>
@@ -525,7 +525,7 @@
   <p><strong>本文标题：</strong><a href="/articles/f0c1556d/">目标检测-SNIPER-Efficient Multi-Scale Training-论文笔记</a></p>
   <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
   <p><strong>发布时间：</strong>2018年06月22日 - 10:06</p>
-  <p><strong>最后更新：</strong>2018年07月01日 - 17:07</p>
+  <p><strong>最后更新：</strong>2018年08月31日 - 13:08</p>
   <p><strong>本文链接：</strong><a href="/articles/f0c1556d/" title="目标检测-SNIPER-Efficient Multi-Scale Training-论文笔记">https://arleyzhang.github.io/articles/f0c1556d/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/f0c1556d/"  aria-label="复制成功！"></i></span>
   </p>

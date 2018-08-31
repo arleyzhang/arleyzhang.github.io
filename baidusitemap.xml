@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>https://arleyzhang.github.io/articles/f0c1556d/</loc>
+    <lastmod>2018-08-31T05:32:44.049Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-SNIPER-Efficient Multi-Scale Training-论文笔记</title>
+        <pubTime>2018-06-22T02:17:35.845Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
+         
+        <tag>SNIPER</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://arleyzhang.github.io/articles/7f4b25ce/</loc>
     <lastmod>2018-08-28T14:34:46.314Z</lastmod>
     <data>
@@ -262,30 +286,6 @@
         <tag>object detection</tag>
          
         <tag>SSD</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/f0c1556d/</loc>
-    <lastmod>2018-07-01T09:14:57.356Z</lastmod>
-    <data>
-        <display>
-        <title>目标检测-SNIPER-Efficient Multi-Scale Training-论文笔记</title>
-        <pubTime>2018-06-22T02:17:35.845Z</pubTime>
-        
-        <tag>论文笔记</tag>
-         
-        <tag>object detection</tag>
-         
-        <tag>SNIPER</tag>
          
          
            
