@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://arleyzhang.github.io/articles/923e2c40/</loc>
+    <lastmod>2018-08-31T10:53:28.511Z</lastmod>
+    <data>
+        <display>
+        <title>TensorRT(5)-INT8校准原理</title>
+        <pubTime>2018-08-31T10:47:44.000Z</pubTime>
+        
+        <tag>TensorRT</tag>
+         
+        <tag>inference</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://arleyzhang.github.io/articles/fda11be6/</loc>
     <lastmod>2018-08-31T10:45:41.945Z</lastmod>
     <data>
@@ -273,9 +295,9 @@
         
         <tag>basic dl models</tag>
          
-        <tag>论文笔记</tag>
-         
         <tag>DenseNet</tag>
+         
+        <tag>论文笔记</tag>
          
          
            
@@ -421,9 +443,9 @@
         
         <tag>basic dl models</tag>
          
-        <tag>Deformable Convolutional Networks</tag>
-         
         <tag>论文笔记</tag>
+         
+        <tag>Deformable Convolutional Networks</tag>
          
          
            
