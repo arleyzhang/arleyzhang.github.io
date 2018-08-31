@@ -118,7 +118,7 @@
 <meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/Elic181Ie8.png?imageslim">
 <meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/G6ff96iGBB.png?imageslim">
 <meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/0kLJEDKEAA.png?imageslim">
-<meta property="og:updated_time" content="2018-08-31T05:32:44.049Z">
+<meta property="og:updated_time" content="2018-08-31T05:37:33.386Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="目标检测-SNIPER-Efficient Multi-Scale Training-论文笔记">
 <meta name="twitter:description" content="目标检测模型 SNIPER-Efficient Multi-Scale Training 论文笔记">
@@ -374,7 +374,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-31T13:32:44+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-31T13:37:33+08:00">
                 2018-08-31
               </time>
             
@@ -480,7 +480,7 @@
 <p>实际上这篇论文输进网络用于训练的是这些chip，每个chip都是原图的一部分，包含了若干个目标。</p>
 <p>一张图的每个scale，会生成若干个Positive Chips 和 若干个 Negative Chips 。每个Positive Chip都包含若干个ground truth boxes，所有的Positive Chips则覆盖全部有效的ground truth boxes。每个 Negative Chips 则包含若干个 false positive cases。这些在下面详细讲解。</p>
 <p><strong>Positive Chip Selection</strong> </p>
-<p>每个scale，都会有个area range $R^i =[r_{min}^i, r_{max}^i]，i \in [1,n]$ ，这个范围决定了这个scale上哪些ground truth box是用来训练的。所有ground truth box中落在 $R^i$ 范围内的ground truth box 称为有效的（对某个scale来说），其余为无效的，有效的gt box集合表示为 $G^i$ 。从所有chips中选取包含（完全包含）有效 gt box最多的chip，作为Positive Chip，其集合称为 $C^i_{pos}$  ，每一个gt box都会有chip包含它。因为 $R^i$ 的区间会有重叠，所以一个gt box可能会被不同scale的多个chip包含，也有可能被同一个chip的多个chip包含。被割裂的gt box（也就是部分包含）则保持残留的部分。</p>
+<p>每个scale，都会有个area range $R^i =[r_{min}^i, r_{max}^i]，i \in [1,n]$ ，这个范围决定了这个scale上哪些ground truth box是用来训练的。所有ground truth box中落在 $R^i$ 范围内的ground truth box 称为有效的（对某个scale来说），其余为无效的，有效的gt box集合表示为 $G^i$ 。从所有chips中选取包含（完全包含）有效 gt box最多的chip，作为Positive Chip，其集合称为 $C^i_{pos}$  ，每一个gt box都会有chip包含它。因为 $R^i$ 的区间会有重叠，所以一个gt box可能会被不同scale的多个chip包含，也有可能被同一个scale的多个chip包含。被割裂的gt box（也就是部分包含）则保持残留的部分。</p>
 <p>如下图，左侧是将gt box和不同scale上的 chip都呈现在了原图上，这里为了展示，将不同scale的图片缩放回原图大小，所以chip才有大有小，它们是属于不同scale的。右侧才是训练时真正使用的chips，它们的大小是固定的。可以看出这张图片包含了三个scale，所以存在三种chip，chip中包含有效的gt box（绿色）和无效的gt box（红色）。</p>
 <p><img src="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/HfHih51CIL.png?imageslim" alt="mark"></p>
 <p>从原图也可以看出，原图中有一大部分的背景区域（没被postive chip覆盖的区域）被丢弃了，而且实际上网络真正输入的是chip（比原图分辨率小很多），这对于减少计算量来说很重要。</p>
