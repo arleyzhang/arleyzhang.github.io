@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://arleyzhang.github.io/articles/923e2c40/</loc>
-    <lastmod>2018-08-31T10:53:28.511Z</lastmod>
+    <lastmod>2018-08-31T10:59:32.317Z</lastmod>
     <data>
         <display>
         <title>TensorRT(5)-INT8校准原理</title>
@@ -295,9 +295,9 @@
         
         <tag>basic dl models</tag>
          
-        <tag>DenseNet</tag>
-         
         <tag>论文笔记</tag>
+         
+        <tag>DenseNet</tag>
          
          
            
@@ -443,9 +443,9 @@
         
         <tag>basic dl models</tag>
          
-        <tag>论文笔记</tag>
-         
         <tag>Deformable Convolutional Networks</tag>
+         
+        <tag>论文笔记</tag>
          
          
            
