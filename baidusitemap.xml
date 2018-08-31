@@ -4,18 +4,16 @@
 
     
   <url>
-    <loc>https://arleyzhang.github.io/articles/f0c1556d/</loc>
-    <lastmod>2018-08-31T05:37:33.386Z</lastmod>
+    <loc>https://arleyzhang.github.io/articles/c17471cb/</loc>
+    <lastmod>2018-08-31T08:59:06.397Z</lastmod>
     <data>
         <display>
-        <title>目标检测-SNIPER-Efficient Multi-Scale Training-论文笔记</title>
-        <pubTime>2018-06-22T02:17:35.845Z</pubTime>
+        <title>TensorRT(2)-基本使用：mnist手写体识别</title>
+        <pubTime>2018-08-31T08:52:52.000Z</pubTime>
         
-        <tag>论文笔记</tag>
+        <tag>TensorRT</tag>
          
-        <tag>object detection</tag>
-         
-        <tag>SNIPER</tag>
+        <tag>inference</tag>
          
          
            
@@ -29,15 +27,39 @@
     
   <url>
     <loc>https://arleyzhang.github.io/articles/7f4b25ce/</loc>
-    <lastmod>2018-08-28T14:34:46.314Z</lastmod>
+    <lastmod>2018-08-31T08:53:10.091Z</lastmod>
     <data>
         <display>
-        <title>TensorRT1-介绍-使用-安装.md</title>
+        <title>TensorRT(1)-介绍-使用-安装.md</title>
         <pubTime>2018-08-28T14:00:17.000Z</pubTime>
         
         <tag>TensorRT</tag>
          
         <tag>inference</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/f0c1556d/</loc>
+    <lastmod>2018-08-31T05:37:33.386Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-SNIPER-Efficient Multi-Scale Training-论文笔记</title>
+        <pubTime>2018-06-22T02:17:35.845Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
+         
+        <tag>SNIPER</tag>
          
          
            
@@ -207,9 +229,9 @@
         
         <tag>basic dl models</tag>
          
-        <tag>DenseNet</tag>
-         
         <tag>论文笔记</tag>
+         
+        <tag>DenseNet</tag>
          
          
            
@@ -355,9 +377,9 @@
         
         <tag>basic dl models</tag>
          
-        <tag>论文笔记</tag>
-         
         <tag>Deformable Convolutional Networks</tag>
+         
+        <tag>论文笔记</tag>
          
          
            
