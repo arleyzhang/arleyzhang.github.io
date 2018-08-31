@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next gemini" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/kitty_bbook_32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/kitty_bbook_16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="TensorRT,inference," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="TensorRT-C++ API使用：mnist手写体识别, 官方例程">
+<meta name="keywords" content="TensorRT,inference">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TensorRT(3)-C++ API使用：mnist手写体识别">
+<meta property="og:url" content="https://arleyzhang.github.io/articles/7629a20/index.html">
+<meta property="og:site_name" content="arleyzhang">
+<meta property="og:description" content="TensorRT-C++ API使用：mnist手写体识别, 官方例程">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://arleyzhang.github.io/images/TensorRT-3-c++api-mnist-samples.assets/weights-contents.png">
+<meta property="og:image" content="https://arleyzhang.github.io/images/TensorRT-3-c++api-mnist-samples.assets/caffemodel-paser.png">
+<meta property="og:updated_time" content="2018-08-31T10:20:55.365Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TensorRT(3)-C++ API使用：mnist手写体识别">
+<meta name="twitter:description" content="TensorRT-C++ API使用：mnist手写体识别, 官方例程">
+<meta name="twitter:image" content="https://arleyzhang.github.io/images/TensorRT-3-c++api-mnist-samples.assets/weights-contents.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://arleyzhang.github.io/articles/7629a20/"/>
+
+
+
+
+
+  <title>TensorRT(3)-C++ API使用：mnist手写体识别 | arleyzhang</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">arleyzhang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://arleyzhang.github.io/articles/7629a20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="arleyzhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="arleyzhang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">TensorRT(3)-C++ API使用：mnist手写体识别</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-31T18:15:21+08:00">
+                2018-08-31
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-31T18:20:55+08:00">
+                2018-08-31
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/deep-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">deep learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/articles/7629a20/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="articles/7629a20/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  TensorRT-C++ API使用：mnist手写体识别, 官方例程
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本节将介绍如何使用tensorRT C++ API 进行网络模型创建。</p>
+<h1 id="1-使用C-API-进行-tensorRT-模型创建"><a href="#1-使用C-API-进行-tensorRT-模型创建" class="headerlink" title="1 使用C++ API 进行 tensorRT 模型创建"></a>1 使用C++ API 进行 tensorRT 模型创建</h1><p>还是通过 tensorRT官方给的一个例程来学习。</p>
+<p>还是mnist手写体识别的例子。上一节主要是用 tensorRT提供的NvCaffeParser来将 Caffe中的model 转换成tensorRT中特有的模型结构。NvCaffeParser是tensorRT封装好的一个用以解析Caffe模型的工具 （较顶层的API），同样的还有 NvUffPaser是用于解析TensorFlow的工具。</p>
+<p>除了以上两个封装好的工具之外，还可以使用tensorRT提供的C++ API（底层的API）来直接在tensorRT中创建模型。这时 tensorRT 相当于是一个独立的深度学习框架了，这个框架和其他框架（Caffe, TensorFlow，MXNet等）一样都具备搭建网络模型的能力（只有前向计算没有反向传播）。</p>
+<p>不同之处在于：</p>
+<ul>
+<li>这个框架不能用于训练，模型的权值参数要人为给定；</li>
+<li>可以针对设定网络模型（自己使用API创建网络模型）或给定模型（使用NvCaffeParser或NvUffPaser导入其他深度学习框架训练好的模型）做一系列优化，以加快推理速度（inference）</li>
+</ul>
+<p>使用C++ API函数部署网络主要分为四个步骤：</p>
+<ul>
+<li>创建网络；</li>
+<li>为网络添加输入；</li>
+<li>添加各种各样的层；</li>
+<li>设定网络输出；</li>
+</ul>
+<p>以上，第1,2,4步骤在使用 NvCaffeParser 时也是有的。只有第3步是本节所讲的方法中特有的，其实对于NvCaffeParser 工具来说，他只是把 第 3步封装起来了而已。</p>
+<p>如下，对比一下 NvCaffeParser 的使用方法，下面的代码中只列出了关键部分的代码。完整代码请看上一节。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//build phase</span></div><div class="line">INetworkDefinition* network = builder-&gt;createNetwork();				<span class="comment">//1. 创建网络</span></div><div class="line">CaffeParser* parser = createCaffeParser();</div><div class="line"><span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, infer1::Tensor&gt; blobNameToTensor;</div><div class="line"><span class="keyword">const</span> IBlobNameToTensor* blobNameToTensor = 						<span class="comment">//3. 添加各种各样的层</span></div><div class="line">  					parser-&gt;parse(locateFile(deployFile).c_str(),	<span class="comment">//NvCaffeParser 工具</span></div><div class="line">                             	  locateFile(modelFile).c_str(),	<span class="comment">//把添加层的内容封装起来了</span></div><div class="line">                             	  *network,</div><div class="line">                             	  DataType::kFLOAT);</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">auto</span>&amp; s : outputs)</div><div class="line">     network-&gt;markOutput(*blobNameToTensor-&gt;find(s.c_str()));		<span class="comment">// 4. 设定网络输出</span></div><div class="line"></div><div class="line">ICudaEngine* engine = builder-&gt;buildCudaEngine(*network);			<span class="comment">//创建engine</span></div><div class="line"></div><div class="line"><span class="comment">//省略一些内容………………</span></div><div class="line"></div><div class="line"><span class="comment">//execution phase</span></div><div class="line">IExecutionContext *context = engine-&gt;createExecutionContext();		<span class="comment">//创建 context</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> inputIndex = engine-&gt;getBindingIndex(INPUT_BLOB_NAME), </div><div class="line">	outputIndex = engine-&gt;getBindingIndex(OUTPUT_BLOB_NAME);		<span class="comment">//2.为网络添加输入</span></div><div class="line"></div><div class="line"><span class="comment">//省略一些内容………………</span></div><div class="line"></div><div class="line">context.enqueue(batchSize, buffers, stream, <span class="literal">nullptr</span>);				<span class="comment">//调用cuda核计算</span></div><div class="line"></div><div class="line">cudaStreamSynchronize(stream);										<span class="comment">//同步cuda 流</span></div></pre></td></tr></table></figure>
+<p>上述四个步骤对应部分已在注释标出。可见 NvCaffeParser 工具中最主要的是 parse 函数，这个函数接受网络模型文件（deploy.prototxt）、权值文件（net.caffemodel）为参数，这两个文件是caffe的模型定义文件和训练参数文件。parse 函数会解析这两个文件并对应生成 tensorRT的模型结构。</p>
+<p>对于NvCaffeParser 工具来说，是需要三个文件的，分别是：</p>
+<ul>
+<li>网络模型文件（比如，caffe的deploy.prototxt）</li>
+<li>训练好的权值文件（比如，caffe的net.caffemodel）</li>
+<li>标签文件（这个主要是将模型产生的数字标号分类，与真实的名称对应起来）</li>
+</ul>
+<p>以下分步骤说明四个步骤：</p>
+<h2 id="1-1-创建网络"><a href="#1-1-创建网络" class="headerlink" title="1.1 创建网络"></a>1.1 创建网络</h2><p>先创建一个tensorRT的network，这个network 现在只是个空架子，比较简单：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">INetworkDefinition* network = builder-&gt;createNetwork();</div></pre></td></tr></table></figure>
+<h2 id="1-2-为网络添加输入"><a href="#1-2-为网络添加输入" class="headerlink" title="1.2 为网络添加输入"></a>1.2 为网络添加输入</h2><p>所有的网络都需要明确输入是哪个blob，因为这是数据传送的入口。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Create input of shape &#123; 1, 1, 28, 28 &#125; with name referenced by INPUT_BLOB_NAME auto </span></div><div class="line">data = network-&gt;addInput(INPUT_BLOB_NAME, dt, DimsCHW&#123; <span class="number">1</span>, INPUT_H, INPUT_W&#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li><p>INPUT_BLOB_NAME 是为输入 blob起的名字;</p>
+</li>
+<li><p>dt是指数据类型，有kFLOAT(float 32), kHALF(float 16), kINT8(int 8)等类型;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//位于 NvInfer.h 文件 </span></div><div class="line"><span class="keyword">enum</span> <span class="class"><span class="keyword">class</span> <span class="title">DataType</span> :</span> <span class="keyword">int</span></div><div class="line">&#123;</div><div class="line">    kFLOAT = <span class="number">0</span>, <span class="comment">//!&lt; FP32 format.</span></div><div class="line">    kHALF = <span class="number">1</span>,  <span class="comment">//!&lt; FP16 format.</span></div><div class="line">    kINT8 = <span class="number">2</span>,  <span class="comment">//!&lt; INT8 format.</span></div><div class="line">    kINT32 = <span class="number">3</span>  <span class="comment">//!&lt; INT32 format. 这个是TensorRT新增的</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>DimsCHW{ 1, INPUT_H, INPUT_W} 是指，batch为1（省略），channel 为1，输入height 和width分别为 INPUT_H, INPUT_W的blob；</p>
+</li>
+</ul>
+<h2 id="1-3-添加各种各样的层"><a href="#1-3-添加各种各样的层" class="headerlink" title="1.3 添加各种各样的层"></a>1.3 添加各种各样的层</h2><ul>
+<li><strong>以下示例是添加一个 scale layer</strong> </li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Create a scale layer with default power/shift and specified scale parameter. float</span></div><div class="line">scale_param = <span class="number">0.0125f</span>; </div><div class="line">Weights power&#123;DataType::kFLOAT, <span class="literal">nullptr</span>, <span class="number">0</span>&#125;; </div><div class="line">Weights shift&#123;DataType::kFLOAT, <span class="literal">nullptr</span>, <span class="number">0</span>&#125;; </div><div class="line">Weights scale&#123;DataType::kFLOAT, &amp;scale_param, <span class="number">1</span>&#125;; </div><div class="line"><span class="keyword">auto</span> scale_1 = network-&gt;addScale(*data, ScaleMode::kUNIFORM, shift, scale, power);</div></pre></td></tr></table></figure>
+<p>主要就是 addScale 函数，后面接受的参数是这一层需要设置的参数。</p>
+<p>scale 层的作用是对每个输入数据进行幂运算</p>
+<p><strong>f(x)= (shift + scale * x) ^ power</strong></p>
+<p>层类型：Power</p>
+<p>可选参数：</p>
+<p>　　power: 默认为1</p>
+<p>　　scale: 默认为1</p>
+<p>　　shift: 默认为0</p>
+<p>就是一种激活层。</p>
+<p>Weights 类的定义如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//NvInfer.h 文件</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Weights</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">	DataType type;				<span class="comment">//!&lt; the type of the weights</span></div><div class="line">	<span class="keyword">const</span> <span class="keyword">void</span>* values;			<span class="comment">//!&lt; the weight values, in a contiguous array</span></div><div class="line">	<span class="keyword">int64_t</span> count;				<span class="comment">//!&lt; the number of weights in the array</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>以上是不包含训练参数的层，还有 Relu层，Pooling层等。</p>
+<p>包含训练参数的层，比如卷积层，全连接层，要先加载权值文件。</p>
+<ul>
+<li>以下示例是添加一个卷积层</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Add convolution layer with 20 outputs and a 5x5 filter.</span></div><div class="line"><span class="comment">// 加载权值文件，加载一次即可</span></div><div class="line"><span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, Weights&gt; weightMap = loadWeights(locateFile(<span class="string">"mnistapi.wts"</span>));</div><div class="line"></div><div class="line"><span class="comment">//添加卷积层</span></div><div class="line">IConvolutionLayer* conv1 = network-&gt;addConvolution(*scale_1-&gt;getOutput(<span class="number">0</span>), <span class="number">20</span>, DimsHW&#123;<span class="number">5</span>, <span class="number">5</span>&#125;, weightMap[<span class="string">"conv1filter"</span>], weightMap[<span class="string">"conv1bias"</span>]);</div><div class="line"></div><div class="line"><span class="comment">//设置步长</span></div><div class="line">conv1-&gt;setStride(DimsHW&#123;<span class="number">1</span>, <span class="number">1</span>&#125;);</div></pre></td></tr></table></figure>
+<p>第6行添加卷积层：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">IConvolutionLayer* conv1 = network-&gt;addConvolution(*scale_1-&gt;getOutput(<span class="number">0</span>), <span class="number">20</span>, DimsHW&#123;<span class="number">5</span>, <span class="number">5</span>&#125;, weightMap[<span class="string">"conv1filter"</span>], weightMap[<span class="string">"conv1bias"</span>]);</div></pre></td></tr></table></figure>
+<pre><code>*scale_1-&gt;getOutput(0) ：获取上一层 scale层的输出
+
+20：卷积核个数，或者输出feature map 层数
+
+DimsHW{5, 5}：卷积核大小
+
+weightMap[&quot;conv1filter&quot;], weightMap[&quot;conv1bias&quot;]：权值系数矩阵
+</code></pre><p>上面的 mnistapi.wts 文件，是用于存放网络中各个层间的权值系数的，该文件位于 <code>/usr/src/tensorrt/data</code> 文件夹中。</p>
+<p>可以用notepad打开看一下，如下：</p>
+<p><img src="/images/TensorRT-3-c++api-mnist-samples.assets/weights-contents.png" alt="1514951727343"></p>
+<p>可见每一行都是一层的一些参数，比如 conv1bias 是指第一个卷积层的偏置系数，后面的0 指的是 kFLOAT 类型，也就是 float 32；后面的20是系数的个数，因为输出是20，所以偏置是20个；下面一行是 卷积核的系数，因为是20个 5×5的卷积核，所以有 20×5×5=500个参数。其它层依次类推。</p>
+<p>这个文件是例程中直接给的，感觉像是 用caffe等工具训练后，将weights系数从caffemodel 中提取出来的。直接读取caffemodel应该也是可以的，稍微改一下接口：解析caffemodel文件然后将层名和权值参数键值对存到一个map中，网上大概找了一下，比如 <a href="http://www.cnblogs.com/zjutzz/p/6185452.html" target="_blank" rel="external">这个</a> ，解析后的caffemodel如下所示：</p>
+<p><img src="/images/TensorRT-3-c++api-mnist-samples.assets/caffemodel-paser.png" alt="Screenshot from 2018-01-03 09-33-01"></p>
+<p> conv1 最下面有一个 blobs结构，这个是weights系数；每一个包含参数的层（卷积，全连接等；激活层，池化层没有参数）都有一个 blobs结构。只需将这些参数提取出来，保存到一个map中。</p>
+<p>除此之外也可以添加很多其他的层，比如反卷积层，池化层，全连接层等，具体参考   <a href="https://docs.nvidia.com/deeplearning/sdk/tensorrt-api/c_api/classnvinfer1_1_1_i_network_definition.html" target="_blank" rel="external">英伟达官方API</a>  。</p>
+<p>添加层的过程就相当于 NvCaffeParser 工具中 parse 函数解析 deploy.prototxt 文件的过程。</p>
+<h2 id="1-4-设定网络输出"><a href="#1-4-设定网络输出" class="headerlink" title="1.4 设定网络输出"></a>1.4 设定网络输出</h2><p>网络必须知道哪一个blob是输出的。</p>
+<p>如下代码，在网络的最后添加了一个softmax层，并将这个层命名为 OUTPUT_BLOB_NAME，之后指定为输出层。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Add a softmax layer to determine the probability. </span></div><div class="line"><span class="keyword">auto</span> prob = network-&gt;addSoftMax(*ip2-&gt;getOutput(<span class="number">0</span>)); </div><div class="line">prob-&gt;getOutput(<span class="number">0</span>)-&gt;setName(OUTPUT_BLOB_NAME); </div><div class="line">network-&gt;markOutput(*prob-&gt;getOutput(<span class="number">0</span>));</div></pre></td></tr></table></figure>
+<p>那直接使用底层API有什么好处呢？看下表 </p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>C++</th>
+<th>Python</th>
+<th>NvCaffeParser</th>
+<th>NvUffParser</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNNs</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>RNNs</td>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td>INT8 Calibration</td>
+<td>yes</td>
+<td>yes</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>Asymmetric Padding</td>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<p>上表列出了 tensorRT 的不同特点与 API 对应的情况。可以看到对于 RNN，int8校准（float 32 转为 int8），不对称 padding 来说，NvCaffeParser是不支持的，只有 C++ API 和 Python API，才是支持的。</p>
+<p>所以说如果是针对很复杂的网络结构使用tensorRT，还是直接使用底层的 C++ API，和Python API 较好。底层C++ API还可以解析像 darknet 这样的网络模型，因为它需要的就只是一个层名和权值参数对应的map文件。</p>
+<h1 id="2-官方例程"><a href="#2-官方例程" class="headerlink" title="2 官方例程"></a>2 官方例程</h1><p>例程位于 <code>/usr/src/tensorrt/samples/sampleMNISTAPI</code> </p>
+<h2 id="2-1-build-phase"><a href="#2-1-build-phase" class="headerlink" title="2.1 build phase"></a>2.1 build phase</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//这个是main函数中的代码片段</span></div><div class="line"><span class="comment">// create a model using the API directly and serialize it to a stream</span></div><div class="line">IHostMemory *modelStream&#123;<span class="literal">nullptr</span>&#125;;</div><div class="line"><span class="comment">//调用APIToModel函数，手动创建网络模型</span></div><div class="line">APIToModel(<span class="number">1</span>, &amp;modelStream);</div></pre></td></tr></table></figure>
+<p>APIToModel函数：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">APIToModel</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> maxBatchSize, IHostMemory** modelStream)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="comment">// Create builder</span></div><div class="line">    IBuilder* builder = createInferBuilder(gLogger);</div><div class="line"></div><div class="line">    <span class="comment">//下面这个createMNISTEngine函数才是真正手动创建网络的过程</span></div><div class="line">    <span class="comment">// Create model to populate the network, then set the outputs and create an engine</span></div><div class="line">    ICudaEngine* engine = createMNISTEngine(maxBatchSize, builder, DataType::kFLOAT);</div><div class="line">    assert(engine != <span class="literal">nullptr</span>);</div><div class="line"></div><div class="line">    <span class="comment">// Serialize the engine</span></div><div class="line">    (*modelStream) = engine-&gt;serialize();</div><div class="line"></div><div class="line">    <span class="comment">// Close everything down</span></div><div class="line">    engine-&gt;destroy();</div><div class="line">    builder-&gt;destroy();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>createMNISTEngine函数如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Creat the engine using only the API and not any parser.</span></div><div class="line"><span class="function">ICudaEngine* <span class="title">createMNISTEngine</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> maxBatchSize, IBuilder* builder, DataType dt)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    INetworkDefinition* network = builder-&gt;createNetwork();</div><div class="line"></div><div class="line">    <span class="comment">// Create input tensor of shape &#123; 1, 1, 28, 28 &#125; with name INPUT_BLOB_NAME</span></div><div class="line">    ITensor* data = network-&gt;addInput(INPUT_BLOB_NAME, dt, Dims3&#123;<span class="number">1</span>, INPUT_H, INPUT_W&#125;);</div><div class="line">    assert(data);</div><div class="line"></div><div class="line">    <span class="comment">// Create scale layer with default power/shift and specified scale parameter.</span></div><div class="line">    <span class="keyword">const</span> <span class="keyword">float</span> scaleParam = <span class="number">0.0125f</span>;</div><div class="line">    <span class="keyword">const</span> Weights power&#123;DataType::kFLOAT, <span class="literal">nullptr</span>, <span class="number">0</span>&#125;;</div><div class="line">    <span class="keyword">const</span> Weights shift&#123;DataType::kFLOAT, <span class="literal">nullptr</span>, <span class="number">0</span>&#125;;</div><div class="line">    <span class="keyword">const</span> Weights scale&#123;DataType::kFLOAT, &amp;scaleParam, <span class="number">1</span>&#125;;</div><div class="line">    IScaleLayer* scale_1 = network-&gt;addScale(*data, ScaleMode::kUNIFORM, shift, scale, power);</div><div class="line">    assert(scale_1);</div><div class="line"></div><div class="line">    <span class="comment">// Add convolution layer with 20 outputs and a 5x5 filter.</span></div><div class="line">    <span class="comment">// 加载权值文件，加载一次即可</span></div><div class="line">    <span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, Weights&gt; weightMap = loadWeights(locateFile(<span class="string">"mnistapi.wts"</span>));</div><div class="line">    <span class="comment">// 添加卷积层</span></div><div class="line">    IConvolutionLayer* conv1 = network-&gt;addConvolution(*scale_1-&gt;getOutput(<span class="number">0</span>), <span class="number">20</span>, DimsHW&#123;<span class="number">5</span>, <span class="number">5</span>&#125;, weightMap[<span class="string">"conv1filter"</span>], weightMap[<span class="string">"conv1bias"</span>]);</div><div class="line">    assert(conv1);</div><div class="line">    <span class="comment">//设置步长</span></div><div class="line">    conv1-&gt;setStride(DimsHW&#123;<span class="number">1</span>, <span class="number">1</span>&#125;);</div><div class="line"></div><div class="line">    <span class="comment">// Add max pooling layer with stride of 2x2 and kernel size of 2x2.</span></div><div class="line">    IPoolingLayer* pool1 = network-&gt;addPooling(*conv1-&gt;getOutput(<span class="number">0</span>), PoolingType::kMAX, DimsHW&#123;<span class="number">2</span>, <span class="number">2</span>&#125;);</div><div class="line">    assert(pool1);</div><div class="line">    pool1-&gt;setStride(DimsHW&#123;<span class="number">2</span>, <span class="number">2</span>&#125;);</div><div class="line"></div><div class="line">    <span class="comment">// Add second convolution layer with 50 outputs and a 5x5 filter.</span></div><div class="line">    IConvolutionLayer* conv2 = network-&gt;addConvolution(*pool1-&gt;getOutput(<span class="number">0</span>), <span class="number">50</span>, DimsHW&#123;<span class="number">5</span>, <span class="number">5</span>&#125;, weightMap[<span class="string">"conv2filter"</span>], weightMap[<span class="string">"conv2bias"</span>]);</div><div class="line">    assert(conv2);</div><div class="line">    conv2-&gt;setStride(DimsHW&#123;<span class="number">1</span>, <span class="number">1</span>&#125;);</div><div class="line"></div><div class="line">    <span class="comment">// Add second max pooling layer with stride of 2x2 and kernel size of 2x3&gt;</span></div><div class="line">    IPoolingLayer* pool2 = network-&gt;addPooling(*conv2-&gt;getOutput(<span class="number">0</span>), PoolingType::kMAX, DimsHW&#123;<span class="number">2</span>, <span class="number">2</span>&#125;);</div><div class="line">    assert(pool2);</div><div class="line">    pool2-&gt;setStride(DimsHW&#123;<span class="number">2</span>, <span class="number">2</span>&#125;);</div><div class="line"></div><div class="line">    <span class="comment">// Add fully connected layer with 500 outputs.</span></div><div class="line">    IFullyConnectedLayer* ip1 = network-&gt;addFullyConnected(*pool2-&gt;getOutput(<span class="number">0</span>), <span class="number">500</span>, weightMap[<span class="string">"ip1filter"</span>], weightMap[<span class="string">"ip1bias"</span>]);</div><div class="line">    assert(ip1);</div><div class="line"></div><div class="line">    <span class="comment">// Add activation layer using the ReLU algorithm.</span></div><div class="line">    IActivationLayer* relu1 = network-&gt;addActivation(*ip1-&gt;getOutput(<span class="number">0</span>), ActivationType::kRELU);</div><div class="line">    assert(relu1);</div><div class="line"></div><div class="line">    <span class="comment">// Add second fully connected layer with 20 outputs.</span></div><div class="line">    IFullyConnectedLayer* ip2 = network-&gt;addFullyConnected(*relu1-&gt;getOutput(<span class="number">0</span>), OUTPUT_SIZE, weightMap[<span class="string">"ip2filter"</span>], weightMap[<span class="string">"ip2bias"</span>]);</div><div class="line">    assert(ip2);</div><div class="line"></div><div class="line">    <span class="comment">// Add softmax layer to determine the probability.</span></div><div class="line">    ISoftMaxLayer* prob = network-&gt;addSoftMax(*ip2-&gt;getOutput(<span class="number">0</span>));</div><div class="line">    assert(prob);</div><div class="line">    prob-&gt;getOutput(<span class="number">0</span>)-&gt;setName(OUTPUT_BLOB_NAME);</div><div class="line">    network-&gt;markOutput(*prob-&gt;getOutput(<span class="number">0</span>));</div><div class="line"></div><div class="line">    <span class="comment">// Build engine</span></div><div class="line">    builder-&gt;setMaxBatchSize(maxBatchSize);</div><div class="line">    builder-&gt;setMaxWorkspaceSize(<span class="number">1</span> &lt;&lt; <span class="number">20</span>);</div><div class="line">    ICudaEngine* engine = builder-&gt;buildCudaEngine(*network);</div><div class="line"></div><div class="line">    <span class="comment">// Don't need the network any more</span></div><div class="line">    network-&gt;destroy();</div><div class="line"></div><div class="line">    <span class="comment">// Release host memory</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; mem : weightMap)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">free</span>((<span class="keyword">void</span>*) (mem.second.values));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> engine;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可见里面包含了很多 add* 函数，都是用于添加各种各样的层的。可参考<a href="https://docs.nvidia.com/deeplearning/sdk/tensorrt-api/c_api/classnvinfer1_1_1_i_network_definition.html" target="_blank" rel="external">英伟达官方API</a> 。</p>
+<h2 id="2-2-deploy-phase"><a href="#2-2-deploy-phase" class="headerlink" title="2.2 deploy phase"></a>2.2 deploy phase</h2><p>deploy阶段基本与之前的无异。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    ………………</div><div class="line">    ………………</div><div class="line">	<span class="comment">// Deserialize engine we serialized earlier</span></div><div class="line">    <span class="comment">// 创建运行时环境 IRuntime对象，传入 gLogger 用于打印信息</span></div><div class="line">    IRuntime* runtime = createInferRuntime(gLogger);</div><div class="line">    assert(runtime != <span class="literal">nullptr</span>);</div><div class="line">    ICudaEngine* engine = runtime-&gt;deserializeCudaEngine(trtModelStream-&gt;data(), trtModelStream-&gt;size(), <span class="literal">nullptr</span>);</div><div class="line">    assert(engine != <span class="literal">nullptr</span>);</div><div class="line">    trtModelStream-&gt;destroy();</div><div class="line">    <span class="comment">//创建上下文环境，主要用于inference 函数中启动cuda核</span></div><div class="line">    IExecutionContext* context = engine-&gt;createExecutionContext();</div><div class="line">    assert(context != <span class="literal">nullptr</span>);</div><div class="line"></div><div class="line">    <span class="comment">//2.deploy 阶段：调用 inference 函数，进行推理过程</span></div><div class="line">    <span class="comment">// Run inference on input data</span></div><div class="line">    <span class="keyword">float</span> prob[OUTPUT_SIZE];</div><div class="line">    doInference(*context, data, prob, <span class="number">1</span>);</div><div class="line">    ………………</div><div class="line">    ………………</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>doInference函数如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">doInference</span><span class="params">(IExecutionContext&amp; context, <span class="keyword">float</span>* input, <span class="keyword">float</span>* output, <span class="keyword">int</span> batchSize)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">const</span> ICudaEngine&amp; engine = context.getEngine();</div><div class="line"></div><div class="line">    <span class="comment">// Pointers to input and output device buffers to pass to engine.</span></div><div class="line">    <span class="comment">// Engine requires exactly IEngine::getNbBindings() number of buffers.</span></div><div class="line">    assert(engine.getNbBindings() == <span class="number">2</span>);</div><div class="line">    <span class="keyword">void</span>* buffers[<span class="number">2</span>];</div><div class="line"></div><div class="line">    <span class="comment">// In order to bind the buffers, we need to know the names of the input and output tensors.</span></div><div class="line">    <span class="comment">// Note that indices are guaranteed to be less than IEngine::getNbBindings()</span></div><div class="line">    <span class="keyword">const</span> <span class="keyword">int</span> inputIndex = engine.getBindingIndex(INPUT_BLOB_NAME);</div><div class="line">    <span class="keyword">const</span> <span class="keyword">int</span> outputIndex = engine.getBindingIndex(OUTPUT_BLOB_NAME);</div><div class="line"></div><div class="line">    <span class="comment">// Create GPU buffers on device</span></div><div class="line">    CHECK(cudaMalloc(&amp;buffers[inputIndex], batchSize * INPUT_H * INPUT_W * <span class="keyword">sizeof</span>(<span class="keyword">float</span>)));</div><div class="line">    CHECK(cudaMalloc(&amp;buffers[outputIndex], batchSize * OUTPUT_SIZE * <span class="keyword">sizeof</span>(<span class="keyword">float</span>)));</div><div class="line"></div><div class="line">    <span class="comment">// Create stream</span></div><div class="line">    cudaStream_t stream;</div><div class="line">    CHECK(cudaStreamCreate(&amp;stream));</div><div class="line"></div><div class="line">    <span class="comment">// DMA input batch data to device, infer on the batch asynchronously, and DMA output back to host</span></div><div class="line">    CHECK(cudaMemcpyAsync(buffers[inputIndex], input, batchSize * INPUT_H * INPUT_W * <span class="keyword">sizeof</span>(<span class="keyword">float</span>), cudaMemcpyHostToDevice, stream));</div><div class="line">    context.enqueue(batchSize, buffers, stream, <span class="literal">nullptr</span>);</div><div class="line">    CHECK(cudaMemcpyAsync(output, buffers[outputIndex], batchSize * OUTPUT_SIZE * <span class="keyword">sizeof</span>(<span class="keyword">float</span>), cudaMemcpyDeviceToHost, stream));</div><div class="line">    cudaStreamSynchronize(stream);</div><div class="line"></div><div class="line">    <span class="comment">// Release stream and buffers</span></div><div class="line">    cudaStreamDestroy(stream);</div><div class="line">    CHECK(cudaFree(buffers[inputIndex]));</div><div class="line">    CHECK(cudaFree(buffers[outputIndex]));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
+<li>caffe中的一些激活函数：<a href="http://www.cnblogs.com/denny402/p/5072507.html" target="_blank" rel="external">http://www.cnblogs.com/denny402/p/5072507.html</a></li>
+<li>caffemodel 解析：<a href="http://www.cnblogs.com/zjutzz/p/6185452.html" target="_blank" rel="external">http://www.cnblogs.com/zjutzz/p/6185452.html</a></li>
+<li>caffemodel 解析：<a href="http://www.cnblogs.com/zzq1989/p/4439429.html" target="_blank" rel="external">http://www.cnblogs.com/zzq1989/p/4439429.html</a></li>
+<li>tensorRT C++ API：<a href="https://docs.nvidia.com/deeplearning/sdk/tensorrt-api/c_api/index.html" target="_blank" rel="external">https://docs.nvidia.com/deeplearning/sdk/tensorrt-api/c_api/index.html</a></li>
+<li>tensorRT python API：<a href="https://docs.nvidia.com/deeplearning/sdk/tensorrt-api/python_api/index.html" target="_blank" rel="external">https://docs.nvidia.com/deeplearning/sdk/tensorrt-api/python_api/index.html</a></li>
+<li>tensorRT 开发者指南：<a href="https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html" target="_blank" rel="external">https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html</a></li>
+<li>NVIDIA Deep Learning SDK：<a href="https://docs.nvidia.com/deeplearning/sdk/index.html" target="_blank" rel="external">https://docs.nvidia.com/deeplearning/sdk/index.html</a></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><strong>本文标题：</strong><a href="/articles/7629a20/">TensorRT(3)-C++ API使用：mnist手写体识别</a></p>
+  <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
+  <p><strong>发布时间：</strong>2018年08月31日 - 18:08</p>
+  <p><strong>最后更新：</strong>2018年08月31日 - 18:08</p>
+  <p><strong>本文链接：</strong><a href="/articles/7629a20/" title="TensorRT(3)-C++ API使用：mnist手写体识别">https://arleyzhang.github.io/articles/7629a20/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/7629a20/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><strong>版权声明：</strong> 本文由 arleyzhang 原创，采用 <i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">保留署名-非商业性使用-禁止演绎 4.0-国际许可协议</a>，转载请保留原文链接及作者!</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TensorRT/" rel="tag"><i class="fa fa-tag"></i> TensorRT</a>
+          
+            <a href="/tags/inference/" rel="tag"><i class="fa fa-tag"></i> inference</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/articles/c17471cb/" rel="next" title="TensorRT(2)-基本使用：mnist手写体识别">
+                <i class="fa fa-chevron-left"></i> TensorRT(2)-基本使用：mnist手写体识别
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">arleyzhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/arleyzhang" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1186197274@qq.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-使用C-API-进行-tensorRT-模型创建"><span class="nav-text">1 使用C++ API 进行 tensorRT 模型创建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-创建网络"><span class="nav-text">1.1 创建网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-为网络添加输入"><span class="nav-text">1.2 为网络添加输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-添加各种各样的层"><span class="nav-text">1.3 添加各种各样的层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-设定网络输出"><span class="nav-text">1.4 设定网络输出</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-官方例程"><span class="nav-text">2 官方例程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-build-phase"><span class="nav-text">2.1 build phase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-deploy-phase"><span class="nav-text">2.2 deploy phase</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">arleyzhang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://arleyzhang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://arleyzhang.github.io/articles/7629a20/';
+          this.page.identifier = 'articles/7629a20/';
+          this.page.title = 'TensorRT(3)-C++ API使用：mnist手写体识别';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://arleyzhang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>

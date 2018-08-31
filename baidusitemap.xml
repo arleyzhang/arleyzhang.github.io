@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://arleyzhang.github.io/articles/7f4b25ce/</loc>
-    <lastmod>2018-08-31T09:00:47.775Z</lastmod>
+    <lastmod>2018-08-31T10:22:12.983Z</lastmod>
     <data>
         <display>
         <title>TensorRT(1)-介绍-使用-安装</title>
@@ -27,11 +27,33 @@
     
   <url>
     <loc>https://arleyzhang.github.io/articles/c17471cb/</loc>
-    <lastmod>2018-08-31T08:59:15.379Z</lastmod>
+    <lastmod>2018-08-31T10:21:30.711Z</lastmod>
     <data>
         <display>
         <title>TensorRT(2)-基本使用：mnist手写体识别</title>
         <pubTime>2018-08-31T08:52:52.000Z</pubTime>
+        
+        <tag>TensorRT</tag>
+         
+        <tag>inference</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/7629a20/</loc>
+    <lastmod>2018-08-31T10:20:55.365Z</lastmod>
+    <data>
+        <display>
+        <title>TensorRT(3)-C++ API使用：mnist手写体识别</title>
+        <pubTime>2018-08-31T10:15:21.000Z</pubTime>
         
         <tag>TensorRT</tag>
          
