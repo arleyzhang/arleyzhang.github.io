@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>https://arleyzhang.github.io/articles/c17471cb/</loc>
-    <lastmod>2018-08-31T08:59:06.397Z</lastmod>
+    <loc>https://arleyzhang.github.io/articles/7f4b25ce/</loc>
+    <lastmod>2018-08-31T09:00:47.775Z</lastmod>
     <data>
         <display>
-        <title>TensorRT(2)-基本使用：mnist手写体识别</title>
-        <pubTime>2018-08-31T08:52:52.000Z</pubTime>
+        <title>TensorRT(1)-介绍-使用-安装</title>
+        <pubTime>2018-08-28T14:00:17.000Z</pubTime>
         
         <tag>TensorRT</tag>
          
@@ -26,12 +26,12 @@
 
     
   <url>
-    <loc>https://arleyzhang.github.io/articles/7f4b25ce/</loc>
-    <lastmod>2018-08-31T08:53:10.091Z</lastmod>
+    <loc>https://arleyzhang.github.io/articles/c17471cb/</loc>
+    <lastmod>2018-08-31T08:59:15.379Z</lastmod>
     <data>
         <display>
-        <title>TensorRT(1)-介绍-使用-安装.md</title>
-        <pubTime>2018-08-28T14:00:17.000Z</pubTime>
+        <title>TensorRT(2)-基本使用：mnist手写体识别</title>
+        <pubTime>2018-08-31T08:52:52.000Z</pubTime>
         
         <tag>TensorRT</tag>
          
