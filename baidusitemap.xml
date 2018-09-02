@@ -4,8 +4,30 @@
 
     
   <url>
+    <loc>https://arleyzhang.github.io/articles/95d15d89/</loc>
+    <lastmod>2018-09-02T17:25:10.699Z</lastmod>
+    <data>
+        <display>
+        <title>TensorRT(6)-INT8 inference</title>
+        <pubTime>2018-09-02T17:23:53.000Z</pubTime>
+        
+        <tag>TensorRT</tag>
+         
+        <tag>inference</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://arleyzhang.github.io/articles/923e2c40/</loc>
-    <lastmod>2018-08-31T11:01:18.946Z</lastmod>
+    <lastmod>2018-09-02T17:24:55.472Z</lastmod>
     <data>
         <display>
         <title>TensorRT(5)-INT8校准原理</title>

@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next gemini" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/kitty_bbook_32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/kitty_bbook_16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="TensorRT,inference," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="TensorRT INT8 inference 官方例程">
+<meta name="keywords" content="TensorRT,inference">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TensorRT(6)-INT8 inference">
+<meta property="og:url" content="https://arleyzhang.github.io/articles/95d15d89/index.html">
+<meta property="og:site_name" content="arleyzhang">
+<meta property="og:description" content="TensorRT INT8 inference 官方例程">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-02T17:25:10.699Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TensorRT(6)-INT8 inference">
+<meta name="twitter:description" content="TensorRT INT8 inference 官方例程">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://arleyzhang.github.io/articles/95d15d89/"/>
+
+
+
+
+
+  <title>TensorRT(6)-INT8 inference | arleyzhang</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">arleyzhang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://arleyzhang.github.io/articles/95d15d89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="arleyzhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="arleyzhang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">TensorRT(6)-INT8 inference</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-03T01:23:53+08:00">
+                2018-09-03
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-03T01:25:10+08:00">
+                2018-09-03
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/deep-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">deep learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/articles/95d15d89/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="articles/95d15d89/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  TensorRT INT8 inference 官方例程
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这一节通过官方例程 介绍 INT8 inference mode.</p>
+<p>例程位于 <code>/usr/src/tensorrt/samples/sampleINT8</code> ，是基于mnist的，大体流程是一致的。</p>
+<p>流程同样是 build(Calibration )-&gt;deploy，只不过在build时多了一个校准的操作。</p>
+<p>注意以下几点：</p>
+<h1 id="1-网络定义"><a href="#1-网络定义" class="headerlink" title="1 网络定义"></a>1 网络定义</h1><p>定义网络时，注意这个地方传进去的dataType，如果使用FP16 inference 则传进去的是FP16，也就是kHALF；但如果是使用INT8 inference的话，这个地方传进去的是kFLOAT，也就是 FP32，这是因为INT8 需要先用FP32的精度来确定转换系数，TensorRT自己会在内部转换成INT8。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> IBlobNameToTensor* blobNameToTensor = </div><div class="line">    parser-&gt;parse(locateFile(deployFile).c_str(),</div><div class="line">                  locateFile(modelFile).c_str(),</div><div class="line">                   *network,</div><div class="line">                   DataType::kFLOAT);</div></pre></td></tr></table></figure>
+<p>这个看起来就跟使用FP32是一样的流程，INT8 MODE inference的输入和输出都是 FP32的。</p>
+<p>（After the network has been built, it can be used just like an FP32 network, for example, inputs and outputs remain in 32-bit floating point.）</p>
+<h1 id="2-校准网络-Calibrating-The-Network"><a href="#2-校准网络-Calibrating-The-Network" class="headerlink" title="2 校准网络-Calibrating The Network"></a>2 校准网络-Calibrating The Network</h1><p>校准网络时，比较麻烦的是校准集的构建，作者定义了一个BatchStream  class来完成这个操作。BatchStream类有个成员函数getBatch ()是为了依次读取 batch file 中的数据的。</p>
+<p>还有个校准类 Int8EntropyCalibrator，继承自 NvInfer.h 中的 IInt8EntropyCalibrator</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Int8EntropyCalibrator</span> :</span> <span class="keyword">public</span> IInt8EntropyCalibrator</div></pre></td></tr></table></figure>
+<p>这个类里面也有个 getBatch () 成员函数，实际上调用的是 BatchStream类的getBatch () ，然后将数据从内存搬到了显存，如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">getBatch</span><span class="params">(<span class="keyword">void</span>* bindings[], <span class="keyword">const</span> <span class="keyword">char</span>* names[], <span class="keyword">int</span> nbBindings)</span> override</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">if</span> (!mStream.next())</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line"></div><div class="line">    CHECK(cudaMemcpy(mDeviceInput, mStream.getBatch(), mInputCount * <span class="keyword">sizeof</span>(<span class="keyword">float</span>), cudaMemcpyHostToDevice));</div><div class="line">    assert(!<span class="built_in">strcmp</span>(names[<span class="number">0</span>], INPUT_BLOB_NAME));</div><div class="line">    bindings[<span class="number">0</span>] = mDeviceInput;</div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个getBatch () 成员函数在校准时会被反复调用。</p>
+<p>生成校准集时，校准集的样本应该是已经进行过一系列预处理的图片而不是原始图片。</p>
+<p>校准类 Int8EntropyCalibrator 和 BatchStream 类的实现说起来比较麻烦，在后面源码解读部分直接结合注释看源码吧。</p>
+<h1 id="3-builder的配置-Configuring-The-Builder"><a href="#3-builder的配置-Configuring-The-Builder" class="headerlink" title="3 builder的配置-Configuring The Builder"></a>3 builder的配置-Configuring The Builder</h1><p>只需要在原来builder的基础上添加以下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">builder-&gt;setInt8Mode(<span class="literal">true</span>);</div><div class="line">builder-&gt;setInt8Calibrator(calibrator);</div></pre></td></tr></table></figure>
+<h1 id="4-batch-file的生成-Batch-Files-For-Calibration"><a href="#4-batch-file的生成-Batch-Files-For-Calibration" class="headerlink" title="4 batch file的生成-Batch Files For Calibration"></a>4 batch file的生成-Batch Files For Calibration</h1><p>例程使用的batch file 已经制作好了，位于<code>&lt;TensorRT&gt;/data/mnist/batches</code>  这是一系列二进制文件，每个文件包含了 N 个图片样本，格式如下：</p>
+<ul>
+<li>首先是4个32 bit的整形值，代表 {N, C, H, W},batchsize和图片dims</li>
+<li>然后是N个 {C, H, W}维度的浮点数据，代表N个样本</li>
+</ul>
+<p>batch file二进制文件的生成有两种方式：</p>
+<h2 id="4-1-使用caffe生成"><a href="#4-1-使用caffe生成" class="headerlink" title="4.1 使用caffe生成"></a>4.1 使用caffe生成</h2><p>主要对于使用caffe的用户，这里干脆直接将官方文档上的说明拷贝过来好了，比较简单：</p>
+<blockquote>
+<ol>
+<li><p>Navigate to the samples data directory and create an INT8 mnist directory:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span>    cd &lt;TensorRT&gt;/samples/data</div><div class="line"><span class="meta">&gt;</span>    mkdir -p int8/mnist</div><div class="line"><span class="meta">&gt;</span>    cd int8/mnist</div><div class="line"><span class="meta">&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>   Note: If Caffe is not installed anywhere, ensure you clone, checkout, patch, and build Caffe at the specific commit:</p>
+   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span>    git clone https://github.com/BVLC/caffe.git</div><div class="line"><span class="meta">&gt;</span>    cd caffe</div><div class="line"><span class="meta">&gt;</span>    git checkout 473f143f9422e7fc66e9590da6b2a1bb88e50b2f</div><div class="line"><span class="meta">&gt;</span>    patch -p1 &lt; &lt;TensorRT&gt;/samples/mnist/int8_caffe.patch</div><div class="line"><span class="meta">&gt;</span>    mkdir build</div><div class="line"><span class="meta">&gt;</span>    pushd build</div><div class="line"><span class="meta">&gt;</span>    cmake -DUSE_OPENCV=FALSE -DUSE_CUDNN=OFF ../</div><div class="line"><span class="meta">&gt;</span>    make -j4</div><div class="line"><span class="meta">&gt;</span>    popd</div><div class="line"><span class="meta">&gt;</span></div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>Download the mnist dataset from Caffe and create a link to it:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span>    bash data/mnist/get_mnist.sh</div><div class="line"><span class="meta">&gt;</span>    bash examples/mnist/create_mnist.sh</div><div class="line"><span class="meta">&gt;</span>    cd .. </div><div class="line"><span class="meta">&gt;</span>    ln -s caffe/examples .</div><div class="line"><span class="meta">&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>Set the directory to store the batch data, execute Caffe, and link the mnist files:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span>    mkdir batches</div><div class="line"><span class="meta">&gt;</span>    export TENSORRT_INT8_BATCH_DIRECTORY=batches</div><div class="line"><span class="meta">&gt;</span>    caffe/build/tools/caffe test -gpu 0 -iterations 1000 -model examples/mnist/lenet_train_test.prototxt -weights</div><div class="line"><span class="meta">&gt;</span>    &lt;TensorRT&gt;/samples/mnist/mnist.caffemodel</div><div class="line"><span class="meta">&gt;</span>    ln -s &lt;TensorRT&gt;/samples/mnist/mnist.caffemodel .</div><div class="line"><span class="meta">&gt;</span>    ln -s &lt;TensorRT&gt;/samples/mnist/mnist.prototxt .</div><div class="line"><span class="meta">&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>Execute sampleINT8 from the bin directory after being built with the following command:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span>     ./sample_int8 mnist</div><div class="line"><span class="meta">&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<h2 id="4-2-其他方式生成"><a href="#4-2-其他方式生成" class="headerlink" title="4.2 其他方式生成"></a>4.2 其他方式生成</h2><p>对于不用caffe或者模型难以转换成caffemode的用户，首先要进行一系列预处理，然后按照前面提到的batch file格式生成二进制batch file文件，但这个生成过程要自己写了，不过写的话应该也比较简单，可以参考caffe中的patch文件中的核心部分：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LOG_BATCHES_FOR_INT8_TESTING 1</span></div><div class="line"><span class="meta">#<span class="meta-keyword">if</span> LOG_BATCHES_FOR_INT8_TESTING</span></div><div class="line">  <span class="keyword">static</span> <span class="keyword">int</span> sBatchId = <span class="number">0</span>;</div><div class="line">  <span class="keyword">char</span>* batch_dump_dir = getenv(<span class="string">"TENSORRT_INT8_BATCH_DIRECTORY"</span>);</div><div class="line">  <span class="keyword">if</span>(batch_dump_dir != <span class="number">0</span>)</div><div class="line">  &#123;</div><div class="line">    <span class="keyword">char</span> buffer[<span class="number">1000</span>];</div><div class="line">    <span class="built_in">sprintf</span>(buffer, <span class="string">"batches/batch%d"</span>, sBatchId++);</div><div class="line">    FILE* file = fopen(buffer, <span class="string">"w"</span>);    </div><div class="line">    <span class="keyword">if</span>(file==<span class="number">0</span>)</div><div class="line">      <span class="built_in">abort</span>();</div><div class="line"></div><div class="line">    <span class="keyword">int</span> s[<span class="number">4</span>] = &#123; top_shape[<span class="number">0</span>], top_shape[<span class="number">1</span>], top_shape[<span class="number">2</span>], top_shape[<span class="number">3</span>] &#125;;</div><div class="line">    fwrite(s, <span class="keyword">sizeof</span>(<span class="keyword">int</span>), <span class="number">4</span>, file);</div><div class="line">    fwrite(top_data, <span class="keyword">sizeof</span>(<span class="keyword">float</span>), top_shape[<span class="number">0</span>]*top_shape[<span class="number">1</span>]*top_shape[<span class="number">2</span>]*top_shape[<span class="number">3</span>], file);</div><div class="line">    fwrite(&amp;top_label[<span class="number">0</span>], <span class="keyword">sizeof</span>(<span class="keyword">int</span>), top_shape[<span class="number">0</span>], file);</div><div class="line">    fclose(file);</div><div class="line">  &#125;</div><div class="line">+<span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
+<p>添加上数据集的读取，划分和预处理就可以了。</p>
+<h1 id="5-校准算法"><a href="#5-校准算法" class="headerlink" title="5 校准算法"></a>5 校准算法</h1><p>从INT8的例程来看，TensorRT 支持两种方式的校准，一种就是上节我们讲过的使用相对熵的方式，还有一种是废弃的校准算法，校准时需要设置两个参数 cutoff 和 quantile，以下是 在GTC2017 上对INT8校准原理进行讲解的 Szymon Migacz 对废弃的校准算法的解读：</p>
+<blockquote>
+<p><a href="https://devtalk.nvidia.com/default/topic/1015108/cutoff-and-quantile-parameters-in-tensorrt/" target="_blank" rel="external">https://devtalk.nvidia.com/default/topic/1015108/cutoff-and-quantile-parameters-in-tensorrt/</a></p>
+<p>Parameters cutoff and quantile have to be specified only for “legacy” calibrator. It’s difficult to set values of cutoff and quantile without running experiments. Our recommended way was to run 2D grid search and look for optimal combination of (cutoff, quantile) for a given network on a given dataset. This was implemented in sampleINT8 shipped with TensorRT 2.0 EA.</p>
+<p>New entropy calibrator doesn’t require any external hyperparameters, and it determines quantization thresholds automatically based on the distributions of activations on calibration dataset. In my presentation at GTC I was talking only about the new entropy calibrator, it’s available in TensorRT 2.1 GA.</p>
+</blockquote>
+<p>Szymon Migacz并没有充分的解释这两个参数，而是说这是 “legacy” calibrator中才会用到的参数，而且在没有做充分的试验的情况下，是很难合理地设置这两个参数的。他推荐的做法是 针对特定的网络结构和数据集使用 2D 网格搜索 来确定这两个参数的取值。而 entropy calibrator ，就是使用相对熵的校准方法，不需要任何超参数，而且能够根据校准集上的激活值分布自动确定量化阈值。NVIDIA官方也推荐使用使用相对熵校准的方式。所以 “legacy” calibrator 就不深入研究了。</p>
+<h1 id="6-源码解读"><a href="#6-源码解读" class="headerlink" title="6 源码解读"></a>6 源码解读</h1><p>sampleINT8.cpp:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div><div class="line">332</div><div class="line">333</div><div class="line">334</div><div class="line">335</div><div class="line">336</div><div class="line">337</div><div class="line">338</div><div class="line">339</div><div class="line">340</div><div class="line">341</div><div class="line">342</div><div class="line">343</div><div class="line">344</div><div class="line">345</div><div class="line">346</div><div class="line">347</div><div class="line">348</div><div class="line">349</div><div class="line">350</div><div class="line">351</div><div class="line">352</div><div class="line">353</div><div class="line">354</div><div class="line">355</div><div class="line">356</div><div class="line">357</div><div class="line">358</div><div class="line">359</div><div class="line">360</div><div class="line">361</div><div class="line">362</div><div class="line">363</div><div class="line">364</div><div class="line">365</div><div class="line">366</div><div class="line">367</div><div class="line">368</div><div class="line">369</div><div class="line">370</div><div class="line">371</div><div class="line">372</div><div class="line">373</div><div class="line">374</div><div class="line">375</div><div class="line">376</div><div class="line">377</div><div class="line">378</div><div class="line">379</div><div class="line">380</div><div class="line">381</div><div class="line">382</div><div class="line">383</div><div class="line">384</div><div class="line">385</div><div class="line">386</div><div class="line">387</div><div class="line">388</div><div class="line">389</div><div class="line">390</div><div class="line">391</div><div class="line">392</div><div class="line">393</div><div class="line">394</div><div class="line">395</div><div class="line">396</div><div class="line">397</div><div class="line">398</div><div class="line">399</div><div class="line">400</div><div class="line">401</div><div class="line">402</div><div class="line">403</div><div class="line">404</div><div class="line">405</div><div class="line">406</div><div class="line">407</div><div class="line">408</div><div class="line">409</div><div class="line">410</div><div class="line">411</div><div class="line">412</div><div class="line">413</div><div class="line">414</div><div class="line">415</div><div class="line">416</div><div class="line">417</div><div class="line">418</div><div class="line">419</div><div class="line">420</div><div class="line">421</div><div class="line">422</div><div class="line">423</div><div class="line">424</div><div class="line">425</div><div class="line">426</div><div class="line">427</div><div class="line">428</div><div class="line">429</div><div class="line">430</div><div class="line">431</div><div class="line">432</div><div class="line">433</div><div class="line">434</div><div class="line">435</div><div class="line">436</div><div class="line">437</div><div class="line">438</div><div class="line">439</div><div class="line">440</div><div class="line">441</div><div class="line">442</div><div class="line">443</div><div class="line">444</div><div class="line">445</div><div class="line">446</div><div class="line">447</div><div class="line">448</div><div class="line">449</div><div class="line">450</div><div class="line">451</div><div class="line">452</div><div class="line">453</div><div class="line">454</div><div class="line">455</div><div class="line">456</div><div class="line">457</div><div class="line">458</div><div class="line">459</div><div class="line">460</div><div class="line">461</div><div class="line">462</div><div class="line">463</div><div class="line">464</div><div class="line">465</div><div class="line">466</div><div class="line">467</div><div class="line">468</div><div class="line">469</div><div class="line">470</div><div class="line">471</div><div class="line">472</div><div class="line">473</div><div class="line">474</div><div class="line">475</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cuda_runtime_api.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;float.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;chrono&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iterator&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"NvInfer.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"NvCaffeParser.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"common.h"</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"BatchStream.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"LegacyCalibrator.h"</span></span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> nvinfer1;</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> nvcaffeparser1;</div><div class="line"></div><div class="line"><span class="keyword">static</span> Logger gLogger;</div><div class="line"></div><div class="line"><span class="comment">// stuff we know about the network and the caffe input/output blobs</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">char</span>* INPUT_BLOB_NAME = <span class="string">"data"</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">char</span>* OUTPUT_BLOB_NAME = <span class="string">"prob"</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">char</span>* gNetworkName&#123;<span class="literal">nullptr</span>&#125;;</div><div class="line"></div><div class="line"><span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">locateFile</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; input)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; dirs;</div><div class="line">    dirs.push_back(<span class="built_in">std</span>::<span class="built_in">string</span>(<span class="string">"data/int8/"</span>) + gNetworkName + <span class="built_in">std</span>::<span class="built_in">string</span>(<span class="string">"/"</span>));</div><div class="line">    dirs.push_back(<span class="built_in">std</span>::<span class="built_in">string</span>(<span class="string">"data/"</span>) + gNetworkName + <span class="built_in">std</span>::<span class="built_in">string</span>(<span class="string">"/"</span>));</div><div class="line">    <span class="keyword">return</span> locateFile(input, dirs);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">caffeToTRTModel</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; deployFile,		<span class="comment">// name for caffe prototxt</span></span></span></div><div class="line"><span class="function"><span class="params">	<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; modelFile,						<span class="comment">// name for model</span></span></span></div><div class="line"><span class="function"><span class="params">	<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt;&amp; outputs,			<span class="comment">// network outputs</span></span></span></div><div class="line"><span class="function"><span class="params">	<span class="keyword">unsigned</span> <span class="keyword">int</span> maxBatchSize,							<span class="comment">// batch size - NB must be at least as large as the batch we want to run with)</span></span></span></div><div class="line"><span class="function"><span class="params">	DataType dataType,</span></span></div><div class="line"><span class="function"><span class="params">	IInt8Calibrator* calibrator,</span></span></div><div class="line"><span class="function"><span class="params">	nvinfer1::IHostMemory *&amp;trtModelStream)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="comment">//创建一个builder，传入自己实现的 gLogger 对象，为了打印信息用</span></div><div class="line">	<span class="comment">// create the builder</span></div><div class="line">	IBuilder* builder = createInferBuilder(gLogger);</div><div class="line"></div><div class="line">	<span class="comment">//创建一个 network 对象，并创建一个 ICaffeParser 对象，这个对象是用来进行模型转换的；此时的 network 对象里面还是空的</span></div><div class="line">	<span class="comment">// parse the caffe model to populate the network, then set the outputs</span></div><div class="line">	INetworkDefinition* network = builder-&gt;createNetwork();</div><div class="line">	ICaffeParser* parser = createCaffeParser();</div><div class="line"></div><div class="line">	<span class="comment">//判断当前的硬件平台是否支持 INT8 精度和 FP16 精度，两者都不支持的话，直接返回 false</span></div><div class="line">	<span class="keyword">if</span>((dataType == DataType::kINT8 &amp;&amp; !builder-&gt;platformHasFastInt8()) || (dataType == DataType::kHALF &amp;&amp; !builder-&gt;platformHasFastFp16()))</div><div class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="comment">// caffemodel到tensorrt的转换, 注意这个地方传进去的dataType，</span></div><div class="line">	<span class="comment">// 如果使用FP16 inference 则传进去的是FP16，也就是kHALF</span></div><div class="line">	<span class="comment">// 如果是使用INT8 inference的话，这个地方传进去的是kFLOAT也就是 FP32,</span></div><div class="line">	<span class="comment">// 因为INT8 需要先用FP32的精度来确定转换系数，TensorRT自己会在内部转换成INT8</span></div><div class="line">	<span class="keyword">const</span> IBlobNameToTensor* blobNameToTensor = parser-&gt;parse(locateFile(deployFile).c_str(),</div><div class="line">		locateFile(modelFile).c_str(),</div><div class="line">		*network,</div><div class="line">		dataType == DataType::kINT8 ? DataType::kFLOAT : dataType);</div><div class="line"></div><div class="line">	<span class="comment">//标志输出tensor</span></div><div class="line">	<span class="comment">// specify which tensors are outputs</span></div><div class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span>&amp; s : outputs)</div><div class="line">		network-&gt;markOutput(*blobNameToTensor-&gt;find(s.c_str()));</div><div class="line"></div><div class="line">	<span class="comment">// Build the engine</span></div><div class="line">	<span class="comment">// 设置最大 batchsize和工作空间大小 2^30 ,这里是1G</span></div><div class="line">	builder-&gt;setMaxBatchSize(maxBatchSize);</div><div class="line">	builder-&gt;setMaxWorkspaceSize(<span class="number">1</span> &lt;&lt; <span class="number">30</span>);</div><div class="line">	<span class="comment">// 设置平均迭代次数和最小迭代次数，这是测量每一层时间的一种策略，即多次迭代求平均值，不过这里只迭代一次</span></div><div class="line">	builder-&gt;setAverageFindIterations(<span class="number">1</span>);</div><div class="line">	builder-&gt;setMinFindIterations(<span class="number">1</span>);</div><div class="line">	<span class="comment">//同步调试</span></div><div class="line">	builder-&gt;setDebugSync(<span class="literal">true</span>);</div><div class="line">	<span class="comment">//INT8 MODE or/and FP16 MODE</span></div><div class="line">	builder-&gt;setInt8Mode(dataType == DataType::kINT8);</div><div class="line">	builder-&gt;setFp16Mode(dataType == DataType::kHALF);</div><div class="line">	<span class="comment">//设置INT8校准接口</span></div><div class="line">	builder-&gt;setInt8Calibrator(calibrator);</div><div class="line"></div><div class="line">	<span class="comment">// 创建engine</span></div><div class="line">	ICudaEngine* engine = builder-&gt;buildCudaEngine(*network);</div><div class="line">	assert(engine);</div><div class="line"></div><div class="line">	<span class="comment">//销毁无用对象</span></div><div class="line">	<span class="comment">// we don't need the network any more, and we can destroy the parser</span></div><div class="line">	network-&gt;destroy();</div><div class="line">	parser-&gt;destroy();</div><div class="line"></div><div class="line">	<span class="comment">//序列化到磁盘上，这里实际上是在内存中，没有保存到磁盘</span></div><div class="line">	<span class="comment">// serialize the engine, then close everything down</span></div><div class="line">	trtModelStream = engine-&gt;serialize();</div><div class="line">	engine-&gt;destroy();</div><div class="line">	builder-&gt;destroy();</div><div class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">float</span> <span class="title">doInference</span><span class="params">(IExecutionContext&amp; context, <span class="keyword">float</span>* input, <span class="keyword">float</span>* output, <span class="keyword">int</span> batchSize)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="comment">//从context恢复engine</span></div><div class="line">	<span class="keyword">const</span> ICudaEngine&amp; engine = context.getEngine();</div><div class="line">	<span class="comment">//创建engine的时候，会把输入blob和输出blob指针放进去，engine.getNbBindings() 就是为了获取输入和输出的blob数目，以便于做检查</span></div><div class="line">	<span class="comment">//比如这里，就只有一个输入和一个输出，所以 检查时可以这样检查 assert(engine.getNbBindings() == 2);</span></div><div class="line">	<span class="comment">// input and output buffer pointers that we pass to the engine - the engine requires exactly IEngine::getNbBindings(),</span></div><div class="line">	<span class="comment">// of these, but in this case we know that there is exactly one input and one output.</span></div><div class="line">	assert(engine.getNbBindings() == <span class="number">2</span>);</div><div class="line">	<span class="comment">//每个输入和输出blob都需要申请显存，故：void* buffers[engine.getNbBindings()];</span></div><div class="line">	<span class="keyword">void</span>* buffers[<span class="number">2</span>];</div><div class="line">	<span class="keyword">float</span> ms&#123; <span class="number">0.0f</span> &#125;;</div><div class="line"></div><div class="line">	<span class="comment">//为了将 buffer中的成员(指针或者地址)分别与输入/输出的blob相关联，需要分别获取输入输出blob在engine中的索引</span></div><div class="line">	<span class="comment">// In order to bind the buffers, we need to know the names of the input and output tensors.</span></div><div class="line">	<span class="comment">// note that indices are guaranteed to be less than IEngine::getNbBindings()</span></div><div class="line">	<span class="keyword">int</span> inputIndex = engine.getBindingIndex(INPUT_BLOB_NAME),</div><div class="line">		outputIndex = engine.getBindingIndex(OUTPUT_BLOB_NAME);</div><div class="line"></div><div class="line">	<span class="comment">//计算输入输出shape</span></div><div class="line">	<span class="comment">// create GPU buffers and a stream</span></div><div class="line">	Dims3 inputDims = <span class="keyword">static_cast</span>&lt;Dims3&amp;&amp;&gt;(context.getEngine().getBindingDimensions(context.getEngine().getBindingIndex(INPUT_BLOB_NAME)));</div><div class="line">	Dims3 outputDims = <span class="keyword">static_cast</span>&lt;Dims3&amp;&amp;&gt;(context.getEngine().getBindingDimensions(context.getEngine().getBindingIndex(OUTPUT_BLOB_NAME)));</div><div class="line"></div><div class="line">	<span class="comment">//计算实际的输入输出大小,申请显存</span></div><div class="line">	<span class="keyword">size_t</span> inputSize = batchSize*inputDims.d[<span class="number">0</span>]*inputDims.d[<span class="number">1</span>]*inputDims.d[<span class="number">2</span>] * <span class="keyword">sizeof</span>(<span class="keyword">float</span>), outputSize = batchSize *</div><div class="line">    outputDims.d[<span class="number">0</span>] * outputDims.d[<span class="number">1</span>] * outputDims.d[<span class="number">2</span>] * <span class="keyword">sizeof</span>(<span class="keyword">float</span>);</div><div class="line">	CHECK(cudaMalloc(&amp;buffers[inputIndex], inputSize));</div><div class="line">	CHECK(cudaMalloc(&amp;buffers[outputIndex], outputSize));</div><div class="line"></div><div class="line">	<span class="comment">//从Host (CPU) 拷贝输入数据到 Device(GPU)，也就是从内存到显存</span></div><div class="line">	CHECK(cudaMemcpy(buffers[inputIndex], input, inputSize, cudaMemcpyHostToDevice));</div><div class="line"></div><div class="line">	<span class="comment">//创建一个 cuda 异步流</span></div><div class="line">	cudaStream_t stream;</div><div class="line">	CHECK(cudaStreamCreate(&amp;stream));</div><div class="line"></div><div class="line">	<span class="comment">//创建一个cuda事件</span></div><div class="line">	cudaEvent_t start, end;</div><div class="line">	CHECK(cudaEventCreateWithFlags(&amp;start, cudaEventBlockingSync));</div><div class="line">	CHECK(cudaEventCreateWithFlags(&amp;end, cudaEventBlockingSync));</div><div class="line">	<span class="comment">//标记stream流，start</span></div><div class="line">	cudaEventRecord(start, stream);</div><div class="line">	<span class="comment">//异步执行inference，//标记stream流，end</span></div><div class="line">	context.enqueue(batchSize, buffers, stream, <span class="literal">nullptr</span>);</div><div class="line">	cudaEventRecord(end, stream);</div><div class="line">	<span class="comment">//事件同步</span></div><div class="line">	cudaEventSynchronize(end);</div><div class="line">	<span class="comment">//计算start事件和end事件之间的运行时间</span></div><div class="line">	cudaEventElapsedTime(&amp;ms, start, end);</div><div class="line">	<span class="comment">//销毁事件</span></div><div class="line">	cudaEventDestroy(start);</div><div class="line">	cudaEventDestroy(end);</div><div class="line"></div><div class="line">	<span class="comment">//从Device(GPU) 拷贝输出数据到 Host (CPU)，也就是从显存到内存</span></div><div class="line">	CHECK(cudaMemcpy(output, buffers[outputIndex], outputSize, cudaMemcpyDeviceToHost));</div><div class="line">	<span class="comment">//释放显存</span></div><div class="line">	CHECK(cudaFree(buffers[inputIndex]));</div><div class="line">	CHECK(cudaFree(buffers[outputIndex]));</div><div class="line">	<span class="comment">//销毁流对象</span></div><div class="line">	CHECK(cudaStreamDestroy(stream));</div><div class="line">	<span class="comment">//返回inference时间</span></div><div class="line">	<span class="keyword">return</span> ms;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//计算一个batch 中 top-1或top-5的正确的图片数量</span></div><div class="line"><span class="comment">//对于输出来说，一张图片的输出对应一个 outputSize 维的向量（比如mnist是10维的）</span></div><div class="line"><span class="comment">//然而对于标签来说一张图片的标签是一个0-9之间的数字</span></div><div class="line"><span class="comment">//batchProb是一个batch中的标签向量按顺序叠加到一个vector中的，10个数字一组对应一张图片</span></div><div class="line"><span class="comment">//label就这这个batch的标签向量，一个数字对应一张图片</span></div><div class="line"><span class="comment">//outputsize是输出维度（比如mnist的outputsize=10）</span></div><div class="line"><span class="comment">//threshold：两个取值：1，对应top-1；5对应top-5</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">calculateScore</span><span class="params">(<span class="keyword">float</span>* batchProb, <span class="keyword">float</span>* labels, <span class="keyword">int</span> batchSize, <span class="keyword">int</span> outputSize, <span class="keyword">int</span> threshold)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="keyword">int</span> success = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; batchSize; i++)</div><div class="line">	&#123;</div><div class="line">		<span class="comment">//获取每个batch的地址，并获取预测向量中与标签相同位置上的真实概率</span></div><div class="line">		<span class="comment">//举个例子：假设threshold=1</span></div><div class="line">		<span class="comment">//i=0时，prob[0]-prob[9]是batch中的第一张图片的预测输出向量，</span></div><div class="line">		<span class="comment">//假设prob[0]-prob[9]的值为&#123;0.1, 0.5, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05&#125;，这张图片的label是1.</span></div><div class="line">		<span class="comment">//那么correct = prob[(int)labels[i]]=prob[1]=0.5，之后判断的是这个correct是否在top-1或者top-5范围内</span></div><div class="line">		<span class="comment">//做法是：统计 prob[0]-prob[9]之间比correct更大的值的个数 better，因为如果比correct大的话，最终输出的肯定是错的预测结果；</span></div><div class="line">		<span class="comment">//但是由于top-1，top-5允许你出错的次数分别为1次和5次，所以只要 better &lt; threshold，就认为预测准确，success++；</span></div><div class="line">		<span class="comment">//最后返回success，代表这个batch中按照 top-1 或 top-5的精度来算，预测对了几张图片。</span></div><div class="line">		<span class="keyword">float</span>* prob = batchProb + outputSize*i, correct = prob[(<span class="keyword">int</span>)labels[i]];</div><div class="line"></div><div class="line">		<span class="keyword">int</span> better = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; outputSize; j++)</div><div class="line">			<span class="keyword">if</span> (prob[j] &gt;= correct)</div><div class="line">				better++;</div><div class="line">		<span class="keyword">if</span> (better &lt;= threshold)</div><div class="line">			success++;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> success;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Int8EntropyCalibrator</span> :</span> <span class="keyword">public</span> IInt8EntropyCalibrator</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	Int8EntropyCalibrator(BatchStream&amp; stream, <span class="keyword">int</span> firstBatch, <span class="keyword">bool</span> readCache = <span class="literal">true</span>)</div><div class="line">		: mStream(stream), mReadCache(readCache)</div><div class="line">	&#123;</div><div class="line">		DimsNCHW dims = mStream.getDims();</div><div class="line">		mInputCount = mStream.getBatchSize() * dims.c() * dims.h() * dims.w();</div><div class="line">		<span class="comment">//为 mDeviceInput 申请显存，跳过前面 firstBatch 个batch</span></div><div class="line">		CHECK(cudaMalloc(&amp;mDeviceInput, mInputCount * <span class="keyword">sizeof</span>(<span class="keyword">float</span>)));</div><div class="line">		mStream.reset(firstBatch);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 析构函数，释放显存</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="keyword">virtual</span> ~Int8EntropyCalibrator()</div><div class="line">	&#123;</div><div class="line">		CHECK(cudaFree(mDeviceInput));</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getBatchSize</span><span class="params">()</span> <span class="keyword">const</span> override </span>&#123; <span class="keyword">return</span> mStream.getBatchSize(); &#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">getBatch</span><span class="params">(<span class="keyword">void</span>* bindings[], <span class="keyword">const</span> <span class="keyword">char</span>* names[], <span class="keyword">int</span> nbBindings)</span> override</span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="keyword">if</span> (!mStream.next())</div><div class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line"></div><div class="line">		<span class="comment">//将mStream.getBatch()获取到的数据拷贝到 mDeviceInput 中，也就是从内存到显存</span></div><div class="line">		CHECK(cudaMemcpy(mDeviceInput, mStream.getBatch(), mInputCount * <span class="keyword">sizeof</span>(<span class="keyword">float</span>), cudaMemcpyHostToDevice));</div><div class="line">		assert(!<span class="built_in">strcmp</span>(names[<span class="number">0</span>], INPUT_BLOB_NAME));</div><div class="line">		bindings[<span class="number">0</span>] = mDeviceInput;</div><div class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 从文件中读取校准数据，返回校准表缓存地址</span></div><div class="line"><span class="comment">	 * @param length 读取长度</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">const</span> <span class="keyword">void</span>* <span class="title">readCalibrationCache</span><span class="params">(<span class="keyword">size_t</span>&amp; length)</span> override</span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="comment">//首先清空mCalibrationCache</span></div><div class="line">		mCalibrationCache.clear();</div><div class="line">		<span class="comment">//从文件中读取内容并放到 mCalibrationCache vector中</span></div><div class="line">		std::ifstream input(calibrationTableName(), std::ios::binary);</div><div class="line">		input &gt;&gt; <span class="built_in">std</span>::noskipws;</div><div class="line">		<span class="keyword">if</span> (mReadCache &amp;&amp; input.good())</div><div class="line">			<span class="built_in">std</span>::copy(<span class="built_in">std</span>::istream_iterator&lt;<span class="keyword">char</span>&gt;(input), <span class="built_in">std</span>::istream_iterator&lt;<span class="keyword">char</span>&gt;(), <span class="built_in">std</span>::back_inserter(mCalibrationCache));</div><div class="line"></div><div class="line">		<span class="comment">//返回 mCalibrationCache 地址或 空指针</span></div><div class="line">		length = mCalibrationCache.size();</div><div class="line">		<span class="keyword">return</span> length ? &amp;mCalibrationCache[<span class="number">0</span>] : <span class="literal">nullptr</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 将校准数据存储到文件中</span></div><div class="line"><span class="comment">	 * @param cache 校准数据内存地址</span></div><div class="line"><span class="comment">	 * @param length 数据长度</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">writeCalibrationCache</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span>* cache, <span class="keyword">size_t</span> length)</span> override</span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		std::ofstream output(calibrationTableName(), std::ios::binary);</div><div class="line">		output.write(<span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">char</span>*&gt;(cache), length);</div><div class="line">	&#125;</div><div class="line"></div><div class="line"><span class="keyword">private</span>:</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 存储校准数据的文件</span></div><div class="line"><span class="comment">	 * @return 文件名称</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">    <span class="keyword">static</span> <span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">calibrationTableName</span><span class="params">()</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        assert(gNetworkName);</div><div class="line">        <span class="keyword">return</span> <span class="built_in">std</span>::<span class="built_in">string</span>(<span class="string">"CalibrationTable"</span>) + gNetworkName;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//batch流</span></div><div class="line">	BatchStream mStream;</div><div class="line">	<span class="comment">//是否从文件中读取校准数据</span></div><div class="line">	<span class="keyword">bool</span> mReadCache&#123; <span class="literal">true</span> &#125;;</div><div class="line"></div><div class="line">	<span class="comment">//校准时 GPU接受 的 数据量mInputCount 和 数据内容 mDeviceInput</span></div><div class="line">	<span class="keyword">size_t</span> mInputCount;</div><div class="line">	<span class="keyword">void</span>* mDeviceInput&#123; <span class="literal">nullptr</span> &#125;;</div><div class="line">	<span class="comment">//存放从文件中读取到的校准数据，也就是scale_factor 缩放系数</span></div><div class="line">	<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; mCalibrationCache;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 用于模型评分，包含了caffe模型向ensorRT的转化以及inference的执行</span></div><div class="line"><span class="comment"> * @param batchSize 批尺寸</span></div><div class="line"><span class="comment"> * @param firstBatch 跳过初始的一些batch</span></div><div class="line"><span class="comment"> * @param nbScoreBatches 测试的 batch总数</span></div><div class="line"><span class="comment"> * @param datatype 以何种精度inference</span></div><div class="line"><span class="comment"> * @param calibrator 校准接口</span></div><div class="line"><span class="comment"> * @param quiet 是否输出调试信息</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="built_in">std</span>::pair&lt;<span class="keyword">float</span>, <span class="keyword">float</span>&gt; scoreModel(<span class="keyword">int</span> batchSize, <span class="keyword">int</span> firstBatch, <span class="keyword">int</span> nbScoreBatches, DataType datatype, IInt8Calibrator* calibrator, <span class="keyword">bool</span> quiet = <span class="literal">false</span>)</div><div class="line">&#123;</div><div class="line">	IHostMemory *trtModelStream&#123; <span class="literal">nullptr</span> &#125;;</div><div class="line"></div><div class="line">	<span class="comment">// 调用 caffeToTRTModel 将caffe模型解析为TensorRT</span></div><div class="line">	<span class="keyword">bool</span> valid = <span class="literal">false</span>;</div><div class="line">    <span class="keyword">if</span> (gNetworkName == <span class="built_in">std</span>::<span class="built_in">string</span>(<span class="string">"mnist"</span>))</div><div class="line">        valid = caffeToTRTModel(<span class="string">"deploy.prototxt"</span>, <span class="string">"mnist_lenet.caffemodel"</span>, <span class="built_in">std</span>::<span class="built_in">vector</span> &lt; <span class="built_in">std</span>::<span class="built_in">string</span> &gt; &#123; OUTPUT_BLOB_NAME &#125;, batchSize, datatype, calibrator, trtModelStream);</div><div class="line">    <span class="keyword">else</span></div><div class="line">        valid = caffeToTRTModel(<span class="string">"deploy.prototxt"</span>, <span class="built_in">std</span>::<span class="built_in">string</span>(gNetworkName) + <span class="string">".caffemodel"</span>, <span class="built_in">std</span>::<span class="built_in">vector</span> &lt; <span class="built_in">std</span>::<span class="built_in">string</span> &gt; &#123; OUTPUT_BLOB_NAME &#125;, batchSize, datatype, calibrator, trtModelStream);</div><div class="line"></div><div class="line">    <span class="comment">// 如果GPU不支持某种精度类型，比如FP16/INT8，则返回（0,0）</span></div><div class="line">	<span class="keyword">if</span>(!valid)</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Engine could not be created at this precision"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">		<span class="keyword">return</span> <span class="built_in">std</span>::pair&lt;<span class="keyword">float</span>, <span class="keyword">float</span>&gt;(<span class="number">0</span>,<span class="number">0</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">    assert(trtModelStream != <span class="literal">nullptr</span>);</div><div class="line"></div><div class="line">    <span class="comment">// 恢复创建engine，创建上下文环境</span></div><div class="line">	<span class="comment">// Create engine and deserialize model.</span></div><div class="line">	IRuntime* infer = createInferRuntime(gLogger);</div><div class="line">    assert(infer != <span class="literal">nullptr</span>);</div><div class="line">	ICudaEngine* engine = infer-&gt;deserializeCudaEngine(trtModelStream-&gt;data(), trtModelStream-&gt;size(), <span class="literal">nullptr</span>);</div><div class="line">    assert(engine != <span class="literal">nullptr</span>);</div><div class="line">	trtModelStream-&gt;destroy();</div><div class="line">	IExecutionContext* context = engine-&gt;createExecutionContext();</div><div class="line">    assert(context != <span class="literal">nullptr</span>);</div><div class="line"></div><div class="line">    <span class="comment">//创建 batch 流对象，并跳过开始的一些batch，共firstBatch个，此处等于100</span></div><div class="line">	<span class="function">BatchStream <span class="title">stream</span><span class="params">(batchSize, nbScoreBatches)</span></span>;</div><div class="line">	stream.skip(firstBatch);</div><div class="line"></div><div class="line">	<span class="comment">// output tensor 维度</span></div><div class="line">	Dims3 outputDims = <span class="keyword">static_cast</span>&lt;Dims3&amp;&amp;&gt;(context-&gt;getEngine().getBindingDimensions(context-&gt;getEngine().getBindingIndex(OUTPUT_BLOB_NAME)));</div><div class="line">	<span class="comment">//确定输出 tensor 数据量大小</span></div><div class="line">	<span class="keyword">int</span> outputSize = outputDims.d[<span class="number">0</span>]*outputDims.d[<span class="number">1</span>]*outputDims.d[<span class="number">2</span>];</div><div class="line">	<span class="keyword">int</span> top1&#123; <span class="number">0</span> &#125;, top5&#123; <span class="number">0</span> &#125;;</div><div class="line">	<span class="keyword">float</span> totalTime&#123; <span class="number">0.0f</span> &#125;;</div><div class="line"></div><div class="line">	<span class="comment">//每张图片都有一个 outputSize 大小的向量(比如 mnist 分类大小为10)，那么一个batch的输出应该为 batchSize * outputSize</span></div><div class="line">	<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">float</span>&gt; prob(batchSize * outputSize, <span class="number">0</span>);</div><div class="line"></div><div class="line">	<span class="comment">//依次对不同的batch进行inference，stream.next()获取下一个batch</span></div><div class="line">	<span class="keyword">while</span> (stream.next())</div><div class="line">	&#123;</div><div class="line">		<span class="comment">//输入数据：stream.getBatch()，输出数据：prob 每循环一次就对一个batch的数据进行测试，这个batch的输出放在 prob 中</span></div><div class="line">		totalTime += doInference(*context, stream.getBatch(), &amp;prob[<span class="number">0</span>], batchSize);</div><div class="line"></div><div class="line">		<span class="comment">//对每个batch，按照top-1和top-5精度来计算准确率</span></div><div class="line">		top1 += calculateScore(&amp;prob[<span class="number">0</span>], stream.getLabels(), batchSize, outputSize, <span class="number">1</span>);</div><div class="line">		top5 += calculateScore(&amp;prob[<span class="number">0</span>], stream.getLabels(), batchSize, outputSize, <span class="number">5</span>);</div><div class="line"></div><div class="line">		<span class="comment">//读取10个batch输出一个点，读取800个输出一个换行符</span></div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; (!quiet &amp;&amp; stream.getBatchesRead() % <span class="number">10</span> == <span class="number">0</span> ? <span class="string">"."</span> : <span class="string">""</span>) &lt;&lt; (!quiet &amp;&amp; stream.getBatchesRead() % <span class="number">800</span> == <span class="number">0</span> ? <span class="string">"\n"</span> : <span class="string">""</span>) &lt;&lt; <span class="built_in">std</span>::flush;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">//统计总共读到了多少张图片，并计算top-1和top-5正确率</span></div><div class="line">	<span class="keyword">int</span> imagesRead = stream.getBatchesRead()*batchSize;</div><div class="line">	<span class="keyword">float</span> t1 = <span class="keyword">float</span>(top1) / <span class="keyword">float</span>(imagesRead), t5 = <span class="keyword">float</span>(top5) / <span class="keyword">float</span>(imagesRead);</div><div class="line"></div><div class="line">	<span class="comment">// 精度和时间，结果输出</span></div><div class="line">	<span class="keyword">if</span> (!quiet)</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"\nTop1: "</span> &lt;&lt; t1 &lt;&lt; <span class="string">", Top5: "</span> &lt;&lt; t5 &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Processing "</span> &lt;&lt; imagesRead &lt;&lt; <span class="string">" images averaged "</span> &lt;&lt; totalTime / imagesRead &lt;&lt; <span class="string">" ms/image and "</span> &lt;&lt; totalTime / stream.getBatchesRead() &lt;&lt; <span class="string">" ms/batch."</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">//销毁无用对象，返回准确率</span></div><div class="line">	context-&gt;destroy();</div><div class="line">	engine-&gt;destroy();</div><div class="line">	infer-&gt;destroy();</div><div class="line">	<span class="keyword">return</span> <span class="built_in">std</span>::make_pair(t1, t5);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="keyword">if</span> (argc &lt; <span class="number">2</span>)</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Please provide the network as the first argument."</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">		<span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">	&#125;</div><div class="line">	gNetworkName = argv[<span class="number">1</span>];</div><div class="line"></div><div class="line">	<span class="comment">//前 firstScoreBatch 个 batch是用来作为校准集的，因此在测试时这些是不进行测试的</span></div><div class="line">	<span class="keyword">int</span> batchSize = <span class="number">100</span>, firstScoreBatch = <span class="number">100</span>, nbScoreBatches = <span class="number">400</span>;	<span class="comment">// by default we score over 40K images starting at 10000, so we don't score those used to search calibration</span></div><div class="line">	<span class="comment">//search变量是LEGACY_CALIBRATION校准算法中使用的变量，具体作用要看 LegacyCalibrator.h 源码，因为这个校准算法nvidia已经不推荐使用了，所以这里不深究了</span></div><div class="line">	<span class="keyword">bool</span> search = <span class="literal">false</span>;</div><div class="line"></div><div class="line">	<span class="comment">//校准算法 选择参考 Nvinfer.h 文件，kENTROPY_CALIBRATION：使用信息熵进行校准；kLEGACY_CALIBRATION，使用以前遗留下来的算法进行校准</span></div><div class="line">	<span class="comment">// 	enum class CalibrationAlgoType : int</span></div><div class="line">	<span class="comment">// &#123;</span></div><div class="line">	<span class="comment">// 	kLEGACY_CALIBRATION = 0,</span></div><div class="line">	<span class="comment">// 	kENTROPY_CALIBRATION = 1</span></div><div class="line">	<span class="comment">// &#125;;</span></div><div class="line">	CalibrationAlgoType calibrationAlgo = CalibrationAlgoType::kENTROPY_CALIBRATION;</div><div class="line"></div><div class="line">	<span class="comment">// 处理命令行参数</span></div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; argc; i++)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span> (!<span class="built_in">strncmp</span>(argv[i], <span class="string">"batch="</span>, <span class="number">6</span>))</div><div class="line">			batchSize = atoi(argv[i] + <span class="number">6</span>);</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (!<span class="built_in">strncmp</span>(argv[i], <span class="string">"start="</span>, <span class="number">6</span>))</div><div class="line">			firstScoreBatch = atoi(argv[i] + <span class="number">6</span>);</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (!<span class="built_in">strncmp</span>(argv[i], <span class="string">"score="</span>, <span class="number">6</span>))</div><div class="line">			nbScoreBatches = atoi(argv[i] + <span class="number">6</span>);</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (!<span class="built_in">strncmp</span>(argv[i], <span class="string">"search"</span>, <span class="number">6</span>))</div><div class="line">			search = <span class="literal">true</span>;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (!<span class="built_in">strncmp</span>(argv[i], <span class="string">"legacy"</span>, <span class="number">6</span>))</div><div class="line">			calibrationAlgo = CalibrationAlgoType::kLEGACY_CALIBRATION;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Unrecognized argument "</span> &lt;&lt; argv[i] &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">			<span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (calibrationAlgo == CalibrationAlgoType::kENTROPY_CALIBRATION)</div><div class="line">	&#123;</div><div class="line">		search = <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">//batchsize不能大于128，这是为何？</span></div><div class="line">	<span class="keyword">if</span> (batchSize &gt; <span class="number">128</span>)</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Please provide batch size &lt;= 128"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">		<span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">//感觉这里写错了，应该是 50000</span></div><div class="line">	<span class="keyword">if</span> ((firstScoreBatch + nbScoreBatches)*batchSize &gt; <span class="number">500000</span>)</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Only 50000 images available"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">		<span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">//设置标准输出流输出的精度</span></div><div class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span>.precision(<span class="number">6</span>);</div><div class="line"></div><div class="line">	<span class="comment">//用于构建校准集的batch流</span></div><div class="line">	<span class="comment">//CAL_BATCH_SIZE = 50;NB_CAL_BATCHES = 10; 定义在 LegacyCalibrator.h文件中, 既然废弃了 LegacyCalibrator，为什么不把常量定义在本文件中</span></div><div class="line">	<span class="function">BatchStream <span class="title">calibrationStream</span><span class="params">(CAL_BATCH_SIZE, NB_CAL_BATCHES)</span></span>;</div><div class="line"></div><div class="line">	<span class="comment">//FP32精度不需要校准集，因此最后一个参数传入 nullptr</span></div><div class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"\nFP32 run:"</span> &lt;&lt; nbScoreBatches &lt;&lt; <span class="string">" batches of size "</span> &lt;&lt; batchSize &lt;&lt; <span class="string">" starting at "</span> &lt;&lt; firstScoreBatch &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">	scoreModel(batchSize, firstScoreBatch, nbScoreBatches, DataType::kFLOAT, <span class="literal">nullptr</span>);</div><div class="line"></div><div class="line">	<span class="comment">//FP16精度不需要校准集，因此最后一个参数传入 nullptr</span></div><div class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"\nFP16 run:"</span> &lt;&lt; nbScoreBatches &lt;&lt; <span class="string">" batches of size "</span> &lt;&lt; batchSize &lt;&lt; <span class="string">" starting at "</span> &lt;&lt; firstScoreBatch &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">	scoreModel(batchSize, firstScoreBatch, nbScoreBatches, DataType::kHALF, <span class="literal">nullptr</span>);</div><div class="line"></div><div class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"\nINT8 run:"</span> &lt;&lt; nbScoreBatches &lt;&lt; <span class="string">" batches of size "</span> &lt;&lt; batchSize &lt;&lt; <span class="string">" starting at "</span> &lt;&lt; firstScoreBatch &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">	<span class="keyword">if</span> (calibrationAlgo == CalibrationAlgoType::kENTROPY_CALIBRATION)</div><div class="line">	&#123;</div><div class="line">		<span class="comment">//先构建校准集，然后调用scoreModel进行模型评估，创建engine时传入了Int8EntropyCalibrator对象calibrator</span></div><div class="line">		<span class="comment">//FIRST_CAL_SCORE_BATCH = 100; 定义在 LegacyCalibrator.h文件中</span></div><div class="line">		<span class="function">Int8EntropyCalibrator <span class="title">calibrator</span><span class="params">(calibrationStream, FIRST_CAL_BATCH)</span></span>;</div><div class="line">		scoreModel(batchSize, firstScoreBatch, nbScoreBatches, DataType::kINT8, &amp;calibrator);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span></div><div class="line">	&#123;</div><div class="line">        <span class="comment">//被废弃的校准算法，不解释了</span></div><div class="line">		<span class="built_in">std</span>::pair&lt;<span class="keyword">double</span>, <span class="keyword">double</span>&gt; parameters = getQuantileAndCutoff(gNetworkName, search);</div><div class="line">		<span class="function">Int8LegacyCalibrator <span class="title">calibrator</span><span class="params">(calibrationStream, FIRST_CAL_BATCH, parameters.first, parameters.second)</span></span>;</div><div class="line">		scoreModel(batchSize, firstScoreBatch, nbScoreBatches, DataType::kINT8, &amp;calibrator);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	shutdownProtobufLibrary();</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>BatchStream.h，这个源码看起来还是稍微有点费劲的，还是我C++功底不够啊，得补。。。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> BATCH_STREAM_H</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> BATCH_STREAM_H</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"NvInfer.h"</span></span></div><div class="line"></div><div class="line"><span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">locateFile</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; input)</span></span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BatchStream</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">	<span class="comment">//构造函数，使用 batchSize 和 maxBatches 初始化 BatchStream 中的 mBatchSize(批尺寸) 和 mMaxBatches(批数量)</span></div><div class="line">	BatchStream(<span class="keyword">int</span> batchSize, <span class="keyword">int</span> maxBatches) : mBatchSize(batchSize), mMaxBatches(maxBatches)</div><div class="line">	&#123;</div><div class="line">		<span class="comment">//读取第一个batch文件的shape，用于一系列初始化操作</span></div><div class="line">		FILE* file = fopen(locateFile(<span class="built_in">std</span>::<span class="built_in">string</span>(<span class="string">"batches/batch0"</span>)).c_str(), <span class="string">"rb"</span>);</div><div class="line">		<span class="keyword">int</span> d[<span class="number">4</span>];</div><div class="line">		fread(d, <span class="keyword">sizeof</span>(<span class="keyword">int</span>), <span class="number">4</span>, file);</div><div class="line">		mDims = nvinfer1::DimsNCHW&#123; d[<span class="number">0</span>], d[<span class="number">1</span>], d[<span class="number">2</span>], d[<span class="number">3</span>] &#125;;</div><div class="line">		fclose(file);</div><div class="line">		<span class="comment">//单张图片的大小（总的像素个数）</span></div><div class="line">		mImageSize = mDims.c()*mDims.h()*mDims.w();</div><div class="line">		<span class="comment">//根据batch文件中的单张图片大小mImageSize初始化 BatchStream 中的 mBatch 的内存空间，初值为0；同理根据mBatchSize初始化mLabels</span></div><div class="line">		<span class="comment">//mBatch指的是BatchStream中的batch，batch的个数为mBatchSize，所以数据量总数为mBatchSize*mImageSize，</span></div><div class="line">		<span class="comment">//mLabels是BatchStream中的label，总数就是 mBatchSize</span></div><div class="line">		mBatch.resize(mBatchSize*mImageSize, <span class="number">0</span>);</div><div class="line">		mLabels.resize(mBatchSize, <span class="number">0</span>);</div><div class="line"></div><div class="line">		<span class="comment">//有两块专门的内存区域用于存储读取到的batch&#123;i&#125; 文件内容，就是下面两个。这两块内存区域里的内容在后面会被复制到 mBatch和mLabels中</span></div><div class="line">		<span class="comment">//mFileBatch指的是读取到的 batch&#123;i&#125; 文件中的batch，因此总数为mDims.n()*mDims.c()*mDims.h()*mDims.w()=mDims.n()*mImageSize</span></div><div class="line">		<span class="comment">//mFileLabels指的是读取到的 batch&#123;i&#125; 文件中的label，因此总数为 mDims.n()</span></div><div class="line">		mFileBatch.resize(mDims.n()*mImageSize, <span class="number">0</span>);</div><div class="line">		mFileLabels.resize(mDims.n(), <span class="number">0</span>);</div><div class="line">		reset(<span class="number">0</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// reset操作</span></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">reset</span><span class="params">(<span class="keyword">int</span> firstBatch)</span></span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		mBatchCount = <span class="number">0</span>;</div><div class="line">		mFileCount = <span class="number">0</span>;</div><div class="line">		mFileBatchPos = mDims.n();</div><div class="line">		skip(firstBatch);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * stream.next()每调用一次，就使用batch file中的数据(读取后首先是变量名为mFileBatch的buffer)填充一个mBatch</span></div><div class="line"><span class="comment">	 * @return 是否填充成功</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">next</span><span class="params">()</span></span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="comment">//已经读取到 最大 批数量 了，返回false</span></div><div class="line">		<span class="keyword">if</span> (mBatchCount == mMaxBatches)</div><div class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line"></div><div class="line">		<span class="comment">// 将mFileBatch（相当于buffer）中的内容拷贝到mBatch中，</span></div><div class="line">        <span class="comment">//由于mFileBatch和mBatch大小有可能不一样,所以才这么写</span></div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> csize = <span class="number">1</span>, batchPos = <span class="number">0</span>; batchPos &lt; mBatchSize; batchPos += csize, mFileBatchPos += csize)</div><div class="line">		&#123;</div><div class="line">			assert(mFileBatchPos &gt; <span class="number">0</span> &amp;&amp; mFileBatchPos &lt;= mDims.n());</div><div class="line">			<span class="comment">//调用update函数，读取batches文件夹中的 batch&#123;i&#125; 文件，读取失败的话直接在这里返回false，</span></div><div class="line">			<span class="comment">//调用update函数会使 mFileBatchPos=0，这是合理的，因为还没有开始往 mBatch 拷贝数据</span></div><div class="line">			<span class="keyword">if</span> (mFileBatchPos == mDims.n() &amp;&amp; !update())</div><div class="line">				<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line"></div><div class="line">			<span class="comment">//一次从batch文件中读取 csize 张图片，</span></div><div class="line">			<span class="comment">//由于mFileBatch和mBatch大小有可能不一样所以借助 mFileBatchPos 和 batchpos 来指示batch文件和mbatch中的当前操作(读取或存储)位置</span></div><div class="line">			<span class="comment">//所以csize取二者之间较小值</span></div><div class="line">			<span class="comment">// copy the smaller of: elements left to fulfill the request, or elements left in the file buffer.</span></div><div class="line">			csize = <span class="built_in">std</span>::min(mBatchSize - batchPos, mDims.n() - mFileBatchPos);</div><div class="line">			<span class="comment">//将 mFileBatch 和 mFileLabels 中存放的batch文件的内容复制到 mBatch 和 mLabels 中</span></div><div class="line">			<span class="built_in">std</span>::copy_n(getFileBatch() + mFileBatchPos * mImageSize, csize * mImageSize, getBatch() + batchPos * mImageSize);</div><div class="line">			<span class="built_in">std</span>::copy_n(getFileLabels() + mFileBatchPos, csize, getLabels() + batchPos);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">// mBatchCount自增，指示当前填充了多少个mBatch</span></div><div class="line">		mBatchCount++;</div><div class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 跳过前面多少个batch</span></div><div class="line"><span class="comment">	 * @param skipCount 跳过的batch的个数</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">skip</span><span class="params">(<span class="keyword">int</span> skipCount)</span></span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="comment">//如果mBatchSize 大于等于 mDims.n()，并且 mBatchSize%mDims.n() == 0，</span></div><div class="line">		<span class="comment">//换句话说batchsteam中的batchsize(比如100)，比batch&#123;i&#125;文件的batchsize(比如50)大，并且能整除.</span></div><div class="line">		<span class="comment">//那么batchstream中一个 batch， 相当于 mBatchSize / mDims.n()个batch 个batch&#123;i&#125;文件</span></div><div class="line">		<span class="comment">//举个例子：batchsteam中batchsize=100，batch&#123;i&#125;文件中batchsize=50，那么batchsteam中一个batch相当于 两个batch&#123;i&#125;文件</span></div><div class="line">		<span class="comment">//那么在batchstream中跳过一个 batch， 相当于跳过 mBatchSize / mDims.n() 个 batch&#123;i&#125;文件</span></div><div class="line">		<span class="comment">//所以才有 mFileCount += skipCount * mBatchSize / mDims.n();</span></div><div class="line">		<span class="comment">//这时直接通过修改mFileCount的数值来读取剩下的batch文件</span></div><div class="line">		<span class="keyword">if</span> (mBatchSize &gt;= mDims.n() &amp;&amp; mBatchSize%mDims.n() == <span class="number">0</span> &amp;&amp; mFileBatchPos == mDims.n())</div><div class="line">		&#123;</div><div class="line">			mFileCount += skipCount * mBatchSize / mDims.n();</div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="comment">//其他情况：batchsteam中的batchsize不能整除batch&#123;i&#125;文件的batchsize</span></div><div class="line">		<span class="comment">//循环调用 next() 读取batch&#123;i&#125;文件，读取skipCount个，由于next() 会改变 mBatchCount 的值，所以先暂存，再取出</span></div><div class="line">		<span class="keyword">int</span> x = mBatchCount;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; skipCount; i++)</div><div class="line">			next();</div><div class="line">		mBatchCount = x;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">//获取batchsteam中的 batch 和 label 的首地址， batch文件中的内容读取后首先是放在 mFileBatch 和 mFileLabels 中，</span></div><div class="line">	<span class="comment">//但最终会被复制到 mBatch和mLabels中，校准使用的就是 mBatch 和mLabels，而不是直接从batch file中读取进来的mFileBatch和mFileLabels</span></div><div class="line">	<span class="function"><span class="keyword">float</span> *<span class="title">getBatch</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> &amp;mBatch[<span class="number">0</span>]; &#125;</div><div class="line">	<span class="function"><span class="keyword">float</span> *<span class="title">getLabels</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> &amp;mLabels[<span class="number">0</span>]; &#125;</div><div class="line">	<span class="comment">//mBatchCount表示填充了多少个 mBatch 的数量</span></div><div class="line">	<span class="comment">//mBatchSize表示填充mBatch时使用的batchsize</span></div><div class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getBatchesRead</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> mBatchCount; &#125;</div><div class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getBatchSize</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> mBatchSize; &#125;</div><div class="line">	<span class="comment">//获取图片的shape信息，这个在mBatch和mFileBatch中是一样的</span></div><div class="line">	nvinfer1::<span class="function">DimsNCHW <span class="title">getDims</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> mDims; &#125;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">	<span class="comment">//batch文件（如batch0）中的图像数据和标签数据存放在 mFileBatch 和 mFileLabels 中，此处返回他们的地址</span></div><div class="line">	<span class="function"><span class="keyword">float</span>* <span class="title">getFileBatch</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> &amp;mFileBatch[<span class="number">0</span>]; &#125;</div><div class="line">	<span class="function"><span class="keyword">float</span>* <span class="title">getFileLabels</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> &amp;mFileLabels[<span class="number">0</span>]; &#125;</div><div class="line"></div><div class="line">	<span class="comment">//此函数用于依次读取 batches文件夹下的 batch&#123;i&#125; 文件，并将读取到的内容存放在mFileBatch和mFileLabels中，读取成功返回true，否则返回false</span></div><div class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">update</span><span class="params">()</span></span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="comment">//依次读取 batches文件夹下的 batch&#123;i&#125; 文件，mFileCount变量自增，指向下一个batch文件也就是 batch&#123;i+1&#125; 文件</span></div><div class="line">		<span class="built_in">std</span>::<span class="built_in">string</span> inputFileName = locateFile(<span class="built_in">std</span>::<span class="built_in">string</span>(<span class="string">"batches/batch"</span>) + <span class="built_in">std</span>::to_string(mFileCount++));</div><div class="line">		FILE * file = fopen(inputFileName.c_str(), <span class="string">"rb"</span>);</div><div class="line">		<span class="keyword">if</span> (!file)</div><div class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line"></div><div class="line">		<span class="comment">//从batch文件读取当前 batch 的 shape 信息（图像数据的shape）</span></div><div class="line">		<span class="keyword">int</span> d[<span class="number">4</span>];</div><div class="line">		fread(d, <span class="keyword">sizeof</span>(<span class="keyword">int</span>), <span class="number">4</span>, file);</div><div class="line">		assert(mDims.n() == d[<span class="number">0</span>] &amp;&amp; mDims.c() == d[<span class="number">1</span>] &amp;&amp; mDims.h() == d[<span class="number">2</span>] &amp;&amp; mDims.w() == d[<span class="number">3</span>]);</div><div class="line"></div><div class="line">		<span class="comment">//从batch文件读取图像数据（精度为float，大小为mDims.n()*mImageSize ），存放到 mFileBatch 中</span></div><div class="line">		<span class="comment">//从batch文件读取标签数据（精度为float，大小为mDims.n()），存放到mFileLabels中</span></div><div class="line">		<span class="keyword">size_t</span> readInputCount = fread(getFileBatch(), <span class="keyword">sizeof</span>(<span class="keyword">float</span>), mDims.n()*mImageSize, file);</div><div class="line">		<span class="keyword">size_t</span> readLabelCount = fread(getFileLabels(), <span class="keyword">sizeof</span>(<span class="keyword">float</span>), mDims.n(), file);;</div><div class="line">		assert(readInputCount == <span class="keyword">size_t</span>(mDims.n()*mImageSize) &amp;&amp; readLabelCount == <span class="keyword">size_t</span>(mDims.n()));</div><div class="line"></div><div class="line">		fclose(file);</div><div class="line">		<span class="comment">//每读取一个batch文件，mFileBatchPos置零，也就是说新读取的batch文件内容 mFileBatch 还没有开始往 mBatch 拷贝</span></div><div class="line">		mFileBatchPos = <span class="number">0</span>;</div><div class="line">		<span class="comment">//读取成功返回true</span></div><div class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">//stream中的批尺寸和最大批数量，每填充一个mBatch，mBatchCount 自增1</span></div><div class="line">	<span class="keyword">int</span> mBatchSize&#123; <span class="number">0</span> &#125;;</div><div class="line">	<span class="keyword">int</span> mMaxBatches&#123; <span class="number">0</span> &#125;;</div><div class="line">	<span class="keyword">int</span> mBatchCount&#123; <span class="number">0</span> &#125;;</div><div class="line"></div><div class="line">	<span class="comment">//mFileCount指向batches文件夹中的batch文件，就跟指针一样，读完一个batch，自增1</span></div><div class="line">	<span class="comment">//mFileBatchPos在一个batch中当前操作的位置</span></div><div class="line">	<span class="keyword">int</span> mFileCount&#123; <span class="number">0</span> &#125;, mFileBatchPos&#123; <span class="number">0</span> &#125;;</div><div class="line">	<span class="comment">//batchstream中的图片大小，一般要求跟batch文件中的大小一致，初值为0</span></div><div class="line">	<span class="keyword">int</span> mImageSize&#123; <span class="number">0</span> &#125;;</div><div class="line"></div><div class="line">	<span class="comment">//batch文件中的数据的shape</span></div><div class="line">	nvinfer1::DimsNCHW mDims;</div><div class="line">	<span class="comment">// 从 batch文件 中读到的图像数据和标签数据最终要放到这里来，这个是最终校准时使用的</span></div><div class="line">	<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">float</span>&gt; mBatch;</div><div class="line">	<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">float</span>&gt; mLabels;</div><div class="line">	<span class="comment">//用以存取 从 batch文件 中读到的图像数据和标签数据，相当于buffer</span></div><div class="line">	<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">float</span>&gt; mFileBatch;</div><div class="line">	<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">float</span>&gt; mFileLabels;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
+<h1 id="7-结果"><a href="#7-结果" class="headerlink" title="7 结果"></a>7 结果</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">myself@admin:~/workspace/study/tensorrt/bin$ ./sample_int8 mnist</div><div class="line">FP32 run:400 batches of size 100 starting at 100</div><div class="line">........................................</div><div class="line">Top1: 0.9904, Top5: 1</div><div class="line">Processing 40000 images averaged 0.00167893 ms/image and 0.167893 ms/batch.</div><div class="line"></div><div class="line">FP16 run:400 batches of size 100 starting at 100</div><div class="line">Engine could not be created at this precision</div><div class="line"></div><div class="line">INT8 run:400 batches of size 100 starting at 100</div><div class="line">........................................</div><div class="line">Top1: 0.9908, Top5: 1</div><div class="line">Processing 40000 images averaged 0.0013438 ms/image and 0.13438 ms/batch.</div></pre></td></tr></table></figure>
+<p>从这例程中也忽然发现在TensorRT中 1080ti GPU竟然不支持 FP16 mode，虽然1080ti官方的参数上是支持 float16的，但是在TensorRT中竟然不能使用。查了一下，是因为 1080ti的float16 吞吐量太低（throughput），效率太低，应该是TensorRT对float16也进行了条件限制，吞吐量太低的不支持。</p>
+<p>从资料中得知，只有 Tesla P100, Quadro GP100, and Jetson TX1/TX2 支持 full-rate FP16 performance，应该也就只有这些才支持 TensorRT的FP16吧。新出的 TITAN V 加了tensor core，float16半精度性能有很大提升，应该也支持？不过有意思的是jetson TX1和 TX2 却能支持 FP16，反而不支持INT8.</p>
+<p>可以参考下面资料：</p>
+<blockquote>
+<p><a href="https://devtalk.nvidia.com/default/topic/1023096/gpu-accelerated-libraries/fp16-half-true-option-doesn-t-work-on-gtx-1080-ti-although-it-runs-sample_int8-int8-/" target="_blank" rel="external">FP16 –half=true option doesn’t work on GTX 1080 TI although it runs ./sample_int8 INT8</a><br><a href="https://devtalk.nvidia.com/default/topic/1023708/gpu-accelerated-libraries/fp16-support-on-gtx-1060-and-1080/" target="_blank" rel="external">FP16 support on gtx 1060 and 1080</a> </p>
+<p>The only GPUs with full-rate FP16 performance are Tesla P100, Quadro GP100, and Jetson TX1/TX2. All GPUs with compute capability 6.1 (e.g. GTX 1050, 1060, 1070, 1080, Pascal Titan X, Titan Xp, Tesla P40, etc.) have low-rate FP16 performance. It’s not the fast path on these GPUs. All of these GPUs should support “full rate” INT8 performance, however.</p>
+</blockquote>
+<p>从结果上看：</p>
+<p>INT8 MODE：Top 1 0.9908， 速度：0.0013438 ms/image ；</p>
+<p>FP32 MODE : Top 1 0.9904，速度：0.00167893 ms/image；</p>
+<p>准确率竟然还高那么一点点，速度上大概快了20%。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html#int8_sample" target="_blank" rel="external">TensorRT Developer Guide</a></li>
+<li><a href="https://devtalk.nvidia.com/default/topic/1015108/cutoff-and-quantile-parameters-in-tensorrt/" target="_blank" rel="external">cutoff and quantile parameters in TensorRT</a> </li>
+<li><a href="https://devtalk.nvidia.com/default/topic/1023096/gpu-accelerated-libraries/fp16-half-true-option-doesn-t-work-on-gtx-1080-ti-although-it-runs-sample_int8-int8-/" target="_blank" rel="external">FP16 –half=true option doesn’t work on GTX 1080 TI although it runs ./sample_int8 INT8</a></li>
+<li><a href="https://devtalk.nvidia.com/default/topic/1023708/gpu-accelerated-libraries/fp16-support-on-gtx-1060-and-1080/" target="_blank" rel="external">FP16 support on gtx 1060 and 1080</a> </li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><strong>本文标题：</strong><a href="/articles/95d15d89/">TensorRT(6)-INT8 inference</a></p>
+  <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
+  <p><strong>发布时间：</strong>2018年09月03日 - 01:09</p>
+  <p><strong>最后更新：</strong>2018年09月03日 - 01:09</p>
+  <p><strong>本文链接：</strong><a href="/articles/95d15d89/" title="TensorRT(6)-INT8 inference">https://arleyzhang.github.io/articles/95d15d89/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/95d15d89/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><strong>版权声明：</strong> 本文由 arleyzhang 原创，采用 <i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">保留署名-非商业性使用-禁止演绎 4.0-国际许可协议</a>，转载请保留原文链接及作者!</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TensorRT/" rel="tag"><i class="fa fa-tag"></i> TensorRT</a>
+          
+            <a href="/tags/inference/" rel="tag"><i class="fa fa-tag"></i> inference</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/articles/923e2c40/" rel="next" title="TensorRT(5)-INT8校准原理">
+                <i class="fa fa-chevron-left"></i> TensorRT(5)-INT8校准原理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">arleyzhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/arleyzhang" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1186197274@qq.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-网络定义"><span class="nav-text">1 网络定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-校准网络-Calibrating-The-Network"><span class="nav-text">2 校准网络-Calibrating The Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-builder的配置-Configuring-The-Builder"><span class="nav-text">3 builder的配置-Configuring The Builder</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-batch-file的生成-Batch-Files-For-Calibration"><span class="nav-text">4 batch file的生成-Batch Files For Calibration</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-使用caffe生成"><span class="nav-text">4.1 使用caffe生成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-其他方式生成"><span class="nav-text">4.2 其他方式生成</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-校准算法"><span class="nav-text">5 校准算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-源码解读"><span class="nav-text">6 源码解读</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-结果"><span class="nav-text">7 结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">arleyzhang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://arleyzhang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://arleyzhang.github.io/articles/95d15d89/';
+          this.page.identifier = 'articles/95d15d89/';
+          this.page.title = 'TensorRT(6)-INT8 inference';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://arleyzhang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
