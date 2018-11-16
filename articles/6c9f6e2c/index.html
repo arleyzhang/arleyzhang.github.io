@@ -91,7 +91,7 @@
 
 
 
-  <meta name="keywords" content="论文笔记,object detection,Focal Loss,loss function,RetinaNet," />
+  <meta name="keywords" content="论文笔记,object detection," />
 
 
 
@@ -103,30 +103,30 @@
 
 
 <meta name="description" content="目标检测模型 Focal Loss for Dense Object Detection 论文笔记">
-<meta name="keywords" content="论文笔记,object detection,Focal Loss,loss function,RetinaNet">
+<meta name="keywords" content="论文笔记,object detection">
 <meta property="og:type" content="article">
 <meta property="og:title" content="目标检测-Focal Loss for Dense Object Detection-论文笔记">
 <meta property="og:url" content="https://arleyzhang.github.io/articles/6c9f6e2c/index.html">
 <meta property="og:site_name" content="arleyzhang">
 <meta property="og:description" content="目标检测模型 Focal Loss for Dense Object Detection 论文笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/mke2IKhkH6.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/g206mBjmjb.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/776hG21IJb.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/LHDkiA039e.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/fc1JE2cBII.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/f3m04Id2d8.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/eBdgk6AH2e.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/9076hbA5g5.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/d28hJhJ738.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/76ea9dHg0C.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/m8EE6EaH6d.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/I0EdHm9g12.png?imageslim">
-<meta property="og:updated_time" content="2018-07-01T09:24:49.749Z">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/6c9f6e2c/1521169618514.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/6c9f6e2c/1521170066886.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/6c9f6e2c/1521170430591.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/6c9f6e2c/1521170803225.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/6c9f6e2c/1521171456676.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/6c9f6e2c/1521171546985.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/6c9f6e2c/1521172088975.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/6c9f6e2c/1521172120547.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/6c9f6e2c/1521172284902.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/6c9f6e2c/1521172425055.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/6c9f6e2c/1521172442570.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/6c9f6e2c/1521172452810.png">
+<meta property="og:updated_time" content="2018-11-16T05:15:01.916Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="目标检测-Focal Loss for Dense Object Detection-论文笔记">
 <meta name="twitter:description" content="目标检测模型 Focal Loss for Dense Object Detection 论文笔记">
-<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/mke2IKhkH6.png?imageslim">
+<meta name="twitter:image" content="https://arleyzhang.github.io/articles/6c9f6e2c/1521169618514.png">
 
 
 
@@ -378,8 +378,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-01T17:24:49+08:00">
-                2018-07-01
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-16T13:15:01+08:00">
+                2018-11-16
               </time>
             
           </span>
@@ -457,7 +457,7 @@
         <blockquote>
 <p>论文：<a href="https://arxiv.org/abs/1708.02002" target="_blank" rel="external">Focal Loss for Dense Object Detection</a>  ICCV2017 Best Student Paper Award<br>代码：<a href="https://github.com/facebookresearch/Detectron" target="_blank" rel="external">https://github.com/facebookresearch/Detectron</a></p>
 </blockquote>
-<h1 id="1-问题提出"><a href="#1-问题提出" class="headerlink" title="1 问题提出"></a>1 问题提出</h1><p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/mke2IKhkH6.png?imageslim" alt="mark"></p>
+<h1 id="1-问题提出"><a href="#1-问题提出" class="headerlink" title="1 问题提出"></a>1 问题提出</h1><p><img src="/articles/6c9f6e2c/1521169618514.png" alt="1521169618514"></p>
 <ul>
 <li><p>two-stage detector ：精度高，速度慢</p>
 <ul>
@@ -495,15 +495,15 @@
 </ul>
 <p>以下是 Focal Loss  的设计过程</p>
 <h2 id="2-1-交叉熵损失-Cross-Entropy-CE"><a href="#2-1-交叉熵损失-Cross-Entropy-CE" class="headerlink" title="2.1 交叉熵损失 Cross Entropy (CE)"></a>2.1 交叉熵损失 Cross Entropy (CE)</h2><p>先看下经典的 交叉熵损失（cross entropy  ）：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/g206mBjmjb.png?imageslim" alt="mark"></p>
+<p><img src="/articles/6c9f6e2c/1521170066886.png" alt="1521170066886"></p>
 <ul>
 <li>$y\in\{±1\}$ ，代表正负样本</li>
 <li>$p\in[0,1]$ ，是分类的概率，代表正样本的概率（y=1），那么  $1-p$  代表负样本的概率（y=-1）</li>
 </ul>
 <p>用下式改写</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/776hG21IJb.png?imageslim" alt="mark"></p>
+<p><img src="/articles/6c9f6e2c/1521170430591.png" alt="1521170430591"></p>
 <p>交叉熵损失改写为：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/LHDkiA039e.png?imageslim" alt="mark"></p>
+<p><img src="/articles/6c9f6e2c/1521170803225.png" alt="1521170803225"></p>
 <h2 id="2-2-正负类别平衡的交叉熵损失-Balanced-Cross-Entropy"><a href="#2-2-正负类别平衡的交叉熵损失-Balanced-Cross-Entropy" class="headerlink" title="2.2 正负类别平衡的交叉熵损失 Balanced Cross Entropy"></a>2.2 正负类别平衡的交叉熵损失 Balanced Cross Entropy</h2><p><strong>修改 正样本 和 负样本 对损失函数的贡献量</strong>  </p>
 <ul>
 <li>给正样本的损失 乘上 一个权重 $\alpha \in [0,1]$ , </li>
@@ -511,24 +511,24 @@
 </ul>
 <p>这样可以使二者对损失函数的贡献平等。使用同样的方法用  $\alpha _t$ 代表 $\alpha$ .</p>
 <p>将交叉熵损失改写为：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/fc1JE2cBII.png?imageslim" alt="mark"></p>
+<p><img src="/articles/6c9f6e2c/1521171456676.png" alt="1521171456676"></p>
 <h2 id="2-3-难易类别平衡的损失-Focal-Loss"><a href="#2-3-难易类别平衡的损失-Focal-Loss" class="headerlink" title="2.3 难易类别平衡的损失 Focal Loss"></a>2.3 难易类别平衡的损失 Focal Loss</h2><p><strong>修改 难分类样本 和 易分类样本 对损失函数的贡献量</strong></p>
 <p>引进一个 调节因子 $(1-p_t)^{\gamma},   \gamma \ge 0$ , </p>
 <p>改写损失函数：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/f3m04Id2d8.png?imageslim" alt="mark"></p>
+<p><img src="/articles/6c9f6e2c/1521171546985.png" alt="1521171546985"></p>
 <ul>
 <li>当 样本错分类（难分类样本），并且 $p_t$ 很小时，调节因子 趋向于1，而 $FL(p_t)$ 与 $CE(p_t)$ 接近；</li>
 <li>如果是 易分类样本， $p_t$ 很大，调节因子趋向于0，损失也为0。</li>
 </ul>
 <p>看下图:</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/eBdgk6AH2e.png?imageslim" alt="mark"></p>
+<p><img src="/articles/6c9f6e2c/1521172088975.png" alt="1521172088975"></p>
 <p>最终文章使用的损失函数是这样的：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/9076hbA5g5.png?imageslim" alt="mark"></p>
+<p><img src="/articles/6c9f6e2c/1521172120547.png" alt="1521172120547"></p>
 <h1 id="3-RetinaNet-Detector"><a href="#3-RetinaNet-Detector" class="headerlink" title="3 RetinaNet Detector"></a>3 RetinaNet Detector</h1><p>文章构建的一个 one-stage 检测模型，使用了上述提出的损失函数</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/d28hJhJ738.png?imageslim" alt="mark"></p>
-<h2 id="3-1-实验结果"><a href="#3-1-实验结果" class="headerlink" title="3.1 实验结果"></a>3.1 实验结果</h2><p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/76ea9dHg0C.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/m8EE6EaH6d.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/FocalLoss/180606/I0EdHm9g12.png?imageslim" alt="mark"></p>
+<p><img src="/articles/6c9f6e2c/1521172284902.png" alt="1521172284902"></p>
+<h2 id="3-1-实验结果"><a href="#3-1-实验结果" class="headerlink" title="3.1 实验结果"></a>3.1 实验结果</h2><p><img src="/articles/6c9f6e2c/1521172425055.png" alt="1521172425055"></p>
+<p><img src="/articles/6c9f6e2c/1521172442570.png" alt="1521172442570"></p>
+<p><img src="/articles/6c9f6e2c/1521172452810.png" alt="1521172452810"></p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://blog.csdn.net/lanchunhui/article/details/50427055" target="_blank" rel="external">Huber Loss function</a> </p>
 <p><a href="https://ggbm.at/bDR5r4Ej" target="_blank" rel="external">Focal Loss function</a> </p>
 
@@ -550,7 +550,7 @@
   <p><strong>本文标题：</strong><a href="/articles/6c9f6e2c/">目标检测-Focal Loss for Dense Object Detection-论文笔记</a></p>
   <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
   <p><strong>发布时间：</strong>2018年06月06日 - 02:06</p>
-  <p><strong>最后更新：</strong>2018年07月01日 - 17:07</p>
+  <p><strong>最后更新：</strong>2018年11月16日 - 13:11</p>
   <p><strong>本文链接：</strong><a href="/articles/6c9f6e2c/" title="目标检测-Focal Loss for Dense Object Detection-论文笔记">https://arleyzhang.github.io/articles/6c9f6e2c/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/6c9f6e2c/"  aria-label="复制成功！"></i></span>
   </p>
@@ -587,12 +587,6 @@
             <a href="/tags/论文笔记/" rel="tag"><i class="fa fa-tag"></i> 论文笔记</a>
           
             <a href="/tags/object-detection/" rel="tag"><i class="fa fa-tag"></i> object detection</a>
-          
-            <a href="/tags/Focal-Loss/" rel="tag"><i class="fa fa-tag"></i> Focal Loss</a>
-          
-            <a href="/tags/loss-function/" rel="tag"><i class="fa fa-tag"></i> loss function</a>
-          
-            <a href="/tags/RetinaNet/" rel="tag"><i class="fa fa-tag"></i> RetinaNet</a>
           
         </div>
       
@@ -726,7 +720,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

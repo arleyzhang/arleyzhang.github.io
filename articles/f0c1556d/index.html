@@ -91,7 +91,7 @@
 
 
 
-  <meta name="keywords" content="论文笔记,object detection,SNIPER," />
+  <meta name="keywords" content="论文笔记,object detection," />
 
 
 
@@ -103,26 +103,26 @@
 
 
 <meta name="description" content="目标检测模型 SNIPER-Efficient Multi-Scale Training 论文笔记">
-<meta name="keywords" content="论文笔记,object detection,SNIPER">
+<meta name="keywords" content="论文笔记,object detection">
 <meta property="og:type" content="article">
 <meta property="og:title" content="目标检测-SNIPER-Efficient Multi-Scale Training-论文笔记">
 <meta property="og:url" content="https://arleyzhang.github.io/articles/f0c1556d/index.html">
 <meta property="og:site_name" content="arleyzhang">
 <meta property="og:description" content="目标检测模型 SNIPER-Efficient Multi-Scale Training 论文笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/c79e1ikJlB.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/dj88beG7b2.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/jGi4D39G8b.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/HfHih51CIL.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/GFkDBj0dGF.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/Elic181Ie8.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/G6ff96iGBB.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/0kLJEDKEAA.png?imageslim">
-<meta property="og:updated_time" content="2018-08-31T05:37:33.386Z">
+<meta property="og:image" content="https://arleyzhang.github.io/images/Paper-notes-sniper.assets/multi-scale.png">
+<meta property="og:image" content="https://arleyzhang.github.io/images/Paper-notes-sniper.assets/RCNN.png">
+<meta property="og:image" content="https://arleyzhang.github.io/images/Paper-notes-sniper.assets/Fast-RCNN.png">
+<meta property="og:image" content="https://arleyzhang.github.io/images/Paper-notes-sniper.assets/postive-chip-selection.png">
+<meta property="og:image" content="https://arleyzhang.github.io/images/Paper-notes-sniper.assets/negative-chip-selection.png">
+<meta property="og:image" content="https://arleyzhang.github.io/images/Paper-notes-sniper.assets/AR.png">
+<meta property="og:image" content="https://arleyzhang.github.io/images/Paper-notes-sniper.assets/AP.png">
+<meta property="og:image" content="https://arleyzhang.github.io/images/Paper-notes-sniper.assets/ablation-study.png">
+<meta property="og:updated_time" content="2018-11-16T03:07:41.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="目标检测-SNIPER-Efficient Multi-Scale Training-论文笔记">
 <meta name="twitter:description" content="目标检测模型 SNIPER-Efficient Multi-Scale Training 论文笔记">
-<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/c79e1ikJlB.png?imageslim">
+<meta name="twitter:image" content="https://arleyzhang.github.io/images/Paper-notes-sniper.assets/multi-scale.png">
 
 
 
@@ -374,8 +374,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-31T13:37:33+08:00">
-                2018-08-31
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-16T11:07:41+08:00">
+                2018-11-16
               </time>
             
           </span>
@@ -456,16 +456,16 @@
 <h1 id="1-问题提出"><a href="#1-问题提出" class="headerlink" title="1 问题提出"></a>1 问题提出</h1><p>这篇文章提出的SNIPER(Scale Normalization for Image Pyramids with Efficient Resampling)算法是一种多尺度（multi-scale）训练算法。提出的multi-scale算法不敢说很有创造性，但是是一种比较新颖的思想。</p>
 <p>为了实现对图片上不同大小目标的检测，需要针对multi-scale提出有效方法。现在很多先进的目标检测算法，比如Faster R-CNN/Mask R-CNN，它们实现multi-scale的思路除了使用anchor的思想之外，一般还都包括一种常用的手段，那就是 image pyramid，这方法在早期的目标检测算法中是经常使用的方法。</p>
 <p>如下图，image pyramid 和 anchor 方法实现multi-scale的思路展现的很清楚了。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/c79e1ikJlB.png?imageslim" alt="mark"></p>
+<p><img src="/images/Paper-notes-sniper.assets/multi-scale.png" alt="mark"></p>
 <p>现在大多数目标检测算法为了提高精度，除了使用anchor的思想外，一般都会把image pyramid的方法加进去，但是我们知道的，这种方法肯定会严重影响速度，不管是训练还是inference，不过但凡是用了这种方法的一般都是为了追求高精度，而暂时不注重速度。</p>
 <p>image pyramid 影响速度的原因也很明了，每一个scale的图片的所有像素都参与了后续的计算。比如一个3scale的image pyramid（分别是原图的1倍，2倍，3倍），它要处理相当于原图14倍的像素.</p>
 <p>在CVPR2018上有这样一篇文章，An Analysis of Scale Invariance in Object Detection – SNIP 。这篇文章曾经表述这样一个观点，在multi-scale training时，最好是将极端分辨率情况下的目标的梯度忽略。比如在 3scales的情况下，应该将较大分辨率图像上的较大目标和较小分辨率图像上的较小目标的梯度忽略。</p>
 <p>关于scale的问题先回顾一下RCNN和Fast R-CNN</p>
 <p><strong>R-CNN</strong></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/dj88beG7b2.png?imageslim" alt=""></p>
+<p><img src="/images/Paper-notes-sniper.assets/RCNN.png" alt=""></p>
 <p>R-CNN是比较老的目标检测框架了，但是很多现代新型的目标检测算法都是从它演变而来的。在R-CNN检测的第二步里对通过selective search生成的候选区域（region proposals）做了warped操作，一般是warp成224x224大小的图片，这个是CNN中经常使用的输入图片尺寸。因为R-CNN相当于一个分类问题，因此将不同大小的候选区域缩放成固定大小，实际上引入了尺度不变性 (scale invariant )，这也解决了 multi-scale 的问题，任何一个唯一尺寸的候选区域都相当于一个scale。由于候选区域是由selective search生成的，因此有一定的先验知识，换句话说每个不同大小的候选区域，其scale也代表了object的scale。虽然第3步输入的是固定大小的region proposals（看起来是没有考虑scale的），但是scale已经在提取候选区域时和缩放时完成了，实际上输入的warped region proposals是有scale的。它最主要的问题在于提取特征时，CNN需要在每一个候选区域上跑一遍，候选区域之间的交叠使得特征被重复提取, 造成了严重的速度瓶颈, 降低了计算效率。</p>
 <p><strong>Fast R-CNN</strong> </p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/jGi4D39G8b.png?imageslim" alt=""></p>
+<p><img src="/images/Paper-notes-sniper.assets/Fast-RCNN.png" alt=""></p>
 <p>Fast RCNN的提出主要是解决了R-CNN的速度问题，它通过将selective search生成的候选区域映射到feature map上，实现了候选区域间的卷积计算共享，同时由于共同参与计算，Fast R-CNN也能更多的获取到全局信息（contex）。而同时提出的 ROI pooling也将对应到feature map上的候选区域池化到相同的大小，ROI pooling 在某种程度上也可以引进尺度不变性 (scale invariant )，因为可以将不同大小的region proposal（连同 object）在feature map层面池化到固定大小。但它的问题是前面的卷积层部分是只在一个scale上进行的，这正是为了实现卷积计算共享所带来的一点负面影响，因为是卷积计算共享，所以不同大小的目标没有办法进行不同比例的缩放操作，所以相对于原图大小来说，它们都处于一个scale。这影响了尺度不变性 (scale invariant )，因此为了弥补这一点，在训练或者inference时，会使用image pyramid的操作。</p>
 <p>但是image pyramid有一个问题，就是在缩放原图时，object也会跟着缩放，这就导致原来比较大的object变得更大了，原来更小的object变得更小了。这在R-CNN中是不存在这个问题的。</p>
 <p><strong>SNIPER 相当于综合了R-CNN 在scale上的优点 和Fast R-CNN在速度上的优点。</strong> </p>
@@ -482,7 +482,7 @@
 <p><strong>Positive Chip Selection</strong> </p>
 <p>每个scale，都会有个area range $R^i =[r_{min}^i, r_{max}^i]，i \in [1,n]$ ，这个范围决定了这个scale上哪些ground truth box是用来训练的。所有ground truth box中落在 $R^i$ 范围内的ground truth box 称为有效的（对某个scale来说），其余为无效的，有效的gt box集合表示为 $G^i$ 。从所有chips中选取包含（完全包含）有效 gt box最多的chip，作为Positive Chip，其集合称为 $C^i_{pos}$  ，每一个gt box都会有chip包含它。因为 $R^i$ 的区间会有重叠，所以一个gt box可能会被不同scale的多个chip包含，也有可能被同一个scale的多个chip包含。被割裂的gt box（也就是部分包含）则保持残留的部分。</p>
 <p>如下图，左侧是将gt box和不同scale上的 chip都呈现在了原图上，这里为了展示，将不同scale的图片缩放回原图大小，所以chip才有大有小，它们是属于不同scale的。右侧才是训练时真正使用的chips，它们的大小是固定的。可以看出这张图片包含了三个scale，所以存在三种chip，chip中包含有效的gt box（绿色）和无效的gt box（红色）。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/HfHih51CIL.png?imageslim" alt="mark"></p>
+<p><img src="/images/Paper-notes-sniper.assets/postive-chip-selection.png" alt="mark"></p>
 <p>从原图也可以看出，原图中有一大部分的背景区域（没被postive chip覆盖的区域）被丢弃了，而且实际上网络真正输入的是chip（比原图分辨率小很多），这对于减少计算量来说很重要。</p>
 <p>SNIPER 只用了4张低分辨率的chips 就完成了所有objects的全覆盖和multi-scale的训练方式。</p>
 <p>这个地方很巧妙，在不同的scale上截取相同大小的chip，而且包含的是不完全相同的目标。这个方式很接近 RCNN。对较小的目标起到一种 zoom in 的作用，而对较大的目标起到一种 zoom out的作用。而对于网络来说，输入的还是固定大小的chip，这样的结构更加接近于分类问题网络的拓扑。</p>
@@ -493,15 +493,15 @@
 <p>negative chip 的生成是这样的：首先使用训练集训练一个不是很精确的RPN，生成一系列 proposals，对每个scale i，移除那些被 positive chip 所覆盖的proposals，因为这部分proposal与gt box重合在一起了。选取包含至少M个在 $R^i$ 范围内的proposals的所有chips作为  negative chip，其集合称为 $C^i_{neg}$ 。</p>
 <p>训练时，每张图片在每个epoch中只从   negative chip 池中选择固定数量的 negative chip。这个地方训练时怎么弄的，文章解释不是很清楚，恐怕得看代码才能明白。</p>
 <p>如下图是   negative chip 的生成示例：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/GFkDBj0dGF.png?imageslim" alt="mark"></p>
+<p><img src="/images/Paper-notes-sniper.assets/negative-chip-selection.png" alt="mark"></p>
 <p><strong>Label Assignment</strong> </p>
 <p>回归时标签的赋值与 Faster R-CNN是类似的，文章说是端到端的训练，但是我个人觉得是没有把生成 positive/negative chip的过程算进去，这一部分好像是独立进行的，等chip生成后才在chip上进行 类似于 Fster R-CNN的训练。因为生成chip时用的RPN是不太精确的，跟训练检测网络时的RPN应该不能共享。不过这个地方具体是怎样的也只能看代码才能明白了。</p>
 <p>其他的设置基本跟  Faster R-CNN 差别不大，只是正样本比例啊，OHEM啊，损失函数啊有所不同，这里不再赘述。</p>
 <p><strong>Benefits</strong> </p>
 <p>许多网络为了增加精度，都会使用image pyramid而且会使用较高分辨率的图片。SNIPER 则摆脱了对较高分辨率图像的依赖。而且由于SNIPER 训练时使用的是较低分辨率的chip，所以batch也可以做的很大，比如可以做到每张卡20的batch（不过大神用的都是tesla V100）。</p>
-<h1 id="3-实验结果"><a href="#3-实验结果" class="headerlink" title="3 实验结果"></a>3 实验结果</h1><p><img src="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/Elic181Ie8.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/G6ff96iGBB.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SNIPER/180622/0kLJEDKEAA.png?imageslim" alt="mark"></p>
+<h1 id="3-实验结果"><a href="#3-实验结果" class="headerlink" title="3 实验结果"></a>3 实验结果</h1><p><img src="/images/Paper-notes-sniper.assets/AR.png" alt="mark"></p>
+<p><img src="/images/Paper-notes-sniper.assets/AP.png" alt="mark"></p>
+<p><img src="/images/Paper-notes-sniper.assets/ablation-study.png" alt="mark"></p>
 <h1 id="4-总结"><a href="#4-总结" class="headerlink" title="4 总结"></a>4 总结</h1><ul>
 <li>这篇文章的 multi-scale 训练方式很新奇，但是可能在实现上会有点复杂</li>
 <li>证明了在高分辨率图片上进行训练这一常用技巧并不是提升精度必须要使用的策略</li>
@@ -525,7 +525,7 @@
   <p><strong>本文标题：</strong><a href="/articles/f0c1556d/">目标检测-SNIPER-Efficient Multi-Scale Training-论文笔记</a></p>
   <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
   <p><strong>发布时间：</strong>2018年06月22日 - 10:06</p>
-  <p><strong>最后更新：</strong>2018年08月31日 - 13:08</p>
+  <p><strong>最后更新：</strong>2018年11月16日 - 11:11</p>
   <p><strong>本文链接：</strong><a href="/articles/f0c1556d/" title="目标检测-SNIPER-Efficient Multi-Scale Training-论文笔记">https://arleyzhang.github.io/articles/f0c1556d/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/f0c1556d/"  aria-label="复制成功！"></i></span>
   </p>
@@ -562,8 +562,6 @@
             <a href="/tags/论文笔记/" rel="tag"><i class="fa fa-tag"></i> 论文笔记</a>
           
             <a href="/tags/object-detection/" rel="tag"><i class="fa fa-tag"></i> object detection</a>
-          
-            <a href="/tags/SNIPER/" rel="tag"><i class="fa fa-tag"></i> SNIPER</a>
           
         </div>
       
@@ -697,7 +695,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

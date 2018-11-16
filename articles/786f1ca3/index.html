@@ -91,7 +91,7 @@
 
 
 
-  <meta name="keywords" content="论文笔记,object detection,SSD," />
+  <meta name="keywords" content="论文笔记,object detection," />
 
 
 
@@ -103,46 +103,46 @@
 
 
 <meta name="description" content="目标检测模型 SSD-Single Shot MultiBox Detector 论文笔记">
-<meta name="keywords" content="论文笔记,object detection,SSD">
+<meta name="keywords" content="论文笔记,object detection">
 <meta property="og:type" content="article">
 <meta property="og:title" content="目标检测-SSD-Single Shot MultiBox Detector-论文笔记">
 <meta property="og:url" content="https://arleyzhang.github.io/articles/786f1ca3/index.html">
 <meta property="og:site_name" content="arleyzhang">
 <meta property="og:description" content="目标检测模型 SSD-Single Shot MultiBox Detector 论文笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1521700215199.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1521700272907.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1521700285286.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1521723003643.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1522219622636.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1522220992864.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1522221137339.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1522221535577.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1521723946029.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1521723003643.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1521698101679.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1522208039421.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1522217054626.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/chartflow_VGGNet_SSD_Diagram.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/chartflow_SSD_diagram_ref.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1522224164190.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1522226439889.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1522226581238.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1522226756772.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1522226857210.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1522226987139.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1522227840355.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1522231806943.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1522227928989.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1522229494824.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1522231872819.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1522234508933.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1522234958698.png">
-<meta property="og:updated_time" content="2018-07-01T09:14:57.357Z">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1521700215199.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1521700272907.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1521700285286.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1521723003643.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1522219622636.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1522220992864-1542376224905.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1522221137339-1542376332162.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1522221535577-1542376342621.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1521723946029-1542376401299.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1521723003643-1542376434457.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1521698101679.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1522208039421.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1522217054626.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/chartflow_VGGNet_SSD_Diagram.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/chartflow_SSD_diagram_ref.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1522224164190.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1522226439889.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1522226581238.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1522226756772.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1522226857210.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1522226987139.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1522227840355.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1522231806943.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1522227928989.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1522229494824.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1522231872819.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1522234508933.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/786f1ca3/1522234958698.png">
+<meta property="og:updated_time" content="2018-11-16T14:06:52.714Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="目标检测-SSD-Single Shot MultiBox Detector-论文笔记">
 <meta name="twitter:description" content="目标检测模型 SSD-Single Shot MultiBox Detector 论文笔记">
-<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/SSD/1521700215199.png">
+<meta name="twitter:image" content="https://arleyzhang.github.io/articles/786f1ca3/1521700215199.png">
 
 
 
@@ -394,8 +394,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-01T17:14:57+08:00">
-                2018-07-01
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-16T22:06:52+08:00">
+                2018-11-16
               </time>
             
           </span>
@@ -477,7 +477,7 @@
 <p>其精度可以与Faster R-CNN相匹敌，而速度达到了惊人的59FPS，速度上完爆 Fster R-CNN。</p>
 <p>速度快的根本原因在于移除了 region proposals 步骤以及后续的像素采样或者特征采样步骤。（The fundamental improvement in speed comes from eliminating bounding box proposals and the subsequent pixel or feature resampling stage.）</p>
 <p>当然作者还是使用了比较多的trick的。</p>
-<h1 id="1-Model"><a href="#1-Model" class="headerlink" title="1 Model"></a>1 Model</h1><p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1521700215199.png" alt="1521700215199"></p>
+<h1 id="1-Model"><a href="#1-Model" class="headerlink" title="1 Model"></a>1 Model</h1><p><img src="/articles/786f1ca3/1521700215199.png" alt="1521700215199"></p>
 <ul>
 <li><p>网络模型如上图，前面是一个VGG层用于特征提取，与VGG的区别是把FC6和FC7换成了卷积层，SSD在后面又加了8个卷积层。</p>
 </li>
@@ -499,8 +499,8 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:center"><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1521700272907.png" alt="52170027290"></th>
-<th style="text-align:center"><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1521700285286.png" alt="1521700285286"></th>
+<th style="text-align:center"><img src="/articles/786f1ca3/1521700272907.png" alt="1521700272907"></th>
+<th style="text-align:center"><img src="/articles/786f1ca3/1521700285286.png" alt="1521700285286"></th>
 </tr>
 </thead>
 <tbody>
@@ -511,7 +511,7 @@
 </tbody>
 </table>
 <p>上面的模型结构图可能看着不清楚，看下面这个图[参考资料2]，这个是 inference 时 模型从一张图片中提取目标的过程。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1521723003643.png" alt="1521723003643"></p>
+<p><img src="/articles/786f1ca3/1521723003643.png" alt="1521723003643"></p>
 <p>再总结一下，网络模型的主要特征：</p>
 <ul>
 <li><p>Multi-scale feature maps for detection </p>
@@ -528,45 +528,45 @@
 <h2 id="2-1-Matching-strategy"><a href="#2-1-Matching-strategy" class="headerlink" title="2.1 Matching strategy"></a>2.1 Matching strategy</h2><p>匹配策略。分类问题中是不需要匹配策略的，这里之所以要使用匹配策略是由于定位问题引入的。可以简单的认为       检测=分类＋定位，这里的定位使用的是回归方法。那么这里SSD中的回归是怎么弄的？</p>
 <p>我们知道平面上任意两个不重合的框都是可以通过对其中一个框进行一定的变换（比如线性变换+对数变换）使二者重合的。</p>
 <p>在SSD中，通俗的说就是先产生一些预选的default box（类似于anchor box），然后标签是 ground truth box，预测的是bounding box，现在有三种框，从default box到ground truth有个变换关系，从default box到prediction bounding box有一个变换关系，如果这两个变换关系是相同的，那么就会导致 prediction bounding box 与 ground truth重合，如下图：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1522219622636.png" alt="52221962263"></p>
+<p><img src="/articles/786f1ca3/1522219622636.png" alt="1522219622636"></p>
 <p>所以回归的就是这两个 变换关系：  $l_{*}$ 与  $g_{*}$ ，只要二者接近，就可以使prediction bounding box接近 ground truth box 。上面的 $g_{*}$ 是只在训练的时候才有的，inference 时，就只有  $l_{*}$ 了，但是这时候的  $l_{*}$ 已经相当精确了，所以就可以产生比较准确的定位效果。</p>
 <p>现在的问题是生成的 default box （下面讲怎么生成）是有很多的，那么势必会导致只有少部分是包含目标或者是与目标重叠关系比较大的，那当然只有这以少部分才是我们的重点观察对象，我们才能把他用到上述提到的回归过程中去。因为越靠近标签的default box回归的时候越容易，如果二者一个在最上边，一个在最下边，那么回归的时候难度会相当大，而且也会更耗时间。</p>
 <p>确定这少部分重点观察对象的过程就是匹配策略。原文是这么所的：ground truth information needs to be assigned to specific outputs in the fixed set of detector outputs ，实际上就是确定正样本的过程，这在YOLO，Faster R-CNN ,Multi-box中也都用到了。</p>
 <p>做法是计算default box与任意的ground truth box之间的 杰卡德系数（jaccard overlap ），其实就是IOU，只要二者之间的阈值大于0.5，就认为这是个正样本。</p>
 <h2 id="2-2-Training-objective"><a href="#2-2-Training-objective" class="headerlink" title="2.2 Training objective"></a>2.2 Training objective</h2><p>损失函数，同样的是multi-task loss，即包含了定位和分类。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1522220992864.png" alt="52222099286"></p>
+<p><img src="/articles/786f1ca3/1522220992864-1542376224905.png" alt="1522220992864"></p>
 <ul>
 <li>N是匹配成功的正样本数量，如果N=0，则令 loss=0.</li>
 <li>$\alpha$ 是定位损失与分类损失之间的比重，这个值论文中提到是通过交叉验证的方式设置为 1 的。</li>
 </ul>
 <p>定位损失，这与Faster R-CNN是一样的，都是用的smooth L1 loss：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1522221137339.png" alt="1522221137339"></p>
+<p><img src="/articles/786f1ca3/1522221137339-1542376332162.png" alt="1522221137339"></p>
 <ul>
 <li>$l$ 代表预测bounding box与default box之间的变换关系，  $g$ 代表的是ground truth box与default box之间的变换关系。</li>
 <li>$x_{ij}^p=\{0,1\}$  代表 第 i 个default box 与类别 p 的 第 j 个ground truth box 是否匹配，匹配为1，否则为0；</li>
 </ul>
 <p>分类损失，softmax loss，交叉熵损失：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1522221535577.png" alt="52222153557"></p>
+<p><img src="/articles/786f1ca3/1522221535577-1542376342621.png" alt="1522221535577"></p>
 <ul>
 <li>注意一点：定位损失中是只有正样本的损失的，而分类损失中是包含了正样本和负样本的。因为对于定位问题来说，只要回归出精确的变换关系，在预测的时候是不需要区分正负样本的（或者说是依靠分类来区分的），只需要将这个变换关系应用到所有的default box，最后使用NMS过滤掉得分少的样本框即可。但是分类就不一样了，分类是需要区分出正负样本的。</li>
 </ul>
 <h2 id="2-3-Choosing-scales-and-aspect-ratios-for-default-boxes"><a href="#2-3-Choosing-scales-and-aspect-ratios-for-default-boxes" class="headerlink" title="2.3 Choosing scales and aspect ratios for default boxes"></a>2.3 Choosing scales and aspect ratios for default boxes</h2><p>首先是 default box 的生成规则。</p>
 <p>default box 是 bounding box 的初始参考，也就相当于region proposals，那么为了保证预测时对不同面积大小（等同于scale）和不同纵横比（aspect ratio）的目标进行预测，很明显default box也应该是具有不同scale 和 aspect ratio的。RPN中，每个feature map cell所关联的 9 种 anchor box 也是具有不同scale 和aspect ratio的，他们的作用是类似的。</p>
 <p>在其他一些目标检测模型中比如 overfeat 和 SPPNet中，为了达到对不同 scale 和 aspect ratio的目标的预测效果，采用的方法是对原始图片进行不同程度的缩放，以达到数据扩增。这种方式可以称为 Featurized image pyramids ，如下图示，实际上每个尺度都是一个独立的网络和预测结果。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1521723946029.png" alt="1521723946029"></p>
+<p><img src="/articles/786f1ca3/1521723946029-1542376401299.png" alt="1521723946029"></p>
 <p>这种方式输入尺寸在变化，然而网络中的全连接层要求固定的输入，所以 overfeat 和 SPPNet 为了解决这个问题，分别使用了 offset pooling和SPP pooling的结构，使得从卷积层输入到全连接层的特征维度固定。</p>
 <p>SSD的解决方法比较新颖：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1521723003643.png" alt="52172300364"></p>
+<p><img src="/articles/786f1ca3/1521723003643-1542376434457.png" alt="1521723003643"></p>
 <p>还是看图说话，如上图，每个feature layer预测一种scale，feature layer 上每个位置（cell ）的k个default box 的纵横比（aspect ratio）是不同的，这就实现了 multi-scale 预测的方式。</p>
 <p>下面这个图就很好的说明了这种方式，(b)和(c)代表不同的预测feature layer，其中的 default box的 scale 是不一样的，同一个 feature layer 中的同一个cell位置处的 default box的 aspect ratio也是不一样的。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1521698101679.png" alt="52169810167"></p>
+<p><img src="/articles/786f1ca3/1521698101679.png" alt="1521698101679"></p>
 <p>一般对于不同的feature map对原图的 感受野（receptive field sizes ）大小是不一样的，然而不同 feature layer上的 default box 与其对应的感受野是不需要对应的，这个不太理解是什么意思。难道是default box的大小与感受野的大小不需要成固定比例？</p>
 <p>（Feature maps from different levels within a network are known to have different (empirical) receptive field sizes [13]. Fortunately, within the SSD framework, the default boxes do not necessary need to correspond to the actual receptive fields of each layer. We design the tiling of default boxes so that specific feature maps learn to be responsive to particular scales of the objects. ）</p>
 <p>不过文中还提到：</p>
 <p>An alternative way of improving SSD is to design a better tiling of default boxes so that its position and scale are better aligned with the receptive field of each position on a feature map. We leave this for future work. </p>
 <p>所以应该说的是 default box与感受野的对应关系。</p>
 <p>假设模型在k个feature layer上进行预测，那么每个feature layer上的default box的scale怎么选呢？如下式：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1522208039421.png" alt="52220803942"></p>
+<p><img src="/articles/786f1ca3/1522208039421.png" alt="1522208039421"></p>
 <ul>
 <li>$s_{min}=0.2,   s_{max}=0.9$    ，也就是说最底层的scale是0.2，最高层的feature layer的scale是0.9.</li>
 <li>中间其它层的scale按照公式依次递增。</li>
@@ -579,7 +579,7 @@
 <li><p>$|f_k|$  是第k个square feature map 的大小</p>
 </li>
 <li><p>$i，j\in [0,|f_k|]$，这个公式是一个归一化坐标，最终会映射到原图上，以确定原图上对应的区域。之所以加0.5是为了把default box的中心设在与之关联的cell的中心，如下图</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1522217054626.png" alt="52221705462"></p>
+<p><img src="/articles/786f1ca3/1522217054626.png" alt="1522217054626"></p>
 </li>
 </ul>
 <p>这样生成一系列default box之后，就有了预测bounding box的初始参考，最终的bounding box会在default box的基础上产生偏移，也就是说由于不同 scale 和 aspect ratio 的default box的存在 会使网络产生很多的预测bounding box，这些预测包含了不同尺寸和形状的目标物体，如上图，在 4×4 的feature map中只有狗（红色框）是正样本，这是因为 不同的feature map 负责预测的 scale和aspect ratio是不同的，所以在 8×8 的feature map中由于猫的scale不匹配，会被认为是负样本。同理，在 8×8 的feature map中只有猫（蓝色框）是正样本。</p>
@@ -598,18 +598,18 @@
 <p>采样的patch与原图的比例在[0.1-0.9]之间，aspect ratio在 1/2 到 2之间。经过以上采样之后，采样的patch会被resize到固定大小并以0.5的概率进行水平翻转。</p>
 <p>这种扩充数据集的方式增强了模型对目标平移的敏感程度。</p>
 <h2 id="2-6-训练流程"><a href="#2-6-训练流程" class="headerlink" title="2.6 训练流程"></a>2.6 训练流程</h2><p>下图是根据SSD的源码绘制的详细模型结构，caffe自带的 draw_net.py 画图工具生成的图片看起来就跟蜘蛛网一样。建议看图跟看prototxt文件相结合，更容易理解。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/chartflow_VGGNet_SSD_Diagram.png" alt="VGGNet_SSD_Diagram"></p>
+<p><img src="/articles/786f1ca3/chartflow_VGGNet_SSD_Diagram.png" alt="chartflow_VGGNet_SSD_Diagram"></p>
 <p>[参考资料1] 中还有个简化版的图，这里借鉴一下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/chartflow_SSD_diagram_ref.png" alt="chartflow_SSD_diagram_re"></p>
+<p><img src="/articles/786f1ca3/chartflow_SSD_diagram_ref.png" alt="chartflow_SSD_diagram_ref"></p>
 <h1 id="3-Inference"><a href="#3-Inference" class="headerlink" title="3 Inference"></a>3 Inference</h1><p>下面说一下inference的流程，主要参考 [参考资料2]，有些流程在训练时也是类似的。</p>
 <ul>
 <li><p><strong>整体预测流程如下图，一目了然：</strong> </p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1522224164190.png" alt="52222416419"></p>
+<p><img src="/articles/786f1ca3/1522224164190.png" alt="1522224164190"></p>
 </li>
 </ul>
 <ul>
 <li><p><strong>上面图中被红框框起来的 detector和classifier的详细结构如下图：</strong> </p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1522226439889.png" alt="52222643988"></p>
+<p><img src="/articles/786f1ca3/1522226439889.png" alt="1522226439889"></p>
 <ul>
 <li>这是其中一个scale的预测流程</li>
 <li>可以看出分类和定位都是通过卷积层预测的，假设某个用于预测的feature map是5×5×256的， default box=3，那么用于定位的卷积层输出是 5×5×12 的（4×3=12，每个通道代表一个位置因素（x,y,w,h）），用于分类的卷积层输出是 5×5×63的（21×3=63，每个通道代表一个类别）</li>
@@ -619,15 +619,15 @@
 </ul>
 <ul>
 <li><p><strong>上面图中的default box generator如下图：</strong>  </p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1522226581238.png" alt="52222658123"></p>
+<p><img src="/articles/786f1ca3/1522226581238.png" alt="1522226581238"></p>
 </li>
 <li><p><strong>detector 和 classifier对某个 bounding box的回归：</strong> </p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1522226756772.png" alt="52222675677"></p>
+<p><img src="/articles/786f1ca3/1522226756772.png" alt="1522226756772"></p>
 </li>
 </ul>
 <ul>
 <li><p><strong>所有的bounding box回归之后，是很乱的，然后再通过NMS过滤掉一大部分：</strong>  </p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1522226857210.png" alt="52222685721"></p>
+<p><img src="/articles/786f1ca3/1522226857210.png" alt="1522226857210"></p>
 <ul>
 <li>这只是其中某一个feature map的预测结果</li>
 </ul>
@@ -635,34 +635,34 @@
 </ul>
 <ul>
 <li><p><strong>当把所有用于预测的feature map进行预测之后（multi-scale），再通过一个NMS，又过滤掉一部分，保留下来的即是最终的结果</strong> </p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1522226987139.png" alt="52222698713"></p>
+<p><img src="/articles/786f1ca3/1522226987139.png" alt="1522226987139"></p>
 </li>
 </ul>
 <h1 id="4-Experimental-Results"><a href="#4-Experimental-Results" class="headerlink" title="4 Experimental Results"></a>4 Experimental Results</h1><p>这部分不同的数据集上训练策略可能有些不同，具体的训练参数不详细说了。</p>
-<h2 id="4-1-PASCAL-VOC"><a href="#4-1-PASCAL-VOC" class="headerlink" title="4.1 PASCAL VOC"></a>4.1 PASCAL VOC</h2><p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1522227840355.png" alt="52222784035"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1522231806943.png" alt="52223180694"></p>
+<h2 id="4-1-PASCAL-VOC"><a href="#4-1-PASCAL-VOC" class="headerlink" title="4.1 PASCAL VOC"></a>4.1 PASCAL VOC</h2><p><img src="/articles/786f1ca3/1522227840355.png" alt="1522227840355"></p>
+<p><img src="/articles/786f1ca3/1522231806943.png" alt="1522231806943"></p>
 <h2 id="4-2-Model-analysis"><a href="#4-2-Model-analysis" class="headerlink" title="4.2 Model analysis"></a>4.2 Model analysis</h2><p>对照试验：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1522227928989.png" alt="52222792898"></p>
+<p><img src="/articles/786f1ca3/1522227928989.png" alt="1522227928989"></p>
 <ul>
 <li>Data augmentation is crucial ：Fast R-CNN和Faster R-CNN使用的数据扩增方式是原图及其水平翻转。本文使用的数据扩增的方式对预测精度的提升特别明显，使用比不使用提高了8.8%。作者估计本文的数据扩增方式对 Fast R-CNN和Faster R-CNN的预测效果提升不会太多，因为Fast R-CNN和Faster R-CNN中使用的 ROI池化本来就对目标的平移很敏感，这比人为扩充数据集鲁棒性更强。</li>
 <li>More default box shapes is better ：更多样性化的default box 显然会产生更好的结果。</li>
 <li>Atrous is faster ：论文使用了 atrous algorithm ，这是一种称为 带孔卷积的 卷积方式[参考资料4]。</li>
 </ul>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1522229494824.png" alt="52222949482"></p>
+<p><img src="/articles/786f1ca3/1522229494824.png" alt="1522229494824"></p>
 <ul>
 <li>Multiple output layers at different resolutions is better ：做这个对照实验的时候，为了保证公平，删掉某一层的时候，会把这一层的default box挂载在剩下的层上面并调整scale，以保证总的default box数量不变（8732），堆叠default box时会有很多box是在图像的边缘位置，对这种box的处理方式跟Faster R-CNN的一样，就是直接忽略。</li>
 <li>结合高层的粗粒度的feature map，比如 conv11_2(1×1)，进行预测时，效果会下降，这是显然的，网络越深，感受野越大，目标如果没有那么大的话，越到后面目标的信息越少，甚至就缺失了。</li>
 </ul>
-<h2 id="4-3-MS-COCO"><a href="#4-3-MS-COCO" class="headerlink" title="4.3 MS COCO"></a>4.3 MS COCO</h2><p> <img src="http://p9r71qdht.bkt.clouddn.com/SSD/1522231872819.png" alt="52223187281"></p>
+<h2 id="4-3-MS-COCO"><a href="#4-3-MS-COCO" class="headerlink" title="4.3 MS COCO"></a>4.3 MS COCO</h2><p><img src="/articles/786f1ca3/1522231872819.png" alt="1522231872819"> </p>
 <ul>
 <li>这篇论文对比的还是最初版本的Faster RCNN，即VGG16版的，SSD的效果还是要好于Faster RCNN的，不过后来 Faster RCNN用上了 ResNet后，SSD的精度就比不上Faster RCNN了。可能的原因是Faster R-CNN 第一步关注proposal的效果，第二步关注refine的效果, 提取的ROI区域会有一个zoom in的效果，因而会比SSD混杂在一起单步学习精度更高。而且Faster R-CNN对于小目标的预测更有优势。</li>
 </ul>
 <h2 id="4-4-Data-Augmentation-for-Small-Object-Accurac"><a href="#4-4-Data-Augmentation-for-Small-Object-Accurac" class="headerlink" title="4.4 Data Augmentation for Small Object Accurac"></a>4.4 Data Augmentation for Small Object Accurac</h2><p>没有使用特征重采样也就是在feature layer 后面再进行特征提取，这使得SSD对于小目标的预测很困难。前面提到的数据扩增的方式小目标的预测效果有很大的提升作用，特别是对于PASCAL这种小数据集来说。随机剪裁相当于对图片上某一部分进行了zoom in（放大）操作，这使得目标可以变得比较大，也会产生较多的大目标样例。但是不能完全没有小目标，为了产生一种 zoom out（缩小）的效果，文章还将原始图片放置于 16 倍原图大小的画布上，周围空间填充图片均值，然后再进行随机裁剪。使用这个方法之后就有了更多的训练数据。效果如下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1522234508933.png" alt="52223450893"></p>
+<p><img src="/articles/786f1ca3/1522234508933.png" alt="1522234508933"></p>
 <ul>
 <li>这说明这种数据扩增方式对于提升预测效果以及小目标预测效果都是很重要的技巧。</li>
 </ul>
-<h2 id="4-5-Inference-time"><a href="#4-5-Inference-time" class="headerlink" title="4.5 Inference time"></a>4.5 Inference time</h2><p><img src="http://p9r71qdht.bkt.clouddn.com/SSD/1522234958698.png" alt="52223495869"></p>
+<h2 id="4-5-Inference-time"><a href="#4-5-Inference-time" class="headerlink" title="4.5 Inference time"></a>4.5 Inference time</h2><p><img src="/articles/786f1ca3/1522234958698.png" alt="1522234958698"></p>
 <ul>
 <li>We measure the speed with batch size 8 using Titan X and cuDNN v4 with Intel Xeon E5-2667v3@3.20GHz </li>
 <li>Note that about 80% of the forward time is spent on the base network (VGG16 in our case). Therefore, using a faster base network could even further improve the speed, which can possibly make the SSD512 model real-time as well 。</li>
@@ -702,7 +702,7 @@
   <p><strong>本文标题：</strong><a href="/articles/786f1ca3/">目标检测-SSD-Single Shot MultiBox Detector-论文笔记</a></p>
   <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
   <p><strong>发布时间：</strong>2018年06月04日 - 22:06</p>
-  <p><strong>最后更新：</strong>2018年07月01日 - 17:07</p>
+  <p><strong>最后更新：</strong>2018年11月16日 - 22:11</p>
   <p><strong>本文链接：</strong><a href="/articles/786f1ca3/" title="目标检测-SSD-Single Shot MultiBox Detector-论文笔记">https://arleyzhang.github.io/articles/786f1ca3/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/786f1ca3/"  aria-label="复制成功！"></i></span>
   </p>
@@ -739,8 +739,6 @@
             <a href="/tags/论文笔记/" rel="tag"><i class="fa fa-tag"></i> 论文笔记</a>
           
             <a href="/tags/object-detection/" rel="tag"><i class="fa fa-tag"></i> object detection</a>
-          
-            <a href="/tags/SSD/" rel="tag"><i class="fa fa-tag"></i> SSD</a>
           
         </div>
       
@@ -874,7 +872,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

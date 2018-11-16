@@ -91,7 +91,7 @@
 
 
 
-  <meta name="keywords" content="basic dl models,论文笔记,STN," />
+  <meta name="keywords" content="basic dl models,论文笔记," />
 
 
 
@@ -103,45 +103,45 @@
 
 
 <meta name="description" content="基础DL模型 Spatial Transformer Networks 论文笔记">
-<meta name="keywords" content="basic dl models,论文笔记,STN">
+<meta name="keywords" content="basic dl models,论文笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基础DL模型-STN-Spatial Transformer Networks-论文笔记">
 <meta property="og:url" content="https://arleyzhang.github.io/articles/7c7952f0/index.html">
 <meta property="og:site_name" content="arleyzhang">
 <meta property="og:description" content="基础DL模型 Spatial Transformer Networks 论文笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/h7LIca7ela.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/K4A2j2e8Fd.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/C53DkjklhA.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/5F7IFm87Dh.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/jhJAmcEL5g.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/9AHCD1lg9b.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/7eCHgC89aj.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/0HF71E8aDB.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/dBfHK97Emg.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/Jca5d4D4C1.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/iJCG4HgLEm.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/gfi2Bh09ke.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/IC3aCc9G7I.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/L9459l4cE2.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/l5KjJ2cmhf.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/BJmEdC8FK2.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/4B3gEgkDlk.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/0ljk5bJ4Jd.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/CLA54cEIAe.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/A1clKIfl3k.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/6d5Iemc33a.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/5fgi64e74K.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/177C3GB9Bl.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/001DHfmca1.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/j7C2fg9eif.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/Dg3k2b6HKJ.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/De69c66DcA.png?imageslim">
-<meta property="og:updated_time" content="2018-07-01T09:14:57.364Z">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517381763710.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517313809413.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517389003270.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517390080627.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517390143003.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517391663142.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517390161398.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517390173934.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517390244077.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517393808097.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517398935580.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517398970784.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517400545429.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517401679000.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517401798196.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/20170403231241311.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517402932968.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/678029-20151022183134552-279360383.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517403846718.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/678029-20151023135057427-1219705201.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517407970094.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517409630548.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517410123817.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517411239599.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517412959220.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517414543432.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517414970818.png">
+<meta property="og:updated_time" content="2018-11-16T14:46:55.603Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基础DL模型-STN-Spatial Transformer Networks-论文笔记">
 <meta name="twitter:description" content="基础DL模型 Spatial Transformer Networks 论文笔记">
-<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/STN/180605/h7LIca7ela.png?imageslim">
+<meta name="twitter:image" content="https://arleyzhang.github.io/articles/7c7952f0/1517381763710.png">
 
 
 
@@ -393,8 +393,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-01T17:14:57+08:00">
-                2018-07-01
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-16T22:46:55+08:00">
+                2018-11-16
               </time>
             
           </span>
@@ -479,7 +479,7 @@
 <p>那么如何在保证准确率的情况下，即不损失局部信息的前提下，增强网络的空间不变性呢？这篇文章就是为了解决这个问题。</p>
 <h2 id="1-2-解决方法"><a href="#1-2-解决方法" class="headerlink" title="1.2 解决方法"></a>1.2 解决方法</h2><p>对于CNN 来说，即便通过选择合适的降采样比例来保证准确率和空间不变性，但是 池化层 带来的空间不变性是不够的，它受限于预先选定的固定尺寸的池化核（感受野是固定的，局部的）。因为物体的变形包括旋转，平移，扭曲，缩放，混淆噪声等，所以后面feature map中像素点的感受野不一定刚好包含物体或者反映物体的形变。</p>
 <p>文章提出了一种 Spatial Transformer Networks，简称 STN，引进了一种可学习的采样模块 Spatial Transformer ，姑且称为空间变换器，Spatial Transformer的学习不需要引入额外的数据标签，它可以在网络中对数据（feature map）进行空间变换操作。这个模块是可微的（后向传播必须），并且可以插入到现有的CNN模型中，使得 feature map具有空间变换能力，也就是说 感受野是动态变化的，feature map的空间变换方向 与 原图片上的目标的空间变换方向（一般认为是数据噪声）是相反的，所以使得整个网络的空间不变性增强。试验结果展示这种方法确实增强了空间不变性，在一些标志性的数据集（benchmark）上取得了先进的水平。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/h7LIca7ela.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/1517381763710.png" alt="1517381763710"></p>
 <center><strong>图1 在输入层使用 Spatial Transformer</strong> </center>
 
 
@@ -501,7 +501,7 @@
 </ul>
 <p>看完这篇论文之后，个人觉得目标检测（object detection）也是可以用的，果不其然，真有人将类似的方法用在了 目标检测上，这篇论文就是 Deformable Convolutional Networks ，后面再讲。</p>
 <h1 id="2-Spatial-Transformer结构"><a href="#2-Spatial-Transformer结构" class="headerlink" title="2 Spatial Transformer结构"></a>2 Spatial Transformer结构</h1><p>文章最重要的一个结构就是 Spatial Transformers ，这个结构的示意图如下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/K4A2j2e8Fd.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/1517313809413.png" alt="1517313809413"></p>
 <center> <strong>图2 Spatial Transformers 结构图</strong></center>
 
 <p>这样一个结构相当于 CNN中的一个 卷积层或者池化层：</p>
@@ -518,7 +518,7 @@
 <p>这个图与图1做个对应，U 相当于 图1 中的 (a) , V相当于 图1 中的(c)，中间那一部分相当于图1 中的(b), 作用就是为了找到那个物体所在的框，或者叫做弱目标检测。</p>
 <h2 id="2-1-Localisation-network"><a href="#2-1-Localisation-network" class="headerlink" title="2.1 Localisation network"></a>2.1 Localisation network</h2><p>这一部分很简单，可以使用全连接层或者全卷积层，只要保证最后一层是一个回归层即可，最后输出的一个向量是 $\theta$ 。 $\theta$ 的维度下面再说。</p>
 <h2 id="2-2-Grid-generator"><a href="#2-2-Grid-generator" class="headerlink" title="2.2 Grid generator"></a>2.2 Grid generator</h2><p>前面提到中间那一部分是为了<strong>找到那个物体所在的框，并把它给 变换回 “直立的状态”</strong>。很自然就能想到使用仿射变换就可以完成，如下图：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/C53DkjklhA.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/1517389003270.png" alt="1517389003270"></p>
 <center> <strong>图3 (a)恒等变换与采样； (b)仿射变换与采样</strong></center>
 
 <p><strong>我们期望的是输出 V 是 将U中某一部分（比如绿色点覆盖的部分）做了旋转，放缩，平移之后的feature map。</strong></p>
@@ -527,13 +527,13 @@
 <p>先简单的看一下仿射变换：</p>
 <p>仿射变换用于表示旋转，缩放和平移，表示的是两副图之间的关系，</p>
 <p>以下 A 为旋转矩阵，B 为平移矩阵，M称为仿射变换矩阵。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/5F7IFm87Dh.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/jhJAmcEL5g.png?imageslim" alt="mark"></p>
-<p>假设要对二维向量 <img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/9AHCD1lg9b.png?imageslim" alt="mark"> 进行仿射变换，仿射变换可以写成如下两式，两种写法等价：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/7eCHgC89aj.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/0HF71E8aDB.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/1517390080627.png" alt="1517390080627"></p>
+<p><img src="/articles/7c7952f0/1517390143003.png" alt="1517390143003"></p>
+<p>假设要对二维向量<img src="/articles/7c7952f0/1517391663142.png" alt="1517391663142">  进行仿射变换，仿射变换可以写成如下两式，两种写法等价：</p>
+<p><img src="/articles/7c7952f0/1517390161398.png" alt="1517390161398"></p>
+<p><img src="/articles/7c7952f0/1517390173934.png" alt="1517390173934"></p>
 <p>输出的结果是：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/dBfHK97Emg.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/1517390244077.png" alt="1517390244077"></p>
 <p>对于仿射变换来说，一般的用法有两种：</p>
 <ul>
 <li>已知 M 和 X，求T; 这个很简单，直接矩阵相乘。</li>
@@ -542,7 +542,7 @@
 <hr>
 <p>这里使用的是第一种用法。其中 图3 (b)  U 中的被绿点覆盖的那一部分相当于这里的 T，V相当于这里的 X，那不是应该 M也是已知的吗？M哪去了？还记得上面提到的 $\theta$ ？ $\theta$ 就相当于这里的M。因为 M的大小是 2×3 ，所以 $\theta$ 的维度为6。如果使用了别的变换方法，那就根据变换矩阵的大小相应调整。也就是说这里的变换矩阵是学习出来的。</p>
 <p>对应于图3的变换公式如下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/Jca5d4D4C1.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/1517393808097.png" alt="1517393808097"></p>
 <ul>
 <li>$(x^t_i, y_i^t)$  are the <strong>target coordinates</strong> of the  regular grid in the output feature map ，代表的是图3输出V中的像素点，即目标像素坐标；</li>
 <li>$(x^s_i, y_i^s)$ are the <strong>source coordinates</strong> in the input feature map that define the sample points ,代表的是图3输入U中被绿色点覆盖的像素点，即源像素坐标；</li>
@@ -553,11 +553,11 @@
 <p>实际上从后往前变换也就是为了解决这个问题，就是要根据输出V的坐标得到输入U中目标所在的区域的坐标（绿色的区域）。</p>
 <p>仿射变换变换的是坐标，既是坐标，那么变换的输入和输出的坐标的参考系应该是一样的，就是说 V 中像素的坐标 和 U 中像素的坐标应该是同一个参考系。这里使用的是针对 宽和高 进行的归一化坐标(height and width normalised coordinates)，把在U和V中的像素坐标归一化到 [-1,1] 之间。U的 尺寸是上一层决定的，V的尺寸是人为固定的，输出 $H’,W’$  可以分别比 输入$H,W$ 大或者小，或者相等。</p>
 <p>可以给仿射变换的变换矩阵添加更多的约束：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/iJCG4HgLEm.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/1517398935580.png" alt="1517398935580"></p>
 <p>这时候，绿色区域已经确定了，相当于V中对应坐标$(x^t_i, y_i^t)$  的像素都将从U中这块绿色区域中获取。 $H’,W’$ 与$H,W$   不一定相等；即便是相等，由于变换后的源坐标  $(x^s_i, y_i^s)$ 很有可能不是整数 ，对应U中不是整数像素点，所以没有像素值，没办法直接拷贝。所以V中  $(x^t_i, y_i^t)$ 坐标的像素值如何确定就成了问题。这时就涉及到采样和插值。</p>
 <h2 id="2-3-Sampler"><a href="#2-3-Sampler" class="headerlink" title="2.3 Sampler"></a>2.3 Sampler</h2><p>实际上 CNN中的卷积核 或者 池化核起到的就是采样的作用。</p>
 <p>$(x^s_i, y_i^s)$ 是U中绿色区域的坐标，来看看更加具有一般性的采样问题如何描述：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/gfi2Bh09ke.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/1517398970784.png" alt="1517398970784"></p>
 <ul>
 <li>$U_{nm}^c$ 是输入feature map上第 $c$ 个通道上坐标为 $(n, m)$ 的像素值；</li>
 <li>$V_i^c$ 是输出 feature map上第 $c$ 个通道上坐标为 $(x^t_i, y_i^t)$ 的像素值；</li>
@@ -568,27 +568,27 @@
 </ul>
 <p>注意上式只是针对一个通道的像素进行采样，实际上每个通道的采样都是一样的，这样可以保留 空间一致性。</p>
 <p>卷积的操作也是符合上式的，比如一维卷积：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/IC3aCc9G7I.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/1517400545429.png" alt="1517400545429"></p>
 <ul>
 <li>$f(\tau)$ 相当于 $U_{nm}^c$ ；</li>
 <li>$g(n-\tau)$ 相当于 $k(x_i^s-m; \Phi_x)$ 或 $(y_i^s-m; \Phi_y)$   因为这里的卷积是 一维的。</li>
 </ul>
 <p>理论来说 任意 对 $x^s_i, y_i^s$ 可导或局部可导的采样核函数都是可以使用的.</p>
 <p>比如最近邻插值核函数:</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/L9459l4cE2.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/1517401679000.png" alt="1517401679000"></p>
 <ul>
-<li>其中   <img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/l5KjJ2cmhf.png?imageslim" alt="mark"></li>
+<li>其中<img src="/articles/7c7952f0/1517401798196.png" alt="1517401798196"></li>
 <li>$\lfloor x + 0.5\rfloor$ 向下取整</li>
 </ul>
 <p>这个插值核函数做的就是把U中 离 当前源坐标 $(x^s_i, y_i^s)$ （小数坐标） 最近的 整数坐标 $(n,m)$ 处的像素值拷贝到V中的  $(x^t_i, y_i^t)$ 坐标处；</p>
 <p>不过这篇文章使用的是双线性插值，双线性插值 参考 <a href="https://zh.wikipedia.org/wiki/%E5%8F%8C%E7%BA%BF%E6%80%A7%E6%8F%92%E5%80%BC" target="_blank" rel="external">维基百科</a> 和 <a href="http://blog.csdn.net/lz0499/article/details/69791572" target="_blank" rel="external">图像处理之插值运算</a>，这里放一张示意图吧：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/BJmEdC8FK2.png?imageslim" alt="mark"></p>
-<center> <strong>图4 双线性插值</strong>（来源于<strong>[参考资料 6]</strong>）</center>
+<p><img src="/articles/7c7952f0/20170403231241311.png" alt="20170403231241311"></p>
+<center> <strong>图4 双线性插值（来源于[参考资料 6]）</strong></center>
 
 
 
 <p>这里的公式如下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/4B3gEgkDlk.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/1517402932968.png" alt="1517402932968"></p>
 <p>这个插值核函数做的是利用 U中 离 当前源坐标 $(x^s_i, y_i^s)$ （小数坐标）  最近的 4个整数坐标 $(n,m)$ 处的像素值做双线性插值然后拷贝到V中的  $(x^t_i, y_i^t)$ 坐标处；</p>
 <p>我在想他那个通过仿射变换确定绿色区域之后，绿色区域相当于ROI，那采样能不能使用ROI 池化的方式?</p>
 <h2 id="2-4-前向传播"><a href="#2-4-前向传播" class="headerlink" title="2.4 前向传播"></a>2.4 前向传播</h2><p>结合前面的分析，总结一下前向传播的过程，如下图：</p>
@@ -597,17 +597,17 @@
 <li>根据 V中的 目标坐标 $(x^t_i, y_i^t)$ 做逆向仿射变换变换到源坐标  $(x^s_i, y_i^s)$ ： $Source= T_{\theta} \cdot Target$ ， 源坐标 $(x^s_i, y_i^s)$ 位于U上；对应图中 1,2步；</li>
 <li>在U中找到 源坐标 $(x^s_i, y_i^s)$ （小数坐标）附近的四个整数坐标，做双线性插值，插值后的值作为 目标坐标  $(x^t_i, y_i^t)$ 处的像素值；对应图中 3,4步；</li>
 </ul>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/0ljk5bJ4Jd.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/678029-20151022183134552-279360383.png" alt="678029-20151022183134552-279360383"></p>
 <center> <strong>图5 前向传播流程</strong>（来源于<strong>[参考资料 6]</strong>）</center>
 
 
 
 <h2 id="2-5-梯度流动与反向传播"><a href="#2-5-梯度流动与反向传播" class="headerlink" title="2.5 梯度流动与反向传播"></a>2.5 梯度流动与反向传播</h2><p>这个函数虽不是 完全可导 但也是局部可导的，求导如下，对  $y_i^s$ 的导数也是类似的：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/CLA54cEIAe.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/1517403846718.png" alt="1517403846718"></p>
 <p>根据公式(1)很容易求得： $\dfrac{\partial x_i^s}{\partial \theta}    $   和 $\dfrac{\partial  y_i^s}{\partial \theta} $ 。</p>
 <p>所以反向传播过程，误差可以传播到输入 feature map（公式6），可以传播到 采样格点坐标(sampling grid coordinates )（公式7），还可以传播到变换参数 $\theta$ .</p>
 <p>下图是梯度流动的示意图：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/A1clKIfl3k.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/678029-20151023135057427-1219705201.png" alt="678029-20151023135057427-1219705201"></p>
 <center> <strong>图6 反向传播流程</strong>（来源于<strong>[参考资料 6]</strong>）</center>
 
 <p>其中localisation network中的 $\dfrac{\partial x_i^s}{\partial \theta}    $   和 $\dfrac{\partial  y_i^s}{\partial \theta} $ 也就是这一股误差流 $\left\{\begin{matrix}\frac{\partial V_{i}^{c}}{\partial x_{i}^{S}}\rightarrow \frac{\partial x_{i}^{S}}{\partial \theta}\ \frac{\partial V_{i}^{c}}{\partial y_{i}^{S}}\rightarrow \frac{\partial y_{i}^{S}}{\partial \theta}\end{matrix}\right.$  ，在定位网络处就断了。</p>
@@ -629,7 +629,7 @@
 </ul>
 <p>其中CNN的模型与 LeNet是一样的，包含两个池化层。为了公平，所有的网络变种都只包含 3 个可学习参数的层，总体网络参数基本一致，训练策略也相同。</p>
 <p>试验结果</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/6d5Iemc33a.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/1517407970094.png" alt="1517407970094"></p>
 <ul>
 <li>左侧：不同的形变策略以及不同的 Spatial Transformer网络变种与 baseline的对比；</li>
 <li>右侧：一些CNN分错，但是ST-CNN分对的样本<ul>
@@ -657,7 +657,7 @@
 <li>使用仿射变换和双线性插值</li>
 </ul>
 <p>结果：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/5fgi64e74K.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/1517409630548.png" alt="1517409630548"></p>
 <h2 id="3-3-Fine-Grained-Classification"><a href="#3-3-Fine-Grained-Classification" class="headerlink" title="3.3 Fine-Grained Classification"></a>3.3 Fine-Grained Classification</h2><p>数据集：CUB-200-2011 birds dataset，  6k training images and 5.8k test images, covering 200 species of birds. </p>
 <ul>
 <li>baseline CNN model ： an Inception architecture with batch normalisation pre-trained on ImageNet and fine-tuned on CUB – which by itself achieves the state-of-the-art accuracy of 82.3% (previous best result is 81.0% [30]).  </li>
@@ -665,7 +665,7 @@
 </ul>
 <p>这里使用了并行的Spatial Transformer ， 效果是可以将图片的不同 部分（part）输入到不同的 Spatial Transformer 层，会产生不同的 part representations 然后经过 inception ，最后再合并起来，经过一个单独的softmax层做分类。</p>
 <p>结果：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/177C3GB9Bl.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/1517410123817.png" alt="1517410123817"></p>
 <ul>
 <li>ST-CNN效果最好</li>
 <li>右侧上边使用了 2 路 Spatial Transformer并行，可以看到其中一个 spatial transformer(红色) 检测的是鸟的头部, 而另外一个 (绿色) 检测的鸟的身体.  </li>
@@ -675,7 +675,7 @@
 <h2 id="3-4-MNIST-Addition"><a href="#3-4-MNIST-Addition" class="headerlink" title="3.4 MNIST Addition"></a>3.4 MNIST Addition</h2><p>这个试验是将任意两张MNIST中的数字独立的进行一系列变形，然后叠加到一块，给网络识别，标签是二者之和。</p>
 <p>同样的测试 FCN, CNN, ST-CNN,2×ST-CNN。</p>
 <p>2×ST-CNN在输入层使用了两个并行的Spatial Transformer，结构见下面table 4右侧。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/001DHfmca1.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/1517411239599.png" alt="1517411239599"></p>
 <ul>
 <li>由于数据比较复杂，FCN的效果很差，添加了 Spatial Transformer之后，错误率显著下降</li>
 <li>CNN有池化层存在所以效果比FCN好</li>
@@ -695,15 +695,15 @@
 <li>以上三个输出分别经过一个映射函数 $e()$ ，这个函数由 LeNet CNN模型提供，以便于将上述三个feature map映射成向量，映射成向量后可以计算两两之间的距离</li>
 <li>计算 $L1=||e(I_m^T)-e(I_n^T)|_2$  , $L2=||e(I_n^T)-e(I_n^{rand})||_2$ , 训练过程中就是要保证 L1 &lt; L2，L2是一个随机裁剪与经过Spatial Transformer的输出之间的距离，理应大于L1.</li>
 </ul>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/j7C2fg9eif.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/1517412959220.png" alt="1517412959220"></p>
 <p>经过上面的分析，可以提出如下损失函数: hinge loss (triplet loss)</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/Dg3k2b6HKJ.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/1517414543432.png" alt="1517414543432"></p>
 <p>$α$ is a margin ,可以称为 裕度，相当于净赚多少。</p>
 <p>半监督是因为这里的标签相当于 L2，而L2是人为构造出来的距离指标。</p>
 <p>测试时认为检测出的box与ground truth bounding box的IOU 大于0.5为正确，table5 左侧为测试结果。</p>
 <p>在没有噪声时，可以达到100%的准确率，有噪声时在75-93%之间。</p>
 <p>下图是优化过程的动态可视化结果，可见随着迭代次数越来越多，模型对目标的定位越来越准确</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/STN/180605/De69c66DcA.png?imageslim" alt="mark"></p>
+<p><img src="/articles/7c7952f0/1517414970818.png" alt="1517414970818"></p>
 <p>这个试验使用了一种简单的损失函数，在不使用数据定位标签的情况下，构建了一种距离标签，实现了对目标的检测。这个可以推广到目标检测或追踪问题中去。</p>
 <p>作者把前面一些检测的动态效果做成了视频，看起来很清晰明了，看这里：<a href="https://goo.gl/qdEhUu" target="_blank" rel="external">https://goo.gl/qdEhUu</a> </p>
 <h1 id="4-总结"><a href="#4-总结" class="headerlink" title="4 总结"></a>4 总结</h1><p>这篇文章提出的 Spatial Transformer 结构能够很方便的嵌入到现有的CNN模型中去，并且实现端到端（end-to-end）的训练，通过对数据进行反向空间变换来消除图片上目标的变形，从而使得分类网络的识别更加简单高效。现在的CNN的已经非常强大了，但是 Spatial Transformer 仍然能过通过增强空间不变性来提高性能表现。Spatial Transformer实际上是一种attention机制，可以用于目标检测，目标追踪等问题，还可以构建半监督模。</p>
@@ -735,7 +735,7 @@
   <p><strong>本文标题：</strong><a href="/articles/7c7952f0/">基础DL模型-STN-Spatial Transformer Networks-论文笔记</a></p>
   <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
   <p><strong>发布时间：</strong>2018年06月05日 - 02:06</p>
-  <p><strong>最后更新：</strong>2018年07月01日 - 17:07</p>
+  <p><strong>最后更新：</strong>2018年11月16日 - 22:11</p>
   <p><strong>本文链接：</strong><a href="/articles/7c7952f0/" title="基础DL模型-STN-Spatial Transformer Networks-论文笔记">https://arleyzhang.github.io/articles/7c7952f0/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/7c7952f0/"  aria-label="复制成功！"></i></span>
   </p>
@@ -772,8 +772,6 @@
             <a href="/tags/basic-dl-models/" rel="tag"><i class="fa fa-tag"></i> basic dl models</a>
           
             <a href="/tags/论文笔记/" rel="tag"><i class="fa fa-tag"></i> 论文笔记</a>
-          
-            <a href="/tags/STN/" rel="tag"><i class="fa fa-tag"></i> STN</a>
           
         </div>
       
@@ -907,7 +905,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

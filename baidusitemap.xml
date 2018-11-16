@@ -4,6 +4,404 @@
 
     
   <url>
+    <loc>https://arleyzhang.github.io/articles/89e6ce5e/</loc>
+    <lastmod>2018-11-16T15:16:08.890Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-An Analysis of Scale Invariance in Object Detection – SNIP-论文笔记</title>
+        <pubTime>2018-07-01T08:49:55.000Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/c521a01c/</loc>
+    <lastmod>2018-11-16T14:55:01.945Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测评价标准-AP mAP</title>
+        <pubTime>2018-06-04T08:38:35.000Z</pubTime>
+        
+        <tag>object detection</tag>
+         
+        <tag>评价标准</tag>
+         
+        <tag>mAP</tag>
+         
+        <tag>wheel making</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/1b1c7744/</loc>
+    <lastmod>2018-11-16T14:49:33.037Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-FSSD-Feature Fusion Single Shot Multibox Detector-论文笔记</title>
+        <pubTime>2018-06-05T17:03:09.000Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/7c7952f0/</loc>
+    <lastmod>2018-11-16T14:46:55.603Z</lastmod>
+    <data>
+        <display>
+        <title>基础DL模型-STN-Spatial Transformer Networks-论文笔记</title>
+        <pubTime>2018-06-04T18:26:46.000Z</pubTime>
+        
+        <tag>basic dl models</tag>
+         
+        <tag>论文笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/e5b86f16/</loc>
+    <lastmod>2018-11-16T14:45:24.444Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测数据集MSCOCO简介</title>
+        <pubTime>2018-06-03T19:37:20.000Z</pubTime>
+        
+        <tag>dataset</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/21c44637/</loc>
+    <lastmod>2018-11-16T14:37:32.682Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-从RCNN到Mask RCNN两步检测算法总结</title>
+        <pubTime>2018-06-04T17:43:44.000Z</pubTime>
+        
+        <tag>object detection</tag>
+         
+        <tag>学习总结</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/1dc20586/</loc>
+    <lastmod>2018-11-16T14:15:22.747Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测数据集PASCAL VOC简介</title>
+        <pubTime>2018-06-03T15:08:22.000Z</pubTime>
+        
+        <tag>dataset</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/786f1ca3/</loc>
+    <lastmod>2018-11-16T14:06:52.714Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-SSD-Single Shot MultiBox Detector-论文笔记</title>
+        <pubTime>2018-06-04T14:03:01.000Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/7f3052ae/</loc>
+    <lastmod>2018-11-16T07:18:52.296Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-SqueezeDet-论文笔记</title>
+        <pubTime>2018-06-05T17:21:40.000Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
+         
+        <tag>lightweight models</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/7e6bc4a/</loc>
+    <lastmod>2018-11-16T06:51:05.466Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-R-FCN-论文笔记</title>
+        <pubTime>2018-06-04T16:37:36.000Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/33c81bef/</loc>
+    <lastmod>2018-11-16T06:37:54.858Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-HyperNet-论文笔记</title>
+        <pubTime>2018-06-05T16:46:38.000Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/216a4e98/</loc>
+    <lastmod>2018-11-16T06:01:55.288Z</lastmod>
+    <data>
+        <display>
+        <title>基础DL模型-DenseNet-Densely Connected Convolutional Networks-论文笔记</title>
+        <pubTime>2018-06-05T18:04:34.000Z</pubTime>
+        
+        <tag>basic dl models</tag>
+         
+        <tag>论文笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/a6992dce/</loc>
+    <lastmod>2018-11-16T05:51:32.484Z</lastmod>
+    <data>
+        <display>
+        <title>基础DL模型-Deformable Convolutional Networks-论文笔记</title>
+        <pubTime>2018-06-04T18:51:10.000Z</pubTime>
+        
+        <tag>basic dl models</tag>
+         
+        <tag>论文笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/1c9cf9be/</loc>
+    <lastmod>2018-11-16T05:32:18.881Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-Cascade R-CNN-论文笔记</title>
+        <pubTime>2018-06-05T18:54:27.000Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/c0b67e9a/</loc>
+    <lastmod>2018-11-16T05:22:07.533Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-DSOD-论文笔记</title>
+        <pubTime>2018-06-05T18:15:35.000Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/6c9f6e2c/</loc>
+    <lastmod>2018-11-16T05:15:01.916Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-Focal Loss for Dense Object Detection-论文笔记</title>
+        <pubTime>2018-06-05T18:43:44.000Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/47648ee6/</loc>
+    <lastmod>2018-11-16T04:23:37.281Z</lastmod>
+    <data>
+        <display>
+        <title>基础DL模型-Dilated Residual Networks-论文笔记</title>
+        <pubTime>2018-07-08T02:08:43.067Z</pubTime>
+        
+        <tag>basic dl models</tag>
+         
+        <tag>论文笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://arleyzhang.github.io/articles/f0c1556d/</loc>
+    <lastmod>2018-11-16T03:07:41.509Z</lastmod>
+    <data>
+        <display>
+        <title>目标检测-SNIPER-Efficient Multi-Scale Training-论文笔记</title>
+        <pubTime>2018-06-22T02:17:35.845Z</pubTime>
+        
+        <tag>论文笔记</tag>
+         
+        <tag>object detection</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://arleyzhang.github.io/articles/95d15d89/</loc>
     <lastmod>2018-09-02T17:25:22.023Z</lastmod>
     <data>
@@ -124,444 +522,6 @@
         <tag>TensorRT</tag>
          
         <tag>inference</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/f0c1556d/</loc>
-    <lastmod>2018-08-31T05:37:33.386Z</lastmod>
-    <data>
-        <display>
-        <title>目标检测-SNIPER-Efficient Multi-Scale Training-论文笔记</title>
-        <pubTime>2018-06-22T02:17:35.845Z</pubTime>
-        
-        <tag>论文笔记</tag>
-         
-        <tag>object detection</tag>
-         
-        <tag>SNIPER</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/47648ee6/</loc>
-    <lastmod>2018-07-08T09:23:02.153Z</lastmod>
-    <data>
-        <display>
-        <title>基础DL模型-Dilated Residual Networks-论文笔记</title>
-        <pubTime>2018-07-08T02:08:43.067Z</pubTime>
-        
-        <tag>basic dl models</tag>
-         
-        <tag>论文笔记</tag>
-         
-        <tag>DRN</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/6c9f6e2c/</loc>
-    <lastmod>2018-07-01T09:24:49.749Z</lastmod>
-    <data>
-        <display>
-        <title>目标检测-Focal Loss for Dense Object Detection-论文笔记</title>
-        <pubTime>2018-06-05T18:43:44.000Z</pubTime>
-        
-        <tag>论文笔记</tag>
-         
-        <tag>object detection</tag>
-         
-        <tag>Focal Loss</tag>
-         
-        <tag>loss function</tag>
-         
-        <tag>RetinaNet</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/c0b67e9a/</loc>
-    <lastmod>2018-07-01T09:24:28.588Z</lastmod>
-    <data>
-        <display>
-        <title>目标检测-DSOD-论文笔记</title>
-        <pubTime>2018-06-05T18:15:35.000Z</pubTime>
-        
-        <tag>论文笔记</tag>
-         
-        <tag>object detection</tag>
-         
-        <tag>DSOD</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/1c9cf9be/</loc>
-    <lastmod>2018-07-01T09:24:13.428Z</lastmod>
-    <data>
-        <display>
-        <title>目标检测-Cascade R-CNN-论文笔记</title>
-        <pubTime>2018-06-05T18:54:27.000Z</pubTime>
-        
-        <tag>论文笔记</tag>
-         
-        <tag>object detection</tag>
-         
-        <tag>Cascade R-CNN</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/7c7952f0/</loc>
-    <lastmod>2018-07-01T09:14:57.364Z</lastmod>
-    <data>
-        <display>
-        <title>基础DL模型-STN-Spatial Transformer Networks-论文笔记</title>
-        <pubTime>2018-06-04T18:26:46.000Z</pubTime>
-        
-        <tag>basic dl models</tag>
-         
-        <tag>论文笔记</tag>
-         
-        <tag>STN</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/1b1c7744/</loc>
-    <lastmod>2018-07-01T09:14:57.363Z</lastmod>
-    <data>
-        <display>
-        <title>目标检测-FSSD-Feature Fusion Single Shot Multibox Detector-论文笔记</title>
-        <pubTime>2018-06-05T17:03:09.000Z</pubTime>
-        
-        <tag>论文笔记</tag>
-         
-        <tag>object detection</tag>
-         
-        <tag>FSSD</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/216a4e98/</loc>
-    <lastmod>2018-07-01T09:14:57.362Z</lastmod>
-    <data>
-        <display>
-        <title>基础DL模型-DenseNet-Densely Connected Convolutional Networks-论文笔记</title>
-        <pubTime>2018-06-05T18:04:34.000Z</pubTime>
-        
-        <tag>basic dl models</tag>
-         
-        <tag>论文笔记</tag>
-         
-        <tag>DenseNet</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/21c44637/</loc>
-    <lastmod>2018-07-01T09:14:57.359Z</lastmod>
-    <data>
-        <display>
-        <title>目标检测-从RCNN到Mask RCNN两步检测算法总结</title>
-        <pubTime>2018-06-04T17:43:44.000Z</pubTime>
-        
-        <tag>object detection</tag>
-         
-        <tag>R-CNN</tag>
-         
-        <tag>Mask R-CNN</tag>
-         
-        <tag>学习总结</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/7f3052ae/</loc>
-    <lastmod>2018-07-01T09:14:57.358Z</lastmod>
-    <data>
-        <display>
-        <title>目标检测-SqueezeDet-论文笔记</title>
-        <pubTime>2018-06-05T17:21:40.000Z</pubTime>
-        
-        <tag>论文笔记</tag>
-         
-        <tag>object detection</tag>
-         
-        <tag>lightweight models</tag>
-         
-        <tag>SqueezeDet</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/786f1ca3/</loc>
-    <lastmod>2018-07-01T09:14:57.357Z</lastmod>
-    <data>
-        <display>
-        <title>目标检测-SSD-Single Shot MultiBox Detector-论文笔记</title>
-        <pubTime>2018-06-04T14:03:01.000Z</pubTime>
-        
-        <tag>论文笔记</tag>
-         
-        <tag>object detection</tag>
-         
-        <tag>SSD</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/7e6bc4a/</loc>
-    <lastmod>2018-07-01T09:14:57.356Z</lastmod>
-    <data>
-        <display>
-        <title>目标检测-R-FCN-论文笔记</title>
-        <pubTime>2018-06-04T16:37:36.000Z</pubTime>
-        
-        <tag>论文笔记</tag>
-         
-        <tag>object detection</tag>
-         
-        <tag>R-FCN</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/33c81bef/</loc>
-    <lastmod>2018-07-01T09:14:57.355Z</lastmod>
-    <data>
-        <display>
-        <title>目标检测-HyperNet-论文笔记</title>
-        <pubTime>2018-06-05T16:46:38.000Z</pubTime>
-        
-        <tag>论文笔记</tag>
-         
-        <tag>object detection</tag>
-         
-        <tag>HyperNet</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/a6992dce/</loc>
-    <lastmod>2018-07-01T09:14:57.353Z</lastmod>
-    <data>
-        <display>
-        <title>基础DL模型-Deformable Convolutional Networks-论文笔记</title>
-        <pubTime>2018-06-04T18:51:10.000Z</pubTime>
-        
-        <tag>basic dl models</tag>
-         
-        <tag>Deformable Convolutional Networks</tag>
-         
-        <tag>论文笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/1dc20586/</loc>
-    <lastmod>2018-07-01T09:14:40.784Z</lastmod>
-    <data>
-        <display>
-        <title>目标检测数据集PASCAL VOC简介</title>
-        <pubTime>2018-06-03T15:08:22.000Z</pubTime>
-        
-        <tag>dataset</tag>
-         
-        <tag>PASCAL VOC</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/e5b86f16/</loc>
-    <lastmod>2018-07-01T09:14:30.100Z</lastmod>
-    <data>
-        <display>
-        <title>目标检测数据集MSCOCO简介</title>
-        <pubTime>2018-06-03T19:37:20.000Z</pubTime>
-        
-        <tag>dataset</tag>
-         
-        <tag>MSCOCO</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/c521a01c/</loc>
-    <lastmod>2018-07-01T09:14:08.351Z</lastmod>
-    <data>
-        <display>
-        <title>目标检测评价标准-AP mAP</title>
-        <pubTime>2018-06-04T08:38:35.000Z</pubTime>
-        
-        <tag>object detection</tag>
-         
-        <tag>评价标准</tag>
-         
-        <tag>mAP</tag>
-         
-        <tag>wheel making</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="https://arleyzhang.github.io/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://arleyzhang.github.io/articles/89e6ce5e/</loc>
-    <lastmod>2018-07-01T09:03:55.419Z</lastmod>
-    <data>
-        <display>
-        <title>目标检测-An Analysis of Scale Invariance in Object Detection – SNIP-论文笔记</title>
-        <pubTime>2018-07-01T08:49:55.000Z</pubTime>
-        
-        <tag>论文笔记</tag>
-         
-        <tag>object detection</tag>
-         
-        <tag>SNIP</tag>
          
          
            

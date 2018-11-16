@@ -91,7 +91,7 @@
 
 
 
-  <meta name="keywords" content="论文笔记,object detection,Cascade R-CNN," />
+  <meta name="keywords" content="论文笔记,object detection," />
 
 
 
@@ -103,38 +103,38 @@
 
 
 <meta name="description" content="目标检测模型 Cascade R-CNN: Delving into High Quality Object Detection 论文笔记">
-<meta name="keywords" content="论文笔记,object detection,Cascade R-CNN">
+<meta name="keywords" content="论文笔记,object detection">
 <meta property="og:type" content="article">
 <meta property="og:title" content="目标检测-Cascade R-CNN-论文笔记">
 <meta property="og:url" content="https://arleyzhang.github.io/articles/1c9cf9be/index.html">
 <meta property="og:site_name" content="arleyzhang">
 <meta property="og:description" content="目标检测模型 Cascade R-CNN: Delving into High Quality Object Detection 论文笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/JKkbke8jJG.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/8717KJlGcH.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/i71K51CFGF.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/4a857a6B02.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/6lL8li6FCC.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/7f584d9eI6.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/kf06f7hEej.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/cF9BE7hgKf.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/7cm4l9FLca.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/B3liCmiDCb.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/cF9BE7hgKf.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/H4Ld2AKae5.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/fe26BedCDj.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/cF9BE7hgKf.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/lFbI5dGej2.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/cbGf93e3je.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/3B51IlafKi.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/476kmmDEeF.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/gIB41aKEB3.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/lH20aeeAm2.png?imageslim">
-<meta property="og:updated_time" content="2018-07-01T09:24:13.428Z">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522384572177.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522384170019.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522385396569.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522385344734.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522385355636.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522385427734.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522385444196.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522385396569.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522385555965.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522385815311.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522385396569.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522385855790.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522385969795.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522385396569.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522386038734.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522386050127.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522386102411.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522386109548.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522386141133.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522386148566.png">
+<meta property="og:updated_time" content="2018-11-16T05:32:18.881Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="目标检测-Cascade R-CNN-论文笔记">
 <meta name="twitter:description" content="目标检测模型 Cascade R-CNN: Delving into High Quality Object Detection 论文笔记">
-<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/JKkbke8jJG.png?imageslim">
+<meta name="twitter:image" content="https://arleyzhang.github.io/articles/1c9cf9be/1522384572177.png">
 
 
 
@@ -386,8 +386,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-01T17:24:13+08:00">
-                2018-07-01
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-16T13:32:18+08:00">
+                2018-11-16
               </time>
             
           </span>
@@ -467,51 +467,51 @@
 </blockquote>
 <p>这是一篇针对R-CNN系列的两步检测模型 提出的改进方法。主要是针对匹配策略提出了 multi-level 的方式。</p>
 <h1 id="1-问题提出"><a href="#1-问题提出" class="headerlink" title="1 问题提出"></a>1 问题提出</h1><p>检测=分类+定位，对于分类来说，标签就是标签，直接计算损失。但是对于定位问题来说，它的标签处理稍微麻烦一点。现在的目标检测模型对于定位问题的解决方法主要是回归。我们来看一下在Faster R-CNN中是如何进行回归的：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/JKkbke8jJG.png?imageslim" alt="mark"></p>
+<p><img src="/articles/1c9cf9be/1522384572177.png" alt="1522384572177"></p>
 <p>现在的问题是生成的 anchor box是有很多的，那么势必会导致只有少部分是包含目标或者是与目标重叠关系比较大的，那当然只有这以少部分才是我们的重点观察对象，我们才能把他用到上述提到的回归过程中去。因为越靠近标签的default box回归的时候越容易，如果二者一个在最上边，一个在最下边，那么回归的时候难度会相当大，而且也会更耗时间。</p>
 <p>确定这少部分重点观察对象的过程就是匹配策略。换句话说其实就是为了确定一部分对象作为正样本。</p>
 <p>所以对于回归问题来说，需要把ground truth box转换一下，也就是这里的正样本。</p>
 <p>确定正样本的过程普遍的做法是：计算anchor box与ground truth 之间的IOU，大于某一个阈值就认为这是一个正样本，这个阈值一般是0.5。</p>
 <p>但是实际上严格来说使用0.5的阈值偏低，造成的结果就如 Figure 1(a)那样会有很多，“close” false positives ，通俗的说就是有很多重复的没用的框，可以称为噪声，而我们期望的是输出像  Figure 1(b)那样。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/8717KJlGcH.png?imageslim" alt="mark"></p>
+<p><img src="/articles/1c9cf9be/1522384170019.png" alt="1522384170019"></p>
 <p>但是提高IOU阈值是会出问题的，因为提高 IOU阈值会使效果变差，主要有两个原因：</p>
 <ul>
 <li>提高IOU会导致正样本数量过少，然而模型比较大，会导致过拟合。</li>
 <li>detector肯定是在某一个IOU阈值上训练的，但是inference时，生成anchor box之后，这些anchor box跟ground truth box会有各种各样的IOU，对于这些IOU来说detector是次优化的。</li>
 </ul>
 <p>文章解决的也是这个问题。</p>
-<h1 id="2-Cascade-结构的提出"><a href="#2-Cascade-结构的提出" class="headerlink" title="2 Cascade 结构的提出"></a>2 Cascade 结构的提出</h1><p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/i71K51CFGF.png?imageslim" alt="mark"></p>
+<h1 id="2-Cascade-结构的提出"><a href="#2-Cascade-结构的提出" class="headerlink" title="2 Cascade 结构的提出"></a>2 Cascade 结构的提出</h1><p><img src="/articles/1c9cf9be/1522385396569.png" alt="1522385396569"></p>
 <p>首先看一下目标检测中广泛使用的定位损失：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/4a857a6B02.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/6lL8li6FCC.png?imageslim" alt="mark"></p>
+<p><img src="/articles/1c9cf9be/1522385344734.png" alt="1522385344734"></p>
+<p><img src="/articles/1c9cf9be/1522385355636.png" alt="1522385355636"></p>
 <p>分类损失</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/7f584d9eI6.png?imageslim" alt="mark"></p>
-<h2 id="2-1-两种可能的解决方法"><a href="#2-1-两种可能的解决方法" class="headerlink" title="2.1 两种可能的解决方法"></a>2.1 两种可能的解决方法</h2><p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/kf06f7hEej.png?imageslim" alt="mark"></p>
+<p><img src="/articles/1c9cf9be/1522385427734.png" alt="1522385427734"></p>
+<h2 id="2-1-两种可能的解决方法"><a href="#2-1-两种可能的解决方法" class="headerlink" title="2.1 两种可能的解决方法"></a>2.1 两种可能的解决方法</h2><p><img src="/articles/1c9cf9be/1522385444196.png" alt="1522385444196"></p>
 <p><strong>iterative bounding box regression, denoted as iterative BBox.</strong>   </p>
 <p>如 Figure 3(b).</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/cF9BE7hgKf.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/7cm4l9FLca.png?imageslim" alt="mark"></p>
+<p><img src="/articles/1c9cf9be/1522385396569.png" alt="1522385396569"></p>
+<p><img src="/articles/1c9cf9be/1522385555965.png" alt="1522385555965"></p>
 <p>存在的问题：</p>
 <ul>
 <li>三个head部分是一样的，也就是说都是针对某一个IOU阈值，比如0.5，是最优化的，但是当inference时，真正的IOU大于0.5以后他是次优化suboptimal 的。</li>
 <li>很明显级联之后，每个输出的box的分布是会变化的如上图 Figure (2)，所以相同的head对于后面的结构来说是次优化的suboptimal 。</li>
 </ul>
 <p><strong>第二种方法：</strong></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/B3liCmiDCb.png?imageslim" alt="mark"></p>
+<p><img src="/articles/1c9cf9be/1522385815311.png" alt="1522385815311"></p>
 <p>也就是Figure 3(c).</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/cF9BE7hgKf.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/H4Ld2AKae5.png?imageslim" alt="mark"></p>
+<p><img src="/articles/1c9cf9be/1522385396569.png" alt="1522385396569"></p>
+<p><img src="/articles/1c9cf9be/1522385855790.png" alt="1522385855790"></p>
 <p>存在的问题：不同IOU阈值的分布是不均衡的，如上图左。所以上面的损失是不均衡的。</p>
-<h2 id="2-2-Cascade-R-CNN"><a href="#2-2-Cascade-R-CNN" class="headerlink" title="2.2 Cascade R-CNN"></a>2.2 Cascade R-CNN</h2><p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/fe26BedCDj.png?imageslim" alt="mark"></p>
+<h2 id="2-2-Cascade-R-CNN"><a href="#2-2-Cascade-R-CNN" class="headerlink" title="2.2 Cascade R-CNN"></a>2.2 Cascade R-CNN</h2><p><img src="/articles/1c9cf9be/1522385969795.png" alt="1522385969795"></p>
 <p>如图 Figure 3(d):</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/cF9BE7hgKf.png?imageslim" alt="mark"></p>
+<p><img src="/articles/1c9cf9be/1522385396569.png" alt="1522385396569"></p>
 <p>损失函数：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/lFbI5dGej2.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/cbGf93e3je.png?imageslim" alt="mark"></p>
-<h1 id="3-试验结果"><a href="#3-试验结果" class="headerlink" title="3 试验结果"></a>3 试验结果</h1><p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/3B51IlafKi.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/476kmmDEeF.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/gIB41aKEB3.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/CascadeRCNN/180606/lH20aeeAm2.png?imageslim" alt="mark"></p>
+<p><img src="/articles/1c9cf9be/1522386038734.png" alt="1522386038734"></p>
+<p><img src="/articles/1c9cf9be/1522386050127.png" alt="1522386050127"></p>
+<h1 id="3-试验结果"><a href="#3-试验结果" class="headerlink" title="3 试验结果"></a>3 试验结果</h1><p><img src="/articles/1c9cf9be/1522386102411.png" alt="1522386102411"></p>
+<p><img src="/articles/1c9cf9be/1522386109548.png" alt="1522386109548"></p>
+<p><img src="/articles/1c9cf9be/1522386141133.png" alt="1522386141133"></p>
+<p><img src="/articles/1c9cf9be/1522386148566.png" alt="1522386148566"></p>
 
       
     </div>
@@ -531,7 +531,7 @@
   <p><strong>本文标题：</strong><a href="/articles/1c9cf9be/">目标检测-Cascade R-CNN-论文笔记</a></p>
   <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
   <p><strong>发布时间：</strong>2018年06月06日 - 02:06</p>
-  <p><strong>最后更新：</strong>2018年07月01日 - 17:07</p>
+  <p><strong>最后更新：</strong>2018年11月16日 - 13:11</p>
   <p><strong>本文链接：</strong><a href="/articles/1c9cf9be/" title="目标检测-Cascade R-CNN-论文笔记">https://arleyzhang.github.io/articles/1c9cf9be/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/1c9cf9be/"  aria-label="复制成功！"></i></span>
   </p>
@@ -568,8 +568,6 @@
             <a href="/tags/论文笔记/" rel="tag"><i class="fa fa-tag"></i> 论文笔记</a>
           
             <a href="/tags/object-detection/" rel="tag"><i class="fa fa-tag"></i> object detection</a>
-          
-            <a href="/tags/Cascade-R-CNN/" rel="tag"><i class="fa fa-tag"></i> Cascade R-CNN</a>
           
         </div>
       
@@ -703,7 +701,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

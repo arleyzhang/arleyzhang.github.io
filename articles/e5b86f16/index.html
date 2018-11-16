@@ -91,7 +91,7 @@
 
 
 
-  <meta name="keywords" content="dataset,MSCOCO," />
+  <meta name="keywords" content="dataset," />
 
 
 
@@ -103,25 +103,25 @@
 
 
 <meta name="description" content="目标检测数据集 MSCOCO 简介">
-<meta name="keywords" content="dataset,MSCOCO">
+<meta name="keywords" content="dataset">
 <meta property="og:type" content="article">
 <meta property="og:title" content="目标检测数据集MSCOCO简介">
 <meta property="og:url" content="https://arleyzhang.github.io/articles/e5b86f16/index.html">
 <meta property="og:site_name" content="arleyzhang">
 <meta property="og:description" content="目标检测数据集 MSCOCO 简介">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527334430550.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335304935.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335519760.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335845385.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527337055130.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341503405.png">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341646178.png">
-<meta property="og:updated_time" content="2018-07-01T09:14:30.100Z">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/e5b86f16/1527334430550-1542379185415.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/e5b86f16/1527335304935.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/e5b86f16/1527335519760.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/e5b86f16/1527335845385.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/e5b86f16/1527337055130.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/e5b86f16/1527341503405.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/e5b86f16/1527341646178.png">
+<meta property="og:updated_time" content="2018-11-16T14:45:24.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="目标检测数据集MSCOCO简介">
 <meta name="twitter:description" content="目标检测数据集 MSCOCO 简介">
-<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/mscoco/1527334430550.png">
+<meta name="twitter:image" content="https://arleyzhang.github.io/articles/e5b86f16/1527334430550-1542379185415.png">
 
 
 
@@ -373,8 +373,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-01T17:14:30+08:00">
-                2018-07-01
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-16T22:45:24+08:00">
+                2018-11-16
               </time>
             
           </span>
@@ -453,23 +453,23 @@
 <p>MSCOCO 数据集是微软构建的一个数据集，其包含 detection, segmentation, keypoints等任务。</p>
 <p>MSCOCO主要是为了解决detecting non-iconic views of objects（对应常说的detection）, contextual reasoning between objects and the precise 2D localization of objects（对应常说的分割问题） 这三种场景下的问题。</p>
 <p>下面是iconic 图片和 non-iconic 图片之间的对比。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527334430550.png" alt="1527334430550"></p>
+<p><img src="/articles/e5b86f16/1527334430550-1542379185415.png" alt="1527334430550"></p>
 <p>与PASCAL COCO数据集相比，COCO中的图片包含了自然图片以及生活中常见的目标图片，背景比较复杂，目标数量比较多，目标尺寸更小，因此COCO数据集上的任务更难，对于检测任务来说，现在衡量一个模型好坏的标准更加倾向于使用COCO数据集上的检测结果。</p>
 <p>数据集的构建过程不说了。主要关注一下统计信息</p>
 <h1 id="1-统计信息"><a href="#1-统计信息" class="headerlink" title="1 统计信息"></a>1 统计信息</h1><p>MSCOCO总共包含91个类别，每个类别的图片数量如下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335304935.png" alt="1527335304935"></p>
+<p><img src="/articles/e5b86f16/1527335304935.png" alt="1527335304935"></p>
 <ul>
 <li>图中也标出了PASCAL VOC的统计数据作为对比。</li>
 </ul>
 <hr>
 <p>下图展示的是几个不同数据集的总类别数量，以及每个类别的总实例数量，一个实例就是图片上的一个目标，主要关注一下 PASCAL 和 ImageNet。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335519760.png" alt="1527335519760"></p>
+<p><img src="/articles/e5b86f16/1527335519760.png" alt="1527335519760"></p>
 <ul>
 <li>COCO数据集的类别总数虽然没有 ImageNet 中用于detection的类别总数多，但是每个类别的实例目标总数要比PASCAL和ImageNet都要多。</li>
 </ul>
 <hr>
 <p>下图是每张图片上的类别数量或者实例数量的分布，括号中为平均值</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527335845385.png" alt="1527335845385"></p>
+<p><img src="/articles/e5b86f16/1527335845385.png" alt="1527335845385"></p>
 <ul>
 <li><p>PASCAL和ImageNet中，每张图片上的类别或者实例数量普遍都很少。</p>
 <p>以PASCAL为例：有多于70%的图片上都只有一个类别，而多于50%的图片上只有一个实例或者目标。PASCAL数据集平均每张图片包含1.4个类别和2.3个实例目标，ImageNet也仅有1.7和3.0个。</p>
@@ -481,16 +481,16 @@
 </ul>
 <hr>
 <p>实例目标的分布</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527337055130.png" alt="1527337055130"></p>
+<p><img src="/articles/e5b86f16/1527337055130.png" alt="1527337055130"></p>
 <ul>
 <li>COCO数据集中的小目标数量占比更多</li>
 </ul>
 <p>关于数据集的划分，COCO的论文里是这么说的，</p>
 <p>The 2014 release contains 82,783 training, 40,504 validation, and 40,775 testing images (approximately 1/2 train, 1/4 val, and /4 test). There are nearly 270k segmented people and a total of 886k segmented object instances in the 2014 train+val data alone. The cumulative 2015 release will contain a total of 165,482 train, 81,208 val, and 81,434 test images.    </p>
 <p>2014年的数据在官网是可以下载的，但是2015年只有test部分，train和val部分的数据没有。另外2017年的数据并没有什么新的图片，只是将数据重新划分，train的数据更多了，如下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341503405.png" alt="1527341503405"></p>
+<p><img src="/articles/e5b86f16/1527341503405.png" alt="1527341503405"></p>
 <h1 id="2-评估标准"><a href="#2-评估标准" class="headerlink" title="2 评估标准"></a>2 评估标准</h1><p>COCO的测试标准比PASCAL VOC更严格：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/mscoco/1527341646178.png" alt="1527341646178"></p>
+<p><img src="/articles/e5b86f16/1527341646178.png" alt="1527341646178"></p>
 <ul>
 <li><p>PASCAL 中在测试mAP时，是在IOU=0.5时测的</p>
 </li>
@@ -539,7 +539,7 @@
   <p><strong>本文标题：</strong><a href="/articles/e5b86f16/">目标检测数据集MSCOCO简介</a></p>
   <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
   <p><strong>发布时间：</strong>2018年06月04日 - 03:06</p>
-  <p><strong>最后更新：</strong>2018年07月01日 - 17:07</p>
+  <p><strong>最后更新：</strong>2018年11月16日 - 22:11</p>
   <p><strong>本文链接：</strong><a href="/articles/e5b86f16/" title="目标检测数据集MSCOCO简介">https://arleyzhang.github.io/articles/e5b86f16/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/e5b86f16/"  aria-label="复制成功！"></i></span>
   </p>
@@ -574,8 +574,6 @@
         <div class="post-tags">
           
             <a href="/tags/dataset/" rel="tag"><i class="fa fa-tag"></i> dataset</a>
-          
-            <a href="/tags/MSCOCO/" rel="tag"><i class="fa fa-tag"></i> MSCOCO</a>
           
         </div>
       
@@ -709,7 +707,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

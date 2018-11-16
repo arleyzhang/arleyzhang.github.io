@@ -91,7 +91,7 @@
 
 
 
-  <meta name="keywords" content="object detection,R-CNN,Mask R-CNN,学习总结," />
+  <meta name="keywords" content="object detection,学习总结," />
 
 
 
@@ -103,46 +103,46 @@
 
 
 <meta name="description" content="两步检测（two-stage）目标检测算法总结，持续更新……">
-<meta name="keywords" content="object detection,R-CNN,Mask R-CNN,学习总结">
+<meta name="keywords" content="object detection,学习总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="目标检测-从RCNN到Mask RCNN两步检测算法总结">
 <meta property="og:url" content="https://arleyzhang.github.io/articles/21c44637/index.html">
 <meta property="og:site_name" content="arleyzhang">
 <meta property="og:description" content="两步检测（two-stage）目标检测算法总结，持续更新……">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/dj88beG7b2.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/LKcaL9jlcf.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/ajFhJg0ea9.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/djbhhGhjd0.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/ak6h6DHLb1.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/dB6DEd2B58.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/kLCbC874EG.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/ElkED0GhID.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/GamBCJJKmi.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/BFAgEEHaIf.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/eKIgLHCi1H.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/jGi4D39G8b.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/Kd8m7Ci53G.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/HhcKlF84C5.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/kJ1JI2K1HE.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/3ILamAJFJk.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/0d4C0J1lJ4.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/KI5I2cgbe7.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/9Ei6iBFHh6.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/hDigFlLigb.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/j0HJABGbBC.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/7fi3AJD4fK.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/kdiiLflmE2.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/k99G9AFH4G.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/j0HJABGbBC.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/ljk6hcjB0B.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/kJjJbd9cc9.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/b22Lac8HfK.png?imageslim">
-<meta property="og:updated_time" content="2018-07-01T09:14:57.359Z">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521261575205-1542378192153.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521297004648.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521297020004.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521297159311.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521297179373.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521304094054.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521305379560-1542378516892.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521301426786-1542378527553.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521301492914.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521304054862.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521304209554.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521304544886.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521305058842.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521305076752.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521304918679.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521306284320.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521304954539.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521307202582.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521307185787.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521307946232.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521307894436.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521307985662.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521308094444.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521308016960.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521307894436.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521367866279.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1516932465844.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/21c44637/1521384958323.png">
+<meta property="og:updated_time" content="2018-11-16T14:37:32.682Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="目标检测-从RCNN到Mask RCNN两步检测算法总结">
 <meta name="twitter:description" content="两步检测（two-stage）目标检测算法总结，持续更新……">
-<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/dj88beG7b2.png?imageslim">
+<meta name="twitter:image" content="https://arleyzhang.github.io/articles/21c44637/1521261575205-1542378192153.png">
 
 
 
@@ -394,8 +394,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-01T17:14:57+08:00">
-                2018-07-01
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-16T22:37:32+08:00">
+                2018-11-16
               </time>
             
           </span>
@@ -479,7 +479,7 @@
 <li>读取特征，送入每一类的 SVM <strong>分类器</strong>，判别是否属于该类；</li>
 <li>最终还有一个位置回归器用于精细修正。</li>
 </ol>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/dj88beG7b2.png?imageslim" alt="mark"></p>
+<p><img src="/articles/21c44637/1521261575205-1542378192153.png" alt="1521261575205"></p>
 <p>回归方法：</p>
 <table>
 <thead>
@@ -490,15 +490,16 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/LKcaL9jlcf.png?imageslim" alt="mark"></td>
-<td style="text-align:center"><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/ajFhJg0ea9.png?imageslim" alt="mark"></td>
+<td style="text-align:center"><img src="/articles/21c44637/1521297004648.png" alt="1521297004648"></td>
+<td style="text-align:center"><img src="/articles/21c44637/1521297020004.png" alt="1521297020004"></td>
 </tr>
 </tbody>
 </table>
-<p>回归函数： <img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/djbhhGhjd0.png?imageslim" alt="mark"></p>
-<p>损失函数：<img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/ak6h6DHLb1.png?imageslim" alt="mark"></p>
+<p>回归函数：<img src="/articles/21c44637/1521297159311.png" alt="1521297159311"> </p>
+<p>损失函数：</p>
+<p><img src="/articles/21c44637/1521297179373.png" alt="1521297179373"></p>
 <p><strong>训练方法：</strong>  </p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/dB6DEd2B58.png?imageslim" alt="mark"></p>
+<p><img src="/articles/21c44637/1521304094054.png" alt="1521304094054"></p>
 <p><strong>优点：</strong> </p>
 <ul>
 <li>结构简单明了，容易理解；</li>
@@ -529,13 +530,13 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/kLCbC874EG.png?imageslim" alt="mark"><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/ElkED0GhID.png?imageslim" alt="mark"></td>
+<td style="text-align:center"><img src="/articles/21c44637/1521305379560-1542378516892.png" alt="1521305379560"> <img src="/articles/21c44637/1521301426786-1542378527553.png" alt="1521301426786"></td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>SPP池化</strong></td>
 </tr>
 <tr>
-<td style="text-align:center"><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/GamBCJJKmi.png?imageslim" alt="mark"></td>
+<td style="text-align:center"><img src="/articles/21c44637/1521301492914.png" alt="1521301492914"></td>
 </tr>
 </tbody>
 </table>
@@ -544,7 +545,7 @@
 <li>使用SPP池化（Spatial pyramid model, 空间金字塔池化池化）：传统的池化方式是 <strong>已知输入尺寸</strong>和 <strong>固定池化核大小</strong>，<strong>确定输出尺寸</strong>，那么这时候输出尺寸肯定是随输入尺寸变化的，所以这时候就要求输入图片是固定尺寸。而SPP池化是 <strong>已知输入尺寸</strong> 和 <strong>固定输出尺寸</strong>，<strong>来确定确定池化核的大小</strong>。SPP 层用不同大小的池化窗口作用于卷积得到的特征图，池化窗口的大小和步长根据特征图的尺寸进行动态计算，最终可以组合成一个特定维度的特征输出。这里的输入可以是一个feature map（分类问题），也可以是一个window（检测问题）。</li>
 </ul>
 <p><strong>训练过程：</strong> </p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/BFAgEEHaIf.png?imageslim" alt="mark"></p>
+<p><img src="/articles/21c44637/1521304054862.png" alt="1521304054862"></p>
 <p><strong>优点：</strong></p>
 <ul>
 <li>SPP-net 对于一幅图像的所有候选区域, 只需要进行一次卷积过程, 避免了重复计算, 显著提高了计算效率。该方法在速度上比 R-CNN 提高 24 ~102 倍 .</li>
@@ -556,7 +557,7 @@
 <li>CNN 提取的特征存储需要的空间和时间开销增大;</li>
 <li>在微调阶段, SPP-net 只能更新空间金字塔池化层后的全连接层, 而不能更新卷积层(好像是梯度不连续), 这限制了检测性能的提升。 </li>
 </ul>
-<h1 id="Fast-R-CNN"><a href="#Fast-R-CNN" class="headerlink" title="Fast R-CNN"></a>Fast R-CNN</h1><p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/eKIgLHCi1H.png?imageslim" alt="mark"></p>
+<h1 id="Fast-R-CNN"><a href="#Fast-R-CNN" class="headerlink" title="Fast R-CNN"></a>Fast R-CNN</h1><p><img src="/articles/21c44637/1521304209554.png" alt="1521304209554"></p>
 <p><strong>为什么 SPPnet和 R-CNN训练很慢？</strong></p>
 <p>主要原因有两点</p>
 <ul>
@@ -564,7 +565,7 @@
 <li>训练步骤繁琐，不能联合训练。</li>
 </ul>
 <p>针对 R-CNN 和 SPPNet 的这两个问题, rbg 提出 能够端到端联合训练的  Fast R-CNN 算法 ，如下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/jGi4D39G8b.png?imageslim" alt="mark"></p>
+<p><img src="/articles/21c44637/1521304544886.png" alt="1521304544886"></p>
 <ul>
 <li>首先在图像中提取感兴趣区域 (Regions of Interest, RoI)，还是使用selective search算法，生成的候选区域这里称为ROI，将ROI映射到feature map上; </li>
 <li>然后采用与 SPP-net 相似的处理方式,对每幅图像只进行一次卷积, </li>
@@ -579,13 +580,13 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/Kd8m7Ci53G.png?imageslim" alt="mark"></td>
+<td style="text-align:center"><img src="/articles/21c44637/1521305058842.png" alt="1521305058842"></td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>ROI池化</strong></td>
 </tr>
 <tr>
-<td style="text-align:center"><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/HhcKlF84C5.png?imageslim" alt="mark"></td>
+<td style="text-align:center"><img src="/articles/21c44637/1521305076752.png" alt="1521305076752"></td>
 </tr>
 </tbody>
 </table>
@@ -600,20 +601,20 @@
 <table>
 <thead>
 <tr>
-<th><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/kJ1JI2K1HE.png?imageslim" alt="mark"></th>
+<th><img src="/articles/21c44637/1521304918679.png" alt="1521304918679"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/3ILamAJFJk.png?imageslim" alt="mark"></td>
+<td><img src="/articles/21c44637/1521306284320.png" alt="1521306284320"></td>
 </tr>
 </tbody>
 </table>
 <p><strong>multi-task 损失函数：</strong> </p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/0d4C0J1lJ4.png?imageslim" alt="mark"></p>
+<p><img src="/articles/21c44637/1521304954539.png" alt="1521304954539"></p>
 <p><strong>新的挑战及解决方法：</strong> </p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/KI5I2cgbe7.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/9Ei6iBFHh6.png?imageslim" alt="mark"></p>
+<p><img src="/articles/21c44637/1521307202582.png" alt="1521307202582"></p>
+<p><img src="/articles/21c44637/1521307185787.png" alt="1521307185787"></p>
 <p><strong>ROI池化：</strong></p>
 <p>一句话概括作用：将不同尺寸输入的feature map或者 ROI，降采样成固定尺寸的输出 feature map，再送入全连接层。</p>
 <p>做法：</p>
@@ -635,21 +636,21 @@
 <li>Fast R-CNN 仍然存在速度上的瓶颈, 就是候选区域生成步骤耗费了整个检测过程的大量时间.</li>
 </ul>
 <h1 id="Faster-R-CNN"><a href="#Faster-R-CNN" class="headerlink" title="Faster R-CNN"></a>Faster R-CNN</h1><p>为了解决候选区域生成步骤消耗大量计算资源, 导致检测速度过慢的问题, 任少卿，何凯明，rbg联合提出区域生成网络 (Region proposal network, RPN), 并且把RPN 和 Fast R-CNN 融合到一个统一的网络 (称为 Faster R-CNN), 二者共享卷积特征. 如下：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/hDigFlLigb.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/j0HJABGbBC.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/7fi3AJD4fK.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/kdiiLflmE2.png?imageslim" alt="mark"></p>
+<p><img src="/articles/21c44637/1521307946232.png" alt="1521307946232"></p>
+<p><img src="/articles/21c44637/1521307894436.png" alt="1521307894436"></p>
+<p><img src="/articles/21c44637/1521307985662.png" alt="1521307985662"></p>
+<p><img src="/articles/21c44637/1521308094444.png" alt="1521308094444"></p>
 <p>RPN 将一整幅图像作为输入, 输出一系列的矩形候选区域. 它是一个全卷积网络模型, 通过在与 Fast R-CNN 共享卷积层的最后一层输出的特征图上滑动一个小型网络（sliding window）, 这个网络与特征图上的小窗口全连接, 每个滑动窗口映射到一个低维的特征向量, 再输入给两个并列的全连接层, 即分类层 (cls layer) 和边框回归层(reg layer), 由于网络是以滑动窗的形式来进行操作, 所以全连接层的参数在所有空间位置是共享的. RPN的结构在实现时实际上是一个全卷积网络。</p>
 <p>RPN是一个弱检测器，RPN的输出是一些可能包含目标的候选框（ region proposals 或者称为 region of interest ,ROI）,这些ROI 将会输入Fast R-CNN中，用于最后的检测。</p>
 <p><strong>训练方式：</strong> </p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/k99G9AFH4G.png?imageslim" alt="mark"></p>
+<p><img src="/articles/21c44637/1521308016960.png" alt="1521308016960"></p>
 <p><strong>Anchor的作用</strong> </p>
 <p>按照两步检测的惯例，应该要先有初步的ROI ，然后才是最终的分类和回归，对于原版的Fast R-CNN来说，它的ROI是由selective search算法提供的；而Faster R-CNN中的 Fast R-CNN的 ROI 则是由RPN网络产生的。</p>
 <p>那么RPN既然是一个弱检测器，那么RPN的ROI或者 region proposals从哪来？ 答案是从 anchor 中来。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/j0HJABGbBC.png?imageslim" alt="mark"></p>
+<p><img src="/articles/21c44637/1521307894436.png" alt="1521307894436"></p>
 <p>结合上面的图，RPN在CNN提取特征之后以sliding window的方式在最后一个feature map上提取特征，每个滑动窗口中心都关联着 k个 box，这些box就称为anchor，或者叫anchor box。这些关联的box 可以通过逆向映射对应到原图上，对应到原图上的区域就是region proposals，不过这些region proposals都是位于同一个中心点。就是说sliding window时的window（大小固定）是由这些原图上的不同大小和比例的 region proposals 生成的（类似于ROI池化的功能）。</p>
 <p>实际上sliding window时每个 window 起到了一部分region proposals 的作用，但是由于这里的sliding window的尺寸是固定的，所以不能起到多尺度，多尺寸（multiple scales and sizes ）预测的作用，因此提出关联k个不同大小和长宽比的anchor box，这样二者结合即可起到多尺度，多尺寸预测的作用。参考下图：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/ljk6hcjB0B.png?imageslim" alt="mark"></p>
+<p><img src="/articles/21c44637/1521367866279.png" alt="1521367866279"></p>
 <p>使用anchor的好处是，RPN最后sliding window 时可以使用 卷积的方式实现（因为 window的大小是固定的），使网络变得很简单。</p>
 <p>而后面的 256维向量的输入 由于用卷积层实现所以也由 （1,1,256），变成了（W,H,256）.</p>
 <p>但是我们知道后面的输入是固定尺寸的 window ，那么在分类和回归时是如何来反映不同尺寸和比例的 region proposals呢？答案是通过 标签和损失函数。</p>
@@ -674,8 +675,8 @@
 <p>R-FCN就是基于FCN将 head部分也实现了计算共享。但是由于直接将 Faster R-CNN 的head部分也就是全连接层改为全卷积层，然后再使用</p>
 </li>
 </ul>
-<p> R-FCN是一种新的基于区域的全卷积网络检测方法. 为了给网络引入平移变化, 构建对位置敏感的池化方式 (Position sensitive pooling), 编码感兴趣区域的相对空间位置信息. 该网络解决了 Faster R-CNN 由于重复<br>计算全连接层而导致的耗时问题, 实现了让整个网络中所有的计算都可以共享 。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/kJjJbd9cc9.png?imageslim" alt="mark"></p>
+<p>R-FCN是一种新的基于区域的全卷积网络检测方法. 为了给网络引入平移变化, 构建对位置敏感的池化方式 (Position sensitive pooling), 编码感兴趣区域的相对空间位置信息. 该网络解决了 Faster R-CNN 由于重复计算全连接层而导致的耗时问题, 实现了让整个网络中所有的计算都可以共享 。</p>
+<p><img src="/articles/21c44637/1516932465844.png" alt="1516932465844"></p>
 <p><strong>Position sensitive pooling：</strong></p>
 <p>ROI Pooling 中的每一个网格都来自前面  position-sensitive score maps中不同组通道的  feature map。这个跟分组卷积的意思有点像，这个可以叫做分组ROI池化。是一种选择性ROI池化，主要是为了增强对位置的敏感程度。</p>
 <h1 id="Light-head-RCNN"><a href="#Light-head-RCNN" class="headerlink" title="Light-head RCNN"></a>Light-head RCNN</h1><p>不管是 Faster R-CNN还是 R-FCN 在 ROI(Region of Interest) 生成前后都是计算量很大的，比如 Faster R-CNN 的head部分包含两个全连接层用于ROI 分类，而全连接层极大地消耗计算；R-FCN虽然比 Faster R-CNN快许多，但是由于生成的 score maps太多，想要达到实时（30FPS, Frame Per Second）还是有点困难的。也就是说这些模型之所以速度慢的原因在于计算量过于繁重的 head部分 (heavy-head design )，即便是将 base部分削减压缩，计算消耗也不能很大程度的削减。</p>
@@ -699,7 +700,7 @@
 <li>在每个单元中计算固定四个坐标位置，用双线性内插的方法计算出这四个位置的值，然后进行最大池化操作。</li>
 </ul>
 <p>这里对上述步骤的第三点作一些说明：这个固定位置是指<strong>在每一个矩形单元（bin）中按照固定规则确定的位置</strong>。比如，如果采样点数是1，那么就是这个单元的中心点。如果采样点数是4，那么就是把这个单元平均分割成四个小方块以后它们分别的中心点。显然这些采样点的坐标通常是浮点数，所以需要使用插值的方法得到它的像素值。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/two-stage-summary/180605/b22Lac8HfK.png?imageslim" alt="mark"></p>
+<p><img src="/articles/21c44637/1521384958323.png" alt="1521384958323"></p>
 <p>参考资料：</p>
 <ul>
 <li><a href="http://blog.leanote.com/post/afanti.deng@gmail.com/b5f4f526490b" target="_blank" rel="external">详解 ROI Align 的基本原理和实现细节</a></li>
@@ -723,7 +724,7 @@
   <p><strong>本文标题：</strong><a href="/articles/21c44637/">目标检测-从RCNN到Mask RCNN两步检测算法总结</a></p>
   <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
   <p><strong>发布时间：</strong>2018年06月05日 - 01:06</p>
-  <p><strong>最后更新：</strong>2018年07月01日 - 17:07</p>
+  <p><strong>最后更新：</strong>2018年11月16日 - 22:11</p>
   <p><strong>本文链接：</strong><a href="/articles/21c44637/" title="目标检测-从RCNN到Mask RCNN两步检测算法总结">https://arleyzhang.github.io/articles/21c44637/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/21c44637/"  aria-label="复制成功！"></i></span>
   </p>
@@ -758,10 +759,6 @@
         <div class="post-tags">
           
             <a href="/tags/object-detection/" rel="tag"><i class="fa fa-tag"></i> object detection</a>
-          
-            <a href="/tags/R-CNN/" rel="tag"><i class="fa fa-tag"></i> R-CNN</a>
-          
-            <a href="/tags/Mask-R-CNN/" rel="tag"><i class="fa fa-tag"></i> Mask R-CNN</a>
           
             <a href="/tags/学习总结/" rel="tag"><i class="fa fa-tag"></i> 学习总结</a>
           
@@ -897,7 +894,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

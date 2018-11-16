@@ -82,7 +82,6 @@
       <tags>
         <tag>basic dl models</tag>
         <tag>论文笔记</tag>
-        <tag>DRN</tag>
       </tags>
   </entry>
   <entry>
@@ -95,7 +94,6 @@
       <tags>
         <tag>论文笔记</tag>
         <tag>object detection</tag>
-        <tag>SNIP</tag>
       </tags>
   </entry>
   <entry>
@@ -108,7 +106,6 @@
       <tags>
         <tag>论文笔记</tag>
         <tag>object detection</tag>
-        <tag>SNIPER</tag>
       </tags>
   </entry>
   <entry>
@@ -121,7 +118,6 @@
       <tags>
         <tag>论文笔记</tag>
         <tag>object detection</tag>
-        <tag>Cascade R-CNN</tag>
       </tags>
   </entry>
   <entry>
@@ -134,9 +130,6 @@
       <tags>
         <tag>论文笔记</tag>
         <tag>object detection</tag>
-        <tag>Focal Loss</tag>
-        <tag>loss function</tag>
-        <tag>RetinaNet</tag>
       </tags>
   </entry>
   <entry>
@@ -149,7 +142,6 @@
       <tags>
         <tag>论文笔记</tag>
         <tag>object detection</tag>
-        <tag>DSOD</tag>
       </tags>
   </entry>
   <entry>
@@ -162,7 +154,6 @@
       <tags>
         <tag>basic dl models</tag>
         <tag>论文笔记</tag>
-        <tag>DenseNet</tag>
       </tags>
   </entry>
   <entry>
@@ -176,7 +167,6 @@
         <tag>论文笔记</tag>
         <tag>object detection</tag>
         <tag>lightweight models</tag>
-        <tag>SqueezeDet</tag>
       </tags>
   </entry>
   <entry>
@@ -189,7 +179,6 @@
       <tags>
         <tag>论文笔记</tag>
         <tag>object detection</tag>
-        <tag>FSSD</tag>
       </tags>
   </entry>
   <entry>
@@ -202,7 +191,6 @@
       <tags>
         <tag>论文笔记</tag>
         <tag>object detection</tag>
-        <tag>HyperNet</tag>
       </tags>
   </entry>
   <entry>
@@ -214,7 +202,6 @@
       </categories>
       <tags>
         <tag>basic dl models</tag>
-        <tag>Deformable Convolutional Networks</tag>
         <tag>论文笔记</tag>
       </tags>
   </entry>
@@ -228,7 +215,6 @@
       <tags>
         <tag>basic dl models</tag>
         <tag>论文笔记</tag>
-        <tag>STN</tag>
       </tags>
   </entry>
   <entry>
@@ -240,8 +226,6 @@
       </categories>
       <tags>
         <tag>object detection</tag>
-        <tag>R-CNN</tag>
-        <tag>Mask R-CNN</tag>
         <tag>学习总结</tag>
       </tags>
   </entry>
@@ -255,7 +239,6 @@
       <tags>
         <tag>论文笔记</tag>
         <tag>object detection</tag>
-        <tag>R-FCN</tag>
       </tags>
   </entry>
   <entry>
@@ -268,7 +251,6 @@
       <tags>
         <tag>论文笔记</tag>
         <tag>object detection</tag>
-        <tag>SSD</tag>
       </tags>
   </entry>
   <entry>
@@ -294,7 +276,6 @@
       </categories>
       <tags>
         <tag>dataset</tag>
-        <tag>MSCOCO</tag>
       </tags>
   </entry>
   <entry>
@@ -306,7 +287,6 @@
       </categories>
       <tags>
         <tag>dataset</tag>
-        <tag>PASCAL VOC</tag>
       </tags>
   </entry>
 </search>

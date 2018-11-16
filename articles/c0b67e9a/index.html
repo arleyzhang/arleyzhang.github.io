@@ -91,7 +91,7 @@
 
 
 
-  <meta name="keywords" content="论文笔记,object detection,DSOD," />
+  <meta name="keywords" content="论文笔记,object detection," />
 
 
 
@@ -103,27 +103,27 @@
 
 
 <meta name="description" content="目标检测模型 DSOD: Learning Deeply Supervised Object Detectors from Scratch 论文笔记">
-<meta name="keywords" content="论文笔记,object detection,DSOD">
+<meta name="keywords" content="论文笔记,object detection">
 <meta property="og:type" content="article">
 <meta property="og:title" content="目标检测-DSOD-论文笔记">
 <meta property="og:url" content="https://arleyzhang.github.io/articles/c0b67e9a/index.html">
 <meta property="og:site_name" content="arleyzhang">
 <meta property="og:description" content="目标检测模型 DSOD: Learning Deeply Supervised Object Detectors from Scratch 论文笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/dEa6h2GCeE.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/9Fj0BD3LjA.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/aJi5LFle3b.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/dcK6c7lbH0.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/l8Ilm0fJ4i.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/b5laaGfDhl.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/eFIBmLi6Gf.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/Aeblc2FEI0.png?imageslim">
-<meta property="og:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/9mheh0G4a5.png?imageslim">
-<meta property="og:updated_time" content="2018-07-01T09:24:28.588Z">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/c0b67e9a/1527178223223.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/c0b67e9a/1527178233973.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/c0b67e9a/1527244016772.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/c0b67e9a/1527244043343.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/c0b67e9a/1527246552034-1542345496046.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/c0b67e9a/1527313586014.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/c0b67e9a/1527313711320.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/c0b67e9a/1527315899055.png">
+<meta property="og:image" content="https://arleyzhang.github.io/articles/c0b67e9a/1527315908761.png">
+<meta property="og:updated_time" content="2018-11-16T05:22:07.533Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="目标检测-DSOD-论文笔记">
 <meta name="twitter:description" content="目标检测模型 DSOD: Learning Deeply Supervised Object Detectors from Scratch 论文笔记">
-<meta name="twitter:image" content="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/dEa6h2GCeE.png?imageslim">
+<meta name="twitter:image" content="https://arleyzhang.github.io/articles/c0b67e9a/1527178223223.png">
 
 
 
@@ -375,8 +375,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-01T17:24:28+08:00">
-                2018-07-01
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-16T13:22:07+08:00">
+                2018-11-16
               </time>
             
           </span>
@@ -471,10 +471,10 @@
 <li>在 PASCAL VOC 2007, 2012 and MS COCO datasets    三个数据集上获得了state-of-the-art 的精度、处理速度和模型紧凑性。</li>
 </ul>
 <h1 id="1-DSOD"><a href="#1-DSOD" class="headerlink" title="1 DSOD"></a>1 DSOD</h1><p>DSOD 的设计思想可以从下图中看出。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/dEa6h2GCeE.png?imageslim" alt="mark"></p>
+<p><img src="/articles/c0b67e9a/1527178223223.png" alt="1527178223223"></p>
 <p>DSOD是在SSD的基础上发展而来的，DSOD的不同在于，不管是在backbong还是head部分，DSOD都借鉴了DenseNet的设计思想。关于DenseNet的详解，可以看这里。</p>
 <p>DSOD的详细网络结构见下表：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/9Fj0BD3LjA.png?imageslim" alt="mark"></p>
+<p><img src="/articles/c0b67e9a/1527178233973.png" alt="1527178233973"></p>
 <p>点击 <a href="http://ethereon.github.io/netscope/#/gist/b17d01f3131e2a60f9057b5d3eb9e04d" target="_blank" rel="external">这里</a> 查看这个网络结构的可视化。</p>
 <p>网络的一些设计原则：</p>
 <p><strong>Principle 1: Proposal-free.</strong> </p>
@@ -495,25 +495,25 @@
 <p><strong>Principle 3: Stem Block.</strong>  </p>
 <p>stem block是 inception v3和v4中的结构，就是除了那些卷积block之后，主干网络中与传统 CNN 一样的部分，就是卷积+池化的堆叠结构，不存在skip-connection等特殊结构。</p>
 <p>DenseNet的前面几层，也就是Dense block之前的stem部分是下面这样的，</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/aJi5LFle3b.png?imageslim" alt="mark"></p>
+<p><img src="/articles/c0b67e9a/1527244016772.png" alt="1527244016772"></p>
 <p>DSOD中被修改成了这样的：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/dcK6c7lbH0.png?imageslim" alt="mark"></p>
+<p><img src="/articles/c0b67e9a/1527244043343.png" alt="1527244043343"></p>
 <p><strong>Principle 4: Dense Prediction Structure.</strong> </p>
 <p>Dense Prediction Structure.中有个特殊的处理，看下图：</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/l8Ilm0fJ4i.png?imageslim" alt="mark"></p>
+<p><img src="/articles/c0b67e9a/1527246552034-1542345496046.png" alt="1527246552034"></p>
 <p>每一个scale中的feature map（channel）中只有一半是通过前面层学习得到的，还有一半是直接通过降采样得到的。上面图中的红色箭头所指的黑色箭头就是代表这个意思。</p>
 <p>在这个图中用于预测的层也采用了 dense block的结构（head指scale2-scale5预测层，scale1是在backbone中的），但实际上这一部分也可以使用与SSD一样的普通的卷积层（plain），这一点作者也做了相关实验来对比二者之间的差别。</p>
 <h1 id="2-训练策略"><a href="#2-训练策略" class="headerlink" title="2 训练策略"></a>2 训练策略</h1><p>框架：caffe</p>
 <p>硬件：NVidia TitanX GPU</p>
 <p>训练策略上大部分都沿用了SSD的相关策略，有略微差异，这一部分不再叙述。</p>
 <h1 id="3-实验结果"><a href="#3-实验结果" class="headerlink" title="3 实验结果"></a>3 实验结果</h1><h2 id="3-1-对照实验"><a href="#3-1-对照实验" class="headerlink" title="3.1 对照实验"></a>3.1 对照实验</h2><p><strong>DSOD本身关于densenet 网络配置参数的对照实验</strong> </p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/b5laaGfDhl.png?imageslim" alt="mark"></p>
+<p><img src="/articles/c0b67e9a/1527313586014.png" alt="1527313586014"></p>
 <ul>
 <li>这里只提一点：当backbone与prediction Layer都采用 densenet的结构时，效果最好。</li>
 <li>其他关于压缩系数 growth rate 以及 各种channel数量的影响不再赘述</li>
 </ul>
 <p><strong>DSOD提出的设计原则之间的对照实验</strong></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/eFIBmLi6Gf.png?imageslim" alt="mark"></p>
+<p><img src="/articles/c0b67e9a/1527313711320.png" alt="1527313711320"></p>
 <ul>
 <li>注意一点：当Faster R-CNN train from scratch 时，是不收敛的</li>
 <li>SSD train from scratch 时 是可以收敛的，但是精度会降低，当结合densenet构成DSOD时，精度一下又上去了。</li>
@@ -528,8 +528,8 @@
 <p>具体的速度看table4. 另外还有一个轻量级的版本，表中没列出：</p>
 <p>A lite-version of DSOD (10.4M parameters, w/o any speed optimization) can run 25.8 fps with only 1% mAP drops    </p>
 <h2 id="3-2-PASCAL-VOC-和-MSCOCO"><a href="#3-2-PASCAL-VOC-和-MSCOCO" class="headerlink" title="3.2 PASCAL VOC 和 MSCOCO"></a>3.2 PASCAL VOC 和 MSCOCO</h2><p>PASCAL VOC 和 MSCOCO 的试验结果不详细赘述。</p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/Aeblc2FEI0.png?imageslim" alt="mark"></p>
-<p><img src="http://p9r71qdht.bkt.clouddn.com/DenseNet/180606/9mheh0G4a5.png?imageslim" alt="mark"></p>
+<p><img src="/articles/c0b67e9a/1527315899055.png" alt="1527315899055"></p>
+<p><img src="/articles/c0b67e9a/1527315908761.png" alt="1527315908761"></p>
 <h1 id="4-总结"><a href="#4-总结" class="headerlink" title="4 总结"></a>4 总结</h1><p>这两年来深度网络特别是以 ResNet 为代表的深层神经网络发展很迅速，其促进了计算机视觉领域（还有其他领域比如NLP）的快速发展，很多视觉问题取得了高速的发展，基于这个趋势，人们会认为更深的网络，更多的数据集应该可以取得更好的结果，比如现在谷歌有个 Open Images Dataset ，包含大约900万张图片，这基本上是 ImageNet的 7.5倍大。当然这么多的数据集也许是好的，但是如果能通过合设计网络结构使网络在较小的数据集上能取得相当的结果，那么何乐而不为呢？</p>
 <p>DSOD的结果就是很好的例子：train from scratch 仅仅使用了 16551 张图片就可以得到相当或者更好的精度，而fine tuning使用了 1.2 million + 16551 张图片。</p>
 <p>DSOD的这个思想我个人觉得是很有意义的，因为尽管对于学术研究来说，随着硬件（GPU，TPU等）的发展和大公司公开新的更大的数据集，研究更深的网络以求获得更好的精度是可行的，但是对于深度学习的产品落地来说，大的网络结构是不现实的，毕竟你无法将100多层的以ResNet为基础的网络或者其他更深的网络跑在一个终端设备或者移动设备上，然而从产品落地的层面来说，终端设备或者移动设备的占比要更大，而大型的网络则只能做成云端或者服务器端的产品。</p>
@@ -552,7 +552,7 @@
   <p><strong>本文标题：</strong><a href="/articles/c0b67e9a/">目标检测-DSOD-论文笔记</a></p>
   <p><strong>本文作者：</strong><a href="/" title="访问 arleyzhang 的个人博客">arleyzhang</a></p>
   <p><strong>发布时间：</strong>2018年06月06日 - 02:06</p>
-  <p><strong>最后更新：</strong>2018年07月01日 - 17:07</p>
+  <p><strong>最后更新：</strong>2018年11月16日 - 13:11</p>
   <p><strong>本文链接：</strong><a href="/articles/c0b67e9a/" title="目标检测-DSOD-论文笔记">https://arleyzhang.github.io/articles/c0b67e9a/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arleyzhang.github.io/articles/c0b67e9a/"  aria-label="复制成功！"></i></span>
   </p>
@@ -589,8 +589,6 @@
             <a href="/tags/论文笔记/" rel="tag"><i class="fa fa-tag"></i> 论文笔记</a>
           
             <a href="/tags/object-detection/" rel="tag"><i class="fa fa-tag"></i> object detection</a>
-          
-            <a href="/tags/DSOD/" rel="tag"><i class="fa fa-tag"></i> DSOD</a>
           
         </div>
       
@@ -724,7 +722,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
